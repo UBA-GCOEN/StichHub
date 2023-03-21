@@ -6,7 +6,7 @@ const Layout = () => {
     <>
       <Link to="/"></Link>
 
-      <Link to="/Cart"></Link>
+      <Link to="/Cart">click me</Link>
 
       <Link to="/ClothesCategory"></Link>
 
