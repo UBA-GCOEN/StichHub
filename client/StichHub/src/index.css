@@ -1,3 +1,48 @@
 @tailwind base;
+
+*::-webkit-scrollbar {
+  width: 7px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #130F26;
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: aquamarine;
+  border-radius: 20px;
+  border: 3px solid aquamarine;
+}
+
 @tailwind components;
 @tailwind utilities;
+
+.modelGradient {
+  background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);
+  border: 1px solid #000000;
+  filter: blur(61.5px);
+}
+
+.circleGradient-peach {
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(183, 136, 136, 0.35) 0%,
+    rgba(217, 217, 217, 0) 100%
+  );
+}
+
+.circleGradient-blue {
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(0, 194, 255, 0.6) 0%,
+    rgba(217, 217, 217, 0) 100%
+  );
+  transform: rotate(-175.9deg);
+}
+
+.circleGradient-white {
+  background: #ffffff;
+  filter: blur(225px);
+  transform: rotate(32.28deg);
+}
