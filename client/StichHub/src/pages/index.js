@@ -12,7 +12,6 @@ import TailorList from "./TailorList";
 import TailorProfileVerification from "./TailorProfileVerification";
 import ThreeDConfigurator from "./ThreeDConfigurator";
 import ThreeDMeasurement from "./ThreeDMeasurement";
-import Layout from './Layout'
 
 export {
   Cart,
@@ -29,5 +28,4 @@ export {
   TailorProfileVerification,
   ThreeDConfigurator,
   ThreeDMeasurement,
-  Layout
 };
