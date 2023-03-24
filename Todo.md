@@ -12,3 +12,14 @@
 - TailorProfileVerification - Vishal
 - ThreeDConfigurator - Sidd
 - ThreeDMeasurement - Sidd
+
+25/03/2023
+- Guys Improve your code quality
+- Harshal 
+  - Why you removed tailwind config variable??
+  - Use Components properly, keep code clean
+- Vishal
+  - install packages in proper directory i.e. ./client/StichHub
+  - Use components properly, keep code clean
+  - don't change vite version
+  - check preview deployment before merging with main branch
