@@ -23,3 +23,4 @@
   - Use components properly, keep code clean
   - don't change vite version
   - check preview deployment before merging with main branch
+  - don't use png for background gradients 😥
