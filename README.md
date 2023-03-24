@@ -29,10 +29,9 @@ We at Stichhub aim at reducing this hassle and making tailoring a convinient exp
 link here- -->
 
 ## Feedback
- - Ask a [question]()
- - Request a [new feature]()
+ - Ask a [question or Report issue](https://github.com/Siddhant-Patil0203/StichHub/issues)
+ - Request a [new feature](https://github.com/Siddhant-Patil0203/StichHub/issues)
  - [Upvote]() popular feature
- - Report an [issue]()
  - Connect with our [community]()
  - Follow [StichHub]() and let us know what you think!
 
