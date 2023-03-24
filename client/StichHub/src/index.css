@@ -6,7 +6,7 @@
 
 *::-webkit-scrollbar-track {
   background: #130F26;
-  border-radius: 5px;
+  border-radius: 0px;
 }
 
 *::-webkit-scrollbar-thumb {
