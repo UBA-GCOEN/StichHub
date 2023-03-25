@@ -125,7 +125,7 @@ const ClothesCategory = () => {
     <div className='ml-[7%]'>
       <h4 className='text-white col-span-1 top-0 text-2xl font-bold mb-14'>Fabric Patterns & Styles</h4>
       <img src={gr6} className=" hidden lg:block ml-[6%] mt-[-3%] absolute  w-[75%]"/>
-      <div class="flex overflow-x-auto gap-4 m-[5%]  spcae-x-8 w-1/1 sm:w-1/1 mb-[20%]  lg:overflow-x-none mb-[15%] mt-[5%] ">
+      <div class="flex overflow-x-auto gap-4 m-[5%]  spcae-x-8 w-1/1 sm:w-1/1 mb-[15%]  lg:overflow-x-none mt-[5%] ">
   <div class="bg-[#ED5050] flex-shrink-0  col-start-1  rounded-[10px] col-end-2 h-[200px] w-[200px] text-white text-center font-bold"><img src="https://threadsmonthly.com/wp-content/uploads/2020/10/cotton-plaid-flannel-fabric-minervacrafts.jpg" className=" object-fill h-[200px] w-[100%] rounded-xl"/></div>
   <div class="bg-[#FFBB54] flex-shrink-0  mt-7 col-start-2 rounded-[10px] col-end-3 h-[200px] w-[200px] text-white text-center font-bold ..."><img src="https://threadsmonthly.com/wp-content/uploads/2020/10/brushed-cotton-bad-quality.jpg" className="object-fill h-[200px] w-[100%] rounded-xl"/></div>
   <div class="bg-[#00732E] flex-shrink-0  col-span-1 rounded-[10px] h-[200px] w-[200px] text-white text-center font-bold ..."><img src="https://threadsmonthly.com/wp-content/uploads/2020/10/cotton-crossweave-fabric-close-up.jpg" className="object-fill h-[200px] w-[100%] rounded-xl"/></div>
