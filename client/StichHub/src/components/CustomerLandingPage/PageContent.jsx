@@ -1,6 +1,5 @@
 import React from "react";
 import MouseIcon from "@mui/icons-material/Mouse";
-import Worried from "./Worried";
 import { demo3d } from "../../assets/MainLandingPage/Icons";
 function PageContent() {
   return (
