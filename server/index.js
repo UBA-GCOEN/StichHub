@@ -8,7 +8,7 @@ import test from "./routes/test.js";
 
 const app = express();
 
-app.use('/test', test);
+app.use("/test", test);
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
