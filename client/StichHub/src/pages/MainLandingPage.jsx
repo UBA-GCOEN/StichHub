@@ -17,7 +17,7 @@ const MainLandingPage = () => {
       <HowItWorks />
       <About />
       <ContactUs />
-      <Footer />
+      Footer
     </div>
   );
 };
