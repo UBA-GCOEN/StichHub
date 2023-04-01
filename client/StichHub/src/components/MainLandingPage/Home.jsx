@@ -11,7 +11,7 @@ import {
 
 const Home = () => {
   return (
-    <div className="w-[100vw] h-[100vh] relative bg-primary">
+    <div className="h-[100vh] relative bg-primary">
       <NavBar />
       <div className="relative p-20 flex justify-evenly z-[5]">
           {/* leftside */}
