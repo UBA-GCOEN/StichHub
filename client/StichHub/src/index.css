@@ -2,11 +2,11 @@
 
 *::-webkit-scrollbar {
   width: 7px;
-  display:none;
+  display: block;
 }
 
 *::-webkit-scrollbar-track {
-  background: #130F26;
+  background: #130f26;
   border-radius: 0px;
 }
 
@@ -20,7 +20,11 @@
 @tailwind utilities;
 
 .modelGradient {
-  background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(188, 165, 255, 0.4) 0%,
+    #214d76 100%
+  );
   border: 1px solid #000000;
   filter: blur(61.5px);
 }
@@ -39,7 +43,6 @@
     rgba(0, 194, 255, 0.6) 0%,
     rgba(217, 217, 217, 0) 100%
   );
-  transform: rotate(-175.9deg);
 }
 
 .circleGradient-white {
