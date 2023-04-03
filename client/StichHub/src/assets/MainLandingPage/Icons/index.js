@@ -7,6 +7,8 @@ import CartIcon from "./CartIcon.png";
 import ContactUsVector from "./ContactUsVector.png";
 import CreatProfileIcon from "./CreatProfileIcon.png";
 import DemoShirtIcon from "./DemoShirtIcon.png";
+import SleevlessShirt from "./sleevlessShirt.png"
+import ModernDress from './ModernDress.png'
 import designIcon from "./designIcon.png";
 import EmailIcon from "./EmailIcon-blue.png";
 import forcustomers from "./forcustomers.png";
@@ -53,5 +55,7 @@ export {
   appointment,
   tailor,
   delivery,
-  AvatarIcon
+  AvatarIcon,
+  SleevlessShirt,
+  ModernDress
 };
