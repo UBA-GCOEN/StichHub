@@ -9,7 +9,7 @@ import {
 
 const ContactUs = () => {
   return (
-    <div className="h-[100%] relative p-20 ml-20 mr-20">
+    <div id="contactus" className="h-[100%] relative p-20 ml-20 mr-20">
       <div className="relative z-[5] flex justify-evenly">
         {/* left-Side */}
         <div id="leftside" className="mb-[20px] bottom-[20p]">

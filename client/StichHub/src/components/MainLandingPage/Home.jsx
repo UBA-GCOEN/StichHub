@@ -16,7 +16,6 @@ const Home = () => {
 
   return (
     <div className="h-[100vh] relative">
-      <NavBar />
       <div className="relative p-20 flex justify-evenly z-[5]">
         {/* leftside */}
         <div className="w-[50%] mt-[60px]">
@@ -93,12 +92,13 @@ const Home = () => {
             {demoButtons.map((item, index) => (
               <div
                 key={index}
-                className={`p-3 bg-black/80 rounded-3xl m-5 cursor-pointer hover:bg-cyan-900 ${
+                className={`p-3 bg-black/80 rounded-3xl m-5 cursor-pointer 
+                ${
                   item.text === demoButton.text
                     ? "border-[2px] border-blue-400 hover:bg-black/80"
-                    : ""
+                    : "hover:bg-cyan-900"
                 }`}
-                onClick={()=>setDemoButton(item)}
+                onClick={() => setDemoButton(item)}
               >
                 {console.log(demoButton)}
                 <img src={item.img} className={item.style} />

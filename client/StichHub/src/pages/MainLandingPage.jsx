@@ -3,23 +3,26 @@ import {
   About,
   ContactUs,
   Home,
-  NavBar,
   OurServices,
   HowItWorks,
   Footer,
 } from "../components/MainLandingPage";
 import { LandingPageDemo } from "../contexts/LandingPageDemo";
+import { Navbardark } from "../components";
 
 const MainLandingPage = () => {
   return (
-    <div className="text-center text-3xl text-white overflow-hidden bg-primary">
-      <LandingPageDemo>
-        <Home />
-      </LandingPageDemo>
-      <OurServices />
-      <HowItWorks />
-      <About />
-      <ContactUs />
+    <div className="text-center text-white overflow-hidden bg-primary">
+      <Navbardark />
+      <div className="text-3xl">
+        <LandingPageDemo>
+          <Home />
+        </LandingPageDemo>
+        <OurServices />
+        <HowItWorks />
+        <About />
+        <ContactUs />
+      </div>
       Footer
     </div>
   );
