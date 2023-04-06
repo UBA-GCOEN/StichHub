@@ -4,7 +4,7 @@ import {Squares2X2Icon,UserIcon,Cog6ToothIcon} from '@heroicons/react/24/solid';
 
 const LeftView = () => {
     return(
-        <div className="grid grid-flow-row auto-rows-fr mt-4 rounded-3xl container  w-[15%] h-[100hv] bg-gradient-to-br from-grey to-dark_grey ">
+        <div className="grid grid-flow-row auto-rows-fr row-span-3 mt-4 z-50 rounded-3xl container h-[100hv] bg-gradient-to-br from-grey to-dark_grey ">
             {/* Leftview top Profile*/}
             <div className="grid place-items-center rounded-t-3xl bg-black">
               
@@ -13,8 +13,8 @@ const LeftView = () => {
                 </div>
 
              {/**profile image */}
-             <div className="grid justify-items-end rounded-full mt-auto h-[50px] w-[50px] bg-white bg-[url('https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg')]">
-                <div className="rounded-full h-[20px] w-[20px] bg-green-500">
+             <div className="grid justify-items-end rounded-full mt-auto h-[50px] w-[50px] bg-cover bg-center bg-[url('https://media.istockphoto.com/id/1318858332/photo/headshot-portrait-of-smiling-female-employee-posing-in-office.jpg?s=612x612&w=is&k=20&c=f0NR-g76WDrQo_Qa7x3gXOGmmH-CIBZ3Ud-rQFRMlks=')]">
+                <div className="rounded-full h-[15px] w-[15px] bg-green-500">
                     
                 </div>
              </div>

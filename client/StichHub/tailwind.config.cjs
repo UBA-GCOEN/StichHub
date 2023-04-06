@@ -11,12 +11,6 @@ module.exports = {
         left_nav_blue_light: "#BEF3F5",
         left_nav_blue: "#33BBCF",
         left_nav_icon_orange: "#FDCF6F"
-      },
-      gradientColorStops: {
-        Card_color_style: "#130F26"
-      },
-      borderRadius:{
-        'lg':'3xl'
       }
     },
   },
