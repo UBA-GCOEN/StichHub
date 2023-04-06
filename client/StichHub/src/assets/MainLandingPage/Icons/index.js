@@ -7,7 +7,7 @@ import CartIcon from "./CartIcon.png";
 import ContactUsVector from "./ContactUsVector.png";
 import CreatProfileIcon from "./CreatProfileIcon.png";
 import DemoShirtIcon from "./DemoShirtIcon.png";
-import SleevlessShirt from "./sleevlessShirt.png"
+import SleevlessShirt from "./SleevlessShirt.png"
 import ModernDress from './ModernDress.png'
 import designIcon from "./designIcon.png";
 import EmailIcon from "./EmailIcon-blue.png";
