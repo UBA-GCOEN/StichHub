@@ -4,8 +4,9 @@ import {
   Environment,
 } from "@react-three/drei";
 import Model from "./Model";
+import ShirtModel from "../../Configurator/ClothModel/ShirtModel";
 
-const Experience = () => {
+const DemoModel = () => {
   return (
     <>
       <PresentationControls
@@ -39,4 +40,4 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+export default DemoModel;
