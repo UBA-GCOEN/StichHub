@@ -4,14 +4,23 @@ import ModelEnvironment from "./ModelEnvironment";
 import { Switch } from "@headlessui/react";
 import { zoom, View } from "../../../assets/3dConfigurator/configurator-icons";
 import { useCCustomization } from "../../../contexts/Configurator";
+import { useSpring, animated } from "@react-spring/web";
+import { useDrag } from "@use-gesture/react";
 
 const ClothModel = () => {
   const { enabled, setEnabled, shirtPart, part, resetZoom } =
     useCCustomization();
 
+  const [{ x, y }, api] = useSpring(() => ({ x: 0, y: 0 }));
+
+  // Set the drag hook and define component movement based on gesture data.
+  const bind = useDrag(({ down, movement: [mx, my] }) => {
+    api.start({ x: down ? mx : 0, y: down ? my : 0 });
+  });
+
   return (
     <div className="relative h-[55vh] text-white">
-      <Canvas className="relative z-[5]" camera={{ zoom: 6.2 }}>
+      <Canvas {...bind()} style={{ x, y, touchAction: 'none' }} className="relative z-[5]" camera={{ zoom: 6.2 }}>
         <Html fullscreen className="mx-7">
           <div className="flex justify-between">
             <h1 className="z-[-2] text-left text-xl font-semibold relative select-none">
@@ -80,9 +89,9 @@ const ClothModel = () => {
                   )}
                 </div>
                 <div className="flex justify-center">
-                <span className="text text-xs pt-1 select-none">
-                  Zoom {shirtPart[part].zoom ? "Out" : "In"}
-                </span>
+                  <span className="text text-xs pt-1 select-none">
+                    Zoom {shirtPart[part].zoom ? "Out" : "In"}
+                  </span>
                 </div>
               </div>
             </div>

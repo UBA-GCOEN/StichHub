@@ -3,6 +3,7 @@ import ShirtModel from "../../Configurator/ClothModel/ShirtModel";
 import { useCCustomization } from "../../../contexts/Configurator";
 import { shirtPart } from "../../../contants/configurator";
 
+
 const ModelEnvironment = () => {
   const { enabled, shirtPart, part } = useCCustomization();
   return (
@@ -10,7 +11,7 @@ const ModelEnvironment = () => {
       <PresentationControls
         enabled={!shirtPart[part].zoom}
         polar={[0.4, Math.PI / 4]}
-        speed={1}
+        speed={2}
         zoom={1}
         snap={!enabled}
       >
