@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import React from 'react';
-import Logo from '../assets/Long - Logo Transparent (White).png'
+import Logo from '../assets/logo/Long - Logo Transparent (White).png'
 
 const pages = ['Home','Our Services','How it works','About','Contact Us'];
 const settings = ['Profile', 'Account', 'Dashboard'];
@@ -213,15 +213,10 @@ export default function Navbardark() {
                 <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">3d Measurement</a>
 
                 {/* <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Engagement</a>
-
                 <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Security</a>
-
                 <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Integrations</a>
-
                 <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Automations</a>
-
                 <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Watch demo</a>
-
                 <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Contact sales</a> */}
               </div>)}
             </div>
