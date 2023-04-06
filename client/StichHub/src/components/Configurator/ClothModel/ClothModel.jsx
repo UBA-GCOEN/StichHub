@@ -121,7 +121,7 @@ const ClothModel = () => {
             </div>
           </div>
         </Html>
-        <XR referenceSpace="local">
+        <XR referenceSpace="local-floor">
           <ModelEnvironment />
           <Controllers />
         </XR>
