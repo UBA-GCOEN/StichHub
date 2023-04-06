@@ -32,3 +32,7 @@
     - keep your assests in the folder properly, and reuse the logos from (./client/StichHub/src/assets/MainLandingPage/logo/)
     - Check your warning in ./src/pages/Cart.jsx line 596
     - Check your warning in developer tools and resolve it
+
+Vercel Routing Done 
+
+Testing Branch 
