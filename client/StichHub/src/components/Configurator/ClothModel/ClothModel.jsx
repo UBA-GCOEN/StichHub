@@ -9,7 +9,7 @@ import { useDrag } from "@use-gesture/react";
 import { XR, ARButton, Controllers } from "@react-three/xr";
 
 const ClothModel = () => {
-  const { enabled, setEnabled, shirtPart, part, resetZoom } =
+  const { enabled, setEnabled, shirtPart, part, resetZoom, env, setEnv } =
     useCCustomization();
 
   const [{ x, y }, api] = useSpring(() => ({ x: 0, y: 0 }));
@@ -21,6 +21,9 @@ const ClothModel = () => {
 
   return (
     <div className="relative h-[55vh] text-white">
+      <div onClick={() => setEnv(!env)}>
+        <ARButton />
+      </div>
       <Canvas
         {...bind()}
         style={{ x, y, touchAction: "none" }}
@@ -120,7 +123,7 @@ const ClothModel = () => {
             </div>
           </div>
         </Html>
-        <XR referenceSpace="local-floor">
+        <XR referenceSpace="local">
           <ModelEnvironment />
           <Controllers />
         </XR>

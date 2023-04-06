@@ -13,6 +13,7 @@ export const ConfiguratorProvider = (props) => {
   const [collarType, setCollarType] = useState(shirtPart[1].types[0]);
   const [backType, setBackType] = useState(shirtPart[2].types[0]);
   const [cuffType, setCuffType] = useState(shirtPart[3].types[0]);
+  const [env, setEnv] = useState(false);
 
   const nextPart = () => {
     if (part + 1 === shirtPart.length - 1 && sleeveType.typeName === "Sleeve 1")
@@ -68,6 +69,8 @@ export const ConfiguratorProvider = (props) => {
         setBackType,
         setCollarType,
         setCuffType,
+        env,
+        setEnv,
       }}
     >
       {props.children}
