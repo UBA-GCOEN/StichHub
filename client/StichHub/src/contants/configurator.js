@@ -16,11 +16,10 @@ import {
 } from "../assets/3dConfigurator/configurator-icons";
 
 const fabrics = [
-  { name: "Cotton " },
-  { name: "Cotton-mixed" },
-  { name: "Wool" },
-  { name: "Linen" },
-  { name: "Silk" },
+  { name: "Cotton"},
+  { name: "Wool"},
+  // { name: "Linen", texture: linenTextureProps},
+  { name: "Silk"},
 ];
 
 const clothColor = [
