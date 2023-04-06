@@ -1,5 +1,6 @@
 import React from "react";
 import NavBar from "./NavBar";
+import { Link } from "react-router-dom";
 import {
   DemoShirtIcon,
   Configurator3d,
@@ -37,9 +38,11 @@ const Home = () => {
             <button className="bg-white p-3 rounded-xl w-[200px] drop-shadow-2xl">
               <span className="text-[1.5rem] text-black">Get Started</span>
             </button>
+            <Link to="/ThreeDConfigurator">
             <button className="ml-[30px] text-white outline outline-white p-3 rounded-xl w-[200px] drop-shadow-2xl">
               <span className="text-[1.5rem] ">Demo</span>
             </button>
+            </Link>
           </div>
 
           {/* MajorFeature */}

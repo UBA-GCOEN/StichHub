@@ -6,6 +6,7 @@ import { zoom, View } from "../../../assets/3dConfigurator/configurator-icons";
 import { useCCustomization } from "../../../contexts/Configurator";
 import { useSpring, animated } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
+import { XR, ARButton, Controllers } from "@react-three/xr";
 
 const ClothModel = () => {
   const { enabled, setEnabled, shirtPart, part, resetZoom } =
@@ -20,7 +21,13 @@ const ClothModel = () => {
 
   return (
     <div className="relative h-[55vh] text-white">
-      <Canvas {...bind()} style={{ x, y, touchAction: 'none' }} className="relative z-[5]" camera={{ zoom: 6.2 }}>
+      <ARButton />
+      <Canvas
+        {...bind()}
+        style={{ x, y, touchAction: "none" }}
+        className="relative z-[5]"
+        camera={{ zoom: 6.2 }}
+      >
         <Html fullscreen className="mx-7">
           <div className="flex justify-between">
             <h1 className="z-[-2] text-left text-xl font-semibold relative select-none">
@@ -114,7 +121,10 @@ const ClothModel = () => {
             </div>
           </div>
         </Html>
-        <ModelEnvironment />
+        <XR referenceSpace="local">
+          <ModelEnvironment />
+          <Controllers />
+        </XR>
       </Canvas>
 
       {/* BG-Gradients */}

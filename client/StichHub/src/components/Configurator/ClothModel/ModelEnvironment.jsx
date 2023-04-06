@@ -15,7 +15,7 @@ const ModelEnvironment = () => {
         zoom={1}
         snap={!enabled}
       >
-        {/* <OrbitControls enableRotate={false} enablePan={false}/> */}
+        <OrbitControls enableRotate={false} enablePan={false}/>
         <spotLight
           position={[0, 15, 0]}
           angle={0.3}

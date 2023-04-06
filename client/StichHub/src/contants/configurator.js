@@ -133,6 +133,14 @@ const shirtPart = [
       },
     ],
   },
+  {
+    index: 4,
+    text: "Buttons",
+    zoom: true,
+    pos: [0.25, 0.25, 3],
+    rot: [0, 3.6, 0],
+    types: [],
+  },
 ];
 
 export { fabrics, shirtPart, clothColor };

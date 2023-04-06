@@ -7,6 +7,7 @@ const BottomSection = () => {
   return (
     <div className="">
       <div id="buttons" className="flex justify-center">
+        {/* <Link to=""> */}
         <button
           id="back"
           className="border-2 border-indigo-500 rounded-lg flex text-lg mr-6 px-4 py-1 hover:bg-slate-200"
@@ -18,6 +19,7 @@ const BottomSection = () => {
           />
           Back
         </button>
+        {/* </Link> */}
         <button
           id="next"
           className="border-0 bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-1 rounded-lg flex text-lg"
