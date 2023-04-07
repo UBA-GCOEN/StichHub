@@ -184,7 +184,7 @@ const steps = [
   },
 ]
 
-function Cart(){
+const Cart = () => {
   const [value, setValue] = useState();
   const [country, setCountry] = useState('');
   const [region, setRegion] = useState('');
