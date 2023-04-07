@@ -2,6 +2,7 @@ import { PresentationControls, OrbitControls } from "@react-three/drei";
 import ShirtModel from "../../Configurator/ClothModel/ShirtModel";
 import { useCCustomization } from "../../../contexts/Configurator";
 import { shirtPart } from "../../../contants/configurator";
+import Womenjacket from "../../Configurator/ClothModel/Womenjacket";
 
 
 const ModelEnvironment = () => {
@@ -35,6 +36,7 @@ const ModelEnvironment = () => {
         <group position={[shirtPart[part].pos[0], shirtPart[part].pos[1], shirtPart[part].pos[2]]} rotation={[shirtPart[part].rot[0],shirtPart[part].rot[1],shirtPart[part].rot[2]]}
         >
           <ShirtModel />
+          {/* <Womenjacket /> */}
         </group>
       </PresentationControls>
     </>

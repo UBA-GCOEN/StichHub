@@ -20,11 +20,18 @@ const ClothModel = () => {
   });
 
   return (
-    <div className="relative h-[55vh] text-white">
+    <div
+      className={`relative h-[55vh] text-white ${
+        env === true ? "bg-transparent" : "bg-primary"
+      }`}
+    >
+      <div onClick={() => setEnv(!env)} className="relative top-[52vh] left-4">
+        <ARButton />
+      </div>
       <Canvas
         {...bind()}
         style={{ x, y, touchAction: "none" }}
-        className="relative z-[5]"
+        className="relative z-[5] outline-none"
         camera={{ zoom: 6.2 }}
       >
         <Html fullscreen className="mx-7">
@@ -104,15 +111,15 @@ const ClothModel = () => {
           </div>
           <div className="flex justify-center">
             <div className="absolute bottom-4 mr-7">
-              <div className="flex justify-center">
+              {/* <div className="flex justify-center">
                 <div className="mb-1 flex bg-white text-black w-fit p-2 rounded-full">
                   <img src={View} className="mr-3 ml-1 w-[15px]" />
                   <span className="text-sm font-semibold cursor-pointer">
                     See in your room
                   </span>
                 </div>
-              </div>
-              <span className="text-sm t">{`${
+              </div> */}
+              <span className="text-sm">{`${
                 shirtPart[part].zoom
                   ? "Reset zoom for 360° view"
                   : "Drag the Model for 360° view"
@@ -127,9 +134,21 @@ const ClothModel = () => {
       </Canvas>
 
       {/* BG-Gradients */}
-      <div className="absolute w-[250px] h-[40vh] top-[160px] left-[76px] modelGradient z-0"></div>
-      <div className="absolute circleGradient-peach w-[500px] h-[400px] top-[-100px] left-[-260px] z-0"></div>
-      <div className="absolute circleGradient-blue w-[200px] h-[200px] top-[400px] right-[-50px] z-0 blur-xl"></div>
+      <div
+        className={`absolute w-[250px] h-[40vh] top-[160px] left-[76px] modelGradient z-0 ${
+          env === true ? "hidden" : ""
+        }`}
+      ></div>
+      <div
+        className={`absolute circleGradient-peach w-[500px] h-[400px] top-[-100px] left-[-260px] z-0 ${
+          env === true ? "hidden" : ""
+        }`}
+      ></div>
+      <div
+        className={`absolute circleGradient-blue w-[200px] h-[200px] top-[400px] right-[-50px] z-0 blur-xl ${
+          env === true ? "hidden" : ""
+        }`}
+      ></div>
     </div>
   );
 };

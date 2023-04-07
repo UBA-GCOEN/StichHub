@@ -2,20 +2,13 @@ import React from "react";
 import { ControlsMenu, ClothModel, Navbar } from "../components/Configurator";
 import {
   ConfiguratorProvider,
-  useCCustomization,
+  useCCustomization
 } from "../contexts/Configurator";
 
-import { ARButton} from "@react-three/xr";
-
 const ThreeDConfigurator = () => {
-  const { env, setEnv } = useCCustomization();
-
   return (
     <ConfiguratorProvider>
-      <div className={`bg-transparent h-[100vh] overflow-hidden`}>
-        <div onClick={() => setEnv(!env)}>
-          <ARButton />
-        </div>
+      <div className={`h-[100vh] overflow-hidden`}>
         <Navbar />
         <ClothModel />
         <ControlsMenu />
