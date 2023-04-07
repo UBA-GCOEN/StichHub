@@ -6,7 +6,7 @@ import { zoom, View } from "../../../assets/3dConfigurator/configurator-icons";
 import { useCCustomization } from "../../../contexts/Configurator";
 import { useSpring, animated } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
-import { XR, ARButton, Controllers } from "@react-three/xr";
+import { XR, ARButton, Controllers} from "@react-three/xr";
 
 const ClothModel = () => {
   const { enabled, setEnabled, shirtPart, part, resetZoom, env, setEnv } =
@@ -19,13 +19,14 @@ const ClothModel = () => {
     api.start({ x: down ? mx : 0, y: down ? my : 0 });
   });
 
+
   return (
     <div
       className={`relative h-[55vh] text-white ${
         env === true ? "bg-transparent" : "bg-primary"
       }`}
     >
-      <div onClick={() => setEnv(!env)} className="relative top-[52vh] left-4">
+      <div onClick={() => setEnv(!env)} className="relative top-[52vh]">
         <ARButton />
       </div>
       <Canvas
@@ -110,9 +111,9 @@ const ClothModel = () => {
             </div>
           </div>
           <div className="flex justify-center">
-            <div className="absolute bottom-4 mr-7">
+            <div className="absolute bottom-4 mr-14">
               {/* <div className="flex justify-center">
-                <div className="mb-1 flex bg-white text-black w-fit p-2 rounded-full">
+                <div id="button" className="mb-1 flex bg-white text-black w-fit p-2 rounded-full">
                   <img src={View} className="mr-3 ml-1 w-[15px]" />
                   <span className="text-sm font-semibold cursor-pointer">
                     See in your room
