@@ -21,9 +21,6 @@ const ClothModel = () => {
 
   return (
     <div className="relative h-[55vh] text-white">
-      <div onClick={() => setEnv(!env)}>
-        <ARButton />
-      </div>
       <Canvas
         {...bind()}
         style={{ x, y, touchAction: "none" }}
