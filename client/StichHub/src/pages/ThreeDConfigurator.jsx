@@ -12,7 +12,7 @@ const ThreeDConfigurator = () => {
 
   return (
     <ConfiguratorProvider>
-      <div className={`${env === true ? 'bg-transparent' : 'bg-primary'} h-[100vh] overflow-hidden`}>
+      <div className={`bg-transparent h-[100vh] overflow-hidden`}>
         <div onClick={() => setEnv(!env)}>
           <ARButton />
         </div>
