@@ -3,7 +3,7 @@ import { AboutUsVector, AvatarDemo } from "../../assets/MainLandingPage/Icons";
 
 const About = () => {
   return (
-    <div id="about" className="h-[100%] relative p-20 ml-20 mr-20">
+    <div id="aboutus" className="h-[100%] relative p-20 ml-20 mr-20">
       <div className="relative z-[5] flex">
         {/* Title on left */}
         <div id="title">

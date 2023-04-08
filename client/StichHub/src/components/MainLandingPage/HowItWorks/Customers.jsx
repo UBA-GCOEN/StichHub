@@ -1,15 +1,9 @@
 import React from "react";
-import {
-  designIcon,
-  Measurement,
-  CartIcon,
-  tailor,
-  appointment,
-} from "../../../assets/MainLandingPage/Icons";
+import { hiwcustomer, appointment } from "../../../contants/MainLandingPage";
 
 const Customers = () => {
   return (
-    <div className="h-[100%] relative p-20 ml-20 mr-20">
+    <div className="h-[100vh] relative p-20 ml-20 mr-20">
       <div className="relative z-[5]">
         {/* Title */}
         <div id="title" className="relative flex flex-col">
@@ -24,62 +18,23 @@ const Customers = () => {
 
         {/* Steps */}
         <div id="steps" className="flex justify-evenly">
-          {/* Step1 */}
-          <div
-            id="step1"
-            className="w-[250px] flex flex-col justify-center mt-16"
-          >
+          {/* Steps */}
+          {hiwcustomer.map((item, index) => (
             <div
-              id="stepNumber"
-              className="p-6 bg-[#B100AA] text-center w-[85px] rounded-full ml-20"
+              key={index}
+              id="step1"
+              className="w-[250px] flex flex-col justify-center mt-16"
             >
-              1
+              <div
+                id="stepNumber"
+                className="py-[10px] bg-[#B100AA] text-center w-[60px] h-[60px] rounded-full ml-[95px]"
+              >
+                {item.step}
+              </div>
+              <img id="stepLogo" src={item.img} className="mx-[80px] my-[50px]" />
+              <div id="stepTitle" className={`text-xl ${item.style}`}>{item.title}</div>
             </div>
-            <img id="stepLogo" src={designIcon} className="m-10" />
-            <div id="stepTitle">DESIGN YOUR CLOTH</div>
-          </div>
-          {/* Step1 */}
-          <div
-            id="step2"
-            className="w-[250px] flex flex-col justify-center mt-16"
-          >
-            <div
-              id="stepNumber"
-              className="p-6 bg-[#B100AA] text-center w-[85px] rounded-full ml-20"
-            >
-              2
-            </div>
-            <img id="stepLogo" src={Measurement} className="m-10" />
-            <div id="stepTitle">TAKE ONLINE MEASUREMENTS</div>
-          </div>
-          {/* Step1 */}
-          <div
-            id="step3"
-            className="w-[260px] flex flex-col justify-center mt-16"
-          >
-            <div
-              id="stepNumber"
-              className="p-6 bg-[#B100AA] text-center w-[85px] rounded-full ml-20"
-            >
-              3
-            </div>
-            <img id="stepLogo" src={tailor} className="m-14" />
-            <div id="stepTitle">SELECT YOUR FAVOURITE TAILOR</div>
-          </div>
-          {/* Step1 */}
-          <div
-            id="step4"
-            className="w-[250px] flex flex-col justify-center mt-16"
-          >
-            <div
-              id="stepNumber"
-              className="p-6 bg-[#B100AA] text-center w-[85px] rounded-full ml-20"
-            >
-              4
-            </div>
-            <img id="stepLogo" src={CartIcon} className="m-10" />
-            <div id="stepTitle">PLACE YOUR ORDER</div>
-          </div>
+          ))}
         </div>
 
         {/* or section */}

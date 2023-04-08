@@ -16,8 +16,8 @@ const Home = () => {
   const { demoButtons, demoButton, setDemoButton } = useCustomization();
 
   return (
-    <div className="h-[100vh] relative">
-      <div className="relative p-20 flex justify-evenly z-[5]">
+    <div id="" className="h-[100vh] relative">
+      <div className="relative px-20 pt-10 flex justify-evenly z-[5]">
         {/* leftside */}
         <div className="w-[50%] mt-[60px]">
           {/* Heading */}
@@ -35,10 +35,12 @@ const Home = () => {
 
           {/* Buttons */}
           <div className="flex">
+            <Link to="/auth">
             <button className="bg-white p-3 rounded-xl w-[200px] drop-shadow-2xl">
               <span className="text-[1.5rem] text-black">Get Started</span>
             </button>
-            <Link to="/ThreeDConfigurator">
+            </Link>
+            <Link to="/Configurator">
             <button className="ml-[30px] text-white outline outline-white p-3 rounded-xl w-[200px] drop-shadow-2xl">
               <span className="text-[1.5rem] ">Demo</span>
             </button>

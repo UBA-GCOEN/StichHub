@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  NavBar,
   About,
   ContactUs,
   Home,
@@ -8,21 +9,18 @@ import {
   Footer,
 } from "../components/MainLandingPage";
 import { LandingPageDemo } from "../contexts/LandingPageDemo";
-import { Navbardark } from "../components";
 
 const MainLandingPage = () => {
   return (
-    <div className="text-center text-white overflow-hidden bg-primary">
-      <Navbardark />
-      <div className="text-3xl">
-        <LandingPageDemo>
-          <Home />
-        </LandingPageDemo>
-        <OurServices />
-        <HowItWorks />
-        <About />
-        <ContactUs />
-      </div>
+    <div className="text-center text-white overflow-hidden text-3xl bg-primary">
+      <NavBar />
+      <LandingPageDemo>
+        <Home />
+      </LandingPageDemo>
+      <OurServices />
+      <HowItWorks />
+      <About />
+      <ContactUs />
       Footer
     </div>
   );

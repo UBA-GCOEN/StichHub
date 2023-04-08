@@ -4,7 +4,7 @@ import Tailors from "./Tailors";
 
 const HowItWorks = () => {
   return (
-    <div id="Howitworks">
+    <div id="howitworks">
       <Customers />
       <Tailors />
     </div>

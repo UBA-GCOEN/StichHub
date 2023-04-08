@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  CreatProfileIcon,
-  TakeOrdersIcon,
-  HomeDelivery,
-  tailor,
-  delivery,
-} from "../../../assets/MainLandingPage/Icons";
+import { hiwtailor } from "../../../contants/MainLandingPage";
 
 const Tailors = () => {
   return (
@@ -24,68 +18,29 @@ const Tailors = () => {
 
         {/* Steps */}
         <div id="steps" className="flex justify-evenly">
-          {/* Step1 */}
-          <div
-            id="step1"
-            className="w-[250px] flex flex-col justify-center mt-16"
-          >
+          {/* Steps */}
+          {hiwtailor.map((item, index) => (
             <div
-              id="stepNumber"
-              className="p-6 bg-[#B100AA] text-center w-[85px] rounded-full ml-20"
+              key={index}
+              id="step1"
+              className="w-[250px] flex flex-col justify-center mt-[120px]"
             >
-              1
+              <div
+                id="stepNumber"
+                className="py-[10px] bg-[#B100AA] text-center w-[60px] h-[60px] rounded-full ml-[95px]"
+              >
+                {item.step}
+              </div>
+              <img
+                id="stepLogo"
+                src={item.img}
+                className="mx-[80px] my-[50px]"
+              />
+              <div id="stepTitle" className={`text-xl ${item.style}`}>
+                {item.title}
+              </div>
             </div>
-            <img id="stepLogo" src={CreatProfileIcon} className="m-10" />
-            <div id="stepTitle">
-              CREATE <br /> PROFILE
-            </div>
-          </div>
-          {/* Step1 */}
-          <div
-            id="step2"
-            className="w-[250px] flex flex-col justify-center mt-16"
-          >
-            <div
-              id="stepNumber"
-              className="p-6 bg-[#B100AA] text-center w-[85px] rounded-full ml-20"
-            >
-              2
-            </div>
-            <img id="stepLogo" src={TakeOrdersIcon} className="m-10" />
-            <div id="stepTitle">
-              TAKE <br /> ORDERS
-            </div>
-          </div>
-          {/* Step1 */}
-          <div
-            id="step3"
-            className="w-[250px] flex flex-col justify-center mt-16"
-          >
-            <div
-              id="stepNumber"
-              className="p-6 bg-[#B100AA] text-center w-[85px] rounded-full ml-20"
-            >
-              3
-            </div>
-            <img id="stepLogo" src={tailor} className="m-14" />
-            <div id="stepTitle">
-              STITCH <br /> CLOTHS
-            </div>
-          </div>
-          {/* Step1 */}
-          <div
-            id="step4"
-            className="w-[250px] flex flex-col justify-center mt-16"
-          >
-            <div
-              id="stepNumber"
-              className="p-6 bg-[#B100AA] text-center w-[85px] rounded-full ml-20"
-            >
-              4
-            </div>
-            <img id="stepLogo" src={delivery} className="m-10" />
-            <div id="stepTitle">SEND FOR DELIVERY</div>
-          </div>
+          ))}
         </div>
       </div>
 

@@ -5,8 +5,7 @@ import Signup from "../components/Loginsignup/Signup";
 const LoginSignUp = () =>{
 return (
   <>
-  
-  <Signup/>
+    <Signup/>
   </>
 )
 

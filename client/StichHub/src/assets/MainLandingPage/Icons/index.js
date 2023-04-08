@@ -27,6 +27,7 @@ import Measurement from "./measurement.png"
 import appointment from "./appoitment.png"
 import tailor from "./tailor.png"
 import delivery from "./delivery.png"
+import menu from "./menu.svg"
 
 export {
   demo3d,
@@ -57,5 +58,6 @@ export {
   delivery,
   AvatarIcon,
   SleevlessShirt,
-  ModernDress
+  ModernDress,
+  menu
 };
