@@ -1,7 +1,7 @@
 import React from 'react'
 import regbg from '../../assets/registrationbg.png'
 import Cus from '../../assets/CustomerImg.png'
-import Tail from '../../assets/TailorImg.png'
+import Tail from '../../assets/Tailorimg.png'
 
 const Signup = () => {
   return (
