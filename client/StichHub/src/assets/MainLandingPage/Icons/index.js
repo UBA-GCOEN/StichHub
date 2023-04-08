@@ -2,10 +2,13 @@ import demo3d from "./3D-Demo.png";
 import Configurator3d from "./3dConfigurator.png";
 import AboutUsVector from "./AboutUsVector.png";
 import AvatarDemo from "./AvatarDemo.png";
+import AvatarIcon from "./AvatarIcon-blue.png";
 import CartIcon from "./CartIcon.png";
 import ContactUsVector from "./ContactUsVector.png";
 import CreatProfileIcon from "./CreatProfileIcon.png";
 import DemoShirtIcon from "./DemoShirtIcon.png";
+import SleevlessShirt from "./SleevlessShirt.png"
+import ModernDress from './ModernDress.png'
 import designIcon from "./designIcon.png";
 import EmailIcon from "./EmailIcon-blue.png";
 import forcustomers from "./forcustomers.png";
@@ -20,6 +23,10 @@ import sweingmachine from "./sweingmachine.png";
 import TakeOrdersIcon from "./TakeOrdersIcon.png";
 import Whatsapp from "./Whatsapp.png";
 import Youtube from "./Youtube.png";
+import Measurement from "./measurement.png"
+import appointment from "./appoitment.png"
+import tailor from "./tailor.png"
+import delivery from "./delivery.png"
 
 export {
   demo3d,
@@ -44,4 +51,11 @@ export {
   TakeOrdersIcon,
   Whatsapp,
   Youtube,
+  Measurement,
+  appointment,
+  tailor,
+  delivery,
+  AvatarIcon,
+  SleevlessShirt,
+  ModernDress
 };

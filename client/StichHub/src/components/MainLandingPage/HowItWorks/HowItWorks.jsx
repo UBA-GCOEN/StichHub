@@ -4,10 +4,10 @@ import Tailors from "./Tailors";
 
 const HowItWorks = () => {
   return (
-    <>
+    <div id="Howitworks">
       <Customers />
       <Tailors />
-    </>
+    </div>
   );
 };
 
