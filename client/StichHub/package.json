@@ -11,6 +11,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@esbuild/linux-x64": "^0.17.15",
     "@google/model-viewer": "^3.1.0",
     "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.16",

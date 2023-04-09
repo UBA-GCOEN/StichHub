@@ -78,14 +78,14 @@ const Step3 = () => {
             <br />
 
             {/* Tabs for payment methods */}
-            <Card className="w-full max-w-[24rem] ">
+            <Card className="w-full max-w-[24rem]  ">
               <CardBody>
-                <Tabs value={type} className="overflow-visible">
+                <Tabs value={type} className="overflow-visible  ">
                   {/* tabs header */}
-                  <TabsHeader className="relative z-0 h-full ">
+                  <TabsHeader className="relative z-0 h-full  ">
                     <Tab
                       value="card"
-                      className="w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                      className="w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] "
                     >
                       <input type="radio" onChange={() => setType("card")} />
                       <label className="ml-2 text-sm ">CARD</label>
@@ -114,7 +114,7 @@ const Step3 = () => {
                   </TabsHeader>
                   {/* tabs body */}
                   <TabsBody
-                    className="!overflow-x-hidden !overflow-y-visible"
+                    className="!overflow-x-hidden !overflow-y-visible "
                     animate={{
                       initial: {
                         x: type === "card" ? 400 : -400,
@@ -128,7 +128,7 @@ const Step3 = () => {
                     }}
                   >
                     {/* tab body panels for each method 1.Card Payment */}
-                    <TabPanel value="card" className="p-0">
+                    <TabPanel value="card" className="p-0 ">
                       <form className="mt-5 flex flex-col gap-4">
                         <div className="my-0">
                           <Typography
@@ -248,7 +248,6 @@ const Step3 = () => {
                           </span>
                           <br />
                           <input
-                            type="number"
                             maxLength={16}
                             className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                           />
@@ -329,63 +328,56 @@ const Step3 = () => {
         </div>
 
         {/* Order information block */}
-        <div className="justify-center w-[250px] rounded-2xl lg:ml-0 lg:mt-3 ">
+        <div className="justify-center w-full  lg:w-[300px] rounded-2xl lg:ml-0 lg:mt-3 ">
           <div className="shadow-2xl rounded-2xl  ">
             <h4 className="pt-4 pl-8 pb-4 font-bold md:items-center">
               <span>Order Information</span>
             </h4>
             <img
               src={img}
-              className="ml-[30px] mr-[20px] mb-[5px] w-[190px] h-[180px] rounded-[10px] border border-solid border-[#cecece]"
+              className="m-10 mt-0 mb-[5px] object-fill w-[73%] h-[180px] rounded-[10px] border border-solid border-[#cecece]"
             />
-            <div className="pl-[30px] pr-[30px] ">
-              <span>
-                <strong>
-                  Teal Brown Kurti Full(Cotton Silk)
-                  <h6 className="text-xs">
-                    SIZE: <strong> XI</strong>&nbsp; &nbsp; &nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    COLOR:<strong> RED</strong>{" "}
-                  </h6>
-                </strong>
-              </span>
-              <hr className="mt-2"></hr>
-              <b>
-                <div>Price Total</div>
-              </b>
-              <div class="grid grid-cols-2 gap-4">
-                <div xs={2}>Subtotal GST Shipping</div>
-                <div xs={2}>₹20,000/- ₹300/- ₹100/-</div>
+
+            <div className="m-10 mt-5">
+              <div class="mb-2 flex justify-between">
+                <p class="text-gray-700 font-bold">
+                  {" "}
+                  Teal Brown Kurti Full (Cotton Silk)
+                </p>
+              </div>
+              <div class="mb-2 flex justify-between">
+                <p class="text-gray-700">Size:</p>
+                <p class="text-gray-700 font-bold">XI</p>
+                <p class="text-gray-700">Color:</p>
+                <p class="text-gray-700 font-bold">Red</p>
+              </div>
+              <hr></hr>
+              <div class="mb-2 flex justify-between mt-5">
+                <p class="text-gray-700">Order Summary</p>
+                <p class="text-gray-700">₹2590.00</p>
+              </div>
+              <div class="flex justify-between">
+                <p class="text-gray-700">Additional Service</p>
+                <p class="text-gray-700">₹4.99</p>
+              </div>
+              <div class="mt-2 flex justify-between">
+                <p class="text-gray-700">Shipping</p>
+                <p class="text-gray-700">₹100.00</p>
+              </div>
+              <div class="mt-2 flex justify-between">
+                <p class="text-gray-700">Coupon</p>
+                <p class="text-green-500">₹4.99</p>
               </div>
 
-              {/* additional added from previous page */}
-              <div className="pt-4">
-                <h6 className="text-xs text-red-900 mb-3">
-                  Having Discount Code?
-                </h6>
-                <div className="grid grid-cols-2 gap-1">
-                  <input
-                    type="text"
-                    className=" border-gray-500 solid border rounded-md"
-                  ></input>
-                  <button className="  text-center ml-3 bg-blue-700 px-6 py-1.5 rounded-lg text-white hover:bg-blue-600">
-                    Apply
-                  </button>
+              <hr class="my-4" />
+              <div class="flex justify-between">
+                <p class="text-lg font-bold">Total Amount</p>
+                <div class="">
+                  <p class="mb-1 text-lg font-bold">₹2,700.00</p>
+                  <p class="text-sm text-gray-700 mb-5">including GST</p>
                 </div>
               </div>
-              <hr className="mt-2 pl-[30px] pr-[30px]"></hr>
             </div>
-
-            <strong>
-              <div class="grid grid-cols-2 gap-4">
-                <div xs={2} className="pl-[30px] pr-[30px] ">
-                  Total
-                </div>
-                <div xs={2} className="pb-[20px] text-xl">
-                  ₹20,400/-
-                </div>
-              </div>
-            </strong>
           </div>
         </div>
       </div>

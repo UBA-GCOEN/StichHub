@@ -82,7 +82,6 @@ const TailorProfileVerification = () => {
   const totalSteps = steps.length;
 
   const width = `${(100 / (totalSteps - 1)) * (activeStep - 1)}%`;
-  const [value, setValue] = useState();
   const [isShown, setIsShown] = useState(false);
   const [isShown1, setIsShown1] = useState(false);
   const [disabled, setDisabled] = useState(false);
@@ -231,6 +230,7 @@ const TailorProfileVerification = () => {
     </div>
   );
 
+  const [value, setValue] = useState();
   // Step2 implementation from here
   const Step2 = () => (
     <div className="mt-[20%] lg:mt-[5%] bg-[#130F26] h-full">
@@ -254,7 +254,7 @@ const TailorProfileVerification = () => {
                   <input
                     name="email"
                     type="email"
-                    className="border box-border w-full justify-around mb-[10px] p-2.5 rounded-[10px] border-solid text-white border-white"
+                    className="border box-border text-black w-full justify-around mb-[10px] p-2.5 rounded-[10px] border-solid border-white"
                     placeholder="abc@example.com"
                     required="true"
                   />
@@ -330,9 +330,10 @@ const TailorProfileVerification = () => {
                   <Phoneinput
                     className="bg-white border box-border w-full justify-around gap-3 mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                     placeholder="Enter phone number"
-                    value={value}
                     defaultCountry="IN"
                     onChange={setValue}
+                    value={value}
+                    // onChange={e=>setValue(e.target.value)}
                   />
                 </div>
                 <button
@@ -442,7 +443,7 @@ const TailorProfileVerification = () => {
       <div className="lg:hidden bottom-0 right-0 w-[50%] lg:right-0 absolute opacity-20 lg:opacity-100">
         <img src={V} />
       </div>
-      <div className="hidden lg:block  w-[50%] left-[60%] absolute lg:opacity-100">
+      <div className="hidden lg:block  w-[35%] right-0 absolute lg:opacity-100">
         <img src={V} />
       </div>
 
@@ -504,7 +505,7 @@ const TailorProfileVerification = () => {
                   <input
                     name="state"
                     type="state"
-                    className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                    className="border box-border text-black w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                     placeholder="enter state"
                     required
                   />{" "}

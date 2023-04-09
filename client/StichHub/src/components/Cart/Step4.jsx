@@ -4,8 +4,8 @@ import img from "../../assets/img/img.png";
 //main definition
 const Step4 = () => (
   <div>
-    <div className="grid lg:grid-cols-3 lg:m-10 justify-center sm:grid-row-2 ">
-      <div class="grid grid-cols-1 col-span-2 relative divide-y border border-gray-200 rounded-lg p-3">
+    <div className="grid grid-cols-1 lg:grid-cols-3 lg:m-10 justify-center gap-4">
+      <div class="grid grid-cols-1 col-span-2  relative divide-y border border-gray-200 rounded-lg p-3">
         {/* Grid block 1 */}
         <div className="grid grid-cols-3 justify-between p-3">
           <p className=" text-gray-400">Contact</p>
@@ -85,52 +85,57 @@ const Step4 = () => (
       </div>
 
       {/* order information same as preivous one  */}
-      <div className="justify-center w-[250px] col-span-1 rounded-2xl sm:ml-[20%]">
+
+      <div className="justify-center w-full mt-5 lg:w-[300px] rounded-2xl lg:ml-0 lg:mt-3 ">
         <div className="shadow-2xl rounded-2xl  ">
           <h4 className="pt-4 pl-8 pb-4 font-bold md:items-center">
             <span>Order Information</span>
           </h4>
           <img
             src={img}
-            className="ml-[30px] mr-[20px] mb-[5px] w-[190px] h-[180px] rounded-[10px] border border-solid border-[#cecece]"
+            className="m-10 mt-0 mb-[5px] object-fill w-[73%] h-[180px] rounded-[10px] border border-solid border-[#cecece]"
           />
-          <div className="pl-[30px] pr-[30px] ">
-            <span>
-              <strong>
-                Teal Brown Kurti Full(Cotton Silk)
-                <h6 className="text-xs">
-                  SIZE: <strong> XI</strong>&nbsp; &nbsp; &nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  COLOR:<strong> RED</strong>{" "}
-                </h6>
-              </strong>
-            </span>
-            <hr className="mt-2"></hr>
-            <b>
-              <div>Price Total</div>
-            </b>
-            <div class="grid grid-cols-2 gap-4">
-              <div xs={2}>Subtotal GST Shipping Coupon</div>
-              <div xs={2}>
-                ₹20,000/- ₹300/- ₹100/-
-                <br />
-                ₹0/-
-              </div>
+
+          <div className="m-10 mt-5">
+            <div class="mb-2 flex justify-between">
+              <p class="text-gray-700 font-bold">
+                {" "}
+                Teal Brown Kurti Full (Cotton Silk)
+              </p>
+            </div>
+            <div class="mb-2 flex justify-between">
+              <p class="text-gray-700">Size:</p>
+              <p class="text-gray-700 font-bold">XI</p>
+              <p class="text-gray-700">Color:</p>
+              <p class="text-gray-700 font-bold">Red</p>
+            </div>
+            <hr></hr>
+            <div class="mb-2 flex justify-between mt-5">
+              <p class="text-gray-700">Order Summary</p>
+              <p class="text-gray-700">₹2590.00</p>
+            </div>
+            <div class="flex justify-between">
+              <p class="text-gray-700">Additional Service</p>
+              <p class="text-gray-700">₹4.99</p>
+            </div>
+            <div class="mt-2 flex justify-between">
+              <p class="text-gray-700">Shipping</p>
+              <p class="text-gray-700">₹100.00</p>
+            </div>
+            <div class="mt-2 flex justify-between">
+              <p class="text-gray-700">Coupon</p>
+              <p class="text-green-500">₹4.99</p>
             </div>
 
-            <hr className="mt-2 pl-[30px] pr-[30px]"></hr>
+            <hr class="my-4" />
+            <div class="flex justify-between">
+              <p class="text-lg font-bold">Total Amount</p>
+              <div class="">
+                <p class="mb-1 text-lg font-bold">₹2,700.00</p>
+                <p class="text-sm text-gray-700 mb-5">including GST</p>
+              </div>
+            </div>
           </div>
-
-          <strong>
-            <div class="grid grid-cols-2 gap-4">
-              <div xs={2} className="pl-[30px] pr-[30px] ">
-                Total
-              </div>
-              <div xs={2} className="pb-[20px] text-xl">
-                ₹20,400/-
-              </div>
-            </div>
-          </strong>
         </div>
       </div>
     </div>
