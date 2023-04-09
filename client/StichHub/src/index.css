@@ -1,19 +1,30 @@
 @tailwind base;
 
-*::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 7px;
   display: block;
 }
 
-*::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: #130f26;
   border-radius: 0px;
 }
 
-*::-webkit-scrollbar-thumb {
+.configurator::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
   background-color: aquamarine;
   border-radius: 20px;
   border: 3px solid aquamarine;
+}
+
+.configurator::-webkit-scrollbar-thumb {
+  background-color: rgb(165 180 252);
+  border-radius: 20px;
+  border: 3px solid rgb(165 180 252);
 }
 
 @tailwind components;

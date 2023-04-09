@@ -22,16 +22,16 @@ function App() {
       <Route path="/" element={<MainLandingPage />} />
       <Route path="/Cart" element={<Cart />} />
       <Route path="/ClothesCategory" element={<ClothesCategory />} />
-      <Route path="/CustomerLandingPage" element={<CustomerLandingPage />} />
+      <Route path="/CustomersPage" element={<CustomerLandingPage />} />
       <Route path="/FabricModel" element={<FabricModel />} />
       <Route path="/FabricSelection" element={<FabricSelection />} />
       <Route path="/HomeOnlineVisit" element={<HomeOnlineVisit />} />
-      <Route path="/LoginSignUp" element={<LoginSignUp />} />
+      <Route path="/auth" element={<LoginSignUp />} />
       <Route path="/TailorDashboard" element={<TailorDashboard />} />
       <Route path="/TailorDetails" element={<TailorDetails />} />
       <Route path="/TailorList" element={<TailorList />} />
       <Route path="/TailorProfileVerification" element={<TailorProfileVerification />}/>
-      <Route path="/ThreeDConfigurator" element={<ThreeDConfigurator />} />
+      <Route path="/Configurator" element={<ThreeDConfigurator />} />
       <Route path="/ThreeDMeasurement" element={<ThreeDMeasurement />} />
     </Routes>
   );

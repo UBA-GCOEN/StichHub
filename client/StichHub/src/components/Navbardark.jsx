@@ -1,6 +1,10 @@
 import { useState } from "react";
 import React from "react";
 import Logo from "../assets/logo/Long - Logo Transparent (White).png";
+<<<<<<< HEAD
+=======
+
+>>>>>>> sidd/auth_Backend
 const pages = ["Home", "Our Services", "How it works", "About", "Contact Us"];
 const settings = ["Profile", "Account", "Dashboard"];
 const setting1 = ["Profile", "Account", "Dashboard", "logout"];
@@ -40,23 +44,34 @@ export default function Navbardark() {
     // 👇️ or simply set it to true
     // setIsShown(true);
   };
+<<<<<<< HEAD
 
   // main definition
   return (
     <div className="bg-transparent fixed top-0 w-full">
+=======
+  return (
+    <div className="bg-transparent">
+>>>>>>> sidd/auth_Backend
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
       >
+<<<<<<< HEAD
         {/* logo */}
+=======
+>>>>>>> sidd/auth_Backend
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Stichhub</span>
             <img className="h-8 w-auto" src={Logo} alt="" />
           </a>
         </div>
+<<<<<<< HEAD
 
         {/* links */}
+=======
+>>>>>>> sidd/auth_Backend
         <a
           href="#"
           className="hidden lg:block text-2sm font-semibold leading-6 text-white px-14"
@@ -64,6 +79,7 @@ export default function Navbardark() {
           Home
         </a>
 
+<<<<<<< HEAD
 
         <div className="flex lg:hidden">
           <button
@@ -115,15 +131,67 @@ export default function Navbardark() {
 
             {/* menu opener */}
 
+=======
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
+            onClick={handleClick2}
+          >
+            <span className="sr-only">Open main menu</span>
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          </button>
+        </div>
+        <div className="hidden lg:flex lg:gap-x-12">
+          <div className="relative">
+            <button
+              type="button"
+              className="flex items-center gap-x-1 text-2sm font-semibold leading-6 text-white"
+              aria-expanded="false"
+              onClick={handleClick}
+            >
+              Our Services
+              <svg
+                className="h-5 w-5 flex-none text-gray-400"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+
+>>>>>>> sidd/auth_Backend
             {isShown && (
               <div
                 id="navi"
                 className=" absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-white/5"
               >
                 <div className="p-10">
+<<<<<<< HEAD
                   <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 ">
                    
                    {/* first */}
+=======
+                  <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+>>>>>>> sidd/auth_Backend
                     <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                       <svg
                         className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
@@ -153,9 +221,13 @@ export default function Navbardark() {
                     </div>
                   </div>
 
+<<<<<<< HEAD
                   {/* 2nd */}
 
                   <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 ">
+=======
+                  <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+>>>>>>> sidd/auth_Backend
                     <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                       <svg
                         className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
@@ -180,8 +252,12 @@ export default function Navbardark() {
                     </div>
                   </div>
 
+<<<<<<< HEAD
 {/* 3rd */}
                   <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 ">
+=======
+                  <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+>>>>>>> sidd/auth_Backend
                     <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                       <svg
                         className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
@@ -206,8 +282,12 @@ export default function Navbardark() {
                     </div>
                   </div>
 
+<<<<<<< HEAD
 {/* 4th */}
                   <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 ">
+=======
+                  <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+>>>>>>> sidd/auth_Backend
                     <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                       <svg
                         className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
@@ -232,8 +312,12 @@ export default function Navbardark() {
                     </div>
                   </div>
 
+<<<<<<< HEAD
 {/* 5th */}
                   <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 ">
+=======
+                  <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+>>>>>>> sidd/auth_Backend
                     <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                       <svg
                         className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
@@ -258,8 +342,11 @@ export default function Navbardark() {
                     </div>
                   </div>
                 </div>
+<<<<<<< HEAD
 
                 {/* watch demo and contact divider */}
+=======
+>>>>>>> sidd/auth_Backend
                 <div className="grid grid-cols-2 divide-x divide-white/5 bg-gray-50">
                   <a
                     href="#"
@@ -303,6 +390,7 @@ export default function Navbardark() {
             )}
           </div>
 
+<<<<<<< HEAD
 
 {/* how it works link */}
           <a href="#" className="text-2sm font-semibold leading-6 text-white">
@@ -312,6 +400,15 @@ export default function Navbardark() {
             About
           </a>
           <a href="#" className="text-2sm font-semibold leading-6 text-white">
+=======
+          <a href="#Howitworks" className="text-2sm font-semibold leading-6 text-white">
+            How it Works?
+          </a>
+          <a href="#about" className="text-2sm font-semibold leading-6 text-white">
+            About
+          </a>
+          <a href="#contactus" className="text-2sm font-semibold leading-6 text-white">
+>>>>>>> sidd/auth_Backend
             Contact Us
           </a>
         </div>
@@ -321,6 +418,7 @@ export default function Navbardark() {
           </a>
         </div>
       </nav>
+<<<<<<< HEAD
       {/* desktop navbar end */}
 
       {/* mobile navbar start */}
@@ -328,6 +426,12 @@ export default function Navbardark() {
         <div className="bg-black lg:hidden" role="dialog" aria-modal="true">
           <div className="fixed inset-0 z-10"></div>
           <div className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
+=======
+      {isShown1 && (
+        <div className="  lg:hidden" role="dialog" aria-modal="true">
+          <div className="fixed inset-0 z-10"></div>
+          <div className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
+>>>>>>> sidd/auth_Backend
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Stichhub</span>
@@ -335,10 +439,16 @@ export default function Navbardark() {
               </a>
               <button
                 type="button"
+<<<<<<< HEAD
                 className="-m-2.5 rounded-md p-2.5 text-white"
                 onClick={handleClick2}
               >
                 {/* close button */}
+=======
+                className="-m-2.5 rounded-md p-2.5 text-white-700"
+                onClick={handleClick2}
+              >
+>>>>>>> sidd/auth_Backend
                 <span className="sr-only">Close menu</span>
                 <svg
                   className="h-6 w-6"
@@ -355,6 +465,7 @@ export default function Navbardark() {
                   />
                 </svg>
               </button>
+<<<<<<< HEAD
             </div>
 
 {/* links */}
@@ -437,6 +548,89 @@ export default function Navbardark() {
                 </div>
               </div>
             </div>
+=======
+            </div>
+
+            <div className="mt-6 flow-root">
+              <a
+                href="#ourservices"
+                className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-50"
+              >
+                Home
+              </a>
+
+              <div className="-my-6 divide-y divide-gray-500/10">
+                <div className="space-y-2 py-6">
+                  <div className="-mx-3">
+                    <button
+                      type="button"
+                      onClick={handleClick4}
+                      className="text-white flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50"
+                      aria-controls="disclosure-1"
+                      aria-expanded="false"
+                    >
+                      Our Services
+                      <svg
+                        className="h-5 w-5 flex-none"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                    {isShown3 && (
+                      <div className="mt-2 space-y-2" id="disclosure-1">
+                        <a
+                          href="#"
+                          className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50"
+                        >
+                          3d Measurement
+                        </a>
+
+                        {/* <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Engagement</a>
+                <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Security</a>
+                <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Integrations</a>
+                <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Automations</a>
+                <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Watch demo</a>
+                <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Contact sales</a> */}
+                      </div>
+                    )}
+                  </div>
+                  <a
+                    href="#Howitworks"
+                    className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-50"
+                  >
+                    How It Works?
+                  </a>
+                  <a
+                    href="#"
+                    className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-50"
+                  >
+                    About
+                  </a>
+                  <a
+                    href="#"
+                    className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-50"
+                  >
+                    Contact US
+                  </a>
+                </div>
+                <div className="py-6">
+                  <a
+                    href="#"
+                    className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-50"
+                  >
+                    Log Out
+                  </a>
+                </div>
+              </div>
+            </div>
+>>>>>>> sidd/auth_Backend
           </div>
         </div>
       )}
