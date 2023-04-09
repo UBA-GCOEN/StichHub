@@ -1,14 +1,21 @@
 import { useState } from "react";
 import { navbar, logo, menu } from "../../contants/MainLandingPage";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
 
   return (
-    <nav className="w-full flex py-6 justify-center">
+    <nav className="w-full flex py-6 justify-center fixed z-[100]">
       <div className="">
-      <img src={logo} alt="StichHub" className=" w-[150px] mr-[100px] mt-2" />
+        <a href="#">
+          <img
+            src={logo}
+            alt="StichHub"
+            className=" w-[150px] mr-[100px] mt-2"
+          />
+        </a>
       </div>
       <ul className="list-none sm:flex hidden justify-center items-center cursor-pointer">
         {navbar.map((nav, index) => (
@@ -23,7 +30,11 @@ const NavBar = () => {
           </li>
         ))}
       </ul>
-
+      <Link to="/auth">
+        <button className="bg-white rounded-xl px-5  shadow-xl drop-shadow-2xl mt-[6px] ml-14">
+          <span className="text-[16px] text-black">Get Started</span>
+        </button>
+      </Link>
       <div className="sm:hidden flex flex-1 justify-end items-center">
         <img
           src={toggle ? close : menu}

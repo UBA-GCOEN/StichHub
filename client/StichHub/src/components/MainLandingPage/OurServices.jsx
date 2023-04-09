@@ -35,7 +35,7 @@ const OurServices = () => {
               </p>
               <Link to="/CustomersPage">
                 <button className="p-4 bg-white text-black rounded-3xl text-lg font-medium m-5 cursor-pointer">
-                  Get Started
+                  Explore Now
                 </button>
               </Link>
             </div>
