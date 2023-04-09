@@ -2,6 +2,8 @@ import React, { useState } from "react";
 //used for phone no. country code selector
 import "react-phone-number-input/style.css";
 import Phoneinput from "react-phone-number-input";
+import ime from "../../assets/img/ime.png";
+
 //used for Country selector field
 import {
   CountryDropdown,
@@ -19,10 +21,7 @@ const Step2 = () => {
   const [value, setValue] = useState();
 
   return (
-    <div
-      id="body"
-      className="grid lg:grid-cols-2  lg:pl-[15%] md:grid-cols-1 gap-4 justify-center "
-    >
+    <div className="grid lg:grid-cols-2  md:grid-cols-1 gap-4 justify-center ">
       <div class="block max-w-lg rounded-lg bg-white p-6 ">
         {/* Contact details form */}
         <form>
@@ -31,7 +30,7 @@ const Step2 = () => {
           </span>
           <br />
           <br />
-          <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-4">
+          <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-2">
             <div xs={5}>
               <div className="mb-2">
                 <label>
@@ -89,7 +88,7 @@ const Step2 = () => {
             </div>
           </div>
           {/* Delivery details form */}
-          <span className="text-gray-700 font-bold">
+          <span className="text-gray-700 font-bold mt-5">
             2. DELIVERY DETAILS (Please Enter Your Delivery Details)
           </span>
           <br />
@@ -188,49 +187,62 @@ const Step2 = () => {
         </form>
       </div>
       {/* order information block */}
-      <div xs={6} className="justify-center w-[250px] rounded-2xl ">
+      <div xs={6} className="justify-center w-full  lg:w-[300px] rounded-2xl ">
         <div className="shadow-2xl rounded-2xl  ">
           <h4 className="pt-4 pl-8 pb-4 font-bold md:items-center">
             <span>Order Information</span>
           </h4>
           <img
             src={img}
-            className="ml-[30px] mr-[20px] mb-[5px] w-[190px] h-[180px] rounded-[10px] border border-solid border-[#cecece]"
+            className="m-10 mt-0 mb-[5px] object-fill w-[73%] h-[180px] rounded-[10px] border border-solid border-[#cecece]"
           />
-          <div className="pl-[30px] pr-[30px] ">
-            <span>
-              <strong>
-                Teal Brown Kurti Full(Cotton Silk)
-                <h6 className="text-xs">
-                  SIZE: <strong> XI</strong>&nbsp; &nbsp; &nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  COLOR:<strong> RED</strong>{" "}
-                </h6>
-              </strong>
-            </span>
-            <hr className="mt-2"></hr>
-            <b>
-              <div>Price Total</div>
-            </b>
-            <div class="grid grid-cols-2 gap-4">
-              <div xs={2}>Subtotal GST</div>
-              <div xs={2}>₹20000/- ₹300/-</div>
-            </div>{" "}
-            <hr className="mt-2 pl-[30px] pr-[30px]"></hr>
-          </div>
 
-          <strong>
-            <div class="grid grid-cols-2 gap-4">
-              <div xs={2} className="pl-[30px] pr-[30px] ">
-                Total
-              </div>
-              <div xs={2} className="pb-[20px] text-xl">
-                ₹20300/-
+          <div className="m-10 mt-5">
+            <div class="mb-2 flex justify-between">
+              <p class="text-gray-700 font-bold">
+                {" "}
+                Teal Brown Kurti Full (Cotton Silk)
+              </p>
+            </div>
+            <div class="mb-2 flex justify-between">
+              <p class="text-gray-700">Size:</p>
+              <p class="text-gray-700 font-bold">XI</p>
+              <p class="text-gray-700">Color:</p>
+              <p class="text-gray-700 font-bold">Red</p>
+            </div>
+            <hr></hr>
+            <div class="mb-2 flex justify-between mt-5">
+              <p class="text-gray-700">Order Summary</p>
+              <p class="text-gray-700">₹2590.00</p>
+            </div>
+            <div class="flex justify-between">
+              <p class="text-gray-700">Additional Service</p>
+              <p class="text-gray-700">₹4.99</p>
+            </div>
+            <div class="mt-2 flex justify-between">
+              <p class="text-gray-700">Coupon</p>
+              <p class="text-green-500">₹4.99</p>
+            </div>
+            <hr class="my-4" />
+            <div class="flex justify-between">
+              <p class="text-lg font-bold">Total Amount</p>
+              <div class="">
+                <p class="mb-1 text-lg font-bold">₹2,600.00</p>
+                <p class="text-sm text-gray-700 mb-5">including GST</p>
               </div>
             </div>
-          </strong>
+          </div>
         </div>
-      </div>{" "}
+      </div>
+      <img
+        src={img}
+        className="hidden left-[-6%] absolute h-auto top-[100%] lg:block"
+      />
+      <img
+        src={ime}
+        alt="logo"
+        className="hidden lg:block absolute top-[95%] h-[35%] right-[10%]  "
+      />
     </div>
   );
 };
