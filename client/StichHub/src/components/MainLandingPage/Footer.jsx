@@ -12,7 +12,7 @@ const Footer = () => {
           Everything you need to accept card payments and Grow your business
           anywhere on the planet.
         </h6>
-        <button className="block bg-[#33BBCF] col-span-1 h-10  pr-[10%] ml-[-14%] mb-[30%] lg:mt-[-5%] mt-[5%] w-[130px] px-6 py-1.5 rounded-xl text-white hover:bg-[#5CE1E6]">
+        <button className="block bg-[#33BBCF] w-auto mr-10 col-span-1 h-10  pr-[10%] ml-[-14%] mb-[30%] lg:mt-[-5%] mt-[5%] w-[130px] px-6 py-1.5 rounded-xl text-white hover:bg-[#5CE1E6]">
           Get Started
         </button>
       </div>

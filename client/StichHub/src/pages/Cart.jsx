@@ -274,7 +274,7 @@ const Cart = () => {
         </div>
         <br />
 
-        {/* {step==2? <div><img src={img} alt="logo" className="absolute bottom-0 left-0 h-[600px]"/>
+        {/* {step==2? <div>
              </div> : <div></div>} */}
       </div>
     </div>

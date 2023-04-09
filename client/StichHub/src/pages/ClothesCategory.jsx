@@ -17,7 +17,7 @@ const ClothesCategory = () => {
 
       {/* hero page */}
       <div className="grid grid-col-2">
-        <p className="text-white col-span-1 top-0 text-6xl font-bold mx-[7%] mt-[7%] mb-5">
+        <p className="text-white col-span-1 top-0 text-6xl font-bold mx-[7%] mt-[23%] lg:mt-[10%]  mb-5">
           Stitch With <br />
           Custom Category
         </p>
@@ -35,21 +35,21 @@ const ClothesCategory = () => {
         </button>
         <img
           src={gr}
-          className="lg:block absolute w-[50%] ml-[50%] col-span-1 hidden"
+          className="lg:block absolute w-[50%] ml-[50%] mt-[5%] col-span-1 hidden"
         />
         <img
           src={gr}
-          className=" ml-[13%] mb-[250px] w-[60%] col-span-1 justify-center lg:hidden  "
+          className="  mb-[250px] w-[90%] col-span-1 justify-center lg:hidden  "
         />
       </div>
 
       {/* clothes category boxes */}
-      <div className="ml-[7%] ">
-        <h4 className="text-white col-span-1 top-0 text-2xl font-bold mb-5 ml-[5%]">
+      <div className="ml-[7%] lg:ml-0">
+        <h4 className="text-white lg:ml-[7%] col-span-1 top-0 text-2xl font-bold mb-5 ml-[5%]">
           Stitch Our Top Category
         </h4>
 
-        <div class="flex overflow-x-auto gap-4 m-[5%]  spcae-x-8 w-1/1 sm:w-1/1 mb-[20%]  lg:overflow-x-none ">
+        <div class="flex overflow-x-auto gap-4 m-[5%] w-1/1 sm:w-1/1 mb-[20%] lg:overflow-visible lg:justify-center">
           {/* first block */}
           <div class="bg-[#ED5050] flex-shrink-0  rounded-[10px]  h-[200px] w-[200px] text-white text-center font-bold pt-3">
             Shirt/ Pants
@@ -96,7 +96,7 @@ const ClothesCategory = () => {
         <div class="mb-[10%] bg-transparent lg:ml-[8%] mt-[-7%] col-start-1  rounded-[10px] col-end-2 h-[300px] lg:w-[500px] text-white text-center font-bold pt-3 ">
           <img
             src="https://imgeng.jagran.com/images/2022/sep/men%20formal%20shirts1663832127171.jpg"
-            className="flex ml:0 lg:ml-[120px] w-[90%] h-[100%] rounded-2xl shadow-inner shadow-md "
+            className="flex ml:0 lg:ml-[70px] w-[90%] h-[100%] rounded-2xl shadow-md "
           />
           <p className="ml-[5%] text-5xl font-poppins mt-5 lg:ml-[150px]">
             Mens Category
@@ -104,9 +104,9 @@ const ClothesCategory = () => {
         </div>
 
         {/* small blocks for categories */}
-        <div class="grid grid-col-3 col-start-1  bg-transparent m-[1%] lg:col-start-2 rounded-[10px] lg:col-end-3 text-white text-center font-bold p-5 ...">
+        <div class="grid  col-start-1  bg-transparent m-[1%] lg:col-start-2 rounded-[10px] lg:col-end-3 text-white text-center font-bold p-5 ...">
           {/* 1st */}
-          <div class="relative col-start-1  rounded-[10px] col-end-2 h-[200px] w-[100px] text-white text-center font-bold pt-3">
+          <div class="relative   rounded-[10px] h-[200px] w-[100px]  lg:w-[60%] text-white text-center font-bold pt-3">
             <img
               src="https://images.unsplash.com/photo-1602810319428-019690571b5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
               className=" object-cover rounded-t-xl h-[150px] "
@@ -116,17 +116,17 @@ const ClothesCategory = () => {
             </div>
           </div>
           {/* 2nd */}
-          <div class="relative col-start-2  rounded-[10px] col-end-3 h-[200px] w-[100px] text-white text-center font-bold pt-3">
+          <div class="relative col-start-2  rounded-[10px] col-end-3 h-[200px]  w-[100px] lg:w-[60%] text-white text-center font-bold pt-3">
             <img
               src="https://s.alicdn.com/@sc04/kf/Hcb6130a3858f4ed1877eb4a5ef467fad0.jpg_300x300.jpg"
-              className=" object-cover rounded-t-xl h-[150px] "
+              className=" object-cover rounded-t-xl h-[150px] w-full "
             />
             <div class="absolute bottom-0 left-0 right-0 px-4 py-2 rounded-b-lg bg-white opacity-100">
               <p class="mt-2 text-xs text-gray-900">Pants/trousers</p>
             </div>
           </div>
           {/* 3rd */}
-          <div class="relative col-start-3  rounded-t-xl-[10px] col-end-4 h-[200px] w-[100px] text-white text-center font-bold pt-3">
+          <div class="relative col-start-3  rounded-t-xl-[10px] col-end-4 h-[200px]  w-[100px] lg:w-[60%] text-white text-center font-bold pt-3">
             <img
               src="https://img.freepik.com/premium-photo/new-business-men-s-suits-are-hanging-hangers-store-modern-fashionable-clothes-luxury-store-with-mens-clothing-designer-business-suits_678914-6119.jpg?w=740"
               className=" object-cover rounded-t-xl h-[150px] "
@@ -136,17 +136,17 @@ const ClothesCategory = () => {
             </div>
           </div>
           {/* 4th */}
-          <div class="relative col-start-1  rounded-[10px] col-end-2 h-[200px] w-[100px] text-white text-center font-bold pt-3">
+          <div class="relative col-start-1  rounded-[10px] col-end-2 h-[200px]  w-[100px] lg:w-[60%] text-white text-center font-bold pt-3">
             <img
               src="https://media.istockphoto.com/id/887360960/photo/mens-suits-on-hangers-in-different-colors.jpg?s=170667a&w=0&k=20&c=T9rwqgwv45lssYlSekcUP901NuVq-2A8PS9Vt4skHA8="
-              className=" object-cover rounded-t-xl h-[150px] "
+              className=" object-cover  rounded-t-xl h-[150px] "
             />
             <div class="absolute bottom-0 left-0 right-0 px-4 py-2 rounded-b-lg bg-white opacity-100">
               <p class="mt-2 text-xs text-gray-900">Suits</p>
             </div>
           </div>
           {/* 5th */}
-          <div class="relative col-start-2  rounded-[10px] col-end-3 h-[200px] w-[100px] text-white text-center font-bold pt-3">
+          <div class="relative col-start-2  rounded-[10px] col-end-3 h-[200px]  w-[100px] lg:w-[60%] text-white text-center font-bold pt-3">
             <img
               src="https://media.istockphoto.com/id/1408851061/photo/female-summer-wardrobe-in-white-room.jpg?s=612x612&w=0&k=20&c=LNgDm8hEostbQ4xQmvVfIEPk2ex7DFjPnScfg2kUXFQ="
               className=" object-cover rounded-t-xl h-[150px] "
@@ -156,10 +156,10 @@ const ClothesCategory = () => {
             </div>
           </div>
           {/* 6th */}
-          <div class="relative col-start-3  rounded-[10px] col-end-4 h-[200px] w-[100px] text-white text-center font-bold pt-3">
+          <div class="relative col-start-3  rounded-[10px] col-end-4 h-[200px]  w-[100px] lg:w-[60%] text-white text-center font-bold pt-3">
             <img
               src="https://cdn.fcglcdn.com/brainbees/images/products/438x531/10907866a.webp"
-              className=" object-cover rounded-t-xl h-[150px] "
+              className="  object-cover rounded-t-xl h-[150px] w-full "
             />
             <div class="absolute bottom-0 left-0 right-0 px-4 py-2 rounded-b-lg bg-white opacity-100">
               <p class="mt-2 text-xs text-gray-900">Occasionals</p>
@@ -172,7 +172,7 @@ const ClothesCategory = () => {
       <div className="mt-[10%] grid grid-col-2 gap-4 lg:ml-[10%] h-auto rounded-l-2xl bg-gradient-to-r from-neutral-700 to-neutral-800 ">
         <div class="grid grid-col-3 mb-10 ml-[10%] bg-transparent m-[1%] col-start-1 rounded-[10px] col-end-2 text-white text-center font-bold pt-3 ...">
           {/* 1st */}
-          <div class="relative col-start-1  rounded-[10px] col-end-2 h-[200px] w-[100px] text-white text-center font-bold pt-3">
+          <div class="relative col-start-1  rounded-[10px] col-end-2 h-[200px] w-[100px] lg:w-[60%] text-white text-center font-bold pt-3">
             <img
               src="https://images.unsplash.com/photo-1602810319428-019690571b5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
               className=" object-cover rounded-t-xl h-[150px] "
@@ -182,17 +182,17 @@ const ClothesCategory = () => {
             </div>
           </div>
           {/* 2nd */}
-          <div class="relative col-start-2  rounded-[10px] col-end-3 h-[200px] w-[100px] text-white text-center font-bold pt-3">
+          <div class="relative col-start-2  rounded-[10px] col-end-3 h-[200px] w-[100px] lg:w-[60%] text-white text-center font-bold pt-3">
             <img
               src="https://s.alicdn.com/@sc04/kf/Hcb6130a3858f4ed1877eb4a5ef467fad0.jpg_300x300.jpg"
-              className=" object-cover rounded-t-xl h-[150px] "
+              className=" object-cover rounded-t-xl h-[150px] w-full "
             />
             <div class="absolute bottom-0 left-0 right-0 px-4 py-2 rounded-b-lg bg-white opacity-100">
               <p class="mt-2 text-xs text-gray-900">Pants/trousers</p>
             </div>
           </div>
           {/* 3rd */}
-          <div class="relative col-start-3  rounded-[10px] col-end-4 h-[200px] w-[100px] text-white text-center font-bold pt-3">
+          <div class="relative col-start-3  rounded-[10px] col-end-4 h-[200px] w-[100px] lg:w-[60%] text-white text-center font-bold pt-3">
             <img
               src="https://img.freepik.com/premium-photo/new-business-men-s-suits-are-hanging-hangers-store-modern-fashionable-clothes-luxury-store-with-mens-clothing-designer-business-suits_678914-6119.jpg?w=740"
               className=" object-cover rounded-t-xl h-[150px] "
@@ -202,7 +202,7 @@ const ClothesCategory = () => {
             </div>
           </div>
           {/* 4th */}
-          <div class="relative col-start-1  rounded-[10px] col-end-2 h-[200px] w-[100px] text-white text-center font-bold pt-3">
+          <div class="relative col-start-1  rounded-[10px] col-end-2 h-[200px] w-[100px] lg:w-[60%] text-white text-center font-bold pt-3">
             <img
               src="https://media.istockphoto.com/id/887360960/photo/mens-suits-on-hangers-in-different-colors.jpg?s=170667a&w=0&k=20&c=T9rwqgwv45lssYlSekcUP901NuVq-2A8PS9Vt4skHA8="
               className=" object-cover rounded-t-xl h-[150px] "
@@ -212,20 +212,20 @@ const ClothesCategory = () => {
             </div>
           </div>
           {/* 5th */}
-          <div class="relative col-start-2  rounded-[10px] col-end-3 h-[200px] w-[100px] text-white text-center font-bold pt-3">
+          <div class="relative col-start-2  rounded-[10px] col-end-3 h-[200px] w-[100px] lg:w-[60%] text-white text-center font-bold pt-3">
             <img
               src="https://media.istockphoto.com/id/1408851061/photo/female-summer-wardrobe-in-white-room.jpg?s=612x612&w=0&k=20&c=LNgDm8hEostbQ4xQmvVfIEPk2ex7DFjPnScfg2kUXFQ="
-              className=" object-cover rounded-t-xl h-[150px] "
+              className=" object-cover rounded-t-xl h-[150px] w-full "
             />
             <div class="absolute bottom-0 left-0 right-0 px-4 py-2 rounded-b-lg bg-white opacity-100">
               <p class="mt-2 text-xs text-gray-900">Party wear</p>
             </div>
           </div>
           {/* 6th */}
-          <div class="relative col-start-3  rounded-[10px] col-end-4 h-[200px] w-[100px] text-white text-center font-bold pt-3">
+          <div class="relative col-start-3  rounded-[10px] col-end-4 h-[200px] w-[100px] lg:w-[60%] text-white text-center font-bold pt-3">
             <img
               src="https://cdn.fcglcdn.com/brainbees/images/products/438x531/10907866a.webp"
-              className=" object-cover rounded-t-xl h-[150px] "
+              className=" object-cover rounded-t-xl h-[150px] w-full "
             />
             <div class="absolute bottom-0 left-0 right-0 px-4 py-2 rounded-b-lg bg-white opacity-100">
               <p class="mt-2 text-xs text-gray-900">Occasionals</p>
@@ -256,11 +256,11 @@ const ClothesCategory = () => {
 
         <img
           src={gr6}
-          className=" hidden lg:block ml-[6%] mt-[-3%] absolute  w-[75%]"
+          className=" hidden lg:block ml-[6%] mt-[-8%] absolute  w-[75%]"
         />
 
         {/* men's fabric blocks */}
-        <div class="flex overflow-x-auto gap-4 m-[5%]  spcae-x-8 w-1/1 sm:w-1/1 mb-[15%]  lg:overflow-x-none mt-[5%] ">
+        <div class="flex overflow-x-auto gap-4 m-[5%] lg:justify-center lg:ml-0  spcae-x-8 w-1/1 sm:w-1/1 mb-[15%]  lg:overflow-x-none mt-[5%] ">
           {/* 1st */}
           <div class="bg-[#ED5050] flex-shrink-0  col-start-1  rounded-[10px] col-end-2 h-[200px] w-[200px] text-white text-center font-bold">
             <img
@@ -299,7 +299,7 @@ const ClothesCategory = () => {
         </div>
 
         {/* women's fabric blocks */}
-        <div class="flex overflow-x-auto gap-4 m-[5%]  spcae-x-8 w-1/1 sm:w-1/1 mb-[20%] ">
+        <div class="flex overflow-x-auto gap-4 m-[5%] lg:ml-0 lg:justify-center  spcae-x-8 w-1/1 sm:w-1/1 mb-[20%] ">
           {/* 1st */}
           <div class="bg-[#ED5050] flex-shrink-0 mt-7 col-start-1  rounded-[10px] col-end-2 h-[200px] w-[200px] text-white text-center font-bold">
             <img
