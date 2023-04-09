@@ -1,7 +1,6 @@
 import { useState } from "react";
 import React from "react";
 import Logo from "../assets/logo/Long - Logo Transparent (White).png";
-
 const pages = ["Home", "Our Services", "How it works", "About", "Contact Us"];
 const settings = ["Profile", "Account", "Dashboard"];
 const setting1 = ["Profile", "Account", "Dashboard", "logout"];
@@ -41,24 +40,30 @@ export default function Navbardark() {
     // 👇️ or simply set it to true
     // setIsShown(true);
   };
+
+  // main definition
   return (
-    <div className="bg-transparent">
+    <div className="bg-transparent fixed top-0 w-full">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
       >
+        {/* logo */}
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Stichhub</span>
             <img className="h-8 w-auto" src={Logo} alt="" />
           </a>
         </div>
+
+        {/* links */}
         <a
           href="#"
           className="hidden lg:block text-2sm font-semibold leading-6 text-white px-14"
         >
           Home
         </a>
+
 
         <div className="flex lg:hidden">
           <button
@@ -83,6 +88,8 @@ export default function Navbardark() {
             </svg>
           </button>
         </div>
+
+        {/* our services with menu opener */}
         <div className="hidden lg:flex lg:gap-x-12">
           <div className="relative">
             <button
@@ -106,13 +113,17 @@ export default function Navbardark() {
               </svg>
             </button>
 
+            {/* menu opener */}
+
             {isShown && (
               <div
                 id="navi"
                 className=" absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-white/5"
               >
                 <div className="p-10">
-                  <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+                  <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 ">
+                   
+                   {/* first */}
                     <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                       <svg
                         className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
@@ -142,7 +153,9 @@ export default function Navbardark() {
                     </div>
                   </div>
 
-                  <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+                  {/* 2nd */}
+
+                  <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 ">
                     <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                       <svg
                         className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
@@ -167,7 +180,8 @@ export default function Navbardark() {
                     </div>
                   </div>
 
-                  <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+{/* 3rd */}
+                  <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 ">
                     <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                       <svg
                         className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
@@ -192,7 +206,8 @@ export default function Navbardark() {
                     </div>
                   </div>
 
-                  <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+{/* 4th */}
+                  <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 ">
                     <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                       <svg
                         className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
@@ -217,7 +232,8 @@ export default function Navbardark() {
                     </div>
                   </div>
 
-                  <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+{/* 5th */}
+                  <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 ">
                     <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                       <svg
                         className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
@@ -242,6 +258,8 @@ export default function Navbardark() {
                     </div>
                   </div>
                 </div>
+
+                {/* watch demo and contact divider */}
                 <div className="grid grid-cols-2 divide-x divide-white/5 bg-gray-50">
                   <a
                     href="#"
@@ -285,13 +303,15 @@ export default function Navbardark() {
             )}
           </div>
 
-          <a href="#Howitworks" className="text-2sm font-semibold leading-6 text-white">
+
+{/* how it works link */}
+          <a href="#" className="text-2sm font-semibold leading-6 text-white">
             How it Works?
           </a>
-          <a href="#about" className="text-2sm font-semibold leading-6 text-white">
+          <a href="#" className="text-2sm font-semibold leading-6 text-white">
             About
           </a>
-          <a href="#contactus" className="text-2sm font-semibold leading-6 text-white">
+          <a href="#" className="text-2sm font-semibold leading-6 text-white">
             Contact Us
           </a>
         </div>
@@ -301,10 +321,13 @@ export default function Navbardark() {
           </a>
         </div>
       </nav>
+      {/* desktop navbar end */}
+
+      {/* mobile navbar start */}
       {isShown1 && (
-        <div className="  lg:hidden" role="dialog" aria-modal="true">
+        <div className="bg-black lg:hidden" role="dialog" aria-modal="true">
           <div className="fixed inset-0 z-10"></div>
-          <div className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
+          <div className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Stichhub</span>
@@ -312,9 +335,10 @@ export default function Navbardark() {
               </a>
               <button
                 type="button"
-                className="-m-2.5 rounded-md p-2.5 text-white-700"
+                className="-m-2.5 rounded-md p-2.5 text-white"
                 onClick={handleClick2}
               >
+                {/* close button */}
                 <span className="sr-only">Close menu</span>
                 <svg
                   className="h-6 w-6"
@@ -333,21 +357,22 @@ export default function Navbardark() {
               </button>
             </div>
 
+{/* links */}
             <div className="mt-6 flow-root">
               <a
-                href="#ourservices"
-                className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-50"
+                href="#"
+                className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white"
               >
                 Home
               </a>
 
-              <div className="-my-6 divide-y divide-gray-500/10">
+              <div className="-my-6 divide-y divide-white">
                 <div className="space-y-2 py-6">
                   <div className="-mx-3">
                     <button
                       type="button"
                       onClick={handleClick4}
-                      className="text-white flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-gray-50"
+                      className="text-white flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-transparent"
                       aria-controls="disclosure-1"
                       aria-expanded="false"
                     >
@@ -369,35 +394,35 @@ export default function Navbardark() {
                       <div className="mt-2 space-y-2" id="disclosure-1">
                         <a
                           href="#"
-                          className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50"
+                          className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white "
                         >
                           3d Measurement
                         </a>
 
-                        {/* <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Engagement</a>
-                <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Security</a>
-                <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Integrations</a>
-                <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Automations</a>
-                <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Watch demo</a>
-                <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Contact sales</a> */}
+                        {/* <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white ">Engagement</a>
+                <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white ">Security</a>
+                <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white ">Integrations</a>
+                <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white ">Automations</a>
+                <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white ">Watch demo</a>
+                <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white ">Contact sales</a> */}
                       </div>
                     )}
                   </div>
                   <a
-                    href="#Howitworks"
-                    className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-50"
+                    href="#"
+                    className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white "
                   >
                     How It Works?
                   </a>
                   <a
                     href="#"
-                    className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white "
                   >
                     About
                   </a>
                   <a
                     href="#"
-                    className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-white "
                   >
                     Contact US
                   </a>
@@ -405,7 +430,7 @@ export default function Navbardark() {
                 <div className="py-6">
                   <a
                     href="#"
-                    className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-white "
                   >
                     Log Out
                   </a>
