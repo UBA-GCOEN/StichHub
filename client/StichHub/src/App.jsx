@@ -21,7 +21,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function App() {
   return (
-    <GoogleOAuthProvider clientId={`955507694844-omici19nttqrdla81p4o1fi7d9405oe6.apps.googleusercontent.com`}>
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
       <Routes>
         <Route path="/" element={<MainLandingPage />} />
         <Route path="/Cart" element={<Cart />} />
