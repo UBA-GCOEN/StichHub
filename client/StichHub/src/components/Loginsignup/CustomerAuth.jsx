@@ -4,8 +4,9 @@ import shortlogo from "../../assets/logo/Short-Logo Transparent (Black).png";
 import customerimg from "../../assets/loginsignup/customerimg.png";
 import tailorimg from "../../assets/loginsignup/tailorimg.png";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
-import jwt_decode from 'jwt-decode'
+import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
+import axios from "../../axios.js";
 
 const initialForm = {
   name: "",
@@ -17,6 +18,7 @@ const initialForm = {
 const CustomerAuth = () => {
   const [isregister, setIsRegister] = useState(true);
   const [form, setForm] = useState(initialForm);
+  const [error, setError] = useState("");
   const navigateTo = useNavigate();
 
   const switchMode = () => {
@@ -28,24 +30,43 @@ const CustomerAuth = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSumbmit = (e) => {
+  const handleSumbmit = async (e) => {
     e.preventDefault();
+
+    try {
+      const res = isregister
+        ? await axios.post("/userCustomer/register", form)
+        : await axios.post("/userCustomer/signin", form);
+
+      const result = res.data;
+
+      localStorage.setItem("profile", JSON.stringify({ ...result }));
+
+      navigateTo("/home");
+    } catch (error) {
+      setError(error.response.data.message);
+    }
   };
 
   const googleSuccess = async (res) => {
     const result = jwt_decode(res?.credential);
-    
+    localStorage.setItem(
+      "profile",
+      JSON.stringify({
+        result
+      })
+    );
+
     try {
-    navigateTo('/ClothesCategory');
+      navigateTo("/home");
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   const googleError = () => {
-    alert('Google Sign In was unsuccessful. Try again later')
-  }
-
+    alert("Google Sign In was unsuccessful. Try again later");
+  };
 
   return (
     <div className="bg-gray-800 h-[100vh] flex justify-between overflow-hidden">
@@ -68,57 +89,133 @@ const CustomerAuth = () => {
             </div>
           </div>
 
+          {/* Auth Error */}
+          <div className="flex justify-center">
+            <p className="text-red-500 m-2">{error}</p>
+          </div>
+
           {/* form */}
           <div className="flex justify-center">
             <form onSubmit={handleSumbmit}>
               {isregister && (
-                <input
-                  type="text"
-                  placeholder="Name"
-                  name="name"
-                  id="name"
-                  onChange={handleChange}
-                  className="mt-[10px] block w-[25vw] py-2 pl-[40px] bg-white border rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                <div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6 absolute z-[5] m-3"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                    />
+                  </svg>
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    name="name"
+                    id="name"
+                    value={form.name}
+                    onChange={handleChange}
+                    className="mt-[10px] block w-[25vw] py-2 pl-[45px] bg-white border rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
-                />
+                  />
+                </div>
               )}
-              <input
-                type="email"
-                placeholder="Email"
-                name="email"
-                id="email"
-                onChange={handleChange}
-                className="mt-[10px] block w-[25vw] py-2 pl-[40px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6 absolute z-[5] m-3"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+                  />
+                </svg>
+
+                <input
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  id="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  className="mt-[10px] block w-[25vw] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 invalid:border-pink-500 invalid:text-pink-600
                 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
-              />
-              <input
-                type="password"
-                placeholder="Password"
-                name="password"
-                id="password"
-                onChange={handleChange}
-                className="mt-[10px] block w-[25vw] py-2 pl-[40px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
-                focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-                disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
-                "
-              />
-              {isregister && (
+                />
+              </div>
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="w-6 h-6 absolute z-[5] m-3"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"
+                  />
+                </svg>
+
                 <input
                   type="password"
-                  placeholder="Confirm Password"
-                  name="confirmPassword"
-                  id="confirmPassword"
+                  placeholder="Password"
+                  name="password"
+                  id="password"
+                  value={form.password}
                   onChange={handleChange}
-                  className="mt-[10px] block w-[25vw] py-2 pl-[40px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                  className="mt-[10px] block w-[25vw] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
                 />
+              </div>
+              {isregister && (
+                <div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6 absolute z-[5] m-3"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+                    />
+                  </svg>
+
+                  <input
+                    type="password"
+                    placeholder="Confirm Password"
+                    name="confirmPassword"
+                    id="confirmPassword"
+                    value={form.confirmPassword}
+                    onChange={handleChange}
+                    className="mt-[10px] block w-[25vw] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+                disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                "
+                  />
+                </div>
               )}
               <div className="flex justify-center">
                 <button

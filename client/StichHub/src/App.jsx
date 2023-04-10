@@ -10,7 +10,7 @@ import {
   LoginSignUp,
   TailorDashboard,
   TailorDetails,
-  TailorList,
+  Home,
   TailorProfileVerification,
   ThreeDConfigurator,
   ThreeDMeasurement,
@@ -31,17 +31,18 @@ function App() {
         <Route path="/FabricSelection" element={<FabricSelection />} />
         <Route path="/HomeOnlineVisit" element={<HomeOnlineVisit />} />
         <Route path="/auth" element={<LoginSignUp />} />
+        <Route path="/auth/customer" element={<CustomerAuth />} />
+        <Route path="/auth/tailor" element={<AuthTailor />} />
         <Route path="/TailorDashboard" element={<TailorDashboard />} />
         <Route path="/TailorDetails" element={<TailorDetails />} />
-        <Route path="/TailorList" element={<TailorList />} />
+        <Route path="/home" element={<Home />} />
         <Route
           path="/TailorProfileVerification"
           element={<TailorProfileVerification />}
         />
         <Route path="/Configurator" element={<ThreeDConfigurator />} />
         <Route path="/ThreeDMeasurement" element={<ThreeDMeasurement />} />
-        <Route path="/auth/customer" element={<CustomerAuth />} />
-        <Route path="/auth/tailor" element={<AuthTailor />} />
+        
       </Routes>
     </GoogleOAuthProvider>
   );

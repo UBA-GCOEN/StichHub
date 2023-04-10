@@ -8,7 +8,7 @@ const Signup = () => {
   return (
     <div className="bg-[url('../src/assets/registrationbg.png')] bg-contain bg-center bg-no-repeat bg-[#BADDF1] w-[100vw] h-[100vh] overflow-hidden">
       <div className="flex justify-center">
-        <div className="p-5 bg-[#CEEAF9] rounded-2xl text-center mt-[20vh] h-[60vh] w-[26vw] ml-14">
+        <div className="p-5 bg-[#CEEAF9] rounded-2xl text-center mt-[20vh] h-[60vh] w-[460px] ml-14">
           {/* Title text */}
           <div className="py-14">
             <h1 className="relative text-3xl text-Black font-bold">
