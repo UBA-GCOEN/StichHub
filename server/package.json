@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "ncc build index.js && node index.js"
+    "start": "ncc build index.js && node index.js",
+    "server" : "nodemon index.js"
   },
   "keywords": [],
   "author": "",
