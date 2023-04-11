@@ -1,8 +1,11 @@
 import React from 'react'
+import Profile from '../components/TailorDashboard/Profile'
 
 const ThreeDMeasurement = () => {
   return (
-    <div>ThreeDMeasurement</div>
+    <div className='bg-'>
+      <Profile/>
+    </div>
   )
 }
 
