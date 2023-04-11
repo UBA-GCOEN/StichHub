@@ -1,9 +1,10 @@
 import React from "react";
 import { forcustomers, fortailors } from "../../assets/MainLandingPage/Icons";
+import { Link } from "react-router-dom";
 
 const OurServices = () => {
   return (
-    <div className="w-[100vw] h-[100vh] relative p-20 ml-20 mr-20">
+    <div id="ourServices" className="h-[100vh] relative p-20 ml-20 mr-20">
       <div className="relative z-[5]">
         {/* Title */}
         <div id="title" className="relative flex">
@@ -32,9 +33,11 @@ const OurServices = () => {
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.sit
                 amet consectetur, adipisicing elit.{" "}
               </p>
-              <button className="p-4 bg-white text-black rounded-3xl text-lg font-medium m-5 cursor-pointer">
-                Get Started
-              </button>
+              <Link to="/CustomersPage">
+                <button className="p-4 bg-white text-black rounded-3xl text-lg font-medium m-5 cursor-pointer">
+                  Explore Now
+                </button>
+              </Link>
             </div>
           </div>
 
@@ -56,9 +59,11 @@ const OurServices = () => {
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.sit
                 amet consectetur, adipisicing elit.{" "}
               </p>
-              <button className="p-4 bg-white text-black rounded-3xl text-lg font-medium m-5 cursor-pointer">
-                Get Started
-              </button>
+              <Link to="/auth">
+                <button className="p-4 bg-white text-black rounded-3xl text-lg font-medium m-5 cursor-pointer">
+                  Get Started
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -66,7 +71,6 @@ const OurServices = () => {
 
       {/* BG-Gradients */}
       <div className="absolute circleGradient-peach w-[670px] h-[570px] top-[220px] left-[475px] z-0 blur-xl"></div>
-      
     </div>
   );
 };

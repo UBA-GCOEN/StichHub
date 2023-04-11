@@ -1,107 +1,121 @@
 import React from "react";
-import {Squares2X2Icon,UserIcon,Cog6ToothIcon} from '@heroicons/react/24/solid';
-
+import {
+  Squares2X2Icon,
+  UserIcon,
+  Cog6ToothIcon,
+} from "@heroicons/react/24/solid";
 
 const LeftView = () => {
-    return(
-        <div className="grid grid-flow-row auto-rows-fr row-span-3 mt-4 z-50 rounded-3xl container h-[100hv] bg-gradient-to-br from-grey to-dark_grey ">
-            {/* Leftview top Profile*/}
-            <div className="grid place-items-center rounded-t-3xl bg-black">
-              
-            <div className="h-[30px]">
-                
-                </div>
+  return (
+    <div className="grid grid-flow-row auto-rows-fr row-span-3 mt-4 z-50 rounded-3xl container h-[100hv] bg-gradient-to-br from-grey to-dark_grey ">
+      {/* Leftview top Profile*/}
+      <div className="grid place-items-center rounded-t-3xl bg-black">
+        <div className="h-[30px]"></div>
 
-             {/**profile image */}
-             <div className="grid justify-items-end rounded-full mt-auto h-[50px] w-[50px] bg-cover bg-center bg-[url('https://media.istockphoto.com/id/1318858332/photo/headshot-portrait-of-smiling-female-employee-posing-in-office.jpg?s=612x612&w=is&k=20&c=f0NR-g76WDrQo_Qa7x3gXOGmmH-CIBZ3Ud-rQFRMlks=')]">
-                <div className="rounded-full h-[15px] w-[15px] bg-green-500">
-                    
-                </div>
-             </div>
-             
-             {/**profile name */}
-             <div className="text-slate-50 mt-auto text-sm">
-                Mr. Akash Malhotra
-             </div>
+        {/**profile image */}
+        <div className="grid justify-items-end rounded-full mt-auto h-[50px] w-[50px] bg-cover bg-center bg-[url('https://media.istockphoto.com/id/1318858332/photo/headshot-portrait-of-smiling-female-employee-posing-in-office.jpg?s=612x612&w=is&k=20&c=f0NR-g76WDrQo_Qa7x3gXOGmmH-CIBZ3Ud-rQFRMlks=')]">
+          <div className="rounded-full h-[15px] w-[15px] bg-green-500"></div>
+        </div>
 
-             {/**email */}
-             <div className="h-max top-0 mb-auto text-slate-100  text-xs">
-             inaamajay007@gmail.com
-             </div>
+        {/**profile name */}
+        <div className="text-slate-50 mt-auto text-sm">Mr. Akash Malhotra</div>
 
-             {/**profile ratings */}
-             <div className="h-max mb-auto grid grid-flow-col auto-cols-max">
-             <svg fill="#d97706" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path  d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
-             <svg fill="#d97706" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path  d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
-             <svg fill="#d97706" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path  d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
-             <svg fill="#d97706" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path  d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
-             <svg fill="#d97706" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path  d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
-             </div>
+        {/**email */}
+        <div className="h-max top-0 mb-auto text-slate-100  text-xs">
+          inaamajay007@gmail.com
+        </div>
 
-             
+        {/**profile ratings */}
+        <div className="h-max mb-auto grid grid-flow-col auto-cols-max">
+          <svg
+            fill="#d97706"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+          </svg>
+          <svg
+            fill="#d97706"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+          </svg>
+          <svg
+            fill="#d97706"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+          </svg>
+          <svg
+            fill="#d97706"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+          </svg>
+          <svg
+            fill="#d97706"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+          </svg>
+        </div>
+      </div>
 
-            </div>
+      {/* Left Navigation*/}
+      <div className="grid place-items-center">
+        {/**dashboard */}
+        <div className="flex justify-items-center items-center rounded-tr-full rounded-bl-full w-[90%] h-[65%] bg-gradient-to-b from-left_nav_blue_light to-left_nav_blue">
+          {/**icon */}
+          <Squares2X2Icon className="basis-1/3 h-[24px] w-[24px]"></Squares2X2Icon>
+          <div className="flex-2 text-sm font-bold">Dashboard</div>
+        </div>
 
+        {/**profile */}
+        <div className="group flex justify-items-center items-center rounded-tr-full rounded-bl-full w-[90%] h-[65%] hover:opacity-30 hover:bg-gradient-to-b hover:from-left_nav_blue_light hover:to-left_nav_blue">
+          {/**icon */}
+          <UserIcon className="basis-1/3 fill-left_nav_icon_orange group-hover:fill-black h-[24px] w-[24px]"></UserIcon>
+          <div className="flex-2 text-sm group-hover:text-black group-hover:font-bold text-white">
+            Profile
+          </div>
+        </div>
 
-             {/* Left Navigation*/}
-            <div className="grid place-items-center">
+        {/**ongoing */}
+        <div className="flex group justify-items-center items-center rounded-tr-full rounded-bl-full w-[90%] h-[65%] hover:opacity-30 hover:bg-gradient-to-b hover:from-left_nav_blue_light hover:to-left_nav_blue">
+          {/**icon */}
+          <Cog6ToothIcon className="basis-1/3 fill-left_nav_icon_orange group-hover:fill-black h-[24px] w-[24px]"></Cog6ToothIcon>
+          <div className="flex-2 text-sm group-hover:text-black group-hover:font-bold  text-white">
+            Ongoing
+          </div>
+        </div>
 
-            {/**dashboard */}
-             <div className="flex justify-items-center items-center rounded-tr-full rounded-bl-full w-[90%] h-[65%] bg-gradient-to-b from-left_nav_blue_light to-left_nav_blue">
-                {/**icon */}
-                <Squares2X2Icon className="basis-1/3 h-[24px] w-[24px]">
+        {/**completed */}
+        <div className="flex group justify-items-center items-center rounded-tr-full rounded-bl-full w-[90%] h-[65%] hover:opacity-30 hover:bg-gradient-to-b hover:from-left_nav_blue_light hover:to-left_nav_blue">
+          {/**icon */}
+          <UserIcon className="basis-1/3 fill-left_nav_icon_orange group-hover:fill-black h-[24px] w-[24px]"></UserIcon>
+          <div className="flex-2 text-sm group-hover:text-black group-hover:font-bold text-white">
+            Completed
+          </div>
+        </div>
+      </div>
 
-                </Squares2X2Icon>
-                <div className="flex-2 text-sm font-bold">
-                Dashboard
-                </div>
-             </div>
+      {/** LeftView Callender*/}
 
-
-              {/**profile */}
-             <div className="group flex justify-items-center items-center rounded-tr-full rounded-bl-full w-[90%] h-[65%] hover:opacity-30 hover:bg-gradient-to-b hover:from-left_nav_blue_light hover:to-left_nav_blue">
-                {/**icon */}
-                <UserIcon className="basis-1/3 fill-left_nav_icon_orange group-hover:fill-black h-[24px] w-[24px]">
-
-                </UserIcon>
-                <div className="flex-2 text-sm group-hover:text-black group-hover:font-bold text-white">
-                Profile
-                </div>
-             </div>
-
-
-             {/**ongoing */}
-             <div className="flex group justify-items-center items-center rounded-tr-full rounded-bl-full w-[90%] h-[65%] hover:opacity-30 hover:bg-gradient-to-b hover:from-left_nav_blue_light hover:to-left_nav_blue">
-                {/**icon */}
-                <Cog6ToothIcon className="basis-1/3 fill-left_nav_icon_orange group-hover:fill-black h-[24px] w-[24px]">
-
-                </Cog6ToothIcon>
-                <div className="flex-2 text-sm group-hover:text-black group-hover:font-bold  text-white">
-                Ongoing
-                </div>
-             </div>
-
-
-            
-            {/**completed */}
-             <div className="flex group justify-items-center items-center rounded-tr-full rounded-bl-full w-[90%] h-[65%] hover:opacity-30 hover:bg-gradient-to-b hover:from-left_nav_blue_light hover:to-left_nav_blue">
-                {/**icon */}
-                <UserIcon className="basis-1/3 fill-left_nav_icon_orange group-hover:fill-black h-[24px] w-[24px]">
-
-                </UserIcon>
-                <div className="flex-2 text-sm group-hover:text-black group-hover:font-bold text-white">
-                Completed
-                </div>
-             </div>
-
-
-            </div>
-
-
-            {/** LeftView Callender*/}
-             
-             <div>
-                {/** 
+      <div>
+        {/** 
              <div class="scale-50 max-w-sm w-full shadow-lg">
                 <div class="md:p-8 p-5 dark:bg-gray-800 bg-white rounded-t">
                     <div class="px-4 flex items-center justify-between">
@@ -341,15 +355,11 @@ const LeftView = () => {
                 </div>
             </div>
          */}
- 
-             </div>
-       
-            
-         {/**calender end */}
-    
-            
-        </div>
-    )
-}
+      </div>
+
+      {/**calender end */}
+    </div>
+  );
+};
 
 export default LeftView;

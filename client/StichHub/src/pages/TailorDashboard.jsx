@@ -1,28 +1,23 @@
-import React from 'react'
-import LeftView from '../components/TailorDashboard/LeftView';
-import TopDisplays from '../components/TailorDashboard/TopDisplays';
-import gradient from '../assets/TailorDashboard/gradient_blue.png';
-import MainDisplay from '../components/TailorDashboard/MainDisplay';
+import React from "react";
+import LeftView from "../components/TailorDashboard/LeftView";
+import TopDisplays from "../components/TailorDashboard/TopDisplays";
+import gradient from "../assets/TailorDashboard/gradient_blue.png";
+import MainDisplay from "../components/TailorDashboard/MainDisplay";
+
+import NavBar from "../components/TailorDashboard/NaBar";
 
 const TailorDashboard = () => {
   return (
-    <div className="grid grid-rows-3 grid-col-5 grid-flow-col text-5xl w-[100vw] h-[100vh] text-center select-none bg-primary">
-     <LeftView>
+    <div className="overflow-x-hidden">
+      <NavBar />
+      <div className="grid grid-rows-3  grid-flow-col grid-cols-[13%] text-5xl text-center select-none bg-primary - flex justify-items-start text-5xl w-[100vw]  h-[92.7vh] text-center bg-primary">
+        <LeftView></LeftView>
+        <TopDisplays></TopDisplays>
 
-     </LeftView>
-     <TopDisplays>
-
-     </TopDisplays>
-     <img src={gradient} className=" z-0 w-[1257px] h-[708px] left-0 absolute">
-
-     </img>
-     <MainDisplay>
-     
-     </MainDisplay>
-      
-
+        <MainDisplay></MainDisplay>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default TailorDashboard;
