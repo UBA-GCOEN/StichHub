@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "ncc build index.js && node index.js"
-  },  
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
