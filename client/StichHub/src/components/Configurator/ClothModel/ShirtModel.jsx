@@ -12,7 +12,7 @@ import {
   wool_ao,
   wool_normal,
   wool_rough,
-} from "../../../../public/textures";
+} from "../../../../src/textures";
 
 function ShirtModel(props) {
   const { nodes, materials } = useGLTF("./3D-Model/ShirtModel-transformed.glb");
