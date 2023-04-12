@@ -4,18 +4,17 @@ import {
   UserIcon,
   Cog6ToothIcon,
 } from "@heroicons/react/24/solid";
-import Profile from "./Profile";
 
 const LeftView = () => {
   return (
-    <div className="grid grid-flow-row auto-rows-fr mt-4 rounded-3xl container  w-[15%] h-[100hv] bg-gradient-to-br from-grey to-dark_grey ">
+    <div className="grid grid-flow-row auto-rows-fr row-span-3 mt-4 z-50 rounded-3xl container h-[100hv] bg-gradient-to-br from-grey to-dark_grey ">
       {/* Leftview top Profile*/}
       <div className="grid place-items-center rounded-t-3xl bg-black">
         <div className="h-[30px]"></div>
 
         {/**profile image */}
-        <div className="grid justify-items-end rounded-full mt-auto h-[50px] w-[50px] bg-white bg-[url('https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg')]">
-          <div className="rounded-full h-[20px] w-[20px] bg-green-500"></div>
+        <div className="grid justify-items-end rounded-full mt-auto h-[50px] w-[50px] bg-cover bg-center bg-[url('https://media.istockphoto.com/id/1318858332/photo/headshot-portrait-of-smiling-female-employee-posing-in-office.jpg?s=612x612&w=is&k=20&c=f0NR-g76WDrQo_Qa7x3gXOGmmH-CIBZ3Ud-rQFRMlks=')]">
+          <div className="rounded-full h-[15px] w-[15px] bg-green-500"></div>
         </div>
 
         {/**profile name */}
@@ -89,9 +88,9 @@ const LeftView = () => {
         <div className="group flex justify-items-center items-center rounded-tr-full rounded-bl-full w-[90%] h-[65%] hover:opacity-30 hover:bg-gradient-to-b hover:from-left_nav_blue_light hover:to-left_nav_blue">
           {/**icon */}
           <UserIcon className="basis-1/3 fill-left_nav_icon_orange group-hover:fill-black h-[24px] w-[24px]"></UserIcon>
-          <button className="flex-2 text-sm group-hover:text-black group-hover:font-bold text-white" >
+          <div className="flex-2 text-sm group-hover:text-black group-hover:font-bold text-white">
             Profile
-          </button>
+          </div>
         </div>
 
         {/**ongoing */}
