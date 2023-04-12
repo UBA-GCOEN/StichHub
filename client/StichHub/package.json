@@ -11,7 +11,6 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@esbuild/linux-x64": "^0.17.15",
     "@google/model-viewer": "^3.1.0",
     "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.16",
@@ -29,14 +28,19 @@
     "esbuild": "^0.17.13",
     "multi-range-slider-react": "^2.0.3",
     "react": "^18.2.0",
+    "react-accessible-accordion": "^5.0.0",
+    "react-circular-progressbar": "^2.1.0",
     "react-country-region-selector": "^3.6.1",
     "react-dom": "^18.2.0",
+    "react-drag-drop-files": "^2.3.9",
+    "react-dropzone-uploader": "^2.11.0",
     "react-otp-input": "^3.0.0",
     "react-phone-number-input": "^3.2.19",
     "react-tailwindcss-select": "^1.8.5",
     "rsuite": "^5.28.3",
     "styled-components": "^5.3.9",
-    "three": "^0.151.2"
+    "three": "^0.151.2",
+    "tw-elements": "^1.0.0-beta2"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
