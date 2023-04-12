@@ -8,7 +8,7 @@ import LoginSignUp from "./LoginSignUp";
 import MainLandingPage from "./MainLandingPage";
 import TailorDashboard from "./TailorDashboard";
 import TailorDetails from "./TailorDetails";
-import TailorList from "./TailorList";
+import Home from "./Home";
 import TailorProfileVerification from "./TailorProfileVerification";
 import ThreeDConfigurator from "./ThreeDConfigurator";
 import ThreeDMeasurement from "./ThreeDMeasurement";
@@ -24,7 +24,7 @@ export {
   MainLandingPage,
   TailorDashboard,
   TailorDetails,
-  TailorList,
+  Home,
   TailorProfileVerification,
   ThreeDConfigurator,
   ThreeDMeasurement,

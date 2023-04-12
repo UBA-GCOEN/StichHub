@@ -105,7 +105,6 @@ const Home = () => {
                 }`}
                 onClick={() => setDemoButton(item)}
               >
-                {console.log(demoButton)}
                 <img src={item.img} className={item.style} />
                 <p className="text-sm text-white mt-2">{item.text}</p>
               </div>
