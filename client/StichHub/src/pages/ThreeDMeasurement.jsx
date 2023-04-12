@@ -5,7 +5,7 @@ import NewTailor from '../components/TailorDashboard/NewTailor'
 const ThreeDMeasurement = () => {
   return (
     <div className='bg-'>
-      <NewTailor/>
+      <Profile/>
     </div>
   )
 }
