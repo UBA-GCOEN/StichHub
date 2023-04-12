@@ -1,7 +1,7 @@
 {
   "name": "stichhub",
   "private": true,
-  "proxy": "http://localhost:5000",
+  "proxy": "https://stichhub-backend-avbpx9h07-siddhant-patil0203.vercel.app",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -36,6 +36,7 @@
     "react-dom": "^18.2.0",
     "react-otp-input": "^3.0.0",
     "react-phone-number-input": "^3.2.19",
+    "react-slick": "^0.29.0",
     "react-tailwindcss-select": "^1.8.5",
     "rsuite": "^5.28.3",
     "styled-components": "^5.3.9",

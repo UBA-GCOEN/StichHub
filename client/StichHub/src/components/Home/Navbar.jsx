@@ -1,13 +1,12 @@
-import jwtDecode from "jwt-decode";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
+import logo from "../../assets/logo/Long - Logo Transparent (Black).png"
 
 const Navbar = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   const location = useLocation();
   const navigateTo = useNavigate();
-
 
   useEffect(() => {
     const token = user?.token;
@@ -28,11 +27,14 @@ const Navbar = () => {
   }
 
   return (
-    <div className="flex justify-center mt-3">
+    <nav className="flex justify-center mt-3">
       <div className="flex mt-2">
-      <div className="mx-5">Logo</div>
-      <div className="mx-5">Search</div>
+      <div className="ml-5">
+        <img src={logo} alt="stichHub" className="w-[300px]"/>
       </div>
+      </div>
+
+      {/* Account Details or signin */}
       <div className="mx-5">
         { user?.result ? (
           <div className="flex ">
@@ -44,7 +46,7 @@ const Navbar = () => {
               }
             </div>
 
-            <button className="bg-red-500 text-white py-1 px-3 rounded-lg ml-6 mt-1"
+            <button className="hidden bg-red-500 text-white py-1 px-3 rounded-lg ml-6 mt-1"
             onClick={logout}>
               Log Out
             </button>
@@ -58,7 +60,10 @@ const Navbar = () => {
         )
         }
       </div>
-    </div>
+
+      {/* Search Bar */}
+      <div className="mx-5">Search</div>
+    </nav>
   );
 };
 

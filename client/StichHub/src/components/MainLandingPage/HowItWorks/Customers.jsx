@@ -3,21 +3,21 @@ import { hiwcustomer, appointment } from "../../../contants/MainLandingPage";
 
 const Customers = () => {
   return (
-    <div className="h-[100vh] relative p-20 ml-20 mr-20">
-      <div className="relative z-[5]">
+    <div className="h-[100%] sm:h-[100vh] relative pt-40  sm:p-20 sm:mx-20 mx-7">
+      <div className="relative z-[5] ">
         {/* Title */}
         <div id="title" className="relative flex flex-col">
-          <span className="text-left text-4xl font-medium">
+          <span className="text-left text-xl sm:text-4xl font-medium">
             HOW IT WORKS <br /> FOR CUSTOMERS ?
           </span>
           <div className="flex mt-3">
-            <div className="relative flex w-[320px] h-[2px] bg-white mt-2"></div>
+            <div className="relative flex w-[180px] sm:w-[320px] h-[2px] bg-white mt-2"></div>
             <div className="p-3 bg-white w-[6px] rounded-full"></div>
           </div>
         </div>
 
         {/* Steps */}
-        <div id="steps" className="flex justify-evenly">
+        <div id="steps" className="hidden sm:flex justify-evenly">
           {/* Steps */}
           {hiwcustomer.map((item, index) => (
             <div
@@ -37,11 +37,34 @@ const Customers = () => {
           ))}
         </div>
 
+        {/*For Mobile Steps */}
+        <div id="steps" className="sm:hidden flex flex-wrap justify-between">
+          {/* Steps */}
+          {hiwcustomer.map((item, index) => (
+            <div
+              key={index}
+              id="step1"
+              className="w-[40vw] flex flex-col justify-center mt-16"
+            >
+              <div className="flex justify-center">
+              <div
+                id="stepNumber"
+                className=" w-10 p-1 sm:py-[10px] bg-[#B100AA] text-center sm:w-[60px] sm:h-[60px] rounded-full sm:ml-[95px] mb-5"
+              >
+                {item.step}
+              </div>
+              </div>
+              <img id="stepLogo" src={item.img} className="mx-[45px] sm:mx-[80px] sm:my-[50px]" />
+              <div id="stepTitle" className={`mt-5 text-lg ${item.style}`}>{item.title}</div>
+            </div>
+          ))}
+        </div>
+
         {/* or section */}
-        <div id="or" className="relative flex flex-col m-20">
-          <span className="text-center">or</span>
+        <div id="or" className="relative flex flex-col mt-20">
+          <span className="text-center text-2xl sm:text-3xl">or</span>
           <div id="orContent" className="flex justify-center pt-5">
-            <span className="p-2">
+            <span className="p-2 text-lg sm:text-2xl">
               <i>directly Book an appointment with your favourite tailor.</i>
             </span>
             <img src={appointment} />

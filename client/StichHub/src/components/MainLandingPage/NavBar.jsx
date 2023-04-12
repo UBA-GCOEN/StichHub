@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { navbar, logo, menu } from "../../contants/MainLandingPage";
+import { navbar, logo, menu, close } from "../../contants/MainLandingPage";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
@@ -7,7 +7,7 @@ const NavBar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <nav className="w-full flex py-6 justify-center fixed z-[100]">
+    <nav className="w-[100vw] flex sm:pt-6 justify-center fixed z-[100] pt-3 px-4 sm:p-4">
       <div className="">
         <a href="#">
           <img
@@ -31,7 +31,7 @@ const NavBar = () => {
         ))}
       </ul>
       <Link to="/auth">
-        <button className="bg-white rounded-xl px-5  shadow-xl drop-shadow-2xl mt-[6px] ml-14">
+        <button className="hidden sm:block bg-white rounded-xl w-fit sm:px-5  shadow-xl drop-shadow-2xl mt-[6px] ml-14">
           <span className="text-[16px] text-black">Get Started</span>
         </button>
       </Link>
@@ -46,7 +46,7 @@ const NavBar = () => {
         <div
           className={`${
             !toggle ? "hidden" : "flex"
-          } p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar`}
+          } p-6 bg-black/100 absolute top-20 right-0 mx-4 my-2 min-w-[140px] w-[200px] rounded-xl sidebar`}
         >
           <ul className="list-none flex justify-end items-start flex-1 flex-col">
             {navbar.map((nav, index) => (
@@ -62,6 +62,12 @@ const NavBar = () => {
                 <a href={`#${nav.id}`}>{nav.title}</a>
               </li>
             ))}
+
+            <Link to="/auth">
+              <button className="px-3 bg-white rounded-xl w-fit shadow-xl drop-shadow-2xl mt-20">
+                <span className="text-[16px] text-black">Get Started</span>
+              </button>
+            </Link>
           </ul>
         </div>
       </div>
