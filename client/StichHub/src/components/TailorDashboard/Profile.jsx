@@ -4,7 +4,7 @@ import LeftView from "./LeftView";
 import styled from "styled-components";
 import "react-phone-number-input/style.css";
 import Phoneinput from "react-phone-number-input";
-import Tabs from "./Tabs";
+import {Tabs} from "./Tabs";
 
 const fileTypes = ["JPG", "PNG", "GIF"];
 
@@ -131,7 +131,7 @@ const steps = [
 ];
 
 
-const Profile = () => {
+export const Profile = () => {
   //some custom react hooks
   const [value, setValue] = useState();
 
@@ -432,4 +432,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+

@@ -52,7 +52,7 @@ const Drag = () => {
   );
 };
 
-const Tabs = ({ color }) => {
+export const Tabs = ({ color }) => {
   const [openTab, setOpenTab] = React.useState(1);
   const [file, setFile] = useState();
   function handleChange(e) {
@@ -181,12 +181,12 @@ const Tabs = ({ color }) => {
                       ></img>
                     </div>
                     <label>
-                      <span class="absolute inset-y-0 right-0 flex items-center pl-2">
+                      <span className="absolute inset-y-0 right-0 flex items-center pl-2">
                         <button
                           type="submit"
-                          class="p-1 focus:outline-none focus:shadow-outline"
+                          className="p-1 focus:outline-none focus:shadow-outline"
                         >
-                          <span class="bg-green-100 text-gray-800 text-sm font-semibold inline-flex items-center p-1.5 rounded-full mr-2 dark:bg-gray-700 dark:text-gray-300"></span>
+                          <span className="bg-green-100 text-gray-800 text-sm font-semibold inline-flex items-center p-1.5 rounded-full mr-2 dark:bg-gray-700 dark:text-gray-300"></span>
                         </button>
                       </span>
                       <input
@@ -579,4 +579,4 @@ const Tabs = ({ color }) => {
   );
 };
 
-export default Tabs;
+
