@@ -132,8 +132,8 @@ export const Tabs = ({ color }) => {
                 className={
                   "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
                   (openTab === 1
-                    ? "text-white bg-transparent"
-                    : "text-black bg-transparent")
+                    ? "text-white bg-" + color + "-600"
+                    : "text-" + color + "-600 bg-white")
                 }
                 onClick={(e) => {
                   e.preventDefault();
@@ -191,7 +191,7 @@ export const Tabs = ({ color }) => {
                       </span>
                       <input
                         type="file"
-                        class="text-sm text-grey-500
+                        className="text-sm text-grey-500
               file:mr-5 file:py-2 file:px-10
               file:rounded-lg file:border-0
               file:text-md file:font-semibold  file:text-white
@@ -209,88 +209,90 @@ export const Tabs = ({ color }) => {
                     <div className="flex flex-col lg:flex-row lg:gap-2 mt-3">
                       <div
                         id="alert-1"
-                        class="flex w-fit  border border-blue-700 p-2 mb-4 text-blue-800 rounded-lg bg-blue-50"
+                        className="flex w-fit  border border-blue-700 p-2 mb-4 text-blue-800 rounded-lg bg-blue-50"
                         role="alert"
                       >
-                        <div class="ml-3 text-sm font-medium">
+                        <div className="ml-3 text-sm font-medium">
                           Women's tailor
                         </div>
                         <button
                           type="button"
-                          class="ml-auto -mx-1.5 -my-1.5 bg-blue-50 text-blue-500 rounded-lg  p-1.5 hover:bg-blue-200 inline-flex h-8 w-8 "
+                          className="ml-auto -mx-1.5 -my-1.5 bg-blue-50 text-blue-500 rounded-lg  p-1.5 hover:bg-blue-200 inline-flex h-8 w-8 "
                           data-dismiss-target="#alert-1"
                           aria-label="Close"
                         >
-                          <span class="sr-only">Close</span>
+                          <span className="sr-only">Close</span>
                           <svg
                             aria-hidden="true"
-                            class="w-5 h-5"
+                            className="w-5 h-5"
                             fill="currentColor"
                             viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
-                              fill-rule="evenodd"
+                              fillRule="evenodd"
                               d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                              clip-rule="evenodd"
+                              clipRule="evenodd"
                             ></path>
                           </svg>
                         </button>
                       </div>
                       <div
                         id="alert-1"
-                        class=" w-fit flex border border-blue-700 p-2 mb-4 text-blue-800 rounded-lg bg-blue-50"
+                        className=" w-fit flex border border-blue-700 p-2 mb-4 text-blue-800 rounded-lg bg-blue-50"
                         role="alert"
                       >
-                        <div class="ml-3 text-sm font-medium">Men's tailor</div>
+                        <div className="ml-3 text-sm font-medium">
+                          Men's tailor
+                        </div>
                         <button
                           type="button"
-                          class="ml-auto -mx-1.5 -my-1.5 bg-blue-50 text-blue-500 rounded-lg focus:ring-2 focus:ring-blue-400 p-1.5 hover:bg-blue-200 inline-flex h-8 w-8 "
+                          className="ml-auto -mx-1.5 -my-1.5 bg-blue-50 text-blue-500 rounded-lg focus:ring-2 focus:ring-blue-400 p-1.5 hover:bg-blue-200 inline-flex h-8 w-8 "
                           data-dismiss-target="#alert-1"
                           aria-label="Close"
                         >
-                          <span class="sr-only">Close</span>
+                          <span className="sr-only">Close</span>
                           <svg
                             aria-hidden="true"
-                            class="w-5 h-5"
+                            className="w-5 h-5"
                             fill="currentColor"
                             viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
-                              fill-rule="evenodd"
+                              fillRule="evenodd"
                               d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                              clip-rule="evenodd"
+                              clipRule="evenodd"
                             ></path>
                           </svg>
                         </button>
                       </div>
                       <div
                         id="alert-1"
-                        class=" w-fit flex border border-blue-700 p-2 mb-4 text-blue-800 rounded-lg bg-blue-50"
+                        className=" w-fit flex border border-blue-700 p-2 mb-4 text-blue-800 rounded-lg bg-blue-50"
                         role="alert"
                       >
-                        <div class="ml-3 text-sm font-medium">
+                        <div className="ml-3 text-sm font-medium">
                           Custom tailor
                         </div>
                         <button
                           type="button"
-                          class="ml-auto -mx-1.5 -my-1.5 bg-blue-50 text-blue-500 rounded-lg focus:ring-2 focus:ring-blue-400 p-1.5 hover:bg-blue-200 inline-flex h-8 w-8 "
+                          className="ml-auto -mx-1.5 -my-1.5 bg-blue-50 text-blue-500 rounded-lg focus:ring-2 focus:ring-blue-400 p-1.5 hover:bg-blue-200 inline-flex h-8 w-8 "
                           data-dismiss-target="#alert-1"
                           aria-label="Close"
                         >
-                          <span class="sr-only">Close</span>
+                          <span className="sr-only">Close</span>
                           <svg
                             aria-hidden="true"
-                            class="w-5 h-5"
+                            className="w-5 h-5"
                             fill="currentColor"
                             viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
-                              fill-rule="evenodd"
+                              fillRule="evenodd"
                               d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                              clip-rule="evenodd"
+                              clipRule="evenodd"
                             ></path>
                           </svg>
                         </button>
@@ -356,24 +358,24 @@ export const Tabs = ({ color }) => {
                       </div>
                     </div>
                     <div className="w-fit mr-14 px-3 mt-3 mb-3 pb-3 font-semibold py-1  bg-blue-50 rounded-2xl border border-blue-700">
-                      <h3 class="mb-5 text-lg  text-gray-900 font-bold">
+                      <h3 className="mb-5 text-lg  text-gray-900 font-bold">
                         Choose Your Week Day of Availability
                       </h3>
-                      <ul class="flex flex-row flex-wrap gap-1 w-full">
+                      <ul className="flex flex-row flex-wrap gap-1 w-full">
                         <li>
                           <input
                             type="checkbox"
                             id="react-option"
                             value=""
-                            class="hidden peer"
+                            className="hidden peer"
                             required=""
                           />
                           <label
-                            for="react-option"
-                            class="inline-flex items-center justify-between w-fit p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                            htmlFor="react-option"
+                            className="inline-flex items-center justify-between w-fit p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
                           >
-                            <div class="block">
-                              <div class="w-full text-lg font-semibold">
+                            <div className="block">
+                              <div className="w-full text-lg font-semibold">
                                 Monday
                               </div>
                             </div>
@@ -384,14 +386,14 @@ export const Tabs = ({ color }) => {
                             type="checkbox"
                             id="flowbite-option"
                             value=""
-                            class="hidden peer"
+                            className="hidden peer"
                           />
                           <label
-                            for="flowbite-option"
-                            class="inline-flex items-center justify-between w-fit p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                            htmlFor="flowbite-option"
+                            className="inline-flex items-center justify-between w-fit p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
                           >
-                            <div class="block">
-                              <div class="w-full text-lg font-semibold">
+                            <div className="block">
+                              <div className="w-full text-lg font-semibold">
                                 Tuesday
                               </div>
                             </div>
@@ -402,14 +404,14 @@ export const Tabs = ({ color }) => {
                             type="checkbox"
                             id="angular-option"
                             value=""
-                            class="hidden peer"
+                            className="hidden peer"
                           />
                           <label
-                            for="angular-option"
-                            class="inline-flex items-center justify-between w-fit p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                            htmlFor="angular-option"
+                            className="inline-flex items-center justify-between w-fit p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
                           >
-                            <div class="block">
-                              <div class="w-full text-lg font-semibold">
+                            <div className="block">
+                              <div className="w-full text-lg font-semibold">
                                 Wednesday
                               </div>
                             </div>
@@ -420,14 +422,14 @@ export const Tabs = ({ color }) => {
                             type="checkbox"
                             id="4th"
                             value=""
-                            class="hidden peer"
+                            className="hidden peer"
                           />
                           <label
-                            for="4th"
-                            class="inline-flex items-center justify-between w-fit p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                            htmlFor="4th"
+                            className="inline-flex items-center justify-between w-fit p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
                           >
-                            <div class="block">
-                              <div class="w-full text-lg font-semibold">
+                            <div className="block">
+                              <div className="w-full text-lg font-semibold">
                                 Thursday
                               </div>
                             </div>
@@ -438,14 +440,14 @@ export const Tabs = ({ color }) => {
                             type="checkbox"
                             id="5th"
                             value=""
-                            class="hidden peer"
+                            className="hidden peer"
                           />
                           <label
-                            for="5th"
-                            class="inline-flex items-center justify-between w-fit p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                            htmlFor="5th"
+                            className="inline-flex items-center justify-between w-fit p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
                           >
-                            <div class="block">
-                              <div class="w-full text-lg font-semibold">
+                            <div className="block">
+                              <div className="w-full text-lg font-semibold">
                                 Friday
                               </div>
                             </div>
@@ -456,14 +458,14 @@ export const Tabs = ({ color }) => {
                             type="checkbox"
                             id="6th"
                             value=""
-                            class="hidden peer"
+                            className="hidden peer"
                           />
                           <label
-                            for="6th"
-                            class="inline-flex items-center justify-between w-fit p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                            htmlFor="6th"
+                            className="inline-flex items-center justify-between w-fit p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
                           >
-                            <div class="block">
-                              <div class="w-full text-lg font-semibold">
+                            <div className="block">
+                              <div className="w-full text-lg font-semibold">
                                 Saturday
                               </div>
                             </div>
@@ -474,14 +476,14 @@ export const Tabs = ({ color }) => {
                             type="checkbox"
                             id="7th"
                             value=""
-                            class="hidden peer"
+                            className="hidden peer"
                           />
                           <label
-                            for="7th"
-                            class="inline-flex items-center justify-between w-fit p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                            htmlFor="7th"
+                            className="inline-flex items-center justify-between w-fit p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
                           >
-                            <div class="block">
-                              <div class="w-full text-lg font-semibold">
+                            <div className="block">
+                              <div className="w-full text-lg font-semibold">
                                 Sunday
                               </div>
                             </div>
@@ -528,14 +530,14 @@ export const Tabs = ({ color }) => {
                 <div className={openTab === 2 ? "block" : "hidden"} id="link2">
                   <center>
                     <Drag />
-                    <div class="lg:flex  items-center gap-4 justify-center mt-10">
-                      <div class="overflow-hidden  aspect-video bg-red-400 cursor-pointer rounded-xl relative group">
-                        <div class="rounded-xl z-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out cursor-pointer absolute from-black/80 to-transparent bg-gradient-to-t inset-x-0 -bottom-2  text-white flex items-end">
+                    <div className="lg:flex  items-center gap-4 justify-center mt-10">
+                      <div className="overflow-hidden  aspect-video bg-red-400 cursor-pointer rounded-xl relative group">
+                        <div className="rounded-xl z-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out cursor-pointer absolute from-black/80 to-transparent bg-gradient-to-t inset-x-0 -bottom-2  text-white flex items-end">
                           <div>
-                            <div class="  p-4 space-y-3 text-xl group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 pb-10 transform transition duration-300 ease-in-out">
-                              <div class="font-bold ">Shirts</div>
+                            <div className="  p-4 space-y-3 text-xl group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 pb-10 transform transition duration-300 ease-in-out">
+                              <div className="font-bold ">Shirts</div>
 
-                              <div class="opacity-60 text-sm ">
+                              <div className="opacity-60 text-sm ">
                                 Classic Cotton Shirt With Customized Cloth
                                 fabric pattern checked
                               </div>
@@ -544,17 +546,17 @@ export const Tabs = ({ color }) => {
                         </div>
                         <img
                           alt=""
-                          class="object-fill w-full aspect-square group-hover:scale-110 transition duration-300 ease-in-out"
+                          className="object-fill w-full aspect-square group-hover:scale-110 transition duration-300 ease-in-out"
                           src="https://thumbs.dreamstime.com/b/clothes-hanger-filled-colorful-fabric-shirts-shop-men-s-shirts-shirt-hangers-fashion-store-shopping-182786345.jpg"
                         />
                       </div>
-                      <div class="overflow-hidden mt-5 lg:mt-0 aspect-video bg-red-400 cursor-pointer rounded-xl relative group">
-                        <div class="rounded-xl z-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out cursor-pointer absolute from-black/80 to-transparent bg-gradient-to-t inset-x-0 -bottom-2  text-white flex items-end">
+                      <div className="overflow-hidden mt-5 lg:mt-0 aspect-video bg-red-400 cursor-pointer rounded-xl relative group">
+                        <div className="rounded-xl z-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out cursor-pointer absolute from-black/80 to-transparent bg-gradient-to-t inset-x-0 -bottom-2  text-white flex items-end">
                           <div>
-                            <div class="  p-4 space-y-3 text-xl group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 pb-10 transform transition duration-300 ease-in-out">
-                              <div class="font-bold ">Shirts</div>
+                            <div className="  p-4 space-y-3 text-xl group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 pb-10 transform transition duration-300 ease-in-out">
+                              <div className="font-bold ">Shirts</div>
 
-                              <div class="opacity-60 text-sm ">
+                              <div className="opacity-60 text-sm ">
                                 Classic Cotton Shirt With Customized Cloth
                                 fabric pattern checked
                               </div>
@@ -563,7 +565,7 @@ export const Tabs = ({ color }) => {
                         </div>
                         <img
                           alt=""
-                          class="object-fill w-full aspect-square group-hover:scale-110 transition duration-300 ease-in-out"
+                          className="object-fill w-full aspect-square group-hover:scale-110 transition duration-300 ease-in-out"
                           src="https://thumbs.dreamstime.com/b/clothes-hanger-filled-colorful-fabric-shirts-shop-men-s-shirts-shirt-hangers-fashion-store-shopping-182786345.jpg"
                         />
                       </div>
@@ -578,5 +580,3 @@ export const Tabs = ({ color }) => {
     </>
   );
 };
-
-

@@ -4,7 +4,7 @@ import LeftView from "./LeftView";
 import styled from "styled-components";
 import "react-phone-number-input/style.css";
 import Phoneinput from "react-phone-number-input";
-import {Tabs} from "./Tabs";
+import { Tabs } from "./Tabs";
 
 const fileTypes = ["JPG", "PNG", "GIF"];
 
@@ -130,7 +130,6 @@ const steps = [
   },
 ];
 
-
 export const Profile = () => {
   //some custom react hooks
   const [value, setValue] = useState();
@@ -180,7 +179,6 @@ export const Profile = () => {
   const btnHandler = () => {
     alert("The buttion is clickable!");
   };
- 
 
   const Step1 = () => {
     const [country, setCountry] = useState("");
@@ -191,7 +189,7 @@ export const Profile = () => {
         <div className="mb-5">
           <span className="font-bold text-2xl">Edit Profile</span>
         </div>
-        <div class="lg:grid col-start-1 col-end-3 lg:grid-cols-2 ">
+        <div className="lg:grid col-start-1 col-end-3 lg:grid-cols-2 ">
           <div xs={5}>
             <div className="mb-2 lg:mr-5">
               <label>
@@ -229,7 +227,7 @@ export const Profile = () => {
           <div className="mb-2 col-start-1 col-end-3">
             <label>
               <span className="text-gray-700">Email address</span>
-              <div class="relative text-gray-600 focus-within:text-gray-400 col-start-1 col-end-3">
+              <div className="relative text-gray-600 focus-within:text-gray-400 col-start-1 col-end-3">
                 <input
                   type="email"
                   name="email"
@@ -237,23 +235,23 @@ export const Profile = () => {
                   placeholder="vsk@gmail.com"
                   className=" text-black shadow-sm shadow-blue-400 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                 />
-                <span class="absolute inset-y-0 right-0 flex items-center pl-2">
+                <span className="absolute inset-y-0 right-0 flex items-center pl-2">
                   <button
                     type="submit"
-                    class="p-1 focus:outline-none focus:shadow-outline"
+                    className="p-1 focus:outline-none focus:shadow-outline"
                   >
-                    <span class="bg-green-100 text-gray-800 text-sm font-semibold inline-flex items-center p-1.5 rounded-full mr-2 dark:bg-gray-700 dark:text-gray-300">
+                    <span className="bg-green-100 text-gray-800 text-sm font-semibold inline-flex items-center p-1.5 rounded-full mr-2 dark:bg-gray-700 dark:text-gray-300">
                       <svg
                         aria-hidden="true"
-                        class="w-3.5 h-3.5"
+                        className="w-3.5 h-3.5"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clip-rule="evenodd"
+                          clipRule="evenodd"
                         ></path>
                       </svg>
                     </span>
@@ -326,7 +324,7 @@ export const Profile = () => {
               <br />
             </label>
           </div>
-          <div class="relative text-gray-600 focus-within:text-gray-400 col-start-1 col-end-3 mb-5">
+          <div className="relative text-gray-600 focus-within:text-gray-400 col-start-1 col-end-3 mb-5">
             <input
               type="password"
               name="q"
@@ -334,23 +332,23 @@ export const Profile = () => {
               defaultValue="Vskvishal"
               className=" text-black shadow-sm shadow-blue-400 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
             />
-            <span class="absolute inset-y-0 right-0 flex items-center pl-2">
+            <span className="absolute inset-y-0 right-0 flex items-center pl-2">
               <button
                 type="submit"
-                class="p-1 focus:outline-none focus:shadow-outline"
+                className="p-1 focus:outline-none focus:shadow-outline"
               >
-                <span class="bg-green-100 text-gray-800 text-sm font-semibold inline-flex items-center p-1.5 rounded-full mr-2 dark:bg-gray-700 dark:text-gray-300">
+                <span className="bg-green-100 text-gray-800 text-sm font-semibold inline-flex items-center p-1.5 rounded-full mr-2 dark:bg-gray-700 dark:text-gray-300">
                   <svg
                     aria-hidden="true"
-                    class="w-3.5 h-3.5"
+                    className="w-3.5 h-3.5"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"
+                      clipRule="evenodd"
                     ></path>
                   </svg>
                 </span>
@@ -370,7 +368,7 @@ export const Profile = () => {
       </div>
     );
   };
-  
+
   const Step2 = () => {
     return (
       <div className="justify-center">
@@ -431,5 +429,3 @@ export const Profile = () => {
     </div>
   );
 };
-
-
