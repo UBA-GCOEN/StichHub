@@ -6,7 +6,7 @@ import Graphs from '../components/TailorDashboard/Graphs'
 const ThreeDMeasurement = () => {
   return (
     <div className='bg-'>
-      <Graphs/>
+      <Profile/>
     </div>
   )
 }
