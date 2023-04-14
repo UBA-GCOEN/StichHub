@@ -26,7 +26,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="flex justify-between p-2 bg-white fixed w-full">
+    <div className="flex justify-between p-2 bg-white  w-full">
       <div className="flex mt-2">
         <div className="mx-5">Logo</div>
         <div className="mx-5">Search</div>

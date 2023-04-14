@@ -2,11 +2,14 @@
 
 ::-webkit-scrollbar {
   width: 7px;
+  height: 5px;
   display: block;
+
 }
 
+
+
 ::-webkit-scrollbar-track {
-  background: #130f26;
   border-radius: 0px;
 }
 
@@ -16,9 +19,9 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: aquamarine;
+  background-color: rgb(0, 3, 130);
   border-radius: 20px;
-  border: 3px solid aquamarine;
+  border: 3px solid rgb(0, 3, 130);;
 }
 
 .configurator::-webkit-scrollbar-thumb {
