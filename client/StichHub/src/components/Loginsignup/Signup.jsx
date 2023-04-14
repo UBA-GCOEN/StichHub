@@ -1,35 +1,55 @@
-import React from 'react'
-import regbg from '../../assets/registrationbg.png'
-import Cus from '../../assets/CustomerImg.png'
-import Tail from '../../assets/Tailorimg.png'
+import React from "react";
+import regbg from "../../assets/registrationbg.png";
+import Cus from "../../assets/CustomerImg.png";
+import Tail from "../../assets/Tailorimg.png";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   return (
-    <div>
-    <div className='bg-[#BADDF1]'>
-        <img src={regbg} className="w-full h-screen object-contain"/>
-      <div className='bg-white h-[60%] w-[28%] top-[21%] left-[38%]  flex items-center justify-center  absolute text-center rounded-3xl'></div>
-        <div className='bg-white'>
-         <h1 class="absolute text-3xl text-Black top-1/4 left-1/3 pl-[130px] font-bold">Select Your Choice</h1>
-         <p class="absolute text-xl text-Black mt-12  top-1/4 left-1/3 pl-[130px] font-semibold text-centerx ">Thank you for joining us! <br/> Glad to have you on board!</p>
+    <div className="bg-[url('../src/assets/registrationbg.png')] bg-contain bg-center bg-no-repeat bg-[#BADDF1] w-[100vw] h-[100vh] overflow-hidden">
+      <div className="flex justify-center">
+        <div className="p-5 bg-[#CEEAF9] rounded-2xl text-center mt-[20vh] h-[60vh] w-[460px] ml-14">
+          {/* Title text */}
+          <div className="py-14">
+            <h1 className="relative text-3xl text-Black font-bold">
+              Select Your Choice
+            </h1>
+            <p className="relative text-xl text-Black font-semibold">
+              Thank you for joining us! <br /> Glad to have you on board!
+            </p>
+          </div>
+
+          <div className="flex justify-evenly">
+            {/* Customer button */}
+            <Link to="/auth/customer">
+              <button className="w-[10vw] h-[20vh] bg-[#00456D] relative text-3xl text-white shadow-lg rounded-3xl">
+                <div className="flex justify-center">
+                  <img src={Cus} className="w-[5vw]" />
+                </div>
+                <p className="text-lg text-center ">
+                  I am a <br />
+                  <strong className="underline ">Customer</strong>{" "}
+                </p>
+              </button>
+            </Link>
+
+            {/* Tailor button */}
+            <Link to="/auth/tailor">
+            <button className="w-[10vw] h-[20vh] bg-white relative text-3xl text-Black shadow-xl rounded-3xl">
+              <div className="flex justify-center">
+                <img src={Tail} className="m-2 w-[4vw]" />
+              </div>
+              <p className="text-lg text-center text-black">
+                I am a <br />
+                <strong className="underline ">Tailor</strong>{" "}
+              </p>
+            </button>
+            </Link>
+          </div>
         </div>
-        
-        <button className='w-[10%] h-[20%] bg-white absolute text-3xl mt-[30px] text-Black shadow-lg  top-1/2 left-[610px] -translate-x-1/2 -translate-y-1/2 rounded-3xl'>
-        <img src={Cus} className=" w-[50%] ml-[33px] mt-[2px] object-contain"/>
-        <p className='text-lg text-center '>I am a <br/><strong className='underline '>Customer</strong> </p>
-        </button>
-
-        <button className='w-[10%] h-[20%] bg-black absolute text-3xl mt-[30px] text-Black shadow-xl top-1/2 left-[800px] -translate-x-1/2 -translate-y-1/2 rounded-3xl'>
-        <img src={Tail} className=" w-[40%] ml-[40px] mt-[2px] object-contain"/>
-        <p className='text-lg text-center text-white '>I am a <br/><strong className='underline '>Tailor</strong> </p>
-        </button>
-
-        <div className="top-1/2 left-[45%]  flex items-center justify-center bottom-[8%] absolute text-center">
-          <p className="text-md font-medium text-black">Don`t have a account? <br /><a className="font-bold underline underline-offset-2 cursor-pointer">Sign Up</a></p>
-       </div>
+      </div>
     </div>
-    </div>
-  )
-}
+  );
+};
 
-export default Signup
+export default Signup;
