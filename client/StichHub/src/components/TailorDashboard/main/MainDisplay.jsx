@@ -5,7 +5,7 @@ import { ClockIcon, PhoneIcon } from "@heroicons/react/24/solid";
 //     ConfiguratorProvider,
 //     useCCustomization
 //   } from "../../contexts/Configurator";
-import { View } from "../../assets/3dConfigurator/configurator-icons";
+import { View } from "../../../assets/3dConfigurator/configurator-icons";
 
 
 const MainDisplay = () => {

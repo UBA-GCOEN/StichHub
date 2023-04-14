@@ -3,6 +3,7 @@ import {
   Squares2X2Icon,
   UserIcon,
   Cog6ToothIcon,
+  CheckCircleIcon
 } from "@heroicons/react/24/solid";
 
 const LeftView = () => {
@@ -105,7 +106,7 @@ const LeftView = () => {
         {/**completed */}
         <div className="flex group justify-items-center items-center rounded-tr-full rounded-bl-full w-[90%] h-[65%] hover:opacity-30 hover:bg-gradient-to-b hover:from-left_nav_blue_light hover:to-left_nav_blue">
           {/**icon */}
-          <UserIcon className="basis-1/3 fill-left_nav_icon_orange group-hover:fill-black h-[24px] w-[24px]"></UserIcon>
+          <CheckCircleIcon className="basis-1/3 fill-left_nav_icon_orange group-hover:fill-black h-[24px] w-[24px]"></CheckCircleIcon>
           <div className="flex-2 text-sm group-hover:text-black group-hover:font-bold text-white">
             Completed
           </div>
