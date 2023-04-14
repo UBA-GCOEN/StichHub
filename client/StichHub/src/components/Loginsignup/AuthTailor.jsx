@@ -41,7 +41,7 @@ const AuthTailor = () => {
 
       localStorage.setItem("tailorProfile", JSON.stringify({ ...result }));
 
-      navigateTo('/Tailordashboard')
+      navigateTo('/TailorProfileVerification')
     } catch (error) {
       setError(error.response.data.message);
     }
@@ -52,7 +52,7 @@ const AuthTailor = () => {
     localStorage.setItem("tailorProfile", JSON.stringify({ result, }));
 
     try {
-      navigateTo("/TailorDashboard");
+      navigateTo("/TailorProfileVerification");
     } catch (error) {
       console.log(error);
     }

@@ -9,6 +9,7 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 import "react-accessible-accordion/dist/fancy-example.css";
+import { Link } from "react-router-dom";
 const percentage = 20;
 
 const NewTailor = () => {
@@ -23,12 +24,14 @@ const NewTailor = () => {
                 <p className="font-semibold text-sm lg:text-md mt-2">
                   Looks like you have not completely registered or verified as a
                   tailor on our website, Complete your proflie by clicking{" "}
-                  <a
-                    href="#"
-                    className="text-green-500 underline hover:text-green-700 font-semibold"
-                  >
-                    HERE
-                  </a>
+                  <Link to="/tailordashboard/profile">
+                    <a
+                      href="#"
+                      className="text-green-500 underline hover:text-green-700 font-semibold"
+                    >
+                      HERE
+                    </a>
+                  </Link>
                 </p>
               </div>
               <div className="w-[70%] lg:w-[8%] mt-5  mr-5  ">

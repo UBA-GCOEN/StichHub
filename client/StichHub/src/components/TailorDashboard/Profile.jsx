@@ -130,7 +130,7 @@ const steps = [
   },
 ];
 
-export const Profile = () => {
+const Profile = () => {
   //some custom react hooks
   const [value, setValue] = useState();
 
@@ -429,3 +429,5 @@ export const Profile = () => {
     </div>
   );
 };
+
+export default Profile;

@@ -88,7 +88,7 @@ const Navbar = () => {
           name="search"
           id="search"
           placeholder="search what you want to stitch?"
-          className="border-2 w-[90vw]  rounded-xl border-indigo-500 py-2 px-3"
+          className="border-2 w-[90vw] rounded-xl border-indigo-500 py-2 px-3"
         />
         <svg
           xmlns="http://www.w3.org/2000/svg"
