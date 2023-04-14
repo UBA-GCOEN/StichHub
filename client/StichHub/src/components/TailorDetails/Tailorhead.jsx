@@ -1,10 +1,11 @@
 import React from "react";
+import { tailorCards } from "../../constants/home";
 
-function Tailorhead() {
+function Tailorhead(props) {
   return (
     <div className="bg-[white] drop-shadow-lg rounded-lg w-auto flex justify-between p-2 m-2">
       <div className=" ml-1">
-        <h1 className="font-semibold text-base">Mr. Yadav Tailor Version</h1>
+        <h1 className="font-semibold text-base">Yadav Ji</h1>
         <h3 className="text-[#636262] text-sm ">Khayali Dresses</h3>
       </div>
       <div className="text-right">

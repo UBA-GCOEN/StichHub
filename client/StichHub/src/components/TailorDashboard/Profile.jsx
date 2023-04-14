@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Navbardark from "../Navbardark";
-import LeftView from "./LeftView";
+// import LeftView from "./LeftView";
 import styled from "styled-components";
 import "react-phone-number-input/style.css";
 import Phoneinput from "react-phone-number-input";

@@ -1,5 +1,5 @@
 import React from "react";
-import { tailorCards} from "../../constants/home";
+import { tailorCards } from "../../constants/home";
 import { Link } from "react-router-dom";
 
 const TailorList = () => {
@@ -38,7 +38,6 @@ const TailorList = () => {
               </div>
               <span className="text-sm"> {item.location}</span>
             </div>
-           
           </div>
           {/* middle Display */}
           <p className="text-xs py-1">{item.bio}</p>
@@ -55,13 +54,15 @@ const TailorList = () => {
 
           {/* Buttons */}
           <div className="flex flex-col justify-between gap-2 py-2">
-            <button className="text-xs bg-cyan-100 text-black py-2 px-2 rounded-lg w-full">
+            <Link to="/TailorDetails" state={{ index: index }}>
+              <button className="text-xs bg-cyan-100 text-black py-2 px-2 rounded-lg w-full">
                 More Details
-            </button>
-            <Link to="/home/category" state={{index: index}}>
-            <button className="text-xs bg-blue-500 px-2 py-2 rounded-lg w-full">
+              </button>
+            </Link>
+            <Link to="/home/category" state={{ index: index }}>
+              <button className="text-xs bg-blue-500 px-2 py-2 rounded-lg w-full">
                 Book Tailor
-            </button>
+              </button>
             </Link>
           </div>
         </div>

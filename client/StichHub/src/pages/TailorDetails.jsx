@@ -9,9 +9,16 @@ import yadav from "../assets/Yadav.png";
 import TabsM from "../components/TailorDetails/TabsM";
 import StarRateM from "../components/TailorDetails/StarRateM";
 import ProgressbarM from "../components/TailorDetails/ProgressM";
+import { useLocation } from "react-router-dom";
+import { tailorCards } from "../constants/home";
 
 function TailorDetails() {
   const [isMobile, setIsMobile] = useState(false);
+
+  const location = useLocation();
+  const propsData = location.state;
+  console.log(propsData);
+
 
   // check screen size and set state variable
   window.addEventListener("resize", () => {
@@ -47,7 +54,7 @@ const TailorDetailsD = () => {
           <div className="w-2/3 rounded-lg drop-shadow-lg">
             <div>
               {/* Name and price tag */}
-              <Tailorhead />
+              <Tailorhead propsData="propsData"/>
             </div>
             <div className=" drop-shadow-lg m-2 p-2">
               {/* Skills , details , previous work */}
@@ -76,6 +83,9 @@ const TailorDetailsD = () => {
 export default TailorDetails;
 
 const TailorDetailsM = () => {
+  const location = useLocation();
+  const propsData = location.state;
+  console.log(propsData);
   return (
     <div>
       {/* Back Button */}

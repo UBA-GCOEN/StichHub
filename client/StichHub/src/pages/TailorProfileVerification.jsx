@@ -7,6 +7,7 @@ import Phoneinput from "react-phone-number-input";
 import N from "../assets/img/n.png";
 import Profileveri from "../assets/img/profileverify.png";
 import Speciality from "../assets/img/speciality.png";
+import { Link } from "react-router-dom";
 
 import Verified from "../assets/img/verified.png";
 
@@ -415,7 +416,7 @@ const TailorProfileVerification = () => {
         Previous
       </button>
       <button
-        className="  px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
+        className="relative z-[100] px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
         onClick={handleNext}
       >
         Proceed
@@ -535,7 +536,7 @@ const TailorProfileVerification = () => {
         Previous
       </button>
       <button
-        className="   px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
+        className="z-[100] relative px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
         onClick={handleNext}
       >
         Proceed
@@ -749,13 +750,13 @@ const TailorProfileVerification = () => {
         </div>
       </div>
       <button
-        className="bg-gray-300 ml-[15%] mt-[1%] mr-5  px-6 py-1.5 rounded-lg text-gray-700 hover:bg-gray-400 top-0"
+        className="z-[100] relative bg-gray-300 ml-[15%] mt-[1%] mr-5  px-6 py-1.5 rounded-lg text-gray-700 hover:bg-gray-400 top-0"
         onClick={handleBack}
       >
         Previous
       </button>
       <button
-        className="px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
+        className="z-[100] relative px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
         onClick={handleNext}
       >
         Proceed
@@ -801,9 +802,11 @@ const TailorProfileVerification = () => {
         Previous
       </button>
 
-      <button className="px-6 py-1.5 rounded-lg ml-5 text-white bg-[#009415] hover:bg-green-600 top-0">
-        Submit
-      </button>
+      <Link to="/TailorDashboard/Profile">
+        <button className="px-6 py-1.5 rounded-lg ml-5 text-white bg-[#009415] hover:bg-green-600 top-0">
+          Submit
+        </button>
+      </Link>
       {/* progressbar 100% status green */}
       <ProgressBar progressPercentage={100} />
     </div>

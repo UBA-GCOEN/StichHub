@@ -56,6 +56,14 @@ const tailorCards = [
     rating: "5.0",
     location: "Mumbai",
   },
+  {
+    img: yadav,
+    name: "Naresh",
+    bio: "A Promfessional darzi of bombai, and skilled at Mens Suits and traditional outfits.",
+    tag: ["Kurtas", "court"],
+    rating: "7.0",
+    location: "Bhandara",
+  },
 ];
 
 export {
