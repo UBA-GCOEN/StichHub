@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { navbar, logo, menu, close } from "../../contants/MainLandingPage";
+import { navbar, logo, menu, close } from "../../constants/MainLandingPage";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {

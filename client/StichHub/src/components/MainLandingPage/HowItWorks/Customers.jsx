@@ -1,5 +1,5 @@
 import React from "react";
-import { hiwcustomer, appointment } from "../../../contants/MainLandingPage";
+import { hiwcustomer, appointment } from "../../../constants/MainLandingPage";
 
 const Customers = () => {
   return (

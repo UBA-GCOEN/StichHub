@@ -1,9 +1,6 @@
 import { PresentationControls, OrbitControls } from "@react-three/drei";
 import ShirtModel from "../../Configurator/ClothModel/ShirtModel";
 import { useCCustomization } from "../../../contexts/Configurator";
-import { shirtPart } from "../../../contants/configurator";
-import Womenjacket from "../../Configurator/ClothModel/Womenjacket";
-
 
 const ModelEnvironment = () => {
   const { enabled, shirtPart, part } = useCCustomization();
@@ -32,11 +29,9 @@ const ModelEnvironment = () => {
           shadow-mapSize-width={1024}
           shadow-mapSize-height={1024}
         />
-        //-1.26
         <group position={[shirtPart[part].pos[0], shirtPart[part].pos[1], shirtPart[part].pos[2]]} rotation={[shirtPart[part].rot[0],shirtPart[part].rot[1],shirtPart[part].rot[2]]}
         >
           <ShirtModel />
-          {/* <Womenjacket /> */}
         </group>
       </PresentationControls>
     </>

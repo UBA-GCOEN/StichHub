@@ -12,10 +12,11 @@ import {
   wool_ao,
   wool_normal,
   wool_rough,
-} from "../../../../public/textures";
+} from "../../../../src/assets/textures";
+
 
 function ShirtModel(props) {
-  const { nodes, materials } = useGLTF("./3D-Model/ShirtModel-transformed.glb");
+  const { nodes, materials } = useGLTF("../../../../src/assets/3D-Model/ShirtModel-transformed.glb");
   const { sleeveType, collarType, backType, cuffType, selectedColor, selected } =
     useCCustomization();
 
@@ -363,4 +364,4 @@ function ShirtModel(props) {
 
 export default ShirtModel;
 
-useGLTF.preload("./3D-Model/ShirtModel-transformed.glb");
+useGLTF.preload("../../../../src/assets/3D-Model/ShirtModel-transformed.glb");

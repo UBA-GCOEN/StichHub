@@ -1,5 +1,5 @@
 import React from "react";
-import { hiwtailor } from "../../../contants/MainLandingPage";
+import { hiwtailor } from "../../../constants/MainLandingPage";
 
 const Tailors = () => {
   return (

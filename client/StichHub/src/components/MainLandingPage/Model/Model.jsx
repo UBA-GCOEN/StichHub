@@ -4,7 +4,7 @@ import { useCustomization } from "../../../contexts/LandingPageDemo";
 
 function Model(props) {
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF("./3D-Model/FinalModel.gltf");
+  const { nodes, materials, animations } = useGLTF("./src/assets/3D-Model/FinalModel.gltf");
   const { actions, names } = useAnimations(animations, group);
   const { demoButton } = useCustomization();
 
@@ -280,4 +280,4 @@ function Model(props) {
 
 export default Model
 
-useGLTF.preload("./3D-Model/FinalModel.gltf");
+useGLTF.preload("./src/assets/3D-Model/FinalModel.gltf");
