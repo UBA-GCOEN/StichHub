@@ -13,33 +13,42 @@ export default function Navbardark() {
   const [isShown3, setIsShown3] = useState(false);
 
   const handleClick = (event) => {
+  const handleClick = (event) => {
     // 👇️ toggle shown state
+    setIsShown((current) => !current);
     setIsShown((current) => !current);
 
     // 👇️ or simply set it to true
     // setIsShown(true);
   };
   const handleClick2 = (event) => {
+  const handleClick2 = (event) => {
     // 👇️ toggle shown state
+    setIsShown1((current) => !current);
     setIsShown1((current) => !current);
 
     // 👇️ or simply set it to true
     // setIsShown(true);
   };
   const handleClick3 = (event) => {
+  const handleClick3 = (event) => {
     // 👇️ toggle shown state
+    setIsShown2((current) => !current);
     setIsShown2((current) => !current);
 
     // 👇️ or simply set it to true
     // setIsShown(true);
   };
   const handleClick4 = (event) => {
+  const handleClick4 = (event) => {
     // 👇️ toggle shown state
+    setIsShown3((current) => !current);
     setIsShown3((current) => !current);
 
     // 👇️ or simply set it to true
     // setIsShown(true);
   };
+  return (
   return (
     <div className="bg-transparent">
       <nav
@@ -374,6 +383,7 @@ export default function Navbardark() {
                         </a>
 
                         {/* <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Engagement</a>
+                        {/* <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Engagement</a>
                 <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Security</a>
                 <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Integrations</a>
                 <a href="#" className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-white hover:bg-gray-50">Automations</a>
@@ -414,6 +424,8 @@ export default function Navbardark() {
           </div>
         </div>
       )}
+      )}
     </div>
   );
 }
+
