@@ -14,39 +14,39 @@ import {
   wool_rough,
 } from "../../../../src/assets/textures";
 
-
 function ShirtModel(props) {
-  const { nodes, materials } = useGLTF("../../../../src/assets/3D-Model/ShirtModel-transformed.glb");
-  const { sleeveType, collarType, backType, cuffType, selectedColor, selected } =
-    useCCustomization();
+  const { nodes, materials } = useGLTF("./3D-Model/ShirtModel-transformed.glb");
+  const {
+    sleeveType,
+    collarType,
+    backType,
+    cuffType,
+    selectedColor,
+    selected,
+  } = useCCustomization();
 
   const cottonTextureProps = useTexture({
     normalMap: cotton_normal,
     roughnessMap: cotton_rough,
     aoMap: cotton_ao,
-  })
+  });
 
   const woolTextureProps = useTexture({
     normalMap: wool_normal,
     roughnessMap: wool_rough,
     aoMap: wool_ao,
-  })
+  });
 
-  const silkTextureProps = useTexture({ 
+  const silkTextureProps = useTexture({
     normalMap: silk_normal,
     roughnessMap: silk_rough,
     aoMap: silk_ao,
-  })
+  });
 
   var texture;
-  if(selected.name === 'Cotton')
-    texture = cottonTextureProps;
-
-  else  if(selected.name === 'Wool')
-    texture = woolTextureProps;
-
-  else  if(selected.name === 'Silk')
-    texture = silkTextureProps;
+  if (selected.name === "Cotton") texture = cottonTextureProps;
+  else if (selected.name === "Wool") texture = woolTextureProps;
+  else if (selected.name === "Silk") texture = silkTextureProps;
 
   return (
     <group {...props} dispose={null}>
@@ -57,7 +57,7 @@ function ShirtModel(props) {
         rotation={[Math.PI / 2, 0, 0]}
         visible={sleeveType.typeName === "Sleeve 3"}
       >
-        <meshStandardMaterial {...(texture)} color={selectedColor.hex} />
+        <meshStandardMaterial {...texture} color={selectedColor.hex} />
       </mesh>
       {/* Hanger */}
       <group rotation={[Math.PI / 2, 0, 0]} visible={true}>
@@ -77,7 +77,7 @@ function ShirtModel(props) {
         rotation={[Math.PI / 2, 0, 0]}
         visible={backType.typeName === "Back 1"}
       >
-        <meshStandardMaterial {...(texture)} color={selectedColor.hex} />
+        <meshStandardMaterial {...texture} color={selectedColor.hex} />
       </mesh>
       {/* back2 */}
       <mesh
@@ -86,7 +86,7 @@ function ShirtModel(props) {
         rotation={[Math.PI / 2, 0, 0]}
         visible={backType.typeName === "Back 2"}
       >
-        <meshStandardMaterial {...(texture)} color={selectedColor.hex} />
+        <meshStandardMaterial {...texture} color={selectedColor.hex} />
       </mesh>
       {/* back3 */}
       <mesh
@@ -95,7 +95,7 @@ function ShirtModel(props) {
         rotation={[Math.PI / 2, 0, 0]}
         visible={backType.typeName === "Back 3"}
       >
-        <meshStandardMaterial {...(texture)} color={selectedColor.hex} />
+        <meshStandardMaterial {...texture} color={selectedColor.hex} />
       </mesh>
       {/* Front */}
       <group rotation={[Math.PI / 2, 0, 0]} visible={true}>
@@ -104,14 +104,14 @@ function ShirtModel(props) {
           geometry={nodes.Front_1.geometry}
           material={materials.Body_F_FRONT_1825062}
         >
-          <meshStandardMaterial {...(texture)} color={selectedColor.hex} />
+          <meshStandardMaterial {...texture} color={selectedColor.hex} />
         </mesh>
         {/* buttons-space-cloth */}
         <mesh
           geometry={nodes.Front_2.geometry}
           material={materials.Body_F_FRONT_1825062}
         >
-          <meshStandardMaterial {...(texture)} color={selectedColor.hex} />
+          <meshStandardMaterial {...texture} color={selectedColor.hex} />
         </mesh>
         {/* front-buttons */}
         <mesh
@@ -131,14 +131,14 @@ function ShirtModel(props) {
           geometry={nodes.collar1_1.geometry}
           material={materials.Collar_Stand_FRONT_3139592}
         >
-          <meshStandardMaterial {...(texture)} color={selectedColor.hex} />
+          <meshStandardMaterial {...texture} color={selectedColor.hex} />
         </mesh>
         {/* collar outer cloth */}
         <mesh
           geometry={nodes.collar1_2.geometry}
           material={materials.Collar_Stand_FRONT_3139592}
         >
-          <meshStandardMaterial {...(texture)} color={selectedColor.hex} />
+          <meshStandardMaterial {...texture} color={selectedColor.hex} />
         </mesh>
         {/* collar design buttons */}
         <mesh
@@ -165,14 +165,14 @@ function ShirtModel(props) {
           geometry={nodes.collar2_1.geometry}
           material={materials.Collar_Stand_FRONT_3159643}
         >
-          <meshStandardMaterial {...(texture)} color={selectedColor.hex} />
+          <meshStandardMaterial {...texture} color={selectedColor.hex} />
         </mesh>
         {/* collar outer cloth */}
         <mesh
           geometry={nodes.collar2_2.geometry}
           material={materials.Collar_Stand_FRONT_3159643}
         >
-          <meshStandardMaterial {...(texture)} color={selectedColor.hex} />
+          <meshStandardMaterial {...texture} color={selectedColor.hex} />
         </mesh>
         {/* collar center button */}
         <mesh
@@ -192,14 +192,14 @@ function ShirtModel(props) {
           geometry={nodes.collar3_1.geometry}
           material={materials.Collar_FRONT_3169080}
         >
-          <meshStandardMaterial {...(texture)}color={selectedColor.hex} />
+          <meshStandardMaterial {...texture} color={selectedColor.hex} />
         </mesh>
         {/* collar outer cloth */}
         <mesh
           geometry={nodes.collar3_2.geometry}
           material={materials.Collar_FRONT_3169080}
         >
-          <meshStandardMaterial {...(texture)}color={selectedColor.hex} />
+          <meshStandardMaterial {...texture} color={selectedColor.hex} />
         </mesh>
         {/* collar center button */}
         <mesh
@@ -219,14 +219,14 @@ function ShirtModel(props) {
           geometry={nodes.collar4_1.geometry}
           material={materials.Collar_Stand_FRONT_3180005}
         >
-          <meshStandardMaterial {...(texture)}color={selectedColor.hex} />
+          <meshStandardMaterial {...texture} color={selectedColor.hex} />
         </mesh>
         {/* collar outer cloth */}
         <mesh
           geometry={nodes.collar4_2.geometry}
           material={materials.Collar_Stand_FRONT_3180005}
         >
-          <meshStandardMaterial {...(texture)}color={selectedColor.hex} />
+          <meshStandardMaterial {...texture} color={selectedColor.hex} />
         </mesh>
       </group>
       {/* collar6 */}
@@ -239,14 +239,14 @@ function ShirtModel(props) {
           geometry={nodes.collar6.geometry}
           material={materials.Collar_FRONT_9756}
         >
-          <meshStandardMaterial {...(texture)}color={selectedColor.hex} />
+          <meshStandardMaterial {...texture} color={selectedColor.hex} />
         </mesh>
         {/* collar outer cloth */}
         <mesh
           geometry={nodes.collar6_1.geometry}
           material={materials.Collar_FRONT_9756}
         >
-          <meshStandardMaterial {...(texture)}color={selectedColor.hex} />
+          <meshStandardMaterial {...texture} color={selectedColor.hex} />
         </mesh>
         {/* collar center button */}
         <mesh
@@ -268,7 +268,7 @@ function ShirtModel(props) {
           geometry={nodes.cuff1_1.geometry}
           material={materials.Cuffs_FRONT_187223}
         >
-          <meshStandardMaterial {...(texture)}color={selectedColor.hex} />
+          <meshStandardMaterial {...texture} color={selectedColor.hex} />
         </mesh>
         {/* Cuff button */}
         <mesh
@@ -290,7 +290,7 @@ function ShirtModel(props) {
           geometry={nodes.cuff2_1.geometry}
           material={materials.Cuffs_FRONT_202265}
         >
-          <meshStandardMaterial {...(texture)}color={selectedColor.hex} />
+          <meshStandardMaterial {...texture} color={selectedColor.hex} />
         </mesh>
         {/* Cuff button */}
         <mesh
@@ -312,7 +312,7 @@ function ShirtModel(props) {
           geometry={nodes.cuff3_1.geometry}
           material={materials.Cuffs_FRONT_223565}
         >
-          <meshStandardMaterial {...(texture)}color={selectedColor.hex} />
+          <meshStandardMaterial {...texture} color={selectedColor.hex} />
         </mesh>
         {/* Cuff button */}
         <mesh
@@ -332,14 +332,14 @@ function ShirtModel(props) {
           geometry={nodes.sleeve1_1.geometry}
           material={materials.Sleeve_Placket_FRONT_592142}
         >
-          <meshStandardMaterial {...(texture)}color={selectedColor.hex} />
+          <meshStandardMaterial {...texture} color={selectedColor.hex} />
         </mesh>
         {/* sleeve cloth */}
         <mesh
           geometry={nodes.sleeve1_2.geometry}
           material={materials.Sleeve_Placket_FRONT_592142}
         >
-          <meshStandardMaterial {...(texture)}color={selectedColor.hex} />
+          <meshStandardMaterial {...texture} color={selectedColor.hex} />
         </mesh>
         {/* sleeve button */}
         <mesh
@@ -356,7 +356,7 @@ function ShirtModel(props) {
         rotation={[Math.PI / 2, 0, 0]}
         visible={sleeveType.typeName === "Sleeve 2"}
       >
-        <meshStandardMaterial {...(texture)}color={selectedColor.hex} />
+        <meshStandardMaterial {...texture} color={selectedColor.hex} />
       </mesh>
     </group>
   );
@@ -364,4 +364,4 @@ function ShirtModel(props) {
 
 export default ShirtModel;
 
-useGLTF.preload("../../../../src/assets/3D-Model/ShirtModel-transformed.glb");
+useGLTF.preload("./3D-Model/ShirtModel-transformed.glb");
