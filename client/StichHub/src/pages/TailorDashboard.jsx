@@ -11,6 +11,7 @@ import OngoingOrders from "../components/TailorDashboard/ongoing/OngoingOrders";
 import OngoingOrdersOpen from "../components/TailorDashboard/ongoing/OngoingOrdersOpen";
 
 const elements = [<Dashboard />, <Element2 />, <Ongoing />];
+import Graphs from "../components/TailorDashboard/Graphs";
 
 const TailorDashboard = () => {
   const [currentElementIndex, setCurrentElementIndex] = useState(0);

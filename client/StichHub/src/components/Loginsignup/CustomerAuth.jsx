@@ -71,7 +71,7 @@ const CustomerAuth = () => {
   return (
     <div className="bg-gray-800 h-[100vh] flex justify-between overflow-hidden">
       {/* left Side */}
-      <div className="relative bg-primary w-[49vw] my-10 rounded-r-3xl">
+      <div className="relative bg-primary w-full sm:w-[49vw] my-10 rounded-3xl sm:rounded-r-3xl">
         <div className="relative z-[5]">
           {/* logo */}
           <div className="flex justify-center mt-10">
@@ -80,7 +80,7 @@ const CustomerAuth = () => {
           {/* title */}
           <div className="flex justify-center my-4">
             <div>
-              <img src={customerimg} alt="" className="w-[60px] mr-5" />
+              <img src={customerimg} alt="" className="w-[50px] mr-5" />
             </div>
             <div className="mt-3 text-center">
               <span className="text-white text-3xl font-semibold">
@@ -120,7 +120,7 @@ const CustomerAuth = () => {
                     id="name"
                     value={form.name}
                     onChange={handleChange}
-                    className="mt-[10px] block w-[25vw] py-2 pl-[45px] bg-white border rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                    className="mt-[10px] block w-[300px] py-2 pl-[45px] bg-white border rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
@@ -150,7 +150,7 @@ const CustomerAuth = () => {
                   id="email"
                   value={form.email}
                   onChange={handleChange}
-                  className="mt-[10px] block w-[25vw] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                  className="mt-[10px] block w-[300px] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 invalid:border-pink-500 invalid:text-pink-600
@@ -180,7 +180,7 @@ const CustomerAuth = () => {
                   id="password"
                   value={form.password}
                   onChange={handleChange}
-                  className="mt-[10px] block w-[25vw] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                  className="mt-[10px] block w-[300px] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
@@ -210,7 +210,7 @@ const CustomerAuth = () => {
                     id="confirmPassword"
                     value={form.confirmPassword}
                     onChange={handleChange}
-                    className="mt-[10px] block w-[25vw] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                    className="mt-[10px] block w-[300px] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
@@ -220,7 +220,7 @@ const CustomerAuth = () => {
               <div className="flex justify-center">
                 <button
                   type="submit"
-                  className="mt-[15px] block w-[25vw] py-2 bg-blue-500 text-white rounded-xl font-regular text-xl"
+                  className="mt-[15px] block w-[170px] py-2 bg-blue-500 text-white rounded-xl font-regular text-xl"
                 >
                   {isregister ? "Register" : "Sign in"}
                 </button>
@@ -254,7 +254,7 @@ const CustomerAuth = () => {
       </div>
 
       {/* Right Side (img)*/}
-      <div className="bg-[url('../src/assets/registrationbg.png')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10 rounded-l-3xl">
+      <div className="hidden sm:flex bg-[url('../src/assets/loginsignupbg.png')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10 rounded-l-3xl">
         <img
           src={shortlogo}
           className="w-[5vw] absolute bottom-14 right-5"

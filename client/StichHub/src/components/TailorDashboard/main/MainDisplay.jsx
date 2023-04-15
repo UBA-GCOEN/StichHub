@@ -7,9 +7,11 @@ import { ClockIcon, PhoneIcon } from "@heroicons/react/24/solid";
 //   } from "../../contexts/Configurator";
 import { View } from "../../../assets/3dConfigurator/configurator-icons";
 
+
 const MainDisplay = () => {
   return (
-    <div className="grid z-50 row-span-2 grid-flow-row grid-cols-2 grid-rows-6 ml-8 mr-28 grid-flow-col ">
+    <div>
+    <div className="grid z-50 row-span-2 grid-flow-row grid-cols-2 grid-rows-6 ml-8 mr-28 ">
       {/* new orders */}
       <div className="grid grid-cols-5 bg-white rounded-2xl row-span-6 mb-10 mr-8 w-full h-11/12">
         {/* New orders */}
@@ -166,6 +168,10 @@ const MainDisplay = () => {
           </div>
         </div>
       </div>
+      </div>
+
+      
+      
     </div>
   );
 };

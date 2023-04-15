@@ -18,6 +18,9 @@ import {
 import CustomerAuth from "./components/Loginsignup/CustomerAuth";
 import AuthTailor from "./components/Loginsignup/AuthTailor";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { Category } from "./components/Home";
+import NewTailor from "./components/TailorDashboard/NewTailor";
+import Profile from "./components/TailorDashboard/Profile";
 
 function App() {
   return (
@@ -36,13 +39,15 @@ function App() {
         <Route path="/TailorDashboard" element={<TailorDashboard />} />
         <Route path="/TailorDetails" element={<TailorDetails />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/home/category" element={<Category />} />
         <Route
           path="/TailorProfileVerification"
           element={<TailorProfileVerification />}
         />
         <Route path="/Configurator" element={<ThreeDConfigurator />} />
-        <Route path="/ThreeDMeasurement" element={<ThreeDMeasurement />} />
-        
+        <Route path="/measurement" element={<ThreeDMeasurement />} />
+        <Route path="/TailorDashboard/Profile" element={<Profile />} />
+        <Route path="/TailorDashboard/NewTailor" element={<NewTailor />} />
       </Routes>
     </GoogleOAuthProvider>
   );
