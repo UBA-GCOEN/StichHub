@@ -13,8 +13,8 @@ const OngoingOrdersOpen = () => {
       <div className="text-white text-2xl text-left">Ongoing Orders</div>
       <div className="m-7">
         {/* top */}
-        <div className="bg-[url('./src/assets/TailorDashboard/ongoingtop-2.png')] w-[102%] ml-[-15px] bg-cover bg-no-repeat p-20">
-          <button className="justify-start ml-0">
+        <div className="bg-[url('./src/assets/TailorDashboard/ongoingtop-2.png')] w-[102%] ml-[-15px] bg-cover bg-no-repeat p-16">
+          <button className="justify-start ml-0 w-fit">
             <ArrowLeftCircleIcon className="w-10 h-10 fill-white "></ArrowLeftCircleIcon>
           </button>
           <div className="flex  justify-center">

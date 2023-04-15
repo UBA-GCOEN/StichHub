@@ -3,10 +3,16 @@ import {
   Squares2X2Icon,
   UserIcon,
   Cog6ToothIcon,
-  CheckCircleIcon
+  CheckCircleIcon,
 } from "@heroicons/react/24/solid";
 
-const LeftView = () => {
+const LeftView = (props) => {
+    const { handleNavigationLinkClick } = props;
+
+    const handleLinkClick = (index) => {
+      handleNavigationLinkClick(index);
+    };
+
   return (
     <div className="grid grid-flow-row auto-rows-fr row-span-3 mt-4 z-50 rounded-3xl container h-[100hv] bg-gradient-to-br from-grey to-dark_grey ">
       {/* Leftview top Profile*/}
@@ -79,38 +85,38 @@ const LeftView = () => {
       {/* Left Navigation*/}
       <div className="grid place-items-center">
         {/**dashboard */}
-        <div className="flex justify-items-center items-center rounded-tr-full rounded-bl-full w-[90%] h-[65%] bg-gradient-to-b from-left_nav_blue_light to-left_nav_blue">
+        <button onClick={() => handleLinkClick(0)} className="flex justify-items-center items-center rounded-tr-full rounded-bl-full w-[90%] h-[65%] bg-gradient-to-b from-left_nav_blue_light to-left_nav_blue">
           {/**icon */}
           <Squares2X2Icon className="basis-1/3 h-[24px] w-[24px]"></Squares2X2Icon>
           <div className="flex-2 text-sm font-bold">Dashboard</div>
-        </div>
+        </button>
 
         {/**profile */}
-        <div className="group flex justify-items-center items-center rounded-tr-full rounded-bl-full w-[90%] h-[65%] hover:opacity-30 hover:bg-gradient-to-b hover:from-left_nav_blue_light hover:to-left_nav_blue">
+        <button className="group flex justify-items-center items-center rounded-tr-full rounded-bl-full w-[90%] h-[65%] hover:opacity-30 hover:bg-gradient-to-b hover:from-left_nav_blue_light hover:to-left_nav_blue">
           {/**icon */}
           <UserIcon className="basis-1/3 fill-left_nav_icon_orange group-hover:fill-black h-[24px] w-[24px]"></UserIcon>
           <div className="flex-2 text-sm group-hover:text-black group-hover:font-bold text-white">
             Profile
           </div>
-        </div>
+        </button>
 
         {/**ongoing */}
-        <div className="flex group justify-items-center items-center rounded-tr-full rounded-bl-full w-[90%] h-[65%] hover:opacity-30 hover:bg-gradient-to-b hover:from-left_nav_blue_light hover:to-left_nav_blue">
+        <button onClick={() => handleLinkClick(2)} className="flex group justify-items-center items-center rounded-tr-full rounded-bl-full w-[90%] h-[65%] hover:opacity-30 hover:bg-gradient-to-b hover:from-left_nav_blue_light hover:to-left_nav_blue">
           {/**icon */}
           <Cog6ToothIcon className="basis-1/3 fill-left_nav_icon_orange group-hover:fill-black h-[24px] w-[24px]"></Cog6ToothIcon>
           <div className="flex-2 text-sm group-hover:text-black group-hover:font-bold  text-white">
             Ongoing
           </div>
-        </div>
+        </button>
 
         {/**completed */}
-        <div className="flex group justify-items-center items-center rounded-tr-full rounded-bl-full w-[90%] h-[65%] hover:opacity-30 hover:bg-gradient-to-b hover:from-left_nav_blue_light hover:to-left_nav_blue">
+        <button className="flex group justify-items-center items-center rounded-tr-full rounded-bl-full w-[90%] h-[65%] hover:opacity-30 hover:bg-gradient-to-b hover:from-left_nav_blue_light hover:to-left_nav_blue">
           {/**icon */}
           <CheckCircleIcon className="basis-1/3 fill-left_nav_icon_orange group-hover:fill-black h-[24px] w-[24px]"></CheckCircleIcon>
           <div className="flex-2 text-sm group-hover:text-black group-hover:font-bold text-white">
             Completed
           </div>
-        </div>
+        </button>
       </div>
 
       {/** LeftView Callender*/}
