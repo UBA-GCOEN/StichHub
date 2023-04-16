@@ -11,12 +11,14 @@ const Category = () => {
     setSelectedLabel(event.target.value);
   };
 
+  console.log(porpsData);
+
   return (
     <div className="bg-[#BADDF1] w-[100vw] h-[100vh] flex justify-center flex-wrap content-center">
       <div className="flex flex-col">
         <h1 className="text-xl font-semibold">Select Your Cloth Category :</h1>
         <div className="my-3">
-          {tailorCards[porpsData.index].tag.map((item, index) => (
+          {porpsData.item.types.map((item, index) => (
             <div className="">
               {item === "Shirts" && (
                 <div className="">
@@ -52,7 +54,7 @@ const Category = () => {
               )}
             </div>
           ))}
-          {tailorCards[porpsData.index].tag.map((item, index) => (
+          {porpsData.item.types.map((item, index) => (
             <div>
               {item != "Shirts" && item != "Blazers" && (
                 <label className="">
