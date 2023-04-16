@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://192.168.1.6:5000",
+  baseURL: "https://stichhub-backend-8oizg01lg-siddhant-patil0203.vercel.app",
 });
 
 instance.interceptors.request.use((req) => {

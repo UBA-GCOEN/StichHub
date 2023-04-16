@@ -1,7 +1,7 @@
 {
   "name": "stichhub",
   "private": true,
-  "proxy": "http://192.168.1.6:5000",
+  "proxy": "https://stichhub-backend-8oizg01lg-siddhant-patil0203.vercel.app",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
