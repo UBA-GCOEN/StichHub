@@ -17,7 +17,7 @@ function TailorDetails() {
 
   const location = useLocation();
   const propsData = location.state;
-  console.log(propsData);
+  // console.log(propsData);
 
   // check screen size and set state variable
   window.addEventListener("resize", () => {
@@ -91,7 +91,7 @@ export default TailorDetails;
 const TailorDetailsM = () => {
   const location = useLocation();
   const propsData = location.state;
-  console.log(propsData);
+  // console.log(propsData);
   return (
     <div className="lg:hidden block">
       {/* Back Button */}

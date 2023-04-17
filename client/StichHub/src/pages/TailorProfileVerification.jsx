@@ -79,6 +79,14 @@ const TailorProfileVerification = () => {
     setUser(JSON.parse(localStorage.getItem("tailorProfile")));
   }, [location]);
 
+  useEffect(() => {
+    const isFirstLogin = localStorage.getItem("tailorFirstLogin");
+
+    if (!isFirstLogin) {
+      navigateTo("/TailorDashboard");
+    }
+  }, []);
+
   const [checkedItems, setCheckedItems] = useState([]);
 
   const handleCheckboxChange = (e) => {
@@ -86,7 +94,9 @@ const TailorProfileVerification = () => {
     if (checked) {
       setCheckedItems((prevValues) => [...prevValues, value]);
     } else {
-      setCheckedItems((prevValues) => prevValues.filter((val) => val !== value));
+      setCheckedItems((prevValues) =>
+        prevValues.filter((val) => val !== value)
+      );
     }
   };
 
@@ -231,9 +241,9 @@ const TailorProfileVerification = () => {
   const handleSubmit = async () => {
     setIsLoading(true);
     try {
-      
       const res = await axios.post("/tailors/list", form);
       setIsLoading(false);
+      localStorage.removeItem("tailorFirstLogin");
       navigateTo("/TailorDashboard");
     } catch (error) {
       console.log(error.response.data.message);
