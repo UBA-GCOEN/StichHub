@@ -9,7 +9,7 @@ import yadav from "../assets/Yadav.png";
 import TabsM from "../components/TailorDetails/TabsM";
 import StarRateM from "../components/TailorDetails/StarRateM";
 import ProgressbarM from "../components/TailorDetails/ProgressM";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { tailorCards } from "../constants/home";
 
 function TailorDetails() {
@@ -26,19 +26,26 @@ function TailorDetails() {
   });
 
   // render mobile or desktop component based on isMobile state
-  return <div>{isMobile ? <TailorDetailsM /> : <TailorDetailsD />}</div>;
+  return (
+    <div>
+      <TailorDetailsM />
+      <TailorDetailsD />
+    </div>
+  );
 }
 
 const TailorDetailsD = () => {
   return (
-    <div className="bg-[white] h-fit rounded-lg p-2 w-3/5 text-black">
+    <div className="hidden lg:block bg-[white] h-fit rounded-lg p-2 w-3/5 text-black">
       <div className="w-full h-10">
-        <div className="float-left">
-          {/* BACK BUTTON */}
-          <a href="./TailorList">
+        <Link to="/home">
+          <div className="float-left">
+            {/* BACK BUTTON */}
+            {/* <a href="./TailorList"> */}
             <FaArrowLeft className="w-10 h-10 hover:bg-[#b8b0b0] rounded-full p-2" />
-          </a>
-        </div>
+            {/* </a> */}
+          </div>
+        </Link>
         <div className="float-right rounded-full hover:bg-[#b8b0b0]">
           {/* Share BUTTON */}
           <FaShareAlt className="w-10 h-10 p-2" />
@@ -86,13 +93,15 @@ const TailorDetailsM = () => {
   const propsData = location.state;
   console.log(propsData);
   return (
-    <div>
+    <div className="lg:hidden block">
       {/* Back Button */}
-      <div>
-        <div className="m-2 p-2 w-12 h-12">
-          <FaArrowLeft className="h-7 w-7" />
+      <Link to="/home">
+        <div>
+          <div className="m-2 p-2 w-12 h-12">
+            <FaArrowLeft className="h-7 w-7" />
+          </div>
         </div>
-      </div>
+      </Link>
       {/* Button end */}
 
       {/* Photo and price tag Name*/}
@@ -101,7 +110,7 @@ const TailorDetailsM = () => {
           {/* Photo */}
           <div className="bg-white p-4 pb-1 mt-1 drop-shadow-lg  w-4/5  items-center m-auto rounded-lg">
             <div className="drop-shadow-lg flex w-fit h-fit items-center justify-center text-center mx-auto">
-              <img src={yadav} />
+              <img src={propsData.item.passport} />
             </div>
             {/* Photo End */}
 
@@ -109,15 +118,15 @@ const TailorDetailsM = () => {
             <div className="flex justify-around m-2 p-2">
               <div className="justify-center items-center p-2">
                 <div>
-                  <h1>Name</h1>
+                  <h1>{propsData.item.name}</h1>
                 </div>
                 <div>
-                  <h1>Address</h1>
+                  <h1>{propsData.item.city}</h1>
                 </div>
               </div>
               <div className="justify-right items-center p-2">
                 <button className="bg-gradient-to-t from-black via-black to-gray-400  hover:bg-gradient-to-b text-white font-semibold py-2 px-4 rounded-md">
-                  $999
+                 ₹ {propsData.item.prizerange[0]} <br /> - ₹ {propsData.item.prizerange[1]}
                 </button>
               </div>
             </div>
@@ -126,7 +135,7 @@ const TailorDetailsM = () => {
         </div>
         {/* Tabs Start */}
         <div>
-          <TabsM />
+          <TabsM item={propsData.item}/>
         </div>
         {/* Tabs  End */}
 
@@ -145,13 +154,24 @@ const TailorDetailsM = () => {
           </div>
         </div>
         {/* ReviewsEnd */}
+        
+        <h1>Add this features: </h1> <br />
+        {propsData.item.address} <br/>
+        {propsData.item.address2} <br/>
+        {propsData.item.contact} <br/>
+        {propsData.item.country} <br/>
+        {propsData.item.pincode} <br/>
+        {propsData.item.rating} <br/>
+        {propsData.item.state} <br/>
 
         {/* Book AppointMent */}
+        <Link to="/home/category" state={{item : propsData.item}}>
         <div className="text-center m-4 drop-shadow-lg">
           <button className="drop-shadow-lg bg-[white] hover:bg-[gray] text-black font-semibold py-2 px-4 rounded-full">
             Book Appointmet
           </button>
         </div>
+        </Link>
         {/* Book AppointMent End*/}
       </div>
     </div>

@@ -7,6 +7,7 @@ import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import axios from "../../axios.js";
+import { Player } from "@lottiefiles/react-lottie-player";
 
 const initialForm = {
   name: "",
@@ -20,6 +21,7 @@ const CustomerAuth = () => {
   const [form, setForm] = useState(initialForm);
   const [error, setError] = useState("");
   const navigateTo = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   const switchMode = () => {
     setForm(initialForm);
@@ -32,6 +34,7 @@ const CustomerAuth = () => {
 
   const handleSumbmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     try {
       const res = isregister
@@ -42,9 +45,11 @@ const CustomerAuth = () => {
 
       localStorage.setItem("profile", JSON.stringify({ ...result }));
 
+      setIsLoading(false);
       navigateTo("/home");
     } catch (error) {
       setError(error.response.data.message);
+      setIsLoading(false);
     }
   };
 
@@ -70,8 +75,23 @@ const CustomerAuth = () => {
 
   return (
     <div className="bg-gray-800 h-[100vh] flex justify-between overflow-hidden">
+      {/* Loading Animations */}
+      {isLoading ? (
+        <div className="relative">
+          <div className="absolute z-[100] left-[-10vw] lg:left-[30vw] top-[10vh]">
+            <Player
+              src="https://assets8.lottiefiles.com/packages/lf20_prjwp0b2.json"
+              background="transparent"
+              speed="1"
+              style={{ height: "500px", width: "500px" }}
+              loop
+              autoplay
+            />
+          </div>
+        </div>
+      ) : null}
       {/* left Side */}
-      <div className="relative bg-primary w-full sm:w-[49vw] my-10 rounded-3xl sm:rounded-r-3xl">
+      <div className="relative bg-primary w-full lg:w-[49vw] my-10 rounded-3xl lg:rounded-r-3xl">
         <div className="relative z-[5]">
           {/* logo */}
           <div className="flex justify-center mt-10">
@@ -254,7 +274,7 @@ const CustomerAuth = () => {
       </div>
 
       {/* Right Side (img)*/}
-      <div className="hidden sm:flex bg-[url('../src/assets/loginsignupbg.png')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10 rounded-l-3xl">
+      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.png')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10 rounded-l-3xl">
         <img
           src={shortlogo}
           className="w-[5vw] absolute bottom-14 right-5"

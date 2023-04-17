@@ -6,7 +6,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function TabsM() {
+export default function TabsM(props) {
   // Constanst for starts
   const stars = Array(5).fill(0);
 
@@ -92,20 +92,19 @@ export default function TabsM() {
           )}
         >
           <ul>
-            {categories.Details.map((post) => (
+            {/* {categories.Details.map((post) => ( */}
               <li
-                key={post.id}
                 className="relative rounded-md p-3 hover:bg-gray-100"
               >
-                <h3 className="text-sm font-medium leading-5">{post.title}</h3>
+                <h3 className="text-sm font-medium leading-5">{props.item.bio}</h3>
 
-                <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
+                {/* <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
                   <li>{post.date}</li>
                   <li>&middot;</li>
                   <li>{post.commentCount} comments</li>
                   <li>&middot;</li>
                   <li>{post.shareCount} shares</li>
-                </ul>
+                </ul> */}
 
                 <a
                   href="#"
@@ -115,7 +114,7 @@ export default function TabsM() {
                   )}
                 />
               </li>
-            ))}
+            {/* ))} */}
           </ul>
         </Tab.Panel>
 
@@ -126,17 +125,17 @@ export default function TabsM() {
             "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
           )}
         >
-          {Object.values(categories.Skills).map((post, idx) => (
+          {props.item.types.map((type, idx) => (
             <div
               key={idx}
               className="m-2 p-2"
             >
               <div className="justify-center text-center">
-                <h1>{post.name}</h1>
+                <h1>{type}</h1>
               </div>
               <div className="flex justify-center">
                 {stars.map((_, index) => {
-                  let currentValue = post.value;
+                  let currentValue = type.value;
                   return (
                     <FaStar
                       key={index}
@@ -147,7 +146,7 @@ export default function TabsM() {
                 })}
               </div>
             </div>
-          ))}
+           ))} 
         </Tab.Panel>
 
         <Tab.Panel
@@ -157,20 +156,20 @@ export default function TabsM() {
           )}
         >
           <ul>
-            {categories.Details.map((post) => (
+            {/* {categories.Details.map((post) => ( */}
               <li
-                key={post.id}
+                // key={post.id}
                 className="relative rounded-md p-3 hover:bg-gray-100"
               >
-                <h3 className="text-sm font-medium leading-5">{post.title}</h3>
+                <h3 className="text-sm font-medium leading-5">{props.item.bio}</h3>
 
-                <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
+                {/* <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
                   <li>{post.date}</li>
                   <li>&middot;</li>
                   <li>{post.commentCount} comments</li>
                   <li>&middot;</li>
                   <li>{post.shareCount} shares</li>
-                </ul>
+                </ul> */}
 
                 <a
                   href="#"
@@ -180,7 +179,7 @@ export default function TabsM() {
                   )}
                 />
               </li>
-            ))}
+            {/* ))} */}
           </ul>
         </Tab.Panel>
       </Tab.Panels>
