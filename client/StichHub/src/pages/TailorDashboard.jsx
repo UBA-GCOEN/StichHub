@@ -9,8 +9,9 @@ import NavBar from "../components/TailorDashboard/main/NavBar";
 import FooterNavigation from "../components/TailorDashboard/mobile/FooterNavigation";
 import OngoingOrders from "../components/TailorDashboard/ongoing/OngoingOrders";
 import OngoingOrdersOpen from "../components/TailorDashboard/ongoing/OngoingOrdersOpen";
+import Profiles from "../components/TailorDashboard/Profile";
 
-const elements = [<Dashboard />, <Element2 />, <Ongoing />];
+const elements = [<Dashboard />, <Profile />, <Ongoing />];
 import Graphs from "../components/TailorDashboard/Graphs";
 
 const TailorDashboard = () => {
@@ -55,13 +56,8 @@ function Dashboard() {
   );
 }
 
-function Element2() {
-  return (
-    <div>
-      <h1>Element 2</h1>
-      <p>This is the second element.</p>
-    </div>
-  );
+function Profile() {
+  return <Profiles />;
 }
 
 function Ongoing() {

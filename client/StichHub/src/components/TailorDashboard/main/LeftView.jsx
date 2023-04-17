@@ -92,7 +92,7 @@ const LeftView = (props) => {
         </button>
 
         {/**profile */}
-        <button className="group flex justify-items-center items-center rounded-tr-full rounded-bl-full w-[90%] h-[65%] focus:bg-gradient-to-b  from-left_nav_blue_light to-left_nav_blue">
+        <button onClick={() => handleLinkClick(1)} className="group flex justify-items-center items-center rounded-tr-full rounded-bl-full w-[90%] h-[65%] focus:bg-gradient-to-b  from-left_nav_blue_light to-left_nav_blue">
           {/**icon */}
           <UserIcon className="basis-1/3 fill-left_nav_icon_orange group-focus:fill-black h-[24px] w-[24px]"></UserIcon>
           <div className="flex-2 text-sm group-focus:text-black group-focus:font-bold text-white">

@@ -1,4 +1,16 @@
 import React, { useState } from "react";
+
+// import Cashfree, {
+//   CFConfig,
+//   CFPaymentGateway,
+//   CFEnvironment,
+//   CFCustomerDetails,
+// } from "cashfree-sdk";
+
+
+
+
+import axios from "axios";
 import {
   Card,
   CardHeader,
@@ -23,6 +35,18 @@ import {
 
 import se from "../../assets/img/se.png";
 import img from "../../assets/img/img.png";
+
+
+
+function ap() {
+
+
+
+  let cashfree = new cashfreeSandbox.Cashfree(paymentSessionId);
+
+  // console.log();
+  // CFEnvironment is san enum consisting of PRODUCTION and SANDBOX as 2 possible values.
+}
 
 //Card Number Regular Expression
 function formatCardNumber(e) {
@@ -51,6 +75,16 @@ function formatExpires(e) {
     .replace(/^0{1,}/g, "0")
     .replace(/^([0-1]{1}[0-9]{1})([0-9]{1,2}).*/g, "$1/$2");
 }
+
+// const cfClient = Cashfree.Client({
+//   Payouts: {
+//     clientId: "YOUR_CLIENT_ID",
+//     clientSecret: "YOUR_CLIENT_SECRET",
+//     env: "TEST",
+//   },
+// });
+
+//payment ends
 
 // main definition
 const Step3 = () => {
@@ -199,7 +233,7 @@ const Step3 = () => {
                             Save Card Details
                           </label>
                         </div>
-                        <Button size="lg" className="h-auto p-3">
+                        <Button size="lg" className="h-auto p-3" onclick={ap()}>
                           Pay Now
                         </Button>
                         <Typography
@@ -263,7 +297,11 @@ const Step3 = () => {
                             className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                           />
                         </div>
-                        <Button size="lg" className="h-auto p-3">
+                        <Button
+                          // onClick={pay()}
+                          size="lg"
+                          className="h-auto p-3"
+                        >
                           Pay Now
                         </Button>
                         <Typography
