@@ -82,9 +82,9 @@ const TailorProfileVerification = () => {
   useEffect(() => {
     const isFirstLogin = localStorage.getItem("tailorFirstLogin");
 
-    if (!isFirstLogin) {
-      navigateTo("/TailorDashboard");
-    }
+    if (!isFirstLogin) navigateTo("/TailorDashboard");
+
+    if (!user) navigateTo("/auth/tailor");
   }, []);
 
   const [checkedItems, setCheckedItems] = useState([]);
@@ -143,7 +143,7 @@ const TailorProfileVerification = () => {
     setForm({ ...form, country: country });
     setForm({ ...form, prizerange: [minValue, maxValue] });
     setForm({ ...form, types: checkedItems });
-    console.log(form);
+    // console.log(form);
   };
 
   useEffect(() => {
@@ -338,7 +338,7 @@ const TailorProfileVerification = () => {
   function handleChange(e) {
     setFile(URL.createObjectURL(e.target.files[0]));
     setForm({ ...form, passport: file });
-    console.log(form);
+    // console.log(form);
   }
 
   const [file2, setFile2] = useState("");
