@@ -1,20 +1,66 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { tailorCards } from "../../constants/home";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import axios from "../../axios.js";
+import { Player } from "@lottiefiles/react-lottie-player";
 
 const TailorList = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [tailorList, setTailorList] = useState([]);
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  const location = useLocation();
+
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("profile")));
+  },[location])
+
+  const getTailor = async () => {
+    setIsLoading(true);
+
+    try {
+      const res = await axios.get("/tailors/list");
+
+      setTailorList(res.data);
+      setIsLoading(false);
+    } catch (err) {
+      console.log(err);
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getTailor();
+  }, [1]);
+
+  const linkTo = (user ? '/home/category' : "/auth/customer")
+
   return (
-    <div className="mx-5 my-5 flex flex-wrap justify-between gap-3">
-      {tailorCards.map((item, index) => (
+    <div className="mx-5 my-5 flex flex-wrap gap-3 sm:gap-7">
+      {isLoading ? (
+        <div className="relative">
+          <div className="absolute z-[100] left-[-10vw] lg:left-[30vw] top-[10vh]">
+            <Player
+              src="https://assets8.lottiefiles.com/packages/lf20_prjwp0b2.json"
+              background="transparent"
+              speed="1"
+              style={{ height: "500px", width: "500px" }}
+              loop
+              autoplay
+            />
+          </div>
+        </div>
+      ) : null}
+
+      {tailorList.map((item, index) => (
         <div
           key={index}
-          className="p-3 cardGradient w-[43vw] rounded-lg text-white"
+          className="p-3 cardGradient w-[43vw] sm:w-[20vw] rounded-lg text-white"
         >
           {/* Top Display */}
           <div className="flex justify-between">
             <div>
               <img
-                src={item.img}
+                src={item.passport}
                 className="mb-1 w-[60px] h-[60px] rounded-lg"
               />
               <span className="font-semibold text-lg">{item.name}</span>
@@ -36,13 +82,13 @@ const TailorList = () => {
                   />
                 </svg>
               </div>
-              <span className="text-sm"> {item.location}</span>
+              <span className="text-sm"> {item.city}</span>
             </div>
           </div>
           {/* middle Display */}
           <p className="text-xs py-1">{item.bio}</p>
           <div className="flex flex-wrap gap-1 py-1">
-            {item.tag.map((tags, id) => (
+            {item.types.map((tags, id) => (
               <div
                 key={id}
                 className="bg-indigo-500 rounded-md px-2 text-white text-xs"
@@ -54,12 +100,13 @@ const TailorList = () => {
 
           {/* Buttons */}
           <div className="flex flex-col justify-between gap-2 py-2">
-            <Link to="/TailorDetails" state={{ index: index }}>
+            <Link to="/TailorDetails" state={{item}}>
               <button className="text-xs bg-cyan-100 text-black py-2 px-2 rounded-lg w-full">
                 More Details
               </button>
             </Link>
-            <Link to="/home/category" state={{ index: index }}>
+
+            <Link to={linkTo} state={{ item }}>
               <button className="text-xs bg-blue-500 px-2 py-2 rounded-lg w-full">
                 Book Tailor
               </button>

@@ -3,21 +3,21 @@ import { hiwtailor } from "../../../constants/MainLandingPage";
 
 const Tailors = () => {
   return (
-    <div className="h-[100%] sm:h-[100vh] relative pt-40  sm:p-20 sm:mx-20 mx-7">
+    <div className="h-[100%] lg:h-[100vh] relative pt-40  lg:p-20 lg:mx-20 mx-7">
       <div className="relative z-[5]">
         {/* Title */}
         <div id="title" className="relative flex flex-col">
-          <span className="text-right  font-medium text-xl sm:text-4xl ">
+          <span className="text-right  font-medium text-xl lg:text-4xl ">
             HOW IT WORKS <br /> FOR TAILORS ?
           </span>
           <div className="flex mt-3  justify-end">
             <div className="p-3 bg-white w-[6px] rounded-full"></div>
-            <div className="relative flex w-[150px] sm:w-[300px] h-[2px] bg-white mt-2"></div>
+            <div className="relative flex w-[150px] lg:w-[300px] h-[2px] bg-white mt-2"></div>
           </div>
         </div>
 
         {/* Steps */}
-        <div id="steps" className="hidden sm:flex justify-evenly">
+        <div id="steps" className="hidden lg:flex justify-evenly">
           {/* Steps */}
           {hiwtailor.map((item, index) => (
             <div
@@ -44,7 +44,7 @@ const Tailors = () => {
         </div>
 
         {/* Steps for Mobile */}
-        <div id="steps" className="sm:hidden flex flex-wrap justify-between">
+        <div id="steps" className="lg:hidden flex flex-wrap justify-between">
           {/* Steps */}
           {hiwtailor.map((item, index) => (
             <div
@@ -55,7 +55,7 @@ const Tailors = () => {
               <div className="flex justify-center">
                 <div
                   id="stepNumber"
-                  className="w-10 p-1 sm:py-[10px] bg-[#B100AA] text-center sm:w-[60px] sm:h-[60px] rounded-full sm:ml-[95px] mb-5"
+                  className="w-10 p-1 lg:py-[10px] bg-[#B100AA] text-center lg:w-[60px] lg:h-[60px] rounded-full lg:ml-[95px] mb-5"
                 >
                   {item.step}
                 </div>
@@ -63,7 +63,7 @@ const Tailors = () => {
               <img
                 id="stepLogo"
                 src={item.img}
-                className="mx-[45px] sm:mx-[80px] sm:my-[50px]"
+                className="mx-[45px] lg:mx-[80px] lg:my-[50px]"
               />
               <div id="stepTitle" className={`mt-5 text-lg ${item.style}`}>
                 {item.title}

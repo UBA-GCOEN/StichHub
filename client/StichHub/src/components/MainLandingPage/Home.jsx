@@ -25,10 +25,10 @@ const Home = () => {
   });
 
   return (
-    <div id="" className="mt-10 sm:pt-10 sm:mt-10 h-[100vh] relative">
-      <div className="relative sm:px-20 pt-10 flex flex-col sm:flex-row justify-evenly z-[5]">
+    <div id="" className="mt-10 lg:pt-10 lg:mt-10 h-[100vh] relative">
+      <div className="relative lg:px-20 pt-10 flex flex-col lg:flex-row justify-evenly z-[5]">
         {/* Mobile Model */}
-        <div className="flex relative sm:hidden">
+        <div className="flex relative lg:hidden">
           {/* Model */}
           <div className="h-[50vh] w-[100vw]">
             <Canvas
@@ -63,38 +63,38 @@ const Home = () => {
         </div>
 
         {/* leftside */}
-        <div className="sm:w-[50%] mt-5 sm:mt-[60px] relative z-[5]">
+        <div className="lg:w-[50%] mt-5 lg:mt-[60px] relative z-[5]">
           {/* Heading */}
-          <div className="text-center z-[5] sm:text-left sm:text-8xl text-gray-100 font-semibold">
+          <div className="text-center z-[5] lg:text-left lg:text-8xl text-gray-100 font-semibold">
             <span>
               STICH <br /> YOUR WAY{" "}
             </span>
           </div>
 
           {/* Text */}
-          <p className="z-[5] relative text-white text-center sm:text-left py-4 px-10 sm:px-0 sm:py-8 text-xs sm:text-xl">
+          <p className="z-[5] relative text-white text-center lg:text-left py-4 px-10 lg:px-0 lg:py-8 text-xs lg:text-xl">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
             aliquam tenetur, dicta sequi ea natus excepturi
           </p>
 
           {/* Buttons */}
-          <div className="flex justify-center sm:justify-normal">
+          <div className="flex justify-center lg:justify-normal">
             <Link to="/auth">
-              <button className="bg-white px-3 py-2 sm:p-3 rounded-xl w-[30vw] sm:w-[200px] drop-shadow-2xl">
-                <span className="text-lg sm:text-[1.5rem] text-black">
+              <button className="bg-white px-3 py-2 lg:p-3 rounded-xl w-[30vw] lg:w-[200px] drop-shadow-2xl">
+                <span className="text-lg lg:text-[1.5rem] text-black">
                   Get Started
                 </span>
               </button>
             </Link>
             <Link to="/Configurator">
-              <button className="ml-[30px] text-white outline outline-white w-[30vw] px-3 py-2 sm:p-3 rounded-xl sm:w-[200px] drop-shadow-2xl">
-                <span className="text-lg sm:text-[1.5rem] ">Demo</span>
+              <button className="ml-[30px] text-white outline outline-white w-[30vw] px-3 py-2 lg:p-3 rounded-xl lg:w-[200px] drop-shadow-2xl">
+                <span className="text-lg lg:text-[1.5rem] ">Demo</span>
               </button>
             </Link>
           </div>
 
           {/* MajorFeature */}
-          <div className="hidden sm:block pt-8 justify-start content-start">
+          <div className="hidden xl:block pt-8 justify-start content-start">
             <p className="text-white text-base text-left mb-6">
               Major Features:
             </p>
@@ -128,7 +128,7 @@ const Home = () => {
         </div>
 
         {/* rightside */}
-        <div className="hidden sm:flex relative">
+        <div className="hidden lg:flex relative">
           {/* Model */}
           <div>
             <Canvas className="relative z-[5]" camera={{ zoom: 4 }}>

@@ -1,7 +1,7 @@
 {
   "name": "stichhub",
   "private": true,
-  "proxy": "https://stichhub-backend-avbpx9h07-siddhant-patil0203.vercel.app",
+  "proxy": "https://stichhub-backend-8oizg01lg-siddhant-patil0203.vercel.app",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -15,6 +15,7 @@
     "@google/model-viewer": "^3.1.0",
     "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.16",
+    "@lottiefiles/react-lottie-player": "^3.5.3",
     "@material-tailwind/react": "^1.4.2",
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.14",

@@ -36,7 +36,7 @@ const FilterSection = () => {
               </div>
 
               {/* Filter Menu */}
-              <div className="filter p-5 text-white w-[70vw] h-[60vh] overflow-y-scroll cardGradient absolute right-6 rounded-l-xl rounded-r-lg mt-2 z-[100]">
+              <div className="filter p-5 text-white w-[70vw] h-[60vh] overflow-y-scroll cardGradient absolute right-6 rounded-l-xl rounded-r-lg mt-2 z-[90]">
                 <div>
                   <span className="font-semibold">Category :</span>
                   <div className="my-2 mx-3">

@@ -14,6 +14,7 @@ const public_Key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA570tBh6eu4+IM84V
 import test from "./routes/test.js";
 import userTailorRouter from "./routes/userTailor.js";
 import userCustomerRouter from "./routes/userCustomer.js";
+import tailorsDetails from "./routes/tailorsDetails.js";
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.get("/", (req, res) => {
 app.use("/test", test);
 app.use("/userTailor", userTailorRouter);
 app.use("/userCustomer", userCustomerRouter);
+app.use("/tailors", tailorsDetails);
 
 
 

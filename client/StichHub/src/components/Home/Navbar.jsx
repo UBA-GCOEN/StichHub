@@ -5,6 +5,7 @@ import logo from "../../assets/logo/Long - Logo Transparent (Black).png";
 
 const Navbar = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  const [toggle, setToggle] = useState(false);
   const location = useLocation();
   const navigateTo = useNavigate();
 
@@ -21,10 +22,14 @@ const Navbar = () => {
   }, [location]);
 
   const logout = () => {
-    localStorage.clear();
+    // localStorage.clear();
+    localStorage.removeItem("profile");
     navigateTo("/home");
     setUser(null);
   };
+
+  const linkToCart = (user ? '/Cart' : "/auth/customer")
+  const linkToMeasurement = (user ? '/Cart' : "/auth/customer")
 
   return (
     <nav className="mt-3">
@@ -42,7 +47,7 @@ const Navbar = () => {
             name="search"
             id="search"
             placeholder="search what you want to stitch?"
-            className="border-2 w-[50vw]  rounded-xl border-indigo-500 py-2 px-3"
+            className="border-2 w-[50vw]  rounded-xl border-indigo-500 py-2 px-3 border-solid"
           />
         </div>
 
@@ -55,7 +60,10 @@ const Navbar = () => {
                 {" "}
                 {user?.result.name}{" "}
               </span>
-              <div className="rounded-full w-9">
+              <div
+                className="rounded-full w-9 cursor-pointer"
+                onClick={() => setToggle(!toggle)}
+              >
                 {user?.result.picture ? (
                   <img src={user?.result.picture} className="rounded-full" />
                 ) : (
@@ -65,12 +73,44 @@ const Navbar = () => {
                 )}
               </div>
 
-              <button
-                className="hidden bg-red-500 text-white py-1 px-3 rounded-lg ml-6 mt-1"
-                onClick={logout}
+              {/* User Menu */}
+              <div
+                className={`${
+                  !toggle ? "hidden" : "flex"
+                } cardGradient w-[240px] absolute mx-[-80px] lg:mx-[-10px] py-2 min-w-[140px] top-14 rounded-xl z-[100]`}
               >
-                Log Out
-              </button>
+                <div className="flex flex-col gap-2 mt-3">
+                  <Link to="/Cart">
+                    <span className="ml-6 text-white cursor-pointer my-2 hover:text-cyan-300">
+                    Your Cart
+                    </span>
+                  </Link>
+
+                  <Link to="/home">
+                    <span className="ml-6 text-white cursor-pointer my-2 hover:text-cyan-300">
+                      Your Orders
+                    </span>
+                  </Link>
+
+                  <Link to="/home">
+                    <span className="ml-6 text-white cursor-pointer my-2 hover:text-cyan-300">
+                    Your Profile
+                    </span>
+                  </Link>
+
+                  <Link to="/home">
+                    <span className="ml-6 text-white cursor-pointer my-2 hover:text-cyan-300">
+                    Your Measurements
+                    </span>
+                  </Link>
+                  <button
+                    className="bg-red-500 text-white py-1 px-3 rounded-lg ml-6 mt-9 mb-3"
+                    onClick={logout}
+                  >
+                    Log Out
+                  </button>
+                </div>
+              </div>
             </div>
           ) : (
             <Link to="/auth/customer">
@@ -88,7 +128,7 @@ const Navbar = () => {
           name="search"
           id="search"
           placeholder="search what you want to stitch?"
-          className="border-2 w-[90vw] rounded-xl border-indigo-500 py-2 px-3"
+          className="border-2 w-[90vw] rounded-xl border-indigo-500 py-2 px-3 border-solid"
         />
         <svg
           xmlns="http://www.w3.org/2000/svg"

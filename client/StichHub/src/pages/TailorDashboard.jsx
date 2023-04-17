@@ -34,7 +34,7 @@ const TailorDashboard = () => {
       </div>
       <div className="lg:hidden">
         <NavBar />
-        <div className="grid text-center select-none bg-primary justify-items-start text-5xl w-[100vw]  h-full text-center bg-primary">
+        <div className="grid text-center select-none bg-primary justify-items-start text-5xl w-[100vw]  h-full">
           {/* <LeftView></LeftView>
         <MainDisplay></MainDisplay> */}
           <TopProfile className="place-self-center"></TopProfile>

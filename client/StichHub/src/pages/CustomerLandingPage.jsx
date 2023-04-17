@@ -17,21 +17,24 @@ function CustomerLandingPage() {
   const [isMobile, setIsMobile] = useState(false);
 
   // check screen size and set state variable
-  window.addEventListener("resize", () => {
-    const isMobileView = window.innerWidth <= 840;
-    if (isMobileView !== isMobile) setIsMobile(isMobileView);
-  });
+  // window.addEventListener("resize", () => {
+  //   const isMobileView = window.innerWidth <= 840;
+  //   if (isMobileView !== isMobile) setIsMobile(isMobileView);
+  // });
 
   // render mobile or desktop component based on isMobile state
   return (
-    <div>{isMobile ? <CustomerLandingPageM /> : <CustomerLandingPageD />}</div>
+    <div>
+      <CustomerLandingPageM />
+      <CustomerLandingPageD />
+    </div>
   );
 }
 
 // DesktopView
 const CustomerLandingPageD = () => {
   return (
-    <div className="relative bg-primary p-2 w-screen h-screen overflow-x-hidden">
+    <div className="hidden lg:block relative bg-primary p-2 w-screen h-screen overflow-x-hidden">
       {/* NAV START */}
       <Navbardark />
       {/* NAV END */}
@@ -63,7 +66,7 @@ const CustomerLandingPageD = () => {
 // Mobile View
 const CustomerLandingPageM = () => {
   return (
-    <div className="bg-primary p-2 w-screen h-screen overflow-x-hidden">
+    <div className="lg:hidden block bg-primary p-2 w-screen h-screen overflow-x-hidden">
       {/* Top head div containing logo and sidemenu */}
       <div className="w-full justify-between flex p-4 z-[2]">
         <div className="w-3/6">

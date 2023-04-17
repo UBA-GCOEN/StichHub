@@ -1,10 +1,12 @@
-import jwt, { decode } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import * as dotenv from "dotenv";
 dotenv.config();
 
 const SECRET = process.env.CUSTOMER_USER;
 
-const auth = async (req, res, next) => {
+console.log(SECRET);
+
+const authCustomer = async (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
     const isCustomAuth = token.length < 500;
@@ -25,4 +27,4 @@ const auth = async (req, res, next) => {
   }
 };
 
-export default auth;
+export default authCustomer;

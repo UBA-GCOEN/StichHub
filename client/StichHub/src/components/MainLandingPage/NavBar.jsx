@@ -7,7 +7,7 @@ const NavBar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <nav className="w-[100vw] flex sm:pt-6 justify-center fixed z-[100] pt-3 px-4 sm:p-4">
+    <nav className="w-[100vw] flex lg:pt-6 justify-center fixed z-[100] pt-3 px-4 lg:p-4">
       <div className="">
         <a href="#">
           <img
@@ -17,7 +17,7 @@ const NavBar = () => {
           />
         </a>
       </div>
-      <ul className="list-none sm:flex hidden justify-center items-center cursor-pointer">
+      <ul className="list-none lg:flex hidden justify-center items-center cursor-pointer">
         {navbar.map((nav, index) => (
           <li
             key={nav.title}
@@ -31,11 +31,11 @@ const NavBar = () => {
         ))}
       </ul>
       <Link to="/auth">
-        <button className="hidden sm:block bg-white rounded-xl w-fit sm:px-5  shadow-xl drop-shadow-2xl mt-[6px] ml-14">
+        <button className="hidden lg:block bg-white rounded-xl w-fit lg:px-5  shadow-xl drop-shadow-2xl mt-[6px] ml-14">
           <span className="text-[16px] text-black">Get Started</span>
         </button>
       </Link>
-      <div className="sm:hidden flex flex-1 justify-end items-center">
+      <div className="lg:hidden flex flex-1 justify-end items-center">
         <img
           src={toggle ? close : menu}
           alt="menu"
@@ -46,7 +46,7 @@ const NavBar = () => {
         <div
           className={`${
             !toggle ? "hidden" : "flex"
-          } p-6 bg-black/100 absolute top-20 right-0 mx-4 my-2 min-w-[140px] w-[200px] rounded-xl sidebar`}
+          } p-6 bg-black/100 absolute top-20 right-0 mx-4 my-2 min-w-[140px] w-[200px] rounded-xl `}
         >
           <ul className="list-none flex justify-end items-start flex-1 flex-col">
             {navbar.map((nav, index) => (
