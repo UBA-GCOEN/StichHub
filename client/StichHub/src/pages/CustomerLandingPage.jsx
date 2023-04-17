@@ -53,7 +53,7 @@ const CustomerLandingPageD = () => {
       {/* ENd features */}
 
       {/* Section 2 for models in spline*/}
-      <div className="">
+      <div>
         <Worried />
       </div>
     </div>

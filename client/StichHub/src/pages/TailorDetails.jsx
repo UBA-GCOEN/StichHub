@@ -19,7 +19,6 @@ function TailorDetails() {
   const propsData = location.state;
   console.log(propsData);
 
-
   // check screen size and set state variable
   window.addEventListener("resize", () => {
     const isMobileView = window.innerWidth <= 840;
@@ -54,7 +53,7 @@ const TailorDetailsD = () => {
           <div className="w-2/3 rounded-lg drop-shadow-lg">
             <div>
               {/* Name and price tag */}
-              <Tailorhead propsData="propsData"/>
+              <Tailorhead propsData="propsData" />
             </div>
             <div className=" drop-shadow-lg m-2 p-2">
               {/* Skills , details , previous work */}
