@@ -1,14 +1,5 @@
 import React, { useState } from "react";
 
-// import Cashfree, {
-//   CFConfig,
-//   CFPaymentGateway,
-//   CFEnvironment,
-//   CFCustomerDetails,
-// } from "cashfree-sdk";
-
-
-
 
 import axios from "axios";
 import {
@@ -36,17 +27,23 @@ import {
 import se from "../../assets/img/se.png";
 import img from "../../assets/img/img.png";
 
+const handleSubmit = (event) => {
+  event.preventDefault();
 
+  const data = {
+    test: "test",
+  };
+  console.log(data);
+  // const formData = new FormData(event.target);
 
-function ap() {
-
-
-
-  let cashfree = new cashfreeSandbox.Cashfree(paymentSessionId);
-
-  // console.log();
-  // CFEnvironment is san enum consisting of PRODUCTION and SANDBOX as 2 possible values.
-}
+  // fetch("/api/form-submit", {
+  //   method: "POST",
+  //   body: formData,
+  // })
+  //   .then((response) => response.json())
+  //   .then((data) => console.log(data))
+  //   .catch((error) => console.error(error));
+};
 
 //Card Number Regular Expression
 function formatCardNumber(e) {
@@ -76,16 +73,6 @@ function formatExpires(e) {
     .replace(/^([0-1]{1}[0-9]{1})([0-9]{1,2}).*/g, "$1/$2");
 }
 
-// const cfClient = Cashfree.Client({
-//   Payouts: {
-//     clientId: "YOUR_CLIENT_ID",
-//     clientSecret: "YOUR_CLIENT_SECRET",
-//     env: "TEST",
-//   },
-// });
-
-//payment ends
-
 // main definition
 const Step3 = () => {
   // card number , expiration date field validation hooks
@@ -106,7 +93,7 @@ const Step3 = () => {
         />
         <div class="block max-w-lg rounded-lg bg-white p-6 ">
           {/* payment form */}
-          <form>
+          <form onSubmit={handleSubmit}>
             <span className="text-gray-700 font-bold text-lg ">Payment</span>
             <br />
             <br />
@@ -185,7 +172,8 @@ const Step3 = () => {
                             </span>
                             <input
                               type="number"
-                              name="q"
+                              name="card_number"
+                              id="card_number"
                               className=" text-black pl-14 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                             />
                           </div>
@@ -233,9 +221,9 @@ const Step3 = () => {
                             Save Card Details
                           </label>
                         </div>
-                        <Button size="lg" className="h-auto p-3" onclick={ap()}>
+                        <button type="submit" size="lg" className="h-auto p-3">
                           Pay Now
-                        </Button>
+                        </button>
                         <Typography
                           variant="small"
                           color="gray"

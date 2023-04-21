@@ -5,10 +5,6 @@ import cors from "cors";
 import * as dotenv from "dotenv";
 dotenv.config();
 import Razorpay from 'razorpay';
-const client_Id = "rzp_test_nHQFtXIxfARQnb";
-const secret = "mxO4uZBfjj6VCAFb7cFZhi3C ";
-const public_Key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA570tBh6eu4+IM84VDjf9Qck+IqY4XxBD71KH3QRpfSZswd96dErUQ934SMGPBaEfB9hkyaeKcyQ5Z6enDEp8VS6K3FSGMXMPyKL9VIlfwzyy5Z/UBgmyAFgmVFlGZ1C/iUYVBbY2eMm8eYMuPJtSXJsMor7CCklb5Ok2ysCyOINLxOAecrCdUWx69e7DzZiwfAjzYZqAYNH6NehRHrnFjWjupY5fM6+GA36dI6BiV2Ju0FOHGoWLQ7/SmwgYcyuchRaazDKQ+gwsU3WVcqWHuGo5/Jlo8VY5fDspBBDN1xsGyOGzADWOO1714mpVcBY1hotBAJeZxm/v79/+Wdn0/QIDAQAB";
-
 
 
 import test from "./routes/test.js";
@@ -30,6 +26,46 @@ app.use("/userTailor", userTailorRouter);
 app.use("/userCustomer", userCustomerRouter);
 app.use("/tailors", tailorsDetails);
 
+
+app.post('/api/form-submit', async (req, res) => {
+  const formData = req.body;
+  console.log(formData);
+
+
+      // working need to be recode
+    // const amount = 1000; 
+    // const currency = 'inr';
+    // const paymentMethod = await stripe.paymentMethods.create({
+    //   type: 'card',
+    //   card: {
+    //     number: '4242424242424242',
+    //     exp_month: 12,
+    //     exp_year: 2025,
+    //     cvc: '123',
+    //   },
+    // });
+    
+    // const paymentMethodId = paymentMethod.id;
+    
+    
+    // const paymentIntent = await stripe.paymentIntents.create({
+    //   amount,
+    //   currency,
+    //   payment_method: paymentMethodId,
+    //   confirm: true,
+    // });
+    // res.json({ success: true });
+    // console.log(paymentIntent);
+  
+    
+
+
+
+  
+  // Do something with the form data here
+  
+  res.send('Form submission successful!');
+});
 
 
 
