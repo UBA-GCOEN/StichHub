@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 
 const Signup = () => {
   return (
-    <div className="bg-[url('../src/assets/registrationbg.png')] bg-contain bg-center bg-no-repeat bg-[#BADDF1] w-[100vw] h-[100vh] overflow-hidden">
-      <div className="flex justify-center">
-        <div className="p-5 bg-[#CEEAF9] rounded-2xl text-center mt-[20vh] h-[60vh] w-[460px] ml-14">
+    <div className="sm:bg-[url('../src/assets/registrationbg.png')] bg-contain bg-center bg-no-repeat bg-[#BADDF1] w-[100vw] h-[100vh] overflow-hidden">
+      <div className="flex justify-center content-center flex-wrap">
+        <div className="p-5 text-center sm:mt-[20vh] sm:ml-14">
           {/* Title text */}
           <div className="py-14">
             <h1 className="relative text-3xl text-Black font-bold">
@@ -19,12 +19,12 @@ const Signup = () => {
             </p>
           </div>
 
-          <div className="flex justify-evenly">
+          <div className="flex flex-col sm:flex-row justify-between flex-wrap gap-12">
             {/* Customer button */}
             <Link to="/auth/customer">
-              <button className="w-[10vw] h-[20vh] bg-[#00456D] relative text-3xl text-white shadow-lg rounded-3xl">
+              <button className="w-[160px] h-[160px] bg-[#00456D] relative text-3xl text-white shadow-lg rounded-3xl">
                 <div className="flex justify-center">
-                  <img src={Cus} className="w-[5vw]" />
+                  <img src={Cus} className="w-[70px]" />
                 </div>
                 <p className="text-lg text-center ">
                   I am a <br />
@@ -35,9 +35,9 @@ const Signup = () => {
 
             {/* Tailor button */}
             <Link to="/auth/tailor">
-            <button className="w-[10vw] h-[20vh] bg-white relative text-3xl text-Black shadow-xl rounded-3xl">
+            <button className="w-[160px] h-[160px] bg-white relative text-3xl text-Black shadow-xl rounded-3xl">
               <div className="flex justify-center">
-                <img src={Tail} className="m-2 w-[4vw]" />
+                <img src={Tail} className="m-2 w-[57px]" />
               </div>
               <p className="text-lg text-center text-black">
                 I am a <br />

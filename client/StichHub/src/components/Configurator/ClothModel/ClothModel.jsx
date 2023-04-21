@@ -112,14 +112,6 @@ const ClothModel = () => {
           </div>
           <div className="flex justify-center">
             <div className="absolute bottom-4 mr-14">
-              {/* <div className="flex justify-center">
-                <div id="button" className="mb-1 flex bg-white text-black w-fit p-2 rounded-full">
-                  <img src={View} className="mr-3 ml-1 w-[15px]" />
-                  <span className="text-sm font-semibold cursor-pointer">
-                    See in your room
-                  </span>
-                </div>
-              </div> */}
               <span className="text-sm">{`${
                 shirtPart[part].zoom
                   ? "Reset zoom for 360° view"

@@ -6,13 +6,13 @@ import {
 import Model from "./Model";
 import ShirtModel from "../../Configurator/ClothModel/ShirtModel";
 
-const DemoModel = () => {
+const DemoModel = (props) => {
   return (
     <>
       <PresentationControls
         polar={[0.4, Math.PI / 4]}
         global={true}
-        speed={1}
+        speed={props.speed}
         zoom={1}
         snap
       >
