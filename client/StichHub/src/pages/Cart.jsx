@@ -204,6 +204,24 @@ const Cart = () => {
   return (
     <div className="m-5">
       <Navbar />
+      {
+        cartList.map((items, index) => {
+          return (
+            <div key={index}>
+                <label>
+                  {
+                    items.orders.map((order, indexOrder) => {
+                      return (
+                      <div key={indexOrder}>
+                        {order.orderData.category}
+                      </div>)
+                    })
+                  }
+                </label>
+            </div>
+          )
+        })
+      }
       {/* Stepper Definition  */}
       <MainContainer>
         <StepContainer width={width}>
