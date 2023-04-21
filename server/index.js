@@ -60,7 +60,7 @@ app.post("/payment", async (req, res) => {
   } catch (error) {
     // Handle any errors that occur
     console.error("Error creating checkout session:", error);
-    res.status(500).json({ error: "Failed to create checkout session" });
+    res.status(500).json({ message: error.message });
   }
 });
 
