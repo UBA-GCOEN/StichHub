@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Navbardark from "../Navbardark";
-import LeftView from "./LeftView";
+// import LeftView from "./LeftView";
 import styled from "styled-components";
 import "react-phone-number-input/style.css";
 import Phoneinput from "react-phone-number-input";
 import { Tabs } from "./Tabs";
 
 const fileTypes = ["JPG", "PNG", "GIF"];
+
+const user = JSON.parse(localStorage.getItem("tailorProfile"));
 
 import {
   CountryDropdown,
@@ -130,7 +132,7 @@ const steps = [
   },
 ];
 
-export const Profile = () => {
+const Profile = () => {
   //some custom react hooks
   const [value, setValue] = useState();
 
@@ -198,9 +200,10 @@ export const Profile = () => {
                 <input
                   type="text"
                   name="name"
-                  defaultValue="Vishal"
-                  className="shadow-sm shadow-blue-400 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
-                  placeholder="John cooks"
+                  defaultValue={user?.result.name}
+                  className="shadow-sm shadow-blue-400 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] disabled:text-gray-500"
+                  placeholder="Vishal"
+                  disabled={user?.result.name}
                   required
                 />
               </label>
@@ -214,9 +217,9 @@ export const Profile = () => {
                 <input
                   type="text"
                   name="name"
-                  defaultValue="Kesharwani"
+                  defaultValue=""
                   className="shadow-sm shadow-blue-400 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
-                  placeholder="John cooks"
+                  placeholder="John cook"
                   required
                 />
                 <br />
@@ -231,9 +234,10 @@ export const Profile = () => {
                 <input
                   type="email"
                   name="email"
-                  defaultValue="vsk@gmail.com"
-                  placeholder="vsk@gmail.com"
-                  className=" text-black shadow-sm shadow-blue-400 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                  defaultValue={user?.result.email}
+                  placeholder="your@email.com"
+                  className=" text-black shadow-sm shadow-blue-400 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] disabled:text-gray-500"
+                  disabled
                 />
                 <span className="absolute inset-y-0 right-0 flex items-center pl-2">
                   <button
@@ -429,3 +433,5 @@ export const Profile = () => {
     </div>
   );
 };
+
+export default Profile;

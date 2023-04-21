@@ -6,10 +6,12 @@ import {
   tailor,
   appointment,
   menu,
+  close,
   CreatProfileIcon,
   TakeOrdersIcon,
   HomeDelivery,
   delivery,
+
 } from "../assets/MainLandingPage/Icons";
 
 const navbar = [
@@ -21,17 +23,17 @@ const navbar = [
 ];
 
 const hiwcustomer = [
-  {step: '1', img: designIcon, title: 'DESIGN YOUR CLOTH', style: "mb-7"},
+  {step: '1', img: designIcon, title: 'DESIGN YOUR CLOTH', style: "sm:mb-7"},
   {step: '2', img: Measurement, title: 'TAKE ONLINE MEASUREMENTS', style: ""},
   {step: '3', img: tailor, title: 'SELECT YOUR FAVOURITE TAILOR', style: ""},
-  {step: '4', img: CartIcon, title: 'PLACE YOUR ORDER', style: "mb-7"},
+  {step: '4', img: CartIcon, title: 'PLACE YOUR ORDER', style: "sm:mb-7"},
 ];
 
 const hiwtailor = [
-  {step: '1', img: CreatProfileIcon, title: 'CREATE PROFILE', style: ""},
+  {step: '1', img: CreatProfileIcon, title: `CREATE PROFILE`, style: ""},
   {step: '2', img: TakeOrdersIcon, title: 'TAKE ORDER', style: ""},
   {step: '3', img: tailor, title: 'STITCH CLOTHS', style: ""},
-  {step: '4', img: delivery, title: 'SEND FOR DELIVERY', style: ""},
+  {step: '4', img: delivery, title: 'DELIVER IT', style: ""},
 ];
 
 export {
@@ -41,4 +43,5 @@ export {
     hiwcustomer,
     hiwtailor,
     appointment,
+    close,
 }
