@@ -69,6 +69,8 @@ const MainDisplay = () => {
   // <p> {request.orderData.measurements.armLength} </p>
   // <p> {request.orderData.measurements.inseam}</p>
 
+  const filteredOrderList = OrderList.filter((item) => item.status === "pending");
+
   return (
     <div>
       
@@ -76,7 +78,7 @@ const MainDisplay = () => {
         {/* new orders */}
 
         <div>
-          {OrderList.map((order) => {
+          {filteredOrderList.map((order) => {
             return (
               <div className=" grid grid-cols-5 bg-white rounded-2xl row-span-6 mb-10 mr-8 w-full h-11/12">
                 {/* New orders */}

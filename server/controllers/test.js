@@ -2,18 +2,8 @@ import express from 'express';
 
 const router = express.Router();
 
-const app = express();
-
-
-
-export const getTest = async  (req, res) => {
-
-
-  
+export const getTest = (req, res) => {
+  res.send("Server Connect");
 };
-
-
-
-
 
 export default router
