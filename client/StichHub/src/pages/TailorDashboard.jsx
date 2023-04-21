@@ -28,7 +28,7 @@ const TailorDashboard = () => {
           <LeftView
             handleNavigationLinkClick={handleNavigationLinkClick}
           ></LeftView>
-          {elements[currentElementIndex]};
+          {elements[currentElementIndex]}
           {/* <OngoingOrdersOpen></OngoingOrdersOpen> */}
         </div>
       </div>
