@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
-import ime from "../assets/img/ime.png";
 import Step1 from "../components/Cart/Step1";
 import Step2 from "../components/Cart/Step2";
 import Step3 from "../components/Cart/Step3";
 import Step4 from "../components/Cart/Step4";
+import axios from "../axios"
 
 // Main container style
 const MainContainer = styled.div`
@@ -182,6 +182,23 @@ const Cart = () => {
   const btnHandler = () => {
     alert("The buttion is clickable!");
   };
+
+  //Fetching the Cart List
+  const [cartList, setCartList] = useState([]);
+
+  const getCartList = async () => {
+    try {
+      const res = await axios.get("/cart/list");
+      setCartList(res.data);  
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    getCartList();
+  }, [2]);
 
   //Start of Cart Page from here
   return (

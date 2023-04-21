@@ -58,6 +58,17 @@ export const getOrders = async (req, res) => {
   }
 };
 
+export const getOrdersCustomers = async (req, res) => {
+  const customerId = req.userId;
+
+  try {
+    const orders = await OrderList.find({ "requests.customerId": customerId });
+    res.status(200).json(orders);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
 export const updateStatus = async (req, res) => {
   try {
     const { orderId, requestId } = req.params;

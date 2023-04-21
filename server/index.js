@@ -10,6 +10,7 @@ import userTailorRouter from "./routes/userTailor.js";
 import userCustomerRouter from "./routes/userCustomer.js";
 import tailorsDetails from "./routes/tailorsDetails.js";
 import orders from "./routes/orders.js";
+import cart from "./routes/cart.js";
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use("/userTailor", userTailorRouter);
 app.use("/userCustomer", userCustomerRouter);
 app.use("/tailors", tailorsDetails);
 app.use("/order", orders);
+app.use("/cart", cart);
 
 const CONNECTION_URL = process.env.MONGO_URL;
 const PORT = process.env.PORT || 5000;

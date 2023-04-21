@@ -27,7 +27,6 @@ export const addTailor = async (req, res) => {
 export const getTailorList = async (req, res) => { 
     try {
         const alltailor = await TailorList.find();
-
         res.status(200).json(alltailor);
     } catch (error) {
         res.status(404).json({message: error.message});

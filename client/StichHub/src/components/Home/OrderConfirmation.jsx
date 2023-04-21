@@ -11,7 +11,7 @@ const OrderConfirmation = () => {
     try {
       const res = await axios.post("/order/request", orderDetails);
       // console.log(res);
-      navigateTo('/home');
+      navigateTo("/Orders");
     } catch (error) {
       console.log(error.message);
     }
