@@ -22,7 +22,7 @@ const Category = () => {
 
   const handleSubmit = () => {
     setOrderDetails({ ...orderDetails, category: selectedLabel });
-    // console.log(orderDetails);
+    console.log(orderDetails);
 
     navigateTo("/configurator", { state: { selectedLabel: selectedLabel } });
   };

@@ -1,13 +1,9 @@
 import mongoose from "mongoose";
 
-const orderListSchema = mongoose.Schema({
-  tailorId: {
-    type: String,
-    required: false,
-  },
-  requests: [
+const cartSchema = mongoose.Schema({
+  customerId: { type: String, required: true },
+  orders: [
     {
-      customerId: { type: String, required: true },
       orderData: {
         type: {
           category: String,
@@ -36,23 +32,10 @@ const orderListSchema = mongoose.Schema({
         },
         required: true,
       },
-      status: {
-        type: String,
-        enum: ["pending", "accepted", "rejected"],
-        default: "pending",
-      },
-      order: {
-        type: Boolean,
-        default: false,
-      }
     },
   ],
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
 });
 
-var OrderList = mongoose.model("OrderList", orderListSchema);
+var CartList = mongoose.model("CartList", cartSchema);
 
-export default OrderList;
+export default CartList;

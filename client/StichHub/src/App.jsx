@@ -19,7 +19,7 @@ import {
 import CustomerAuth from "./components/Loginsignup/CustomerAuth";
 import AuthTailor from "./components/Loginsignup/AuthTailor";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { Category } from "./components/Home";
+import { Category, CustomerOrder } from "./components/Home";
 import NewTailor from "./components/TailorDashboard/NewTailor";
 import Profile from "./components/TailorDashboard/Profile";
 import { HomeProvider, useHCustomization } from "./contexts/Home";
@@ -107,8 +107,8 @@ function App() {
           <Route path="/measurement/" element={<ThreeDMeasurement />} />
           <Route path="/FabricModel" element={<FabricModel />} />
           <Route path="/OrderDetails" element={<OrderConfirmation />} />
-
           <Route path="/Cart" element={<Cart />} />
+          <Route path="/Orders" element={<CustomerOrder />} />
           {/* Customer Features  */}
           <Route path="/ClothesCategory" element={<ClothesCategory />} />
           <Route path="/CustomersPage" element={<CustomerLandingPage />} />
