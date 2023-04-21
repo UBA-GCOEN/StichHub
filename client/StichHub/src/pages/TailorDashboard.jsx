@@ -21,10 +21,10 @@ const TailorDashboard = () => {
         <div className="grid grid-rows-3  grid-flow-col grid-cols-[13%] text-5xl text-center select-none bg-primary - w-[100vw]  h-[92.7vh]">
           <LeftView></LeftView>
 
-          {/* <TopDisplays></TopDisplays>
+          <TopDisplays></TopDisplays>
           <MainDisplay></MainDisplay>
-          <OngoingOrders></OngoingOrders> */}
-          <OngoingOrdersOpen></OngoingOrdersOpen>
+          {/* <OngoingOrders></OngoingOrders>  */}
+          {/* <OngoingOrdersOpen></OngoingOrdersOpen> */}
         </div>
       </div>
       <div className="lg:hidden">

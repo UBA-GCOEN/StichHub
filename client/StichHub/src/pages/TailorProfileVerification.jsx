@@ -79,6 +79,14 @@ const TailorProfileVerification = () => {
     setUser(JSON.parse(localStorage.getItem("tailorProfile")));
   }, [location]);
 
+  useEffect(() => {
+    const isFirstLogin = localStorage.getItem("tailorFirstLogin");
+
+    if (!isFirstLogin) navigateTo("/TailorDashboard");
+
+    if (!user) navigateTo("/auth/tailor");
+  }, []);
+
   const [checkedItems, setCheckedItems] = useState([]);
 
   const handleCheckboxChange = (e) => {
@@ -86,7 +94,9 @@ const TailorProfileVerification = () => {
     if (checked) {
       setCheckedItems((prevValues) => [...prevValues, value]);
     } else {
-      setCheckedItems((prevValues) => prevValues.filter((val) => val !== value));
+      setCheckedItems((prevValues) =>
+        prevValues.filter((val) => val !== value)
+      );
     }
   };
 
@@ -133,7 +143,7 @@ const TailorProfileVerification = () => {
     setForm({ ...form, country: country });
     setForm({ ...form, prizerange: [minValue, maxValue] });
     setForm({ ...form, types: checkedItems });
-    console.log(form);
+    // console.log(form);
   };
 
   useEffect(() => {
@@ -231,9 +241,9 @@ const TailorProfileVerification = () => {
   const handleSubmit = async () => {
     setIsLoading(true);
     try {
-      
       const res = await axios.post("/tailors/list", form);
       setIsLoading(false);
+      localStorage.removeItem("tailorFirstLogin");
       navigateTo("/TailorDashboard");
     } catch (error) {
       console.log(error.response.data.message);
@@ -328,7 +338,7 @@ const TailorProfileVerification = () => {
   function handleChange(e) {
     setFile(URL.createObjectURL(e.target.files[0]));
     setForm({ ...form, passport: file });
-    console.log(form);
+    // console.log(form);
   }
 
   const [file2, setFile2] = useState("");

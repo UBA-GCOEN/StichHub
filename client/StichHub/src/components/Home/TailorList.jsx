@@ -1,12 +1,18 @@
 import { useState, useEffect } from "react";
 import { tailorCards } from "../../constants/home";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import axios from "../../axios.js";
 import { Player } from "@lottiefiles/react-lottie-player";
 
 const TailorList = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [tailorList, setTailorList] = useState([]);
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  const location = useLocation();
+
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("profile")));
+  },[location])
 
   const getTailor = async () => {
     setIsLoading(true);
@@ -26,7 +32,7 @@ const TailorList = () => {
     getTailor();
   }, [1]);
 
-  // console.log(tailorList)
+  const linkTo = (user ? '/home/category' : "/auth/customer")
 
   return (
     <div className="mx-5 my-5 flex flex-wrap gap-3 sm:gap-7">
@@ -99,7 +105,8 @@ const TailorList = () => {
                 More Details
               </button>
             </Link>
-            <Link to="/home/category" state={{ item }}>
+
+            <Link to={linkTo} state={{ item }}>
               <button className="text-xs bg-blue-500 px-2 py-2 rounded-lg w-full">
                 Book Tailor
               </button>

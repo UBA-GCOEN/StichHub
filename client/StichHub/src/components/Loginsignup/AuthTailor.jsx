@@ -41,8 +41,10 @@ const AuthTailor = () => {
         : await axios.post("/userTailor/signin", form);
 
       const result = res.data;
-
+      
+      if (isregister) localStorage.setItem("tailorFirstLogin", "true");
       localStorage.setItem("tailorProfile", JSON.stringify({ ...result }));
+
       setIsLoading(false);
       navigateTo("/TailorProfileVerification");
     } catch (error) {

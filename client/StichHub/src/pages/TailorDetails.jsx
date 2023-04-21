@@ -16,22 +16,8 @@ function TailorDetails() {
   const [isMobile, setIsMobile] = useState(false);
 
   const location = useLocation();
-  // const propsData = location.state;
+  const propsData = location.state;
   // console.log(propsData);
-
-  const propsData = [
-    {
-      passport: "#",
-      name: "xyz",
-      rating: 4,
-      pincode: 441107,
-      country: "India",
-      contact: 9900990099,
-      address: "Shaitan gali",
-      address2: "Shamshan chowk",
-      prizerange: [200, 500],
-    },
-  ];
 
   // check screen size and set state variable
   window.addEventListener("resize", () => {
@@ -104,21 +90,7 @@ export default TailorDetails;
 
 const TailorDetailsM = () => {
   const location = useLocation();
-  // const propsData = location.state;
-  const propsData = [
-    {
-      passport: "#",
-      name: "xyz",
-      rating: 4,
-      pincode: 441107,
-      country: "India",
-      contact: 9900990099,
-      address: "Shaitan gali",
-      address2: "Shamshan chowk",
-      prizerange: [200, 500],
-      bio: "xyz2 bio",
-    },
-  ];
+  const propsData = location.state;
   console.log(propsData);
   return (
     <div className="lg:hidden block">
