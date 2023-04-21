@@ -16,8 +16,22 @@ function TailorDetails() {
   const [isMobile, setIsMobile] = useState(false);
 
   const location = useLocation();
-  const propsData = location.state;
-  console.log(propsData);
+  // const propsData = location.state;
+  // console.log(propsData);
+
+  const propsData = [
+    {
+      passport: "#",
+      name: "xyz",
+      rating: 4,
+      pincode: 441107,
+      country: "India",
+      contact: 9900990099,
+      address: "Shaitan gali",
+      address2: "Shamshan chowk",
+      prizerange: [200, 500],
+    },
+  ];
 
   // check screen size and set state variable
   window.addEventListener("resize", () => {
@@ -90,7 +104,21 @@ export default TailorDetails;
 
 const TailorDetailsM = () => {
   const location = useLocation();
-  const propsData = location.state;
+  // const propsData = location.state;
+  const propsData = [
+    {
+      passport: "#",
+      name: "xyz",
+      rating: 4,
+      pincode: 441107,
+      country: "India",
+      contact: 9900990099,
+      address: "Shaitan gali",
+      address2: "Shamshan chowk",
+      prizerange: [200, 500],
+      bio: "xyz2 bio",
+    },
+  ];
   console.log(propsData);
   return (
     <div className="lg:hidden block">
@@ -110,7 +138,7 @@ const TailorDetailsM = () => {
           {/* Photo */}
           <div className="bg-white p-4 pb-1 mt-1 drop-shadow-lg  w-4/5  items-center m-auto rounded-lg">
             <div className="drop-shadow-lg flex w-fit h-fit items-center justify-center text-center mx-auto">
-              <img src={propsData.item.passport} />
+              <img src={propsData[0].passport} />
             </div>
             {/* Photo End */}
 
@@ -118,15 +146,16 @@ const TailorDetailsM = () => {
             <div className="flex justify-around m-2 p-2">
               <div className="justify-center items-center p-2">
                 <div>
-                  <h1>{propsData.item.name}</h1>
+                  <h1>{propsData[0].name}</h1>
                 </div>
                 <div>
-                  <h1>{propsData.item.city}</h1>
+                  <h1>{propsData[0].city}</h1>
                 </div>
               </div>
               <div className="justify-right items-center p-2">
                 <button className="bg-gradient-to-t from-black via-black to-gray-400  hover:bg-gradient-to-b text-white font-semibold py-2 px-4 rounded-md">
-                 ₹ {propsData.item.prizerange[0]} <br /> - ₹ {propsData.item.prizerange[1]}
+                  ₹ {propsData[0].prizerange[0]} <br /> - ₹{" "}
+                  {propsData[0].prizerange[1]}
                 </button>
               </div>
             </div>
@@ -135,10 +164,9 @@ const TailorDetailsM = () => {
         </div>
         {/* Tabs Start */}
         <div>
-          <TabsM item={propsData.item}/>
+          <TabsM props={propsData} />
         </div>
         {/* Tabs  End */}
-
         {/* Reviews */}
         <div className="m-2 mt-4">
           <div className="flex justify-around">
@@ -154,23 +182,24 @@ const TailorDetailsM = () => {
           </div>
         </div>
         {/* ReviewsEnd */}
-        
         <h1>Add this features: </h1> <br />
-        {propsData.item.address} <br/>
-        {propsData.item.address2} <br/>
-        {propsData.item.contact} <br/>
-        {propsData.item.country} <br/>
-        {propsData.item.pincode} <br/>
-        {propsData.item.rating} <br/>
-        {propsData.item.state} <br/>
-
+        {propsData[0].address} <br />
+        {propsData[0].address2} <br />
+        {propsData[0].contact} <br />
+        {propsData[0].country} <br />
+        {propsData[0].pincode} <br />
+        {propsData[0].rating} <br />
+        {propsData[0].state} <br />
         {/* Book AppointMent */}
-        <Link to="/home/category" state={{item : propsData.item}}>
-        <div className="text-center m-4 drop-shadow-lg">
-          <button className="drop-shadow-lg bg-[white] hover:bg-[gray] text-black font-semibold py-2 px-4 rounded-full">
-            Book Appointmet
-          </button>
-        </div>
+        <Link
+          to="/home/category"
+          state={{ item: propsData.item }}
+        >
+          <div className="text-center m-4 drop-shadow-lg">
+            <button className="drop-shadow-lg bg-[white] hover:bg-[gray] text-black font-semibold py-2 px-4 rounded-full">
+              Book Appointmet
+            </button>
+          </div>
         </Link>
         {/* Book AppointMent End*/}
       </div>

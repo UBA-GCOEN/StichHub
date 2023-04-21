@@ -16,7 +16,7 @@ function CardiM(props) {
         <div className="text-white text-center">
           {/* Description of the feature */}
           <h1 className="text-lg font-medium p-2">{props.head}</h1>
-          <h2 className="text-sm">{props.tail}</h2>
+          <h2 className="text-sm cursor-pointer underline">{props.tail}</h2>
         </div>
       </div>
     </div>

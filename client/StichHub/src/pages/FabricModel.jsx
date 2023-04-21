@@ -81,7 +81,16 @@ const FabricModelD = () => {
 
 const FabricModelM = () => {
   return (
-    <div className="relative w-screen h-screen bg-primary text-white max-w-screen-sm">
+    <div className="relative w-screen h-screen bg-primary text-white overflow-hidden">
+      {/* Gradients */}
+
+      <div className="absolute opacity-70 circleGradient-peach object-cover w-[110%] h-3/5 top-[-100px] left-[-260px] z-0 "></div>
+      <div className="absolute opacity-70 circleGradient-peach object-cover w-[110%] h-3/5 top-[-100px] right-[-260px] z-0 "></div>
+      <div className="absolute opacity-70 circleGradient-peach object-cover w-[110%] h-3/5 bottom-[-100px] left-[-260px] z-[0] "></div>
+      <div className="absolute opacity-70 circleGradient-peach object-cover w-[110%] h-3/5 bottom-[-100px] right-[-260px] z-[0] "></div>
+
+      {/*  */}
+
       {/* Top head div containing logo and sidemenu */}
       <div className="w-full justify-between flex p-4 z-[2]">
         <div className="w-2/6">
@@ -105,15 +114,6 @@ const FabricModelM = () => {
         </h1>
       </div>
       {/* Center Text end */}
-
-      {/* Gradients */}
-      <div className="overflow-hidden">
-        <div className="absolute opacity-70 circleGradient-peach object-cover w-[110%] h-3/5 top-[-100px] left-[-260px] z-0 "></div>
-        <div className="absolute opacity-70 circleGradient-peach object-cover w-[110%] h-3/5 top-[-100px] right-[-260px] z-0 "></div>
-        <div className="absolute opacity-70 circleGradient-peach object-cover w-[110%] h-3/5 bottom-[-100px] left-[-260px] z-[0] "></div>
-        <div className="absolute opacity-70 circleGradient-peach object-cover w-[110%] h-3/5 bottom-[-100px] right-[-260px] z-[0] "></div>
-      </div>
-      {/*  */}
 
       {/* Cards of Choice */}
       <div className="relative z-[2]">
