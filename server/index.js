@@ -11,6 +11,7 @@ import test from "./routes/test.js";
 import userTailorRouter from "./routes/userTailor.js";
 import userCustomerRouter from "./routes/userCustomer.js";
 import tailorsDetails from "./routes/tailorsDetails.js";
+import orders from "./routes/orders.js";
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use("/test", test);
 app.use("/userTailor", userTailorRouter);
 app.use("/userCustomer", userCustomerRouter);
 app.use("/tailors", tailorsDetails);
+app.use("/order", orders);
 
 
 app.post('/api/form-submit', async (req, res) => {

@@ -1,14 +1,30 @@
-import {useState} from "react";
+import { useEffect, useState } from "react";
 import { tailorCards } from "../../constants/home";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useHCustomization } from "../../contexts/Home";
 
 const Category = () => {
   const location = useLocation();
+  const navigateTo = useNavigate();
   const porpsData = location.state;
   const [selectedLabel, setSelectedLabel] = useState("");
 
+  const { orderDetails, setOrderDetails } = useHCustomization();
+
   const handleRadioChange = (event) => {
     setSelectedLabel(event.target.value);
+  };
+
+  //Order Details
+  useEffect(() => {
+    setOrderDetails({ ...orderDetails, category: selectedLabel, tailorId: porpsData.item.creator });
+  },[selectedLabel])
+
+  const handleSubmit = () => {
+    setOrderDetails({ ...orderDetails, category: selectedLabel });
+    // console.log(orderDetails);
+
+    navigateTo("/configurator", { state: { selectedLabel: selectedLabel } });
   };
 
   // console.log(porpsData);
@@ -24,13 +40,25 @@ const Category = () => {
                 <div className="">
                   <label className="">
                     <div className="p-2 mb-2 bg-indigo-500 rounded-lg text-white">
-                      <input type="radio" name="category" className="mr-2" onChange={handleRadioChange}/>
+                      <input
+                        type="radio"
+                        name="category"
+                        className="mr-2"
+                        value={item}
+                        onChange={handleRadioChange}
+                      />
                       Men's {item}
                     </div>
                   </label>
                   <label className="">
                     <div className="p-2 mb-2 bg-indigo-500 rounded-lg text-white">
-                      <input type="radio" name="category" className="mr-2" onChange={handleRadioChange}/>
+                      <input
+                        type="radio"
+                        name="category"
+                        className="mr-2"
+                        value={item}
+                        onChange={handleRadioChange}
+                      />
                       Womens's {item} <br />
                     </div>
                   </label>
@@ -40,13 +68,25 @@ const Category = () => {
                 <div>
                   <label className="">
                     <div className="p-2 mb-2 bg-indigo-500 rounded-lg text-white">
-                      <input type="radio" name="category" className="mr-2" onChange={handleRadioChange}/>
+                      <input
+                        type="radio"
+                        name="category"
+                        className="mr-2"
+                        value={item}
+                        onChange={handleRadioChange}
+                      />
                       Men's {item} <br />
                     </div>
                   </label>
                   <label className="">
                     <div className="p-2 mb-2 bg-indigo-500 rounded-lg text-white">
-                      <input type="radio" name="category" className="mr-2" onChange={handleRadioChange}/>
+                      <input
+                        type="radio"
+                        name="category"
+                        className="mr-2"
+                        value={item}
+                        onChange={handleRadioChange}
+                      />
                       Womens's {item} <br />
                     </div>
                   </label>
@@ -59,7 +99,13 @@ const Category = () => {
               {item != "Shirts" && item != "Blazers" && (
                 <label className="">
                   <div className="p-2 mb-2 bg-indigo-500 rounded-lg text-white">
-                    <input type="radio" name="category" className="mr-2" onChange={handleRadioChange}/>
+                    <input
+                      type="radio"
+                      name="category"
+                      className="mr-2"
+                      value={item}
+                      onChange={handleRadioChange}
+                    />
                     {item} <br />
                   </div>
                 </label>
@@ -68,11 +114,14 @@ const Category = () => {
           ))}
         </div>
         <div className="flex justify-center">
-          <Link to="/configurator" state={{selectedLabel: selectedLabel}}>
-            <button className="text-white bg-blue-500 px-4 py-2 rounded-lg w-fit flex gap-3">
-              Next{" "}
-            </button>
-          </Link>
+          {/* <Link to="/configurator" state={{ selectedLabel: selectedLabel }}> */}
+          <button
+            className="text-white bg-blue-500 px-4 py-2 rounded-lg w-fit flex gap-3"
+            onClick={handleSubmit}
+          >
+            Next{" "}
+          </button>
+          {/* </Link> */}
         </div>
       </div>
     </div>

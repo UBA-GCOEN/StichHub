@@ -1,16 +1,59 @@
-import React, { useState } from "react";
-// import Profile from "../components/TailorDashboard/Profile";
-// import NewTailor from "../components/TailorDashboard/NewTailor";
-// import Graphs from "../components/TailorDashboard/Graphs";
+import React, { useState, useEffect } from "react";
 import Navbardark from "../components/Navbardark";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useHCustomization } from "../contexts/Home";
 
 const ThreeDMeasurement = () => {
+  const [create, setCreate] = useState(false);
+
   return (
-    <div className="bg-primary">
+    <div className="bg-primary h-[100vh]">
       <Navbardark />
-      <Mainpage />
-      <SizeCalculator />
+      {!create ? (
+        <div className="bg-primary justify-center text-center h-screen">
+          <div className="text-white font-bold text-center justify-center mt-20 text-3xl mx-5 ">
+            Choose Your Measurements
+          </div>
+          <div className="ml-[32%]">
+            <select
+              id="profile"
+              class="bg-gray-800 border text-gray-400 ml-10 mt-5 w-[80%] lg:w-[45%] text-center
+            text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              disabled
+            >
+              <option selected>--choose profile</option>
+              <option value="new">m1</option>
+              <option value="new">m2</option>
+            </select>
+          </div>
+          <div className="flex lg:block  mx-10 mt-5 gap-4">
+            <button className="bg-purple-500 w-1/2 lg:w-1/4 rounded-xl px-5 py-3 text-white text-xl">
+              Edit
+            </button>
+            {/* <Link to="/FabricModel"> */}
+            <button className="bg-blue-400 lg:ml-10 w-1/2 lg:w-1/4 rounded-xl px-5 py-3 text-white text-xl">
+              Continue
+            </button>
+            {/* </Link> */}
+          </div>
+          <div className="text-3xl mt-14 font-bold text-center justify-center text-white">
+            or
+          </div>
+          <div className="text-3xl mt-3 font-bold text-center justify-center text-white">
+            Create Your New Measurement
+          </div>
+          <div>
+            <button
+              className="bg-blue-500 shadow-inner-md drop-shadow-md ml-0 mt-5  w-1/2 lg:w-1/4 rounded-xl px-5 py-3 text-white text-xl"
+              onClick={() => setCreate(!create)}
+            >
+              Create
+            </button>
+          </div>
+        </div>
+      ) : (
+        <SizeCalculator />
+      )}
     </div>
   );
 };
@@ -26,7 +69,9 @@ const Mainpage = () => {
       <div className="ml-[32%]">
         <select
           id="profile"
-          class="bg-gray-800 border text-gray-400 ml-10 mt-5 w-[80%] lg:w-[45%] text-center  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          class="bg-gray-800 border text-gray-400 ml-10 mt-5 w-[80%] lg:w-[45%] text-center
+            text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          disabled
         >
           <option selected>--choose profile</option>
           <option value="new">m1</option>
@@ -37,11 +82,11 @@ const Mainpage = () => {
         <button className="bg-purple-500 w-1/2 lg:w-1/4 rounded-xl px-5 py-3 text-white text-xl">
           Edit
         </button>
-        <Link to="/FabricModel">
-          <button className="bg-blue-400 lg:ml-10 w-1/2 lg:w-1/4 rounded-xl px-5 py-3 text-white text-xl">
-            Continue
-          </button>
-        </Link>
+        {/* <Link to="/FabricModel"> */}
+        <button className="bg-blue-400 lg:ml-10 w-1/2 lg:w-1/4 rounded-xl px-5 py-3 text-white text-xl">
+          Continue
+        </button>
+        {/* </Link> */}
       </div>
       <div className="text-3xl mt-14 font-bold text-center justify-center text-white">
         or
@@ -50,7 +95,10 @@ const Mainpage = () => {
         Create Your New Measurement
       </div>
       <div>
-        <button className="bg-blue-500 shadow-inner-md drop-shadow-md ml-0 mt-5  w-1/2 lg:w-1/4 rounded-xl px-5 py-3 text-white text-xl">
+        <button
+          className="bg-blue-500 shadow-inner-md drop-shadow-md ml-0 mt-5  w-1/2 lg:w-1/4 rounded-xl px-5 py-3 text-white text-xl"
+          onClick={() => setCreate(!create)}
+        >
           Create
         </button>
       </div>
@@ -60,6 +108,8 @@ const Mainpage = () => {
 
 const SizeCalculator = () => {
   const [isShown, setIsShown] = useState(false);
+  const { orderDetails, setOrderDetails } = useHCustomization();
+  const navigateTo = useNavigate();
   const handleClick = (event) => {
     // 👇️ toggle shown state
     setIsShown((current) => !current);
@@ -171,6 +221,49 @@ const SizeCalculator = () => {
   const [minValue4, set_minValue4] = useState(8);
   const handleInput3 = (e) => {
     set_minValue4(e.target.value);
+  };
+
+  //Order Details
+  useEffect(() => {
+    setOrderDetails({
+      ...orderDetails,
+      measurements: {
+        height: height,
+        weight: weight,
+        shoeSize: shoeSize,
+        age: age,
+        gender: gender,
+        neckSize: neckSize,
+        chestSize: chestSize,
+        shoulderSize: shoulderSize,
+        waistSize: waistSize,
+        armLength: armLength,
+        inseam: inseam,
+      },
+    });
+  }, [isShown]);
+
+  const handleSubmit = () => {
+    setOrderDetails({
+      ...orderDetails,
+      measurements: {
+        height: height,
+        weight: weight,
+        shoeSize: shoeSize,
+        age: age,
+        gender: gender,
+        neckSize: neckSize,
+        chestSize: chestSize,
+        shoulderSize: shoulderSize,
+        waistSize: waistSize,
+        armLength: armLength,
+        inseam: inseam,
+      },
+    });
+
+    // console.log(orderDetails);
+
+    navigateTo("/OrderDetails");
   };
 
   return (
@@ -334,8 +427,11 @@ const SizeCalculator = () => {
           </Link>
           <br />
 
-          <button className="px-3 mt-10 py-2 text-center text-white bg-gray-700 rounded-xl">
-            Go to 3D Model
+          <button
+            className="px-5 mt-10 py-3 mb-20 text-xl text-center text-white bg-blue-500 rounded-xl"
+            onClick={handleSubmit}
+          >
+            Next
           </button>
         </div>
       )}

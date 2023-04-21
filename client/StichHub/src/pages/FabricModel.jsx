@@ -12,20 +12,25 @@ function FabricModel() {
   const [isMobile, setIsMobile] = useState(false);
 
   // check screen size and set state variable
-  window.addEventListener("resize", () => {
-    const isMobileView = window.innerWidth <= 845;
-    if (isMobileView !== isMobile) setIsMobile(isMobileView);
-  });
+  // window.addEventListener("resize", () => {
+  //   const isMobileView = window.innerWidth <= 845;
+  //   if (isMobileView !== isMobile) setIsMobile(isMobileView);
+  // });
 
   // render mobile or desktop component based on isMobile state
-  return <div>{isMobile ? <FabricModelM /> : <FabricModelD />}</div>;
+  return (
+    <div>
+      <FabricModelM />
+      <FabricModelD />
+    </div>
+  );
 }
 
 // For Desktop view
 
 const FabricModelD = () => {
   return (
-    <div className=" h-screen bg-primary m-0 p-0">
+    <div className="hidden sm:block h-screen bg-primary m-0 p-0">
       <div className="flex absolute top-[-210px]">
         {" "}
         {/* currently position fixed through pixels , to be fixed */}
@@ -52,11 +57,24 @@ const FabricModelD = () => {
           </div>
           <div className="flex w-2/5 text-white text-center p-2 m-2">
             {/* Card choices */}
-            <FabricCard
-              adrs={truck}
-              head="Pick My Fabric"
-              tail="Read the terms and conditions a bout  picking up fabric"
-            />
+            <div>
+              <div className="relative border-2 border-cyan-300 h-max w-52 rounded-2xl p-4 m-2 text-center justify-center items-center ">
+                <div className="mx-auto w-32 h-32">
+                  <img src={truck} />
+                </div>
+                <div>
+                  <h2 className="text-3xl font-semibold m-2 p-2">
+                    {"Pick my fabric"}
+                  </h2>
+                  {/* <h2 className="p-2 m-2">{prop.tail}</h2> */}
+                </div>
+                <div onClick={handleSubmit}>
+                  <button className="bg-cyan-300 hover:bg-cyan-500 text-black font-semibold py-2 px-4 rounded-full">
+                    Proceed
+                  </button>
+                </div>
+              </div>
+            </div>
             <FabricCard
               adrs={fabric}
               head="Leave it to tailor"
@@ -81,7 +99,7 @@ const FabricModelD = () => {
 
 const FabricModelM = () => {
   return (
-    <div className="relative w-screen h-screen bg-primary text-white max-w-screen-sm">
+    <div className="block sm:hidden relative w-screen h-screen bg-primary text-white max-w-screen-sm">
       {/* Top head div containing logo and sidemenu */}
       <div className="w-full justify-between flex p-4 z-[2]">
         <div className="w-2/6">

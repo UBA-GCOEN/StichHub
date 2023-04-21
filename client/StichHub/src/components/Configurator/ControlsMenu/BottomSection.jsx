@@ -1,10 +1,60 @@
+import { useEffect } from "react";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/20/solid";
 import { useCCustomization } from "../../../contexts/Configurator";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useHCustomization } from "../../../contexts/Home";
 
 const BottomSection = () => {
-  const { shirtPart, part, setPart, nextPart, prevPart, sleeveType } =
-    useCCustomization();
+  const {
+    shirtPart,
+    part,
+    setPart,
+    nextPart,
+    prevPart,
+    sleeveType,
+    collarType,
+    backType,
+    cuffType,
+    selectedColor,
+    selected,
+  } = useCCustomization();
+
+  const { orderDetails, setOrderDetails } = useHCustomization();
+  const navigateTo = useNavigate();
+  const x = sleeveType === "Sleeve 1" ? 1 : 2;
+
+  //Order Details
+  useEffect(() => {
+    // console.log(sleeveType);
+    setOrderDetails({
+      ...orderDetails,
+      clothDetails: {
+        sleeve: sleeveType.typeName,
+        collar: collarType.typeName,
+        backDetails: backType.typeName,
+        cuffs: cuffType.typeName,
+        color: selectedColor.hex,
+        fabric: selected.name,
+      },
+    });
+  }, [part, cuffType]);
+
+  const handleSubmit = () => {
+    setOrderDetails({
+      ...orderDetails,
+      clothDetails: {
+        sleeve: sleeveType.typeName,
+        collar: collarType.typeName,
+        backDetails: backType.typeName,
+        cuffs: cuffType.typeName,
+        color: selectedColor.hex,
+        fabric: selected.name,
+      },
+    });
+    // console.log(orderDetails);
+
+    navigateTo("/measurement");
+  };
 
   return (
     <div className="">
@@ -20,7 +70,7 @@ const BottomSection = () => {
           />
           Back
         </button>
-        {(part != (shirtPart.length - 1)) ? (
+        {part != shirtPart.length - x ? (
           <button
             id="next"
             className="border-0 bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-1 rounded-lg flex text-lg"
@@ -33,10 +83,11 @@ const BottomSection = () => {
             />
           </button>
         ) : (
-          <Link to="/measurement">
+          // <Link to="/measurement">
           <button
             id="next"
             className="border-0 bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-1 rounded-lg flex text-lg"
+            onClick={handleSubmit}
           >
             Proceed
             <ArrowRightIcon
@@ -44,7 +95,7 @@ const BottomSection = () => {
               aria-hidden="true"
             />
           </button>
-          </Link>
+          // </Link>
         )}
       </div>
 
