@@ -1,27 +1,21 @@
 import React from "react";
 import Navbardark from "../components/Navbardark";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import New from "../assets/img/new.png";
 import "react-phone-number-input/style.css";
 import Phoneinput from "react-phone-number-input";
 import N from "../assets/img/n.png";
 import Profileveri from "../assets/img/profileverify.png";
 import Speciality from "../assets/img/speciality.png";
-
+import { Link, useLocation } from "react-router-dom";
 import Verified from "../assets/img/verified.png";
-
 import Select from "react-tailwindcss-select";
-
 import V from "../assets/img/v.png";
 import {
   CountryDropdown,
   RegionDropdown,
   CountryRegionData,
 } from "react-country-region-selector";
-
-const user = {
-  name: "Vishal",
-};
 
 //steps list
 const steps = [
@@ -50,24 +44,44 @@ const steps = [
     step: 6,
   },
 ];
+
 const options = [
-  { value: "men", label: "1. Men's Tailor" },
-  { value: "women", label: "2. Women's Tailor" },
-  { value: "coat", label: "3. Coat Tailor" },
-  { value: "custom", label: "4. Custom Tailor" },
+  { value: "menshirt", label: "1. Men's Shirts" },
+  { value: "womenshirt", label: "2. Women's Shirts" },
+  { value: "menblazer", label: "3. Mens's Blazer" },
+  { value: "womenblazer", label: "4. Women's Blazer" },
 ];
+
+const initialForm = {
+  email: '',
+  contact: "+91 ",
+  country: "",
+  state: "",
+  city: "",
+  pincode: "",
+  passport: "",
+  aadhar: "",
+  proffesionalDoc: "",
+  address: "",
+  address2: "",
+  speciality: [],
+};
 
 //Main Implementation from here
 const TailorProfileVerification = () => {
+  const [country, setCountry] = useState("");
   const [activeStep, setActiveStep] = useState(1);
-  const nextStep = () => {
-    setActiveStep(activeStep + 1);
-  };
-
-  const prevStep = () => {
-    setActiveStep(activeStep - 1);
-  };
   const [step, setStep] = useState(1);
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("tailorProfile")));
+
+  
+
+  const location = useLocation();
+
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("tailorProfile")));
+    setForm({ ...form, email: user?.result.email });
+  }, [location]);
 
   const handleNext = () => {
     setStep(step + 1);
@@ -81,10 +95,8 @@ const TailorProfileVerification = () => {
 
   const totalSteps = steps.length;
 
-  const width = `${(100 / (totalSteps - 1)) * (activeStep - 1)}%`;
   const [isShown, setIsShown] = useState(false);
   const [isShown1, setIsShown1] = useState(false);
-  const [disabled, setDisabled] = useState(false);
 
   //button handlers
   const handleClick = (event) => {
@@ -101,8 +113,6 @@ const TailorProfileVerification = () => {
     // 👇️ or simply set it to true
     // setIsShown(true);
   };
-
-  const [country, setCountry] = useState("");
 
   //progressbar function code
   const ProgressBar = ({ progressPercentage }) => {
@@ -151,14 +161,29 @@ const TailorProfileVerification = () => {
     );
   };
 
+  const [form, setForm] = useState(initialForm);
+
+  const stepFormSubmit = () => {
+    setForm({ ...form, contact: value });
+    setForm({ ...form, country: country });
+    setForm({ ...form, speciality: value1 });
+
+    console.log(form);
+  };
+
+  const handleChangeFinal = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+
   // Step1 page/ Here Page
-  const Step1 = () => (
+  const Step1 = () => {return(
     <div>
       <div className="grid grid-cols-3 text-whie ml-[15%] mt-[20%] lg:mt-[5%] font-poppins">
         <div className="col-start-1 col-end-3 ">
           {/* Text hello username */}
           <h1 className="text-white text-3xl font-bold mb-5">
-            Hi {user.name},
+            Hi {user?.result.name},
           </h1>
           <h1 className="select-none	 text-white text-5xl font-bold tracking-wider  lg:mr-[20%]	">
             Complete these few steps for your verification
@@ -229,10 +254,16 @@ const TailorProfileVerification = () => {
       <ProgressBar progressPercentage={0} />
     </div>
   );
+}
 
   const [value, setValue] = useState();
+  const ref=useRef(null);
+  const handle=()=>{
+    console.log(ref.current.value);
+  }
   // Step2 implementation from here
-  const Step2 = () => (
+  const Step2 = () =>
+    (
     <div className="mt-[20%] lg:mt-[5%] bg-[#130F26] h-full">
       <div className="grid grid-cols-4">
         <div className="col-start-1 col-end-5">
@@ -254,9 +285,11 @@ const TailorProfileVerification = () => {
                   <input
                     name="email"
                     type="email"
-                    className="border box-border text-black w-full justify-around mb-[10px] p-2.5 rounded-[10px] border-solid border-white"
+                    value={form.email}
+                    className="border box-border text-white w-full justify-around mb-[10px] p-2.5 rounded-[10px] border-solid border-white "
                     placeholder="abc@example.com"
                     required="true"
+                    disabled
                   />
                   <button
                     className="   px-6 py-1.5 rounded-lg text-white bg-[#3E00FF] hover:bg-blue-600 top-0"
@@ -323,26 +356,30 @@ const TailorProfileVerification = () => {
             </form>
 
             {/* Contact Verification */}
-            <div className="mb-2">
-              <label>
-                <span className="text-white mb-3">Contact Number *</span>
-                <div>
-                  <Phoneinput
-                    className="bg-white border box-border w-full justify-around gap-3 mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
-                    placeholder="Enter phone number"
-                    defaultCountry="IN"
-                    onChange={setValue}
-                    value={value}
-                    // onChange={e=>setValue(e.target.value)}
-                  />
-                </div>
-                <button
-                  className="mt-1 px-6 py-1.5 rounded-lg text-white bg-[#3E00FF] hover:bg-blue-600 top-0"
-                  onClick={handleClick1}
-                >
-                  Get OTP
-                </button>
-              </label>
+            <div className="">
+              <form>
+                <label>
+                  <span className="text-white mb-3">Contact Number *</span>
+                  <div>
+                    <input
+                      type="tel"
+                      name="contact"
+                      id="contact"
+                      ref={ref}
+                      // onChange={handleChangeFinal}
+                      // value={form.contact}
+                      className="bg-white border box-border w-full justify-around gap-3 mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                      placeholder="Enter phone number"
+                    />
+                  </div>
+                  <button
+                    className="mt-1 px-6 py-1.5 rounded-lg text-white bg-[#3E00FF] hover:bg-blue-600 top-0"
+                    onClick={handleClick1}
+                  >
+                    Get OTP
+                  </button>
+                </label>
+              </form>
               {/* Contact OTP verification */}
               {isShown1 && (
                 <div className="mt-3">
@@ -415,8 +452,11 @@ const TailorProfileVerification = () => {
         Previous
       </button>
       <button
-        className="  px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
-        onClick={handleNext}
+        className="relative z-[100] px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
+        onClick={() => {
+          handleNext();
+          stepFormSubmit();
+        }}
       >
         Proceed
       </button>
@@ -427,6 +467,19 @@ const TailorProfileVerification = () => {
   const [file, setFile] = useState();
   function handleChange(e) {
     setFile(URL.createObjectURL(e.target.files[0]));
+    setForm({ ...form, passport: file });
+  }
+
+  const [file2, setFile2] = useState();
+  function handleChange2(e) {
+    setFile2(URL.createObjectURL(e.target.files[1]));
+    setForm({ ...form, aadhar: file2 });
+  }
+
+  const [file3, setFile3] = useState();
+  function handleChange3(e) {
+    setFile3(URL.createObjectURL(e.target.files[2]));
+    setForm({ ...form, proffesionalDoc: file3 });
   }
 
   // Step3 implementation from here
@@ -457,6 +510,8 @@ const TailorProfileVerification = () => {
               class="country"
               value={country}
               onChange={setCountry}
+              name="country"
+              id="country"
               className="border box-border text-gray-500 w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-white bg-white"
             />
           </div>
@@ -467,15 +522,20 @@ const TailorProfileVerification = () => {
               <br />
               <input
                 name="address"
+                id="address"
                 type="address"
+                onChange={handleChangeFinal}
+                value={form.address}
                 className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-white bg-white"
                 placeholder="House number and street name"
                 required
               />{" "}
               <input
-                name="address"
+                name="address2"
                 type="address"
-                className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-white"
+                onChange={handleChangeFinal}
+                value={form.address2}
+                className="border box-border w-full bg-white justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-white"
                 placeholder="Appartment, suite, landmark, etc. (optional)"
                 required
               />{" "}
@@ -490,7 +550,9 @@ const TailorProfileVerification = () => {
                   <input
                     name="city"
                     type="city"
-                    className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-white"
+                    onChange={handleChangeFinal}
+                    value={form.city}
+                    className="border box-border w-full bg-white justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-white"
                     placeholder="enter city"
                     required
                   />{" "}
@@ -503,10 +565,13 @@ const TailorProfileVerification = () => {
                   <span className="text-white">State</span>
                   <br />
                   <input
-                    name="state"
                     type="state"
-                    className="border box-border text-black w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                    className="border box-border bg-white text-black w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                     placeholder="enter state"
+                    name="state"
+                    id="state"
+                    onChange={handleChangeFinal}
+                    value={form.state}
                     required
                   />{" "}
                 </label>
@@ -520,7 +585,9 @@ const TailorProfileVerification = () => {
               <input
                 name="pincode"
                 type="pincode"
-                className=" border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                onChange={handleChangeFinal}
+                value={form.pincode}
+                className=" border bg-white box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                 placeholder=""
                 required
               />{" "}
@@ -535,8 +602,11 @@ const TailorProfileVerification = () => {
         Previous
       </button>
       <button
-        className="   px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
-        onClick={handleNext}
+        className="z-[100] relative px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
+        onClick={() => {
+          handleNext();
+          stepFormSubmit();
+        }}
       >
         Proceed
       </button>
@@ -580,7 +650,8 @@ const TailorProfileVerification = () => {
             <input
               className="rounded-xl mt-5 flex ml-[] pl-5"
               type="file"
-              accept="image/png, image/jpeg"
+              name="passport"
+              // accept="image/png, image/jpeg"
               onChange={handleChange}
             />
           </div>
@@ -595,7 +666,12 @@ const TailorProfileVerification = () => {
             (.jpg,.png,.pdf)
           </label>
           <div className="flex">
-            <input className="rounded-xl mt-5 flex ml-[] pl-5" type="file" />
+            <input
+              className="rounded-xl mt-5 flex ml-[] pl-5"
+              name="aadhar"
+              type="file"
+              onChange={handleChange2}
+            />
           </div>
         </div>
 
@@ -615,7 +691,12 @@ const TailorProfileVerification = () => {
             (.jpg,.png,.pdf)
           </label>
           <div className="flex">
-            <input className="rounded-xl mt-3 flex mb-5" type="file" />
+            <input
+              className="rounded-xl mt-3 flex mb-5"
+              type="file"
+              name="proffesionalDoc"
+              onChange={handleChange3}
+            />
           </div>
         </div>
       </div>
@@ -627,7 +708,10 @@ const TailorProfileVerification = () => {
       </button>
       <button
         className="   px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
-        onClick={handleNext}
+        onClick={() => {
+          handleNext();
+          stepFormSubmit();
+        }}
       >
         Proceed
       </button>
@@ -707,14 +791,14 @@ const TailorProfileVerification = () => {
           </label>
         </div>
         {/* selection field with option selection view and close */}
-        <div className="">
+        <div className="z-[100]">
           <Select
             onChange={(value) => setValue1(value)}
             value={value1}
             isClearable={isClearable}
             isMultiple={isMultiple}
             options={options}
-            className=""
+            className="relative z-[100]"
             classNames={{
               menuButton: (state) =>
                 "ml--5 flex text-sm text-gray-500 border border-gray-300 rounded shadow-sm transition-all duration-300 focus:outline-none bg-white hover:border-gray-400 focus:border-blue-500 focus:ring focus:ring-blue-500/20",
@@ -749,14 +833,17 @@ const TailorProfileVerification = () => {
         </div>
       </div>
       <button
-        className="bg-gray-300 ml-[15%] mt-[1%] mr-5  px-6 py-1.5 rounded-lg text-gray-700 hover:bg-gray-400 top-0"
+        className="z-[90] relative bg-gray-300 ml-[15%] mt-[1%] mr-5  px-6 py-1.5 rounded-lg text-gray-700 hover:bg-gray-400 top-0"
         onClick={handleBack}
       >
         Previous
       </button>
       <button
-        className="px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
-        onClick={handleNext}
+        className="z-[90] relative px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
+        onClick={() => {
+          handleNext();
+          stepFormSubmit();
+        }}
       >
         Proceed
       </button>
@@ -764,7 +851,7 @@ const TailorProfileVerification = () => {
     </div>
   );
 
-  // final page step6
+  // final page step7
   const Step6 = () => (
     <div>
       <img
@@ -779,7 +866,7 @@ const TailorProfileVerification = () => {
       <div className="  text-whie ml-[15%] mt-[25%] lg:mt-[10%] font-poppins">
         <div className="mr-[15%] lg:mr-[30%]">
           <h1 className="text-[rgb(127,255,0)] text-4xl font-bold mb-3">
-            Congrats {user.name},
+            Congrats {user?.result.name},
           </h1>
           <h1 className="select-none	 text-white text-5xl font-bold tracking-wider lg:mr-[20%]	">
             Now you are completely registered & verified on our website.
@@ -801,9 +888,11 @@ const TailorProfileVerification = () => {
         Previous
       </button>
 
-      <button className="px-6 py-1.5 rounded-lg ml-5 text-white bg-[#009415] hover:bg-green-600 top-0">
-        Submit
-      </button>
+      <Link to="/TailorDashboard">
+        <button className="px-6 py-1.5 rounded-lg ml-5 text-white bg-[#009415] hover:bg-green-600 top-0">
+          Submit
+        </button>
+      </Link>
       {/* progressbar 100% status green */}
       <ProgressBar progressPercentage={100} />
     </div>
