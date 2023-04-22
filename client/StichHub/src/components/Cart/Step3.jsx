@@ -24,6 +24,10 @@ import {
 import se from "../../assets/img/se.png";
 import img from "../../assets/img/img.png";
 
+//Payment Imports
+import axios from "../../axios";
+import { loadStripe } from "@stripe/stripe-js";
+
 //Card Number Regular Expression
 function formatCardNumber(e) {
   const val = e.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
@@ -58,6 +62,30 @@ const Step3 = () => {
   const [type, setType] = React.useState("card");
   const [cardNumber, setCardNumber] = React.useState("");
   const [cardExpires, setCardExpires] = React.useState("");
+
+
+  //Payment 
+  const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_SCERET_KEY);
+  const handlePayment = async () => {
+    try {
+      const stripe = await stripePromise;
+      const paymentData = { items:[{name: "Russian", price: "6000"}], email: 'sidd@test' };
+      const res = await axios.post("/payment", paymentData);
+
+      // console.log(res.data);
+
+      const result = await stripe.redirectToCheckout({
+        sessionId: res.data.id,
+      });
+
+      if (result.error) {
+        console.log(result.error.message);
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   //   block start from here
   return (
@@ -199,7 +227,11 @@ const Step3 = () => {
                             Save Card Details
                           </label>
                         </div>
-                        <Button size="lg" className="h-auto p-3">
+                        <Button
+                          size="lg"
+                          className="h-auto p-3"
+                          onClick={handlePayment}
+                        >
                           Pay Now
                         </Button>
                         <Typography
@@ -263,7 +295,11 @@ const Step3 = () => {
                             className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                           />
                         </div>
-                        <Button size="lg" className="h-auto p-3">
+                        <Button
+                          size="lg"
+                          className="h-auto p-3"
+                          onClick={handlePayment}
+                        >
                           Pay Now
                         </Button>
                         <Typography
@@ -280,7 +316,11 @@ const Step3 = () => {
                     {/* Tabpanel3 for upi payment */}
                     <TabPanel value="upi" className="p-0 scroll ">
                       <form className="mt-12 flex flex-col gap-4">
-                        <Button size="lg" className="h-auto p-3">
+                        <Button
+                          size="lg"
+                          className="h-auto p-3"
+                          onClick={handlePayment}
+                        >
                           Pay Now
                         </Button>
                         <Typography

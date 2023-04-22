@@ -5,7 +5,6 @@ import Step1 from "../components/Cart/Step1";
 import Step2 from "../components/Cart/Step2";
 import Step3 from "../components/Cart/Step3";
 import Step4 from "../components/Cart/Step4";
-import axios from "../axios";
 import imr from "../assets/img/imr.png";
 import el from "../assets/img/el.png";
 import el2 from "../assets/img/el2.png";
@@ -37,6 +36,9 @@ import {
 
 import se from "../assets/img/se.png";
 import img from "../assets/img/img.png";
+//Payment Imports
+import axios from "../axios";
+import { loadStripe } from "@stripe/stripe-js";
 
 //Card Number Regular Expression
 function formatCardNumber(e) {
@@ -270,17 +272,15 @@ const Cart = () => {
 
   //Start of Cart Page from here
   const [qty, setqty] = useState(0);
-  const [price,setPrice]=useState(0);
-  const [inputValue, setInputValue] = useState('');
+  const [price, setPrice] = useState(0);
+  const [inputValue, setInputValue] = useState("");
 
   const handleqty = () => {
     setqty(qty + 1);
-
   };
   const handleqtydown = () => {
     setqty(qty - 1);
   };
-
 
   const [country, setCountry] = useState("");
   const [region, setRegion] = useState("");
@@ -294,36 +294,36 @@ const Cart = () => {
     contact: "+91 ",
     country: "",
     state: "",
-    service:"",
-    delivery:"",
+    service: "",
+    delivery: "",
     city: "",
     pincode: "",
     address: "",
     address2: "",
-    email:"",
-    notes:"",
-    firstname:"",
-    lastname:"",
-    paymentstatus:"",
+    email: "",
+    notes: "",
+    firstname: "",
+    lastname: "",
+    paymentstatus: "",
+    total: "₹2700.00",
   };
 
-
-  const [selectedValue, setSelectedValue] = useState('');
-  const [selectedValue1, setSelectedValue1] = useState('');
+  const [selectedValue, setSelectedValue] = useState("");
+  const [selectedValue1, setSelectedValue1] = useState("");
 
   // Function to handle radio button change
   const handleRadioChange = (event) => {
     setSelectedValue(event.target.value);
-    setSelectedValue1(event.target.value);
     console.log(selectedValue);
+  };
+  const handleRadioChange1 = (event) => {
+    setSelectedValue1(event.target.value);
     console.log(selectedValue1);
+  };
 
-  }
-  
   const [form, setForm] = useState(initialForm);
   const handleChangeFinal = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-
   };
   const stepFormSubmit = () => {
     setForm({ ...form, service: selectedValue });
@@ -331,12 +331,47 @@ const Cart = () => {
 
     // console.log(form);
   };
-console.log(form);
+  console.log(form);
 
+  //Payment
+  const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_SCERET_KEY);
+  const handlePayment = async () => {
+    try {
+      const stripe = await stripePromise;
+      const paymentData = {
+        items: [{ name: "Russian", price: "6000" }],
+        email: "sidd@test",
+      };
+      const res = await axios.post("/payment", paymentData);
+
+      // console.log(res.data);
+
+      const result = await stripe.redirectToCheckout({
+        sessionId: res.data.id,
+      });
+
+      if (result.error) {
+        console.log(result.error.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="m-5">
       <Navbar />
+      {cartList.map((items, index) => {
+        return (
+          <div key={index}>
+            <label>
+              {items.orders.map((order, indexOrder) => {
+                return <div key={indexOrder}>{order.orderData.category}</div>;
+              })}
+            </label>
+          </div>
+        );
+      })}
       {/* Stepper Definition  */}
       <MainContainer>
         <StepContainer width={width}>
@@ -376,7 +411,9 @@ console.log(form);
               <div className="h-screen pt-20">
                 <div className="grid grid-cols-2">
                   {/* header */}
-                  <h1 className="mb-5 ml-0 text-left text-2xl font-bold">Orders</h1>
+                  <h1 className="mb-5 ml-0 text-left text-2xl font-bold">
+                    Orders
+                  </h1>
                   <h1 className="hidden lg:block mb-5 pl-10 text-right text-2xl font-bold">
                     Payment Summary
                   </h1>
@@ -404,83 +441,87 @@ console.log(form);
                 })}
 
                 {/* first block/orders block */}
-                
+
                 <div className="mx-auto max-w-5xl justify-center px-1 lg:px-6 md:flex md:space-x-6 xl:px-0">
-                {cartList.map((items, index) => {
-                  return (
-                  <div className="rounded-lg md:w-3/3">
-                     {items.orders.map((order, indexOrder) => {
+                  {cartList.map((items, index) => {
+                    return (
+                      <div className="rounded-lg md:w-3/3">
+                        {items.orders.map((order, indexOrder) => {
                           return (
-                    <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-                      <img src={imr} className="h-[30%]" />
-                      <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
-                        <div className="mt-5 sm:mt-0">
-                          <h2 className="text-lg font-bold text-gray-900">
-                          {order.orderData.category}
-                              {order.orderData.clothDetails.backDetails}
-                              {order.orderData.clothDetails.collar}
-                              {order.orderData.clothDetails.fabric}
-                              {order.orderData.clothDetails.sleeve}
-                          </h2>
-                          <p className="mt-1 text-xs text-gray-700">
-                            COLOR: <b>{order.orderData.clothDetails.color}</b>
-                          </p>
-                          <p className="mt-1 text-xs text-gray-700">
-                            SIZE: <b>XI</b>
-                          </p>
-                        </div>
-                        <div className=" hidden lg:flex justify-between sm:space-y-6 sm:mt-0  sm:space-x-6 m-[40px]  ">
-                          <div className="flex  space-x-4">
-                            <p className="text-md mt-1 font-bold">{qty ? qty * qty : 0}</p>
-                          </div>
-                        </div>
-                        <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
-                          <div className="flex items-center border-gray-100">
-                            <button
-                              className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"
-                              onClick={handleqtydown}
-                            >
-                              {" "}
-                              -{" "}
-                            </button>
-                            <input
-                              className="h-8 w-8 border bg-white text-center text-xs outline-none"
-                              type="number"
-                              value={qty}
-                              min={1}
-                            />
-                            <button
-                              className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"
-                              onClick={handleqty}
-                            >
-                              {" "}
-                              +{" "}
-                            </button>
-                          </div>
-                          <div className="lg:hidden flex items-center space-x-4">
-                            <p className="text-sm">₹2590.00</p>
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke-width="1.5"
-                              stroke="currentColor"
-                              className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M6 18L18 6M6 6l12 12"
-                              />
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </div>  );
+                            <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
+                              <img src={imr} className="h-[30%]" />
+                              <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
+                                <div className="mt-5 sm:mt-0">
+                                  <h2 className="text-lg font-bold text-gray-900">
+                                    {order.orderData.category}
+                                    {order.orderData.clothDetails.backDetails}
+                                    {order.orderData.clothDetails.collar}
+                                    {order.orderData.clothDetails.fabric}
+                                    {order.orderData.clothDetails.sleeve}
+                                  </h2>
+                                  <p className="mt-1 text-xs text-gray-700">
+                                    COLOR:{" "}
+                                    <b>{order.orderData.clothDetails.color}</b>
+                                  </p>
+                                  <p className="mt-1 text-xs text-gray-700">
+                                    SIZE: <b>XI</b>
+                                  </p>
+                                </div>
+                                <div className=" hidden lg:flex justify-between sm:space-y-6 sm:mt-0  sm:space-x-6 m-[40px]  ">
+                                  <div className="flex  space-x-4">
+                                    <p className="text-md mt-1 font-bold">
+                                      {qty ? qty * qty : 0}
+                                    </p>
+                                  </div>
+                                </div>
+                                <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
+                                  <div className="flex items-center border-gray-100">
+                                    <button
+                                      className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"
+                                      onClick={handleqtydown}
+                                    >
+                                      {" "}
+                                      -{" "}
+                                    </button>
+                                    <input
+                                      className="h-8 w-8 border bg-white text-center text-xs outline-none"
+                                      type="number"
+                                      value={qty}
+                                      min={1}
+                                    />
+                                    <button
+                                      className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"
+                                      onClick={handleqty}
+                                    >
+                                      {" "}
+                                      +{" "}
+                                    </button>
+                                  </div>
+                                  <div className="lg:hidden flex items-center space-x-4">
+                                    <p className="text-sm">₹2590.00</p>
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      fill="none"
+                                      viewBox="0 0 24 24"
+                                      stroke-width="1.5"
+                                      stroke="currentColor"
+                                      className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500"
+                                    >
+                                      <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M6 18L18 6M6 6l12 12"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          );
                         })}
-                  </div>
-                  );
-                })}
+                      </div>
+                    );
+                  })}
 
                   {/* Payment summary block */}
                   <div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
@@ -537,7 +578,12 @@ console.log(form);
                     {/* first service */}
                     <div className="rounded-lg md:h-1/3">
                       <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-                        <input name="service" type="radio" value={99} onChange={handleRadioChange}/>
+                        <input
+                          name="service"
+                          type="radio"
+                          value={99}
+                          onChange={handleChangeFinal}
+                        />
                         <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                           <div className="mt-5 sm:mt-0">
                             <h2 className="text-lg font-bold text-gray-900">
@@ -559,7 +605,12 @@ console.log(form);
                     {/* 2nd Service */}
                     <div className="rounded-lg md:h-1/3">
                       <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-                        <input name="service" type="radio" value={9} onChange={handleRadioChange} />
+                        <input
+                          name="service"
+                          type="radio"
+                          value={9}
+                          onChange={handleChangeFinal}
+                        />
                         <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                           <div className="mt-5 sm:mt-0">
                             <h2 className="text-lg font-bold text-gray-900">
@@ -587,7 +638,12 @@ console.log(form);
                     {/* fedex */}
                     <div className="rounded-lg md:h-1/3">
                       <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-                        <input name="check" type="radio" value={79} onChange={handleRadioChange} />
+                        <input
+                          name="delivery"
+                          type="radio"
+                          value={99}
+                          onChange={handleChangeFinal}
+                        />
                         <img
                           src="https://cdn.iconscout.com/icon/free/png-256/fedex-1-282177.png"
                           className=" lg:w-[17%] sm:w-[17%]"
@@ -616,7 +672,12 @@ console.log(form);
                     {/* Delhivery */}
                     <div className="rounded-lg md:h-1/3">
                       <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-                        <input name="check" type="radio" value={79} onChange={handleRadioChange} />
+                        <input
+                          name="delivery"
+                          type="radio"
+                          value={79}
+                          onChange={handleChangeFinal}
+                        />
                         <img
                           src="https://cdn-icons-png.flaticon.com/512/726/726455.png"
                           className=" lg:w-[10%] sm:w-[10%]"
@@ -644,17 +705,17 @@ console.log(form);
                   </div>
                 </div>
                 <div className="text-center">
-                 <button
-                className="bg-blue-500  w-[30%] px-6 py-1.5 rounded-lg text-white hover:bg-blue-600"
-                onClick={() => {
-                  handleNext();
-                  stepFormSubmit();
-                }}
-                disabled={activeStep === totalSteps}
-              >
-                Next
-              </button>
-              </div>
+                  <button
+                    className="bg-blue-500  w-[30%] px-6 py-1.5 rounded-lg text-white hover:bg-blue-600"
+                    onClick={() => {
+                      handleNext();
+                      stepFormSubmit();
+                    }}
+                    disabled={activeStep === totalSteps}
+                  >
+                    Next
+                  </button>
+                </div>
                 <img
                   src={el}
                   className="h-[30%] absolute float-right right-0 "
@@ -663,7 +724,6 @@ console.log(form);
                   src={el2}
                   className="h-[30%] absolute float-left left-0 "
                 />
-               
               </div>
             </>
           ) : step == 2 ? (
@@ -717,11 +777,13 @@ console.log(form);
                       <div>
                         <span className="text-gray-700">Phone No.</span>
                         <br />
-                        <input type="tel" name="contact"
+                        <input
+                          type="tel"
+                          name="contact"
                           className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                           placeholder="Enter phone number"
                           value={form.contact}
-                          onChange={handleChangeFinal}                        
+                          onChange={handleChangeFinal}
                         />
                       </div>
                       <div className="mb-2">
@@ -746,21 +808,20 @@ console.log(form);
                     <br />
                     <br />
                     {/*  country selector hooks used here */}
-                  
+
                     <div className="mb-2">
-                    <div>
-                      <span>Country/ Region</span>
-                      <input
+                      <div>
+                        <span>Country/ Region</span>
+                        <input
                           name="country"
                           type="country"
                           value={form.country}
                           onChange={handleChangeFinal}
-
                           className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                           placeholder="Country"
                           required
                         />{" "}
-                    </div>
+                      </div>
 
                       <label>
                         <span className="text-gray-700">Street address</span>
@@ -950,7 +1011,7 @@ console.log(form);
                                 className="w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] "
                               >
                                 <input
-                                  type="radio"
+                                  type="button"
                                   onChange={() => setType("card")}
                                 />
                                 <label className="ml-2 text-sm ">CARD</label>
@@ -960,7 +1021,7 @@ console.log(form);
                                 className="w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                               >
                                 <input
-                                  type="radio"
+                                  type="button"
                                   onChange={() => setType("bank")}
                                 />
                                 <label className="ml-2">BANK</label>
@@ -970,7 +1031,7 @@ console.log(form);
                                 className=" w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                               >
                                 <input
-                                  type="radio"
+                                  type="button"
                                   onChange={() => setType("upi")}
                                 />
                                 <label className="ml-2">UPI</label>
@@ -980,7 +1041,7 @@ console.log(form);
                                 className=" w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                               >
                                 <input
-                                  type="radio"
+                                  type="button"
                                   onChange={() => setType("cod")}
                                 />
                                 <label className="ml-2">COD</label>
@@ -1004,18 +1065,18 @@ console.log(form);
                               {/* tab body panels for each method 1.Card Payment */}
                               <TabPanel value="card" className="p-0 ">
                                 <form className="mt-5 flex flex-col gap-4">
-                                  <div className="my-0">
-                                    <Typography
-                                      variant="small"
-                                      color="blue-gray"
-                                      className="mb-4 font-medium"
-                                    >
-                                      Card Details
-                                    </Typography>
-                                   
-                                  </div>
-                                  <Button size="lg" className="h-auto p-3">
-                                    Pay Now
+                                  <div className="my-0"></div>
+                                  <Button
+                                    size="lg"
+                                    name="total"
+                                    className="h-auto p-3"
+                                    onClick={() => {
+                                      handlePayment();
+                                      handleChangeFinal();
+                                    }}
+                                    value={"₹2700.00"}
+                                  >
+                                    Pay Now {form.total}
                                   </Button>
                                   <Typography
                                     variant="small"
@@ -1039,10 +1100,12 @@ console.log(form);
                                     Bank Details
                                   </Typography>
 
-                                 
-                                  
-                                  <Button size="lg" className="h-auto p-3">
-                                    Pay Now
+                                  <Button
+                                    size="lg"
+                                    className="h-auto p-3"
+                                    onClick={handlePayment}
+                                  >
+                                    Pay Now {form.total}
                                   </Button>
                                   <Typography
                                     variant="small"
@@ -1058,8 +1121,12 @@ console.log(form);
                               {/* Tabpanel3 for upi payment */}
                               <TabPanel value="upi" className="p-0 scroll ">
                                 <form className="mt-12 flex flex-col gap-4">
-                                  <Button size="lg" className="h-auto p-3">
-                                    Pay Now
+                                  <Button
+                                    size="lg"
+                                    className="h-auto p-3"
+                                    onClick={handlePayment}
+                                  >
+                                    Pay Now {form.total}
                                   </Button>
                                   <Typography
                                     variant="small"
@@ -1218,7 +1285,9 @@ console.log(form);
                               </div>
                               <div className=" lg:flex justify-between sm:space-y-6 sm:mt-0  sm:space-x-6 m-[10px]  ">
                                 <div className="flex  space-x-4">
-                                  <p className="text-md mt-1 font-bold">₹99.00</p>
+                                  <p className="text-md mt-1 font-bold">
+                                    ₹99.00
+                                  </p>
                                 </div>
                               </div>
                             </div>
@@ -1239,7 +1308,9 @@ console.log(form);
                               </div>
                               <div className="  ">
                                 <div className="flex  space-x-4">
-                                  <p className="text-md mt-1 font-bold">₹9.00</p>
+                                  <p className="text-md mt-1 font-bold">
+                                    ₹9.00
+                                  </p>
                                 </div>
                               </div>
                             </div>
@@ -1340,7 +1411,6 @@ console.log(form);
               </button>
             )}
             {/* button for step1 */}
-            
           </div>
         </div>
         <br />

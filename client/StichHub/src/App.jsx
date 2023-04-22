@@ -24,6 +24,8 @@ import NewTailor from "./components/TailorDashboard/NewTailor";
 import Profile from "./components/TailorDashboard/Profile";
 import { HomeProvider, useHCustomization } from "./contexts/Home";
 import OrderConfirmation from "./components/Home/OrderConfirmation";
+import PaymentSuccess from "./components/Cart/PaymentSuccess";
+import PaymentFailure from "./components/Cart/PaymentFailure";
 
 function App() {
   const [userCustomer, setUserCustomer] = useState(
@@ -109,6 +111,8 @@ function App() {
           <Route path="/OrderDetails" element={<OrderConfirmation />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/Orders" element={<CustomerOrder />} />
+          <Route path="/Cart/success" element={<PaymentSuccess />} />
+          <Route path="/Cart/cancel" element={<PaymentFailure />} />
           {/* Customer Features  */}
           <Route path="/ClothesCategory" element={<ClothesCategory />} />
           <Route path="/CustomersPage" element={<CustomerLandingPage />} />
