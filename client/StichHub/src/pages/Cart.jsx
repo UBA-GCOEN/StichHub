@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Home/Navbar";
 import styled from "styled-components";
 import Step1 from "../components/Cart/Step1";
 import Step2 from "../components/Cart/Step2";
@@ -194,10 +194,6 @@ const steps = [
   {
     label: "Payment",
     step: 3,
-  },
-  {
-    label: "Complete Order",
-    step: 4,
   },
 ];
 
@@ -894,24 +890,11 @@ const Cart = () => {
                     <h4 className="pt-4 pl-8 pb-4 font-bold md:items-center">
                       <span>Order Information</span>
                     </h4>
-                    <img
-                      src={img}
-                      className="m-10 mt-0 mb-[5px] object-fill w-[73%] h-[180px] rounded-[10px] border border-solid border-[#cecece]"
-                    />
+                    
 
                     <div className="m-10 mt-5">
-                      <div className="mb-2 flex justify-between">
-                        <p className="text-gray-700 font-bold">
-                          {" "}
-                          Teal Brown Kurti Full (Cotton Silk)
-                        </p>
-                      </div>
-                      <div className="mb-2 flex justify-between">
-                        <p className="text-gray-700">Size:</p>
-                        <p className="text-gray-700 font-bold">XI</p>
-                        <p className="text-gray-700">Color:</p>
-                        <p className="text-gray-700 font-bold">Red</p>
-                      </div>
+                      
+                      
                       <hr></hr>
                       <div className="mb-2 flex justify-between mt-5">
                         <p className="text-gray-700">Order Summary</p>
@@ -954,181 +937,27 @@ const Cart = () => {
               <div>
                 <div
                   id="body"
-                  className="grid lg:grid-cols-2  lg:pl-[10%] md:grid-cols-1 gap-4 justify-center "
+                  className=" text-center lg:pl-[10%] md:grid-cols-1 gap-4 justify-center "
                 >
                   <img
                     src={se}
-                    className=" hidden lg:block flex absolute lg:left-0 mt-20 w-[30%] sm:w-[40]% sm:right-0"
+                    className=" hidden lg:block flex absolute lg:left-0  mt-20 w-[30%] sm:w-[40]% sm:right-0"
                   />
                   <div className="block max-w-lg rounded-lg bg-white p-6 ">
                     {/* payment form */}
-                    <form>
-                      <span className="text-gray-700 font-bold text-lg ">
-                        Payment
-                      </span>
-                      <br />
-                      <br />
-
-                      {/* Tabs for payment methods */}
-                      <Card className="w-full max-w-[24rem]  ">
-                        <CardBody>
-                          <Tabs value={type} className="overflow-visible  ">
-                            {/* tabs header */}
-                            <TabsHeader className="relative z-0 h-full  ">
-                              
-                                <input
-                                  type="button"
-                                  onChange={() => setType("card")}
-                                />
-                              
-                            </TabsHeader>
-                            {/* tabs body */}
-                            <TabsBody
-                              className="!overflow-x-hidden !overflow-y-visible "
-                              animate={{
-                                initial: {
-                                  x: type === "card" ? 400 : -400,
-                                },
-                                mount: {
-                                  x: 0,
-                                },
-                                unmount: {
-                                  x: type === "card" ? 400 : -400,
-                                },
-                              }}
-                            >
-                              {/* tab body panels for each method 1.Card Payment */}
-                                <form className="mt-5 flex flex-col">
-                                  <div className="my-0"></div>
-                                  <Button
-                                    size="lg"
-                                    name="total"
-                                    className="h-auto p-3"
-                                    onClick={() => {
-                                      handlePayment();
-                                    }}
-                                    value={"₹2700.00"}
-                                  >
-                                    Pay Now {form.total}
-                                  </Button>
-                                  <Typography
-                                    variant="small"
-                                    color="gray"
-                                    className="mt-2 flex items-center justify-center gap-2 font-normal opacity-60"
-                                  >
-                                    <LockClosedIcon className="-mt-0.5 h-4 w-4" />{" "}
-                                    Payments are secure and encrypted
-                                  </Typography>
-                                </form>
-
-                              {/* Tabpanel2 for bank payment */}
-                              <TabPanel value="bank" className="p-0">
-                                <form className="mt-1 flex flex-col gap-4 scroll-m-0">
-                                  <Typography
-                                    variant="small"
-                                    color="blue-gray"
-                                    className="mb-4 ml-2 font-medium"
-                                  >
-                                    Bank Details
-                                  </Typography>
-
-                                  <Button
-                                    size="lg"
-                                    className="h-auto p-3"
-                                    onClick={handlePayment}
-                                  >
-                                    Pay Now {form.total}
-                                  </Button>
-                                  <Typography
-                                    variant="small"
-                                    color="gray"
-                                    className="mt-2 flex items-center justify-center gap-2 font-normal opacity-60"
-                                  >
-                                    <LockClosedIcon className="-mt-0.5 h-4 w-4" />{" "}
-                                    Payments are secure and encrypted
-                                  </Typography>
-                                </form>
-                              </TabPanel>
-
-                              {/* Tabpanel3 for upi payment */}
-                              <TabPanel value="upi" className="p-0 scroll ">
-                                <form className="mt-12 flex flex-col gap-4">
-                                  <Button
-                                    size="lg"
-                                    className="h-auto p-3"
-                                    onClick={handlePayment}
-                                  >
-                                    Pay Now {form.total}
-                                  </Button>
-                                  <Typography
-                                    variant="small"
-                                    color="gray"
-                                    className="mt-2 flex items-center justify-center gap-2 font-normal opacity-60"
-                                  >
-                                    <LockClosedIcon className="-mt-0.5 h-4 w-4" />{" "}
-                                    Payments are secure and encrypted
-                                  </Typography>
-                                </form>
-                              </TabPanel>
-
-                              {/* tabpanel4 for cod payment */}
-                              <TabPanel value="cod" className="p-0">
-                                <form className="mt-12 flex flex-col gap-0">
-                                  <div className="mb-5">
-                                    <span className="text-gray-700 mt-3 mb-2">
-                                      Your Delivery Address
-                                    </span>
-                                    <br />
-                                    <input
-                                      type="text"
-                                      disabled
-                                      className="border  w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
-                                      defaultValue={form.address}
-                                      maxLength={16}
-                                    />
-                                  </div>
-                                  <Typography
-                                    variant="small"
-                                    color="gray"
-                                    className="mt-2 flex items-center justify-center gap-2 font-normal opacity-60"
-                                  >
-                                    <LockClosedIcon className="-mt-0.5 h-4 w-4" />{" "}
-                                    Payments are secure and encrypted
-                                  </Typography>
-                                </form>
-                              </TabPanel>
-                            </TabsBody>
-                          </Tabs>
-                        </CardBody>
-                      </Card>
-                    </form>
+                    <form></form>
                   </div>
 
                   {/* Order information block */}
-                  <div className="justify-center w-full  lg:w-[300px] rounded-2xl lg:ml-0 lg:mt-3 ">
-                    <div className="shadow-2xl rounded-2xl  ">
-                      <h4 className="pt-4 pl-8 pb-4 font-bold md:items-center">
+                  
+                  <div className="justify-center w-full lg:w-[300px] rounded-2xl lg:ml-[28%] lg:mt-3 ">
+                    <div className="shadow-2xl rounded-2xl ">
+                      <h4 className="pt-4 pb-4 font-bold md:items-center">
                         <span>Order Information</span>
                       </h4>
-                      <img
-                        src={img}
-                        className="m-10 mt-0 mb-[5px] object-fill w-[73%] h-[180px] rounded-[10px] border border-solid border-[#cecece]"
-                      />
 
                       <div className="m-10 mt-5">
-                        <div className="mb-2 flex justify-between">
-                          <p className="text-gray-700 font-bold">
-                            {" "}
-                            Teal Brown Kurti Full (Cotton Silk)
-                          </p>
-                        </div>
-                        <div className="mb-2 flex justify-between">
-                          <p className="text-gray-700">Size:</p>
-                          <p className="text-gray-700 font-bold">XI</p>
-                          <p className="text-gray-700">Color:</p>
-                          <p className="text-gray-700 font-bold">Red</p>
-                        </div>
-                        <hr></hr>
+                       
                         <div className="mb-2 flex justify-between mt-5">
                           <p className="text-gray-700">Order Summary</p>
                           <p className="text-gray-700">₹2590.00</p>
@@ -1160,18 +989,29 @@ const Cart = () => {
                     </div>
                   </div>
                 </div>
-                <div className="text-center">
+                <Typography
+                  variant="medium"
+                  color="gray"
+                  className="mt-2 flex mb-2 text-lg items-center justify-center gap-2 font-normal opacity-60"
+                >
+                  <LockClosedIcon className="-mt-0.5 h-4 w-4" /> Payments are
+                  secure and encrypted
+
+                </Typography>
+                <span className="text-bold text-gray-500 flex justify-center text-sm mb-5">Click on Pay now button to continue purchasing your orders
+</span>
+                <div className="flex flex-col lg:flex-row justify-center gap-3">
                   <button
-                    className="bg-gray-300 w-[30%]  px-6 py-1.5 rounded-lg text-gray-700 hover:bg-gray-400 top-0"
+                    className="bg-gray-300 lg:w-[30%]  px-6 py-1.5 rounded-lg text-gray-700 hover:bg-gray-400 top-0"
                     onClick={handleBack}
                   >
                     Previous
                   </button>
                   <button
-                    className="bg-blue-500 w-[30%] ml-5 px-6 py-1.5 rounded-lg text-white hover:bg-blue-600 top-0"
+                    className="bg-blue-500 lg:w-[30%] lg:ml-5 px-6 py-1.5 rounded-lg text-white hover:bg-blue-600 top-0"
                     onClick={handlePayment}
                   >
-                    Pay Now
+                    Pay Now {form.total}
                   </button>
                 </div>
               </div>
