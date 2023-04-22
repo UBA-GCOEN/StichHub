@@ -7,7 +7,6 @@ function classNames(...classes) {
 }
 
 export default function TabsM(props) {
-  console.log(props);
   // Constanst for starts
   const stars = Array(5).fill(0);
 
@@ -96,7 +95,7 @@ export default function TabsM(props) {
             {/* {categories.Details.map((post) => ( */}
             <li className="relative rounded-md p-3 hover:bg-gray-100">
               <h3 className="text-sm font-medium leading-5">
-                {props.props[0].bio}
+                {props.item.bio}
               </h3>
 
               {/* <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
@@ -163,7 +162,7 @@ export default function TabsM(props) {
               className="relative rounded-md p-3 hover:bg-gray-100"
             >
               <h3 className="text-sm font-medium leading-5">
-                {props.props[0].bio}
+                {props.item.bio}
               </h3>
 
               {/* <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
