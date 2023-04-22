@@ -361,17 +361,7 @@ const Cart = () => {
   return (
     <div className="m-5">
       <Navbar />
-      {cartList.map((items, index) => {
-        return (
-          <div key={index}>
-            <label>
-              {items.orders.map((order, indexOrder) => {
-                return <div key={indexOrder}>{order.orderData.category}</div>;
-              })}
-            </label>
-          </div>
-        );
-      })}
+   
       {/* Stepper Definition  */}
       <MainContainer>
         <StepContainer width={width}>
@@ -418,27 +408,7 @@ const Cart = () => {
                     Payment Summary
                   </h1>
                 </div>
-                {cartList.map((items, index) => {
-                  return (
-                    <div key={index}>
-                      <label>
-                        {items.orders.map((order, indexOrder) => {
-                          return (
-                            <div key={indexOrder}>
-                              {order.orderData.category}
-                              {order._id}
-                              {order.orderData.clothDetails.backDetails}
-                              {order.orderData.clothDetails.collar}
-                              {order.orderData.clothDetails.fabric}
-
-                              {order.orderData.clothDetails.sleeve}
-                            </div>
-                          );
-                        })}
-                      </label>
-                    </div>
-                  );
-                })}
+           
 
                 {/* first block/orders block */}
 
