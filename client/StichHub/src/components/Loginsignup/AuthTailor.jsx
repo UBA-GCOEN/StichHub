@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import logo from "../../assets/logo/Long - Logo Transparent (White).png";
 import shortlogo from "../../assets/logo/Short-Logo Transparent (Black).png";
-import customerimg from "../../assets/loginsignup/customerimg.png";
 import tailorimg from "../../assets/loginsignup/tailorimg.png";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import axios from "../../axios.js";
+import { Player } from "@lottiefiles/react-lottie-player";
 
 const initialForm = {
   name: "",
@@ -19,6 +19,7 @@ const AuthTailor = () => {
   const [isregister, setIsRegister] = useState(true);
   const [form, setForm] = useState(initialForm);
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigateTo = useNavigate();
 
   const switchMode = () => {
@@ -32,28 +33,32 @@ const AuthTailor = () => {
 
   const handleSumbmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     try {
-      const res = (isregister) 
-      ? await axios.post('/userTailor/register',form )
-      : await axios.post('/userTailor/signin', form )
+      const res = isregister
+        ? await axios.post("/userTailor/register", form)
+        : await axios.post("/userTailor/signin", form);
 
       const result = res.data;
 
+      if (isregister) localStorage.setItem("tailorFirstLogin", "true");
       localStorage.setItem("tailorProfile", JSON.stringify({ ...result }));
 
-      navigateTo('/Tailordashboard')
+      setIsLoading(false);
+      navigateTo("/TailorProfileVerification");
     } catch (error) {
       setError(error.response.data.message);
+      setIsLoading(false);
     }
   };
 
   const googleSuccess = async (res) => {
     const result = jwt_decode(res?.credential);
-    localStorage.setItem("tailorProfile", JSON.stringify({ result, }));
+    localStorage.setItem("tailorProfile", JSON.stringify({ result }));
 
     try {
-      navigateTo("/TailorDashboard");
+      navigateTo("/TailorProfileVerification");
     } catch (error) {
       console.log(error);
     }
@@ -65,8 +70,23 @@ const AuthTailor = () => {
 
   return (
     <div className="bg-gray-800 h-[100vh] flex justify-between overflow-hidden">
+      {/* Loading Animations */}
+      {isLoading ? (
+        <div className="relative">
+          <div className="absolute z-[100] left-[-10vw] lg:left-[30vw] top-[10vh]">
+            <Player
+              src="https://assets8.lottiefiles.com/packages/lf20_prjwp0b2.json"
+              background="transparent"
+              speed="1"
+              style={{ height: "500px", width: "500px" }}
+              loop
+              autoplay
+            />
+          </div>
+        </div>
+      ) : null}
       {/* Left Side (img)*/}
-      <div className=" bg-[url('../src/assets/registrationbg.png')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10 rounded-r-3xl">
+      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.png')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10 rounded-l-3xl">
         <img
           src={shortlogo}
           className="w-[5vw] absolute bottom-14 left-5"
@@ -74,7 +94,7 @@ const AuthTailor = () => {
       </div>
 
       {/* Right Side */}
-      <div className="relative bg-primary w-[49vw] my-10 rounded-l-3xl">
+      <div className="relative bg-primary w-full lg:w-[49vw] my-10 rounded-3xl lg:rounded-r-3xl">
         <div className="relative z-[5]">
           {/* logo */}
           <div className="flex justify-center mt-10">
@@ -123,9 +143,9 @@ const AuthTailor = () => {
                     id="name"
                     value={form.name}
                     onChange={handleChange}
-                    className="mt-[10px] block w-[25vw] py-2 pl-[45px] bg-white border rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
-                focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-                disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                    className="mt-[10px] block w-[300px] py-2 pl-[45px] bg-white border rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                    focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+                    disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
                   />
                 </div>
@@ -153,11 +173,11 @@ const AuthTailor = () => {
                   id="email"
                   value={form.email}
                   onChange={handleChange}
-                  className="mt-[10px] block w-[25vw] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
-                focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-                disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
-                invalid:border-pink-500 invalid:text-pink-600
-                focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
+                  className="mt-[10px] block w-[300px] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                  focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+                  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                  invalid:border-pink-500 invalid:text-pink-600
+                  focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
                 />
               </div>
               <div>
@@ -183,9 +203,9 @@ const AuthTailor = () => {
                   id="password"
                   value={form.password}
                   onChange={handleChange}
-                  className="mt-[10px] block w-[25vw] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
-                focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-                disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                  className="mt-[10px] block w-[300px] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                  focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+                  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
                 />
               </div>
@@ -213,9 +233,9 @@ const AuthTailor = () => {
                     id="confirmPassword"
                     value={form.confirmPassword}
                     onChange={handleChange}
-                    className="mt-[10px] block w-[25vw] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
-                focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-                disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                    className="mt-[10px] block w-[300px] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                    focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+                    disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
                   />
                 </div>
@@ -223,7 +243,7 @@ const AuthTailor = () => {
               <div className="flex justify-center">
                 <button
                   type="submit"
-                  className="mt-[15px] block w-[25vw] py-2 bg-blue-500 text-white rounded-xl font-regular text-xl"
+                  className="mt-[15px] block w-[170px] py-2 bg-blue-500 text-white rounded-xl font-regular text-xl"
                 >
                   {isregister ? "Register" : "Sign in"}
                 </button>

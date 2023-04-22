@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+
+
+import axios from "axios";
 import {
   Card,
   CardHeader,
@@ -23,6 +26,24 @@ import {
 
 import se from "../../assets/img/se.png";
 import img from "../../assets/img/img.png";
+
+const handleSubmit = (event) => {
+  event.preventDefault();
+
+  const data = {
+    test: "test",
+  };
+  console.log(data);
+  // const formData = new FormData(event.target);
+
+  // fetch("/api/form-submit", {
+  //   method: "POST",
+  //   body: formData,
+  // })
+  //   .then((response) => response.json())
+  //   .then((data) => console.log(data))
+  //   .catch((error) => console.error(error));
+};
 
 //Card Number Regular Expression
 function formatCardNumber(e) {
@@ -72,7 +93,7 @@ const Step3 = () => {
         />
         <div class="block max-w-lg rounded-lg bg-white p-6 ">
           {/* payment form */}
-          <form>
+          <form onSubmit={handleSubmit}>
             <span className="text-gray-700 font-bold text-lg ">Payment</span>
             <br />
             <br />
@@ -151,7 +172,8 @@ const Step3 = () => {
                             </span>
                             <input
                               type="number"
-                              name="q"
+                              name="card_number"
+                              id="card_number"
                               className=" text-black pl-14 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                             />
                           </div>
@@ -199,9 +221,9 @@ const Step3 = () => {
                             Save Card Details
                           </label>
                         </div>
-                        <Button size="lg" className="h-auto p-3">
+                        <button type="submit" size="lg" className="h-auto p-3">
                           Pay Now
-                        </Button>
+                        </button>
                         <Typography
                           variant="small"
                           color="gray"
@@ -263,7 +285,11 @@ const Step3 = () => {
                             className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                           />
                         </div>
-                        <Button size="lg" className="h-auto p-3">
+                        <Button
+                          // onClick={pay()}
+                          size="lg"
+                          className="h-auto p-3"
+                        >
                           Pay Now
                         </Button>
                         <Typography

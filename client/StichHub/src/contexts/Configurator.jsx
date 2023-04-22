@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { fabrics, shirtPart, clothColor } from "../contants/configurator";
+import { fabrics, shirtPart, clothColor } from "../constants/configurator";
 
 const ConfiguratorContext = createContext({});
 

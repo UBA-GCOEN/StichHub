@@ -28,6 +28,7 @@ import appointment from "./appoitment.png"
 import tailor from "./tailor.png"
 import delivery from "./delivery.png"
 import menu from "./menu.svg"
+import close from "./close.svg"
 
 export {
   demo3d,
@@ -59,5 +60,6 @@ export {
   AvatarIcon,
   SleevlessShirt,
   ModernDress,
-  menu
+  menu,
+  close
 };

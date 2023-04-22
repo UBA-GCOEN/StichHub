@@ -3,11 +3,14 @@ import { AboutUsVector, AvatarDemo } from "../../assets/MainLandingPage/Icons";
 
 const About = () => {
   return (
-    <div id="aboutus" className="h-[100%] relative p-20 ml-20 mr-20">
+    <div
+      id="aboutus"
+      className="h-[100%] relative mt-20 mx-7 lg:p-20 lg:ml-20 lg:mr-20"
+    >
       <div className="relative z-[5] flex">
         {/* Title on left */}
-        <div id="title">
-          <span className="text-6xl font-semibold">
+        <div id="title" className="">
+          <span className="lg:text-6xl font-semibold">
             A <br />B<br />O<br />U<br />T<br />
             <br /> U<br />S
           </span>
@@ -15,71 +18,84 @@ const About = () => {
 
         <div>
           {/* Top Part */}
-          <div id="devId" className="flex justify-around">
+          <div id="devId" className="ml-10 lg:ml-0 flex flex-wrap justify-between">
             {/* Sidd */}
-            <div className="relative ml-[100px] mt-[40px]">
-              <img
-                src={AvatarDemo}
-                className="relative bg-black/50 rounded-3xl w-[180px]"
-              />
+            <div className="relative lg:ml-[100px] lg:mt-[40px]">
+              <div className="flex justify-center">
+                <img
+                  src={AvatarDemo}
+                  className="relative bg-black/50 rounded-3xl lg:w-[140px] w-[100px]"
+                />
+              </div>
               <div id="name">
-                <span className="text-xl font-medium">SIDDHANT PATIL</span>
+                <span className=" text-base lg:text-lg font-medium">SIDDHANT</span>
               </div>
             </div>
 
             {/* Vishal */}
-            <div className="relative pt-[180px]">
-              <img
-                src={AvatarDemo}
-                className="relative bg-black/50 rounded-3xl w-[180px] ml-2"
-              />
+            <div className="relative lg:ml-0 lg:pt-[180px] pt-14">
+              <div className="flex justify-center">
+                <img
+                  src={AvatarDemo}
+                  className="relative bg-black/50 rounded-3xl lg:w-[140px] w-[100px] ml-2"
+                />
+              </div>
               <div id="name">
-                <span className="text-xl font-medium">VISHAL KESHERWANI</span>
+                <span className="text-base lg:text-lg font-medium">VISHAL</span>
               </div>
             </div>
 
             {/* Naresh */}
-            <div className="relative mt-[120px]">
-              <img
-                src={AvatarDemo}
-                className="relative bg-black/50 rounded-3xl w-[180px] ml-7"
-              />
+            <div className="relative lg:mt-[120px] mt-4">
+              <div className="flex justify-center">
+                <img
+                  src={AvatarDemo}
+                  className="relative bg-black/50 rounded-3xl lg:w-[140px] w-[100px] lg:ml-7"
+                />
+              </div>
               <div id="name">
-                <span className="text-xl font-medium">NARESH CHANDANBATVE</span>
+                <span className="text-base lg:text-lg font-medium">NARESH</span>
               </div>
             </div>
 
             {/* Harshal */}
-            <div className="relative mt-[60px]">
-              <img
-                src={AvatarDemo}
-                className="relative bg-black/50 rounded-3xl w-[180px]"
-              />
+            <div className="relative lg:mt-[60px] mt-14">
+              <div className="flex justify-center">
+                <img
+                  src={AvatarDemo}
+                  className="relative bg-black/50 rounded-3xl lg:w-[140px] w-[100px]"
+                />
+              </div>
               <div id="name">
-                <span className="text-xl font-medium">HARSHAL LADE</span>
+                <span className="text-base lg:text-lg font-medium">HARSHAL</span>
               </div>
             </div>
 
             {/* Saurabh */}
-            <div className="relative mt-[150px]">
-              <img
-                src={AvatarDemo}
-                className="relative bg-black/50 rounded-3xl w-[180px]"
-              />
+            <div className="relative lg:mt-[150px] mt-4">
+              <div className="flex justify-center">
+                <img
+                  src={AvatarDemo}
+                  className="relative bg-black/50 rounded-3xl lg:w-[140px] w-[100px]"
+                />
+              </div>
               <div id="name">
-                <span className="text-xl font-medium">SAURABH YADAV</span>
+                <span className="text-base lg:text-lg font-medium">SAURABH</span>
               </div>
             </div>
           </div>
 
           {/* Bottom Part */}
-          <div id="description" className="flex">
-            <p className="mt-40 ml-40 text-left">
+          <div id="description" className="flex flex-col lg:flex-row mt-5 lg:mt-0">
+          <div className="flex justify-center">
+          <img src={AboutUsVector} className="lg:hidden lg:w-[340px] w-[200px]" />
+          </div>
+            <p className="text-base lg:text-lg lg:mt-28 lg:ml-40 text-left">
               We're a team of enthusiasts , hoping to bring the tailor community
               online and introduce them to the benifits of online business.
               Ismai customers kaa bhii dalnaa haii.
             </p>
-            <img src={AboutUsVector} />
+            <img src={AboutUsVector} className="hidden lg:block lg:w-[340px] w-[200px]" />
           </div>
         </div>
       </div>

@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "ncc build index.js && node index.js",
+    "server": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +19,10 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.2",
-    "nodemon": "^2.0.21"
+    "nodemon": "^2.0.21",
+    "stripe": "^12.2.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.36.1"
   }
 }

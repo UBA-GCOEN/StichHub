@@ -3,25 +3,15 @@ import Navbardark from "../components/Navbardark";
 import { useState, useEffect, useCallback } from "react";
 import New from "../assets/img/new.png";
 import "react-phone-number-input/style.css";
-import Phoneinput from "react-phone-number-input";
 import N from "../assets/img/n.png";
 import Profileveri from "../assets/img/profileverify.png";
 import Speciality from "../assets/img/speciality.png";
-
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Verified from "../assets/img/verified.png";
-
-import Select from "react-tailwindcss-select";
-
 import V from "../assets/img/v.png";
-import {
-  CountryDropdown,
-  RegionDropdown,
-  CountryRegionData,
-} from "react-country-region-selector";
-
-const user = {
-  name: "Vishal",
-};
+import MultiRangeSlider, { ChangeResult } from "multi-range-slider-react";
+import axios from "../axios.js";
+import { Player } from "@lottiefiles/react-lottie-player";
 
 //steps list
 const steps = [
@@ -42,32 +32,127 @@ const steps = [
     step: 4,
   },
   {
-    label: "Speciality",
+    label: "Portfilio",
     step: 5,
   },
   {
-    label: "Complete",
+    label: "Completed",
     step: 6,
   },
 ];
-const options = [
-  { value: "men", label: "1. Men's Tailor" },
-  { value: "women", label: "2. Women's Tailor" },
-  { value: "coat", label: "3. Coat Tailor" },
-  { value: "custom", label: "4. Custom Tailor" },
-];
+
+const initialForm = {
+  contact: "",
+  country: "",
+  state: "",
+  city: "",
+  pincode: "",
+  passport: "",
+  aadhar: "",
+  proffesionalDoc: "",
+  address: "",
+  address2: "",
+  bio: "",
+  prizerange: [],
+  types: [],
+};
 
 //Main Implementation from here
 const TailorProfileVerification = () => {
+  const [country, setCountry] = useState("");
   const [activeStep, setActiveStep] = useState(1);
-  const nextStep = () => {
-    setActiveStep(activeStep + 1);
+  const [step, setStep] = useState(1);
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem("tailorProfile"))
+  );
+  const [form, setForm] = useState(initialForm);
+  const location = useLocation();
+  const navigateTo = useNavigate();
+  const [minValue, set_minValue] = useState(500);
+  const [maxValue, set_maxValue] = useState(5000);
+  const [isLoading, setIsLoading] = useState(false);
+  const handleInput = (e) => {
+    set_minValue(e.minValue);
+    set_maxValue(e.maxValue);
+  };
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("tailorProfile")));
+  }, [location]);
+
+  useEffect(() => {
+    const isFirstLogin = localStorage.getItem("tailorFirstLogin");
+
+    if (!isFirstLogin) navigateTo("/TailorDashboard");
+
+    if (!user) navigateTo("/auth/tailor");
+  }, []);
+
+  const [checkedItems, setCheckedItems] = useState([]);
+
+  const handleCheckboxChange = (e) => {
+    const { value, checked } = e.target;
+    if (checked) {
+      setCheckedItems((prevValues) => [...prevValues, value]);
+    } else {
+      setCheckedItems((prevValues) =>
+        prevValues.filter((val) => val !== value)
+      );
+    }
   };
 
-  const prevStep = () => {
-    setActiveStep(activeStep - 1);
+  const [telephone, setTelephone] = useState("");
+
+  const handletelChange = (event) => {
+    const { value } = event.target;
+    const telRegex = /^\d{0,10}$/; // allow up to 10 digits
+    if (telRegex.test(value)) {
+      setTelephone(value);
+    }
+
+    setForm({ ...form, contact: telephone });
   };
-  const [step, setStep] = useState(1);
+
+  const [image1, setImage1] = useState("");
+  const [image2, setImage2] = useState("");
+  const [image3, setImage3] = useState("");
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function (upload) {
+      const uploadedImage = upload.target.result;
+
+      // Set the state variables to the uploaded image URLs
+      if (event.target.name === "passport") {
+        setImage1(uploadedImage);
+        setForm({ ...form, passport: uploadedImage });
+      } else if (event.target.name === "aadhar") {
+        setImage2(uploadedImage);
+        setForm({ ...form, aadhar: uploadedImage });
+      } else if (event.target.name === "proffesionalDoc") {
+        setImage3(uploadedImage);
+        setForm({ ...form, proffesionalDoc: uploadedImage });
+      }
+    };
+
+    reader.readAsDataURL(file);
+  };
+
+  const stepFormSubmit = () => {
+    setForm({ ...form, country: country });
+    setForm({ ...form, prizerange: [minValue, maxValue] });
+    setForm({ ...form, types: checkedItems });
+    // console.log(form);
+  };
+
+  useEffect(() => {
+    setForm({ ...form, prizerange: [minValue, maxValue] });
+  }, [minValue, maxValue]);
+
+  useEffect(() => {
+    setForm({ ...form, types: checkedItems });
+  }, [checkedItems]);
 
   const handleNext = () => {
     setStep(step + 1);
@@ -101,8 +186,6 @@ const TailorProfileVerification = () => {
     // 👇️ or simply set it to true
     // setIsShown(true);
   };
-
-  const [country, setCountry] = useState("");
 
   //progressbar function code
   const ProgressBar = ({ progressPercentage }) => {
@@ -151,493 +234,124 @@ const TailorProfileVerification = () => {
     );
   };
 
+  const handleChangeFinal = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async () => {
+    setIsLoading(true);
+    try {
+      const res = await axios.post("/tailors/list", form);
+      setIsLoading(false);
+      localStorage.removeItem("tailorFirstLogin");
+      navigateTo("/TailorDashboard");
+    } catch (error) {
+      console.log(error.response.data.message);
+      setIsLoading(false);
+    }
+  };
+
   // Step1 page/ Here Page
-  const Step1 = () => (
-    <div>
-      <div className="grid grid-cols-3 text-whie ml-[15%] mt-[20%] lg:mt-[5%] font-poppins">
-        <div className="col-start-1 col-end-3 ">
-          {/* Text hello username */}
-          <h1 className="text-white text-3xl font-bold mb-5">
-            Hi {user.name},
-          </h1>
-          <h1 className="select-none	 text-white text-5xl font-bold tracking-wider  lg:mr-[20%]	">
-            Complete these few steps for your verification
-          </h1>
-          <div className="grid gird-col-3 text-white mt-10">
-            <div className="flex col-start-1 col-end-2">
-              <label class="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
-                1
-              </label>
-              <label className="text-white font font-semibold text-xl lg:text-2xl m-3 ">
-                Confirm Email/ Mobile
-              </label>
-            </div>
-            <div className="flex col-start-2 col-end-3">
-              <label class="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
-                2
-              </label>
-              <label className="text-white font font-semibold text-xl lg:text-2xl mt-3 ml-3">
-                Confirm Address
-              </label>
-            </div>
-            <div className="flex col-start-1 col-end-2 lg:col-start-3 lg:col-end-4">
-              <label class="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
-                3
-              </label>
-              <label className="text-white font font-semibold text-xl lg:text-2xl m-3">
-                Perosnal Identity Verification
-              </label>
+  const Step1 = () => {
+    return (
+      <div className="h-[100vh]">
+        <div className="grid grid-cols-3 text-whie ml-[15%] mt-[20%] lg:mt-[5%] font-poppins">
+          <div className="col-start-1 col-end-3 ">
+            {/* Text hello username */}
+            <h1 className="text-white text-3xl font-bold mb-5">
+              Hi {user?.result.name},
+            </h1>
+            <h1 className="select-none	 text-white text-5xl font-bold tracking-wider  lg:mr-[20%]	">
+              Complete these few steps for your verification
+            </h1>
+            <div className="grid gird-col-3 text-white mt-10">
+              <div className="flex col-start-1 col-end-2">
+                <label class="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
+                  1
+                </label>
+                <label className="text-white font font-semibold text-xl lg:text-2xl m-3 ">
+                  Confirm Email/ Mobile
+                </label>
+              </div>
+              <div className="flex col-start-2 col-end-3">
+                <label class="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
+                  2
+                </label>
+                <label className="text-white font font-semibold text-xl lg:text-2xl mt-3 ml-3">
+                  Confirm Address
+                </label>
+              </div>
+              <div className="flex col-start-1 col-end-2 lg:col-start-3 lg:col-end-4">
+                <label class="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
+                  3
+                </label>
+                <label className="text-white font font-semibold text-xl lg:text-2xl m-3">
+                  Perosnal Identity Verification
+                </label>
+              </div>
+
+              <div className="flex col-start-2 col-end-3 lg:col-start-1 lg:col-end-2">
+                <label class="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
+                  4
+                </label>
+                <label className="text-white font font-semibold text-xl lg:text-2xl m-3 ">
+                  Set Up your Profile
+                </label>
+              </div>
+
+              {/* image with list */}
+              <div className="flex col-start-1 col-end-2 lg:col-start-2 lg:col-end-3">
+                <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
+                  <img
+                    src="https://img.icons8.com/external-bearicons-flat-bearicons/256/external-verified-reputation-bearicons-flat-bearicons.png"
+                    className="w-[70%]"
+                  ></img>
+                </label>
+                <label className="text-white font font-semibold text-xl lg:text-2xl m-3 mt-7 ">
+                  Verified
+                </label>
+              </div>
             </div>
 
-            <div className="flex col-start-2 col-end-3 lg:col-start-1 lg:col-end-2">
-              <label class="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
-                4
-              </label>
-              <label className="text-white font font-semibold text-xl lg:text-2xl m-3 ">
-                Confirm Spaciality
-              </label>
-            </div>
-
-            {/* image with list */}
-            <div className="flex col-start-1 col-end-2 lg:col-start-2 lg:col-end-3">
-              <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
-                <img
-                  src="https://img.icons8.com/external-bearicons-flat-bearicons/256/external-verified-reputation-bearicons-flat-bearicons.png"
-                  className="w-[70%]"
-                ></img>
-              </label>
-              <label className="text-white font font-semibold text-xl lg:text-2xl m-3 mt-7 ">
-                Verified
-              </label>
-            </div>
+            {/* Button */}
+            <button
+              className="bg-blue-500 rounded-xl text-white font-semibold tracking-wide p-3 mt-5 lg:mb-[20%]"
+              onClick={handleNext}
+            >
+              Get Started
+            </button>
           </div>
-
-          {/* Button */}
-          <button
-            className="bg-blue-500 rounded-xl text-white font-semibold tracking-wide p-3 mt-5 lg:mb-[20%]"
-            onClick={handleNext}
-          >
-            Get Started
-          </button>
+          {/* hero image */}
+          <div className="hidden lg:block col-start-3 col-end-4">
+            <img src={New} className="w-50% ml-[-40%] mr-20" />
+          </div>
         </div>
-        {/* hero image */}
-        <div className="hidden lg:block col-start-3 col-end-4">
-          <img src={New} className="w-50% ml-[-40%] mr-20" />
-        </div>
+        {/* progress bar with 0% progress */}
+        <ProgressBar progressPercentage={0} />
       </div>
-      {/* progress bar with 0% progress */}
-      <ProgressBar progressPercentage={0} />
-    </div>
-  );
+    );
+  };
 
   const [value, setValue] = useState();
-  // Step2 implementation from here
-  const Step2 = () => (
-    <div className="mt-[20%] lg:mt-[5%] bg-[#130F26] h-full">
-      <div className="grid grid-cols-4">
-        <div className="col-start-1 col-end-5">
-          <div className="flex ml-[15%] ">
-            <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
-              1
-            </label>
-            <h1 className="flex text-white text-2xl font-bold ml-2 mt-6 mb-5">
-              Confirm Email/ Mobile No.
-            </h1>
-          </div>
 
-          {/* Email verification section */}
-          <div className="ml-[15%] w-[70%] lg:w-[50%] h-auto bg-opacity-10 bg-white rounded-xl p-[2%] grid grid-col-1 lg:grid-cols-2 gap-3 ">
-            <form>
-              <div className="mb-2">
-                <label>
-                  <span className="text-white mb-3">Email address *</span>
-                  <input
-                    name="email"
-                    type="email"
-                    className="border box-border text-black w-full justify-around mb-[10px] p-2.5 rounded-[10px] border-solid border-white"
-                    placeholder="abc@example.com"
-                    required="true"
-                  />
-                  <button
-                    className="   px-6 py-1.5 rounded-lg text-white bg-[#3E00FF] hover:bg-blue-600 top-0"
-                    onClick={handleClick}
-                  >
-                    Get OTP
-                  </button>
-                </label>
-                {/* Email OTP */}
-                {isShown && (
-                  <div className="mt-3">
-                    <p className="text-white semibold font-sm mt-8">
-                      Please Check Your Email
-                    </p>
-                    <p className="text-gray-500 semibold font-xs mb-3">
-                      We've just sent a verification code.
-                    </p>
-                    <span className="text-white mb-3">Enter OTP</span>
-                    <div
-                      id="otp"
-                      class="flex flex-row  text-center px- mt-2 mb-3"
-                    >
-                      <input
-                        class="mr-2 border h-10 w-10 text-center form-control rounded "
-                        type="text"
-                        id="first"
-                        maxlength="1"
-                      />
-                      <input
-                        class="mr-2 border h-10 w-10 text-center form-control rounded"
-                        type="text"
-                        id="second"
-                        maxlength="1"
-                      />
-                      <input
-                        class="mr-2 border h-10 w-10 text-center form-control rounded"
-                        type="text"
-                        id="third"
-                        maxlength="1"
-                      />
-                      <input
-                        class="mr-2 border h-10 w-10 text-center form-control rounded"
-                        type="text"
-                        id="fourth"
-                        maxlength="1"
-                      />
-                    </div>
-                    <p className="text-white mb-2">
-                      Didn't Get Code?{" "}
-                      <a
-                        href="#"
-                        className="underline text-blue-400 hover:text-blue-900"
-                      >
-                        {" "}
-                        Click Here
-                      </a>{" "}
-                    </p>
-                    <button className="   px-6 py-1.5 rounded-lg text-white bg-[#137C00] hover:bg-green-500 top-0">
-                      Verify
-                    </button>
-                  </div>
-                )}
-              </div>
-            </form>
-
-            {/* Contact Verification */}
-            <div className="mb-2">
-              <label>
-                <span className="text-white mb-3">Contact Number *</span>
-                <div>
-                  <Phoneinput
-                    className="bg-white border box-border w-full justify-around gap-3 mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
-                    placeholder="Enter phone number"
-                    defaultCountry="IN"
-                    onChange={setValue}
-                    value={value}
-                    // onChange={e=>setValue(e.target.value)}
-                  />
-                </div>
-                <button
-                  className="mt-1 px-6 py-1.5 rounded-lg text-white bg-[#3E00FF] hover:bg-blue-600 top-0"
-                  onClick={handleClick1}
-                >
-                  Get OTP
-                </button>
-              </label>
-              {/* Contact OTP verification */}
-              {isShown1 && (
-                <div className="mt-3">
-                  <p className="text-white semibold font-sm mt-8">
-                    Please Check Your Mobile
-                  </p>
-                  <p className="text-gray-500 semibold font-xs">
-                    We've just sent a verification code.
-                  </p>
-                  <span className="text-white mb-3 mt-2">Enter OTP</span>
-                  <div
-                    id="otp"
-                    class="flex flex-row  text-center px- mt-2 mb-3"
-                  >
-                    <input
-                      class="mr-2 border h-10 w-10 text-center form-control rounded "
-                      type="text"
-                      id="first"
-                      maxlength="1"
-                    />
-                    <input
-                      class="mr-2 border h-10 w-10 text-center form-control rounded"
-                      type="text"
-                      id="second"
-                      maxlength="1"
-                    />
-                    <input
-                      class="mr-2 border h-10 w-10 text-center form-control rounded"
-                      type="text"
-                      id="third"
-                      maxlength="1"
-                    />
-                    <input
-                      class="mr-2 border h-10 w-10 text-center form-control rounded"
-                      type="text"
-                      id="fourth"
-                      maxlength="1"
-                    />
-                  </div>
-                  <p className="text-white mb-2">
-                    Didn't Get Code?{" "}
-                    <a
-                      href="#"
-                      className="underline text-blue-400 hover:text-blue-900"
-                    >
-                      {" "}
-                      Click Here
-                    </a>{" "}
-                  </p>
-                  <button
-                    className="   px-6 py-1.5 rounded-lg text-white bg-[#137C00] hover:bg-green-500 top-0"
-                    onClick={handleClick1}
-                  >
-                    Verify
-                  </button>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-        <div className="bottom-0 right-0 w-[40%] lg:right-0 lg:top-24 absolute col-start-4 col-end-5 opacity-20 lg:opacity-100 ">
-          <img src={N} />
-        </div>
-      </div>
-
-      <button
-        className="bg-gray-300   ml-[15%] mt-[1%] mr-5  px-6 py-1.5 rounded-lg text-gray-700 hover:bg-gray-400 top-0"
-        onClick={handleBack}
-      >
-        Previous
-      </button>
-      <button
-        className="  px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
-        onClick={handleNext}
-      >
-        Proceed
-      </button>
-      <ProgressBar progressPercentage={20}></ProgressBar>
-    </div>
-  );
-
-  const [file, setFile] = useState();
+  const [file, setFile] = useState(null);
   function handleChange(e) {
     setFile(URL.createObjectURL(e.target.files[0]));
+    setForm({ ...form, passport: file });
+    // console.log(form);
   }
 
-  // Step3 implementation from here
-  const Step3 = () => (
-    <div className="mt-[20%] lg:mt-[5%] bg-[#130F26]">
-      <div className="flex ml-[15%] ">
-        <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
-          2
-        </label>
-        <h1 className="flex text-white text-2xl font-bold ml-2 mt-6 mb-5">
-          Confirm Address Details
-        </h1>
-      </div>
-      <div className="lg:hidden bottom-0 right-0 w-[50%] lg:right-0 absolute opacity-20 lg:opacity-100">
-        <img src={V} />
-      </div>
-      <div className="hidden lg:block  w-[35%] right-0 absolute lg:opacity-100">
-        <img src={V} />
-      </div>
+  const [file2, setFile2] = useState("");
+  function handleChange2(e) {
+    setFile2(URL.createObjectURL(e.target.files[0]));
+    setForm({ ...form, aadhar: file2 });
+  }
 
-      {/* address detail form */}
-      <div className="ml-[15%] w-[75%] lg:w-[50%] h-auto bg-white bg-opacity-10 rounded-xl p-[2%] grid grid-cols-1 gap-3 pl-[5%] pr-5 lg:pr-40">
-        <form>
-          <div className="text-white">
-            <span>Country/ Region</span>
-            <br />
-            <CountryDropdown
-              class="country"
-              value={country}
-              onChange={setCountry}
-              className="border box-border text-gray-500 w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-white bg-white"
-            />
-          </div>
-
-          <div className="mb-2">
-            <label>
-              <span className="text-white">Street address</span>
-              <br />
-              <input
-                name="address"
-                type="address"
-                className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-white bg-white"
-                placeholder="House number and street name"
-                required
-              />{" "}
-              <input
-                name="address"
-                type="address"
-                className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-white"
-                placeholder="Appartment, suite, landmark, etc. (optional)"
-                required
-              />{" "}
-            </label>
-          </div>
-          <div class="grid grid-cols-2 gap-4">
-            <div xs={5}>
-              <div className="mb-2">
-                <label>
-                  <span className="text-white">Town/ City</span>
-                  <br />
-                  <input
-                    name="city"
-                    type="city"
-                    className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-white"
-                    placeholder="enter city"
-                    required
-                  />{" "}
-                </label>
-              </div>
-            </div>
-            <div xs={7}>
-              <div className="mb-2">
-                <label>
-                  <span className="text-white">State</span>
-                  <br />
-                  <input
-                    name="state"
-                    type="state"
-                    className="border box-border text-black w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
-                    placeholder="enter state"
-                    required
-                  />{" "}
-                </label>
-              </div>
-            </div>
-          </div>
-          <div className="mb-2">
-            <label className="grid grid-cols-1 lg:grid-cols-2">
-              <span className="text-white">Pincode</span>
-              <br />
-              <input
-                name="pincode"
-                type="pincode"
-                className=" border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
-                placeholder=""
-                required
-              />{" "}
-            </label>
-          </div>
-        </form>
-      </div>
-      <button
-        className="bg-gray-300 mr-5  ml-[15%] mt-[1%] px-6 py-1.5 rounded-lg text-gray-700 hover:bg-gray-400 top-0"
-        onClick={handleBack}
-      >
-        Previous
-      </button>
-      <button
-        className="   px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
-        onClick={handleNext}
-      >
-        Proceed
-      </button>
-      {/* progress bar with 40% progress */}
-      <ProgressBar progressPercentage={40}></ProgressBar>
-    </div>
-  );
-
-  // Step4 from here/ Personal identity verification
-  const Step4 = () => (
-    <div className=" mt-[20%] lg:mt-[5%] bg-[#130F26]">
-      <div className="flex ml-[15%] ">
-        <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
-          3
-        </label>
-        <h1 className="flex text-white text-2xl font-bold ml-2 mt-6 mb-5">
-          Personal Identity Verification
-        </h1>
-      </div>
-      <div className="mt-[-5%] right-0  bottom-[300px] w-[60%] h-[30%] lg:right-20 absolute opacity-20 lg:opacity-100 lg:hidden">
-        <img src={Profileveri} />
-      </div>
-      <div className="hidden lg:block left-[60%] absolute lg:opacity-100">
-        <img src={Profileveri} />
-      </div>
-
-      {/* photo upload */}
-      <div className="ml-[15%] w-[75%] lg:w-[50%] h-auto bg-white bg-opacity-10 rounded-xl p-[2%] grid grid-cols-1 lg:grid-cols-2 gap-3 pl-[5%] pr-30 ">
-        <div className="text-white  ">
-          <label className="text-2xl font-bold">1. Passport Size Photo</label>
-          <br />
-
-          <label className="text-lg font-semibold text-gray-400 ml-7">
-            (.jpg,.png)
-          </label>
-          <div className="flex">
-            <img
-              src={file}
-              className="w-[100px] h-[100px] mt-5 rounded-lg border border-white"
-            ></img>
-            <input
-              className="rounded-xl mt-5 flex ml-[] pl-5"
-              type="file"
-              accept="image/png, image/jpeg"
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-
-        {/* aadhar upload */}
-        <div className="text-white  col-span-1 mt-5 lg:mt-0 ">
-          <label className="text-2xl font-bold">2. Aadhar Card (UIDAI)</label>
-          <br />
-
-          <label className="text-lg font-semibold text-gray-400 ml-7">
-            (.jpg,.png,.pdf)
-          </label>
-          <div className="flex">
-            <input className="rounded-xl mt-5 flex ml-[] pl-5" type="file" />
-          </div>
-        </div>
-
-        {/* document upload */}
-        <div className="text-white col-span-1 lg:col-span-2 mt-5 ">
-          <label className="text-2xl font-bold">
-            3. Profession Verification Document
-          </label>
-          <br />
-          <label className="text-xs text-white font-semibold">
-            (Any type of document/ image describing that you are working as a
-            tailor){" "}
-          </label>
-          <br />
-
-          <label className="text-lg font-semibold text-gray-400 ml-7">
-            (.jpg,.png,.pdf)
-          </label>
-          <div className="flex">
-            <input className="rounded-xl mt-3 flex mb-5" type="file" />
-          </div>
-        </div>
-      </div>
-      <button
-        className="bg-gray-300 mr-5  ml-[15%] mt-[1%] px-6 py-1.5 rounded-lg text-gray-700 hover:bg-gray-400 top-0"
-        onClick={handleBack}
-      >
-        Previous
-      </button>
-      <button
-        className="   px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
-        onClick={handleNext}
-      >
-        Proceed
-      </button>
-      {/* progressbar 70% progress */}
-      <ProgressBar progressPercentage={70}></ProgressBar>
-    </div>
-  );
-
-  // hooks and related callback components for Step5
-  const [speciality, setSpecial] = useState(null);
+  const [file3, setFile3] = useState("");
+  function handleChange3(e) {
+    setFile3(URL.createObjectURL(e.target.files[0]));
+    setForm({ ...form, proffesionalDoc: file3 });
+  }
 
   const handleChange1 = (value) => {
     setSpecial(value);
@@ -678,95 +392,9 @@ const TailorProfileVerification = () => {
     [dispatch]
   );
 
-  // step5 from here
-  const Step5 = () => (
-    <div className="mt-[20%] lg:mt-[5%] bg-[#130F26]">
-      <div className="flex ml-[15%] ">
-        <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
-          4
-        </label>
-        <h1 className="flex text-white text-2xl font-bold ml-2 mt-6 mb-5">
-          Mention Specialities
-        </h1>
-      </div>
-      <div className="mt-[-5%] bottom-14 lg:gright-20 absolute opacity-20  lg:opacity-100 lg:hidden">
-        <img src={Speciality} />
-      </div>
-      <div className="hidden lg:block left-[60%] absolute opacity-20  lg:opacity-100">
-        <img src={Speciality} />
-      </div>
-
-      <div className="ml-[15%] w-[70%] lg:w-[50%] h-auto bg-white bg-opacity-10 rounded-xl p-[2%] grid grid-cols-1 gap-3 pl-[5%] pr-30 ">
-        <div className="flex">
-          <label className="text-2xl font-bold mb-2 text-white ">
-            Confirm Specialities{" "}
-          </label>
-
-          <label className="text-lg font-semibold text-gray-400 ml-2 mt-1">
-            (choose multiple if applicable)
-          </label>
-        </div>
-        {/* selection field with option selection view and close */}
-        <div className="">
-          <Select
-            onChange={(value) => setValue1(value)}
-            value={value1}
-            isClearable={isClearable}
-            isMultiple={isMultiple}
-            options={options}
-            className=""
-            classNames={{
-              menuButton: (state) =>
-                "ml--5 flex text-sm text-gray-500 border border-gray-300 rounded shadow-sm transition-all duration-300 focus:outline-none bg-white hover:border-gray-400 focus:border-blue-500 focus:ring focus:ring-blue-500/20",
-              menu: "absolute z-10 w-full bg-white shadow-lg border rounded py-1 mt-1.5 text-sm text-gray-700",
-              listItem: ({ isSelected }) =>
-                "list-none py-1.5 px-2 hover:bg-blue-500 rounded-md hover:text-white cursor-pointer",
-            }}
-          />
-        </div>
-
-        <div class="flex items-center">
-          <input
-            id="link-checkbox"
-            type="checkbox"
-            value=""
-            class="rounded-xl mt-5 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300  focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-          />
-          {/* checkbox */}
-          <label
-            for="link-checkbox"
-            class="mt-5 ml-2 text-sm font-medium text-white"
-          >
-            By Clicking on this checkbox, you are agreeing to our{" "}
-            <a
-              href="#"
-              class="text-blue-600 dark:text-blue-500 hover:underline"
-            >
-              terms and conditions
-            </a>
-            .
-          </label>
-        </div>
-      </div>
-      <button
-        className="bg-gray-300 ml-[15%] mt-[1%] mr-5  px-6 py-1.5 rounded-lg text-gray-700 hover:bg-gray-400 top-0"
-        onClick={handleBack}
-      >
-        Previous
-      </button>
-      <button
-        className="px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
-        onClick={handleNext}
-      >
-        Proceed
-      </button>
-      <ProgressBar progressPercentage={85} />
-    </div>
-  );
-
-  // final page step6
+  // final page step7
   const Step6 = () => (
-    <div>
+    <div className="h-[100vh]">
       <img
         src={Verified}
         className="hidden lg:block right-24 absolute w-[30%] h-[60%] "
@@ -779,7 +407,7 @@ const TailorProfileVerification = () => {
       <div className="  text-whie ml-[15%] mt-[25%] lg:mt-[10%] font-poppins">
         <div className="mr-[15%] lg:mr-[30%]">
           <h1 className="text-[rgb(127,255,0)] text-4xl font-bold mb-3">
-            Congrats {user.name},
+            Congrats {user?.result.name},
           </h1>
           <h1 className="select-none	 text-white text-5xl font-bold tracking-wider lg:mr-[20%]	">
             Now you are completely registered & verified on our website.
@@ -801,7 +429,10 @@ const TailorProfileVerification = () => {
         Previous
       </button>
 
-      <button className="px-6 py-1.5 rounded-lg ml-5 text-white bg-[#009415] hover:bg-green-600 top-0">
+      <button
+        className="px-6 py-1.5 rounded-lg ml-5 text-white bg-[#009415] hover:bg-green-600 top-0"
+        onClick={handleSubmit}
+      >
         Submit
       </button>
       {/* progressbar 100% status green */}
@@ -811,7 +442,21 @@ const TailorProfileVerification = () => {
 
   // Main Start from here
   return (
-    <div className="bg-[#130F26] h-screen">
+    <div className="bg-[#130F26] h-fit">
+      {isLoading ? (
+        <div className="relative">
+          <div className="absolute z-[100] left-[-10vw] lg:left-[30vw] top-[10vh]">
+            <Player
+              src="https://assets8.lottiefiles.com/packages/lf20_prjwp0b2.json"
+              background="transparent"
+              speed="1"
+              style={{ height: "500px", width: "500px" }}
+              loop
+              autoplay
+            />
+          </div>
+        </div>
+      ) : null}
       {/* Navbar */}
       <Navbardark />
 
@@ -822,13 +467,606 @@ const TailorProfileVerification = () => {
           {step === 1 ? (
             <Step1 />
           ) : step == 2 ? (
-            <Step2 />
+            <div className=" mt-[20%] lg:mt-[5%] bg-[#130F26] h-[100vh]">
+              <div className="grid grid-cols-4">
+                <div className="col-start-1 col-end-5">
+                  <div className="flex ml-[15%] ">
+                    <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
+                      1
+                    </label>
+                    <h1 className="flex text-white text-2xl font-bold ml-2 mt-6 mb-5">
+                      Confirm Email/ Mobile No.
+                    </h1>
+                  </div>
+
+                  {/* Email verification section */}
+                  <div className="ml-[15%] w-[70%] lg:w-[50%] h-auto bg-opacity-10 bg-white rounded-xl p-[2%] grid grid-col-1 lg:grid-cols-2 gap-3">
+                    <form>
+                      <div className="mb-2">
+                        <label>
+                          <span className="text-white mb-3">
+                            Email address *
+                          </span>
+                          <input
+                            name="email"
+                            type="email"
+                            value={user?.result.email}
+                            className="bg-white border box-border text-gray-400 w-full justify-around mb-[10px] p-2.5 rounded-[10px] border-solid border-white "
+                            placeholder="abc@example.com"
+                            required="true"
+                            disabled
+                          />
+                          <button
+                            className="hidden px-6 py-1.5 rounded-lg text-white bg-[#3E00FF] hover:bg-blue-600 top-0"
+                            onClick={handleClick}
+                          >
+                            Get OTP
+                          </button>
+                        </label>
+                        {/* Email OTP */}
+                        {isShown && (
+                          <div className="mt-3">
+                            <p className="text-white semibold font-sm mt-8">
+                              Please Check Your Email
+                            </p>
+                            <p className="text-gray-500 semibold font-xs mb-3">
+                              We've just sent a verification code.
+                            </p>
+                            <span className="text-white mb-3">Enter OTP</span>
+                            <div
+                              id="otp"
+                              class="flex flex-row  text-center px- mt-2 mb-3"
+                            >
+                              <input
+                                class="mr-2 border h-10 w-10 text-center form-control rounded "
+                                type="text"
+                                id="first"
+                                maxlength="1"
+                              />
+                              <input
+                                class="mr-2 border h-10 w-10 text-center form-control rounded"
+                                type="text"
+                                id="second"
+                                maxlength="1"
+                              />
+                              <input
+                                class="mr-2 border h-10 w-10 text-center form-control rounded"
+                                type="text"
+                                id="third"
+                                maxlength="1"
+                              />
+                              <input
+                                class="mr-2 border h-10 w-10 text-center form-control rounded"
+                                type="text"
+                                id="fourth"
+                                maxlength="1"
+                              />
+                            </div>
+                            <p className="text-white mb-2">
+                              Didn't Get Code?{" "}
+                              <a
+                                href="#"
+                                className="underline text-blue-400 hover:text-blue-900"
+                              >
+                                {" "}
+                                Click Here
+                              </a>{" "}
+                            </p>
+                            <button className="   px-6 py-1.5 rounded-lg text-white bg-[#137C00] hover:bg-green-500 top-0">
+                              Verify
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    </form>
+
+                    {/* Contact Verification */}
+                    <div className="">
+                      <form>
+                        <label>
+                          <span className="text-white mb-3">
+                            Contact Number *
+                          </span>
+                          <div>
+                            <input
+                              type="tel"
+                              name="contact"
+                              id="contact"
+                              onChange={handletelChange}
+                              value={telephone}
+                              className="bg-white border box-border w-full justify-around gap-3 mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                              placeholder="Enter phone number"
+                            />
+                          </div>
+                          <button
+                            className="hidden mt-1 px-6 py-1.5 rounded-lg text-white bg-[#3E00FF] hover:bg-blue-600 top-0"
+                            onClick={handleClick1}
+                          >
+                            Get OTP
+                          </button>
+                        </label>
+                      </form>
+                      {/* Contact OTP verification */}
+                      {isShown1 && (
+                        <div className="mt-3">
+                          <p className="text-white semibold font-sm mt-8">
+                            Please Check Your Mobile
+                          </p>
+                          <p className="text-gray-500 semibold font-xs">
+                            We've just sent a verification code.
+                          </p>
+                          <span className="text-white mb-3 mt-2">
+                            Enter OTP
+                          </span>
+                          <div
+                            id="otp"
+                            class="flex flex-row  text-center px- mt-2 mb-3"
+                          >
+                            <input
+                              class="mr-2 border h-10 w-10 text-center form-control rounded "
+                              type="text"
+                              id="first"
+                              maxlength="1"
+                            />
+                            <input
+                              class="mr-2 border h-10 w-10 text-center form-control rounded"
+                              type="text"
+                              id="second"
+                              maxlength="1"
+                            />
+                            <input
+                              class="mr-2 border h-10 w-10 text-center form-control rounded"
+                              type="text"
+                              id="third"
+                              maxlength="1"
+                            />
+                            <input
+                              class="mr-2 border h-10 w-10 text-center form-control rounded"
+                              type="text"
+                              id="fourth"
+                              maxlength="1"
+                            />
+                          </div>
+                          <p className="text-white mb-2">
+                            Didn't Get Code?{" "}
+                            <a
+                              href="#"
+                              className="underline text-blue-400 hover:text-blue-900"
+                            >
+                              {" "}
+                              Click Here
+                            </a>{" "}
+                          </p>
+                          <button
+                            className="   px-6 py-1.5 rounded-lg text-white bg-[#137C00] hover:bg-green-500 top-0"
+                            onClick={handleClick1}
+                          >
+                            Verify
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                <div className="bottom-0 right-0 w-[40%] lg:right-0 lg:top-24 absolute col-start-4 col-end-5 opacity-20 lg:opacity-100 ">
+                  <img src={N} />
+                </div>
+              </div>
+
+              <button
+                className="bg-gray-300   ml-[15%] mt-[1%] mr-5  px-6 py-1.5 rounded-lg text-gray-700 hover:bg-gray-400 top-0"
+                onClick={handleBack}
+              >
+                Previous
+              </button>
+              <button
+                className="relative z-[100] px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
+                onClick={() => {
+                  handleNext();
+                  stepFormSubmit();
+                }}
+              >
+                Proceed
+              </button>
+              <ProgressBar progressPercentage={20}></ProgressBar>
+            </div>
           ) : step == 3 ? (
-            <Step3 />
+            <div className="mt-[20%] lg:mt-[5%] bg-[#130F26] h-[100vh]">
+              <div className="flex ml-[15%] ">
+                <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
+                  2
+                </label>
+                <h1 className="flex text-white text-2xl font-bold ml-2 mt-6 mb-5">
+                  Confirm Address Details
+                </h1>
+              </div>
+              <div className="lg:hidden bottom-0 right-0 w-[50%] lg:right-0 absolute opacity-20 lg:opacity-100">
+                <img src={V} />
+              </div>
+              <div className="hidden lg:block  w-[35%] right-0 absolute lg:opacity-100">
+                <img src={V} />
+              </div>
+
+              {/* address detail form */}
+              <div className="ml-[15%] w-[75%] lg:w-[50%] h-auto bg-white bg-opacity-10 rounded-xl p-[2%] grid grid-cols-1 gap-3 pl-[5%] pr-5 lg:pr-40">
+                <form>
+                  <div className="text-white">
+                    <span>Country/ Region</span>
+                    <br />
+                    <input
+                      type="text"
+                      class="country"
+                      value={form.country}
+                      onChange={handleChangeFinal}
+                      name="country"
+                      id="country"
+                      className="border box-border text-black w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-white bg-white"
+                    />
+                  </div>
+
+                  <div className="mb-2">
+                    <label>
+                      <span className="text-white">Street address</span>
+                      <br />
+                      <input
+                        name="address"
+                        id="address"
+                        type="address"
+                        onChange={handleChangeFinal}
+                        value={form.address}
+                        className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-white bg-white"
+                        placeholder="House number and street name"
+                        required
+                      />{" "}
+                      <input
+                        name="address2"
+                        type="address"
+                        onChange={handleChangeFinal}
+                        value={form.address2}
+                        className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-white bg-white"
+                        placeholder="Appartment, suite, landmark, etc. (optional)"
+                        required
+                      />{" "}
+                    </label>
+                  </div>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div xs={5}>
+                      <div className="mb-2">
+                        <label>
+                          <span className="text-white">Town/ City</span>
+                          <br />
+                          <input
+                            name="city"
+                            type="city"
+                            onChange={handleChangeFinal}
+                            value={form.city}
+                            className="bg-white border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-white"
+                            placeholder="enter city"
+                            required
+                          />{" "}
+                        </label>
+                      </div>
+                    </div>
+                    <div xs={7}>
+                      <div className="mb-2">
+                        <label>
+                          <span className="text-white">State</span>
+                          <br />
+                          <input
+                            type="state"
+                            className="bg-white border box-border text-black w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                            placeholder="enter state"
+                            name="state"
+                            id="state"
+                            onChange={handleChangeFinal}
+                            value={form.state}
+                            required
+                          />{" "}
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mb-2">
+                    <label className="grid grid-cols-1 lg:grid-cols-2">
+                      <span className="text-white">Pincode</span>
+                      <br />
+                      <input
+                        name="pincode"
+                        type="pincode"
+                        onChange={handleChangeFinal}
+                        value={form.pincode}
+                        className="z-[5] bg-white border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                        placeholder=""
+                        required
+                      />{" "}
+                    </label>
+                  </div>
+                </form>
+              </div>
+              <button
+                className="bg-gray-300 mr-5  ml-[15%] mt-[1%] px-6 py-1.5 rounded-lg text-gray-700 hover:bg-gray-400 top-0"
+                onClick={handleBack}
+              >
+                Previous
+              </button>
+              <button
+                className="z-[100] relative px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
+                onClick={() => {
+                  handleNext();
+                  stepFormSubmit();
+                }}
+              >
+                Proceed
+              </button>
+              {/* progress bar with 40% progress */}
+              <ProgressBar progressPercentage={40}></ProgressBar>
+            </div>
           ) : step == 4 ? (
-            <Step4 />
+            <div className=" mt-[20%] lg:mt-[3%] bg-[#130F26] h-[100vh]">
+              <div className="flex ml-[15%] ">
+                <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
+                  3
+                </label>
+                <h1 className="flex text-white text-2xl font-bold ml-2 mt-6 mb-5">
+                  Personal Identity Verification
+                </h1>
+              </div>
+              <div className="mt-[-5%] right-0  bottom-[300px] w-[60%] h-[30%] lg:right-20 absolute opacity-20 lg:opacity-100 lg:hidden">
+                <img src={Profileveri} />
+              </div>
+              <div className="hidden lg:block left-[60%] absolute lg:opacity-100">
+                <img src={Profileveri} />
+              </div>
+
+              {/* photo upload */}
+              <div className="ml-[15%] w-[75%] lg:w-[50%] h-auto bg-white bg-opacity-10 rounded-xl p-[2%] grid grid-cols-1 lg:grid-cols-2 gap-3 pl-[5%] pr-30 ">
+                <div className="text-white  ">
+                  <label className="text-2xl font-bold">
+                    1. Passport Size Photo
+                  </label>
+                  <br />
+
+                  <label className="text-lg font-semibold text-gray-400 ml-7">
+                    (.jpg,.png)
+                  </label>
+                  <div className="flex z-[5] relative">
+                    <img
+                      src={image1}
+                      className="w-[100px] h-[100px] mt-5 rounded-lg border border-white"
+                    ></img>
+                    <input
+                      className=" rounded-xl mt-5 flex ml-[] pl-5"
+                      type="file"
+                      name="passport"
+                      accept="image/*"
+                      onChange={handleImageChange}
+                      multiple
+                    />
+                  </div>
+                </div>
+
+                {/* aadhar upload */}
+                <div className="text-white  col-span-1 mt-5 lg:mt-0 ">
+                  <label className="text-2xl font-bold">
+                    2. Aadhar Card (UIDAI)
+                  </label>
+                  <br />
+
+                  <label className="text-lg font-semibold text-gray-400 ml-7">
+                    (.jpg,.png,.pdf)
+                  </label>
+                  <div className="flex">
+                    <input
+                      className="rounded-xl mt-5 flex ml-[] pl-5"
+                      name="aadhar"
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageChange}
+                      multiple
+                    />
+                  </div>
+                </div>
+
+                {/* document upload */}
+                <div className="text-white col-span-1 lg:col-span-2 mt-5 ">
+                  <label className="text-2xl font-bold">
+                    3. Profession Verification Document
+                  </label>
+                  <br />
+                  <label className="text-xs text-white font-semibold">
+                    (Any type of document/ image describing that you are working
+                    as a tailor){" "}
+                  </label>
+                  <br />
+
+                  <label className="text-lg font-semibold text-gray-400 ml-7">
+                    (.jpg,.png,.pdf)
+                  </label>
+                  <div className="flex">
+                    <input
+                      className="rounded-xl mt-3 flex mb-5"
+                      type="file"
+                      name="proffesionalDoc"
+                      accept="image/*"
+                      onChange={handleImageChange}
+                      multiple
+                    />
+                  </div>
+                </div>
+              </div>
+              <button
+                className="bg-gray-300 mr-5  ml-[15%] mt-[1%] px-6 py-1.5 rounded-lg text-gray-700 hover:bg-gray-400 top-0"
+                onClick={handleBack}
+              >
+                Previous
+              </button>
+              <button
+                className="   px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
+                onClick={() => {
+                  handleNext();
+                  stepFormSubmit();
+                }}
+              >
+                Proceed
+              </button>
+              {/* progressbar 70% progress */}
+              <ProgressBar progressPercentage={70}></ProgressBar>
+            </div>
           ) : step == 5 ? (
-            <Step5 />
+            <div className="mt-[20%] lg:mt-[5%] bg-[#130F26] mb-20 h-[100%]">
+              <div className="flex ml-[15%] ">
+                <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
+                  4
+                </label>
+                <h1 className="flex text-white text-2xl font-bold ml-2 mt-6 mb-5">
+                  Set up your profile
+                </h1>
+              </div>
+              <div className="mt-[-5%] bottom-14 lg:gright-20 absolute opacity-20  lg:opacity-100 lg:hidden">
+                <img src={Speciality} />
+              </div>
+              <div className="hidden lg:block left-[60%] absolute opacity-20  lg:opacity-100">
+                <img src={Speciality} />
+              </div>
+
+              <div className="ml-[15%] w-[70%] lg:w-[50%] h-auto bg-white bg-opacity-10 rounded-xl p-[2%] grid grid-cols-1 gap-3 pl-[5%] pr-30 ">
+                <div className="flex flex-col">
+                  <label className="text-2xl font-bold mb-2 text-white ">
+                    Add your Description or bio{" "}
+                  </label>
+                  <div xs={7}>
+                    <div className="z-[5] relative mb-2 col-start-2 mt-5 col-end-3 lg:mr-14">
+                      <label>
+                        <textarea
+                          name="bio"
+                          onChange={handleChangeFinal}
+                          value={form.bio}
+                          className=" border box-border w-full text-sm justify-around mb-[5px] p-2 rounded-[10px] border-solid border-[#cecece]"
+                          placeholder="Enter your decription here..."
+                          required
+                          rows="7"
+                        />
+                      </label>
+                    </div>
+                  </div>
+                  <label className="z-[5] relative text-2xl font-bold mb-2 text-white ">
+                    Confirm Specialities{" "}
+                  </label>
+
+                  <label className="z-[5] relative text-lg font-semibold text-gray-400 ml-2 mt-1">
+                    (choose multiple if applicable)
+                  </label>
+                </div>
+                {/* selection field with option selection view and close */}
+                <div className="z-[100]">
+                  <label className="text-white text-xl py-5">
+                    <input
+                      type="checkbox"
+                      name="mensShirt"
+                      value="mensShirt"
+                      className="mx-2"
+                      checked={checkedItems.includes("mensShirt")}
+                      onChange={handleCheckboxChange}
+                    />
+                    Men's Shirt
+                  </label>{" "}
+                  <br />
+                  <label className="text-white text-xl">
+                    <input
+                      type="checkbox"
+                      name="womensShirt"
+                      value="womensShirt"
+                      className="mx-2"
+                      checked={checkedItems.includes("womensShirt")}
+                      onChange={handleCheckboxChange}
+                    />
+                    Women's Shirt
+                  </label>{" "}
+                  <br />
+                  <label className="text-white text-xl">
+                    <input
+                      type="checkbox"
+                      name="mensBlazer"
+                      value="mensBlazer"
+                      className="mx-2"
+                      checked={checkedItems.includes("mensBlazer")}
+                      onChange={handleCheckboxChange}
+                    />
+                    Men's Blazer
+                  </label>{" "}
+                  <br />
+                  <label className="text-white text-xl">
+                    <input
+                      type="checkbox"
+                      name="womensBlazer"
+                      value="womensBlazer"
+                      className="mx-2"
+                      checked={checkedItems.includes("womensBlazer")}
+                      onChange={handleCheckboxChange}
+                    />
+                    Women's Blazer
+                  </label>
+                </div>
+
+                <label className="text-2xl font-bold my-4 text-white ">
+                  Select your Price Range{" "}
+                </label>
+                <div className="multi-range-slider-container  lg:mr-14 bg-white p-2 rounded-lg">
+                  <b className="text-lg  ">Pricing Range</b>
+                  <br />
+                  <b className="text-sm font-normal">
+                    (All given Ranges are in rupees(₹))
+                  </b>
+
+                  <hr />
+                  <MultiRangeSlider
+                    min={100}
+                    max={10000}
+                    step={500}
+                    minValue={minValue}
+                    maxValue={maxValue}
+                    onInput={(e) => {
+                      handleInput(e);
+                    }}
+                    className="border border-white"
+                    // onInput={(e: ChangeResult) => {
+                    // 	setMinValue(minValue);
+                    // 	setMaxValue(maxValue);
+                    // }}
+                  ></MultiRangeSlider>
+                  <div
+                    className=""
+                    style={{ display: "flex", justifyContent: "center" }}
+                  >
+                    <div className="font-semibold" style={{ margin: "10px" }}>
+                      Your Selected Range:
+                    </div>
+                    <div className="font-bold" style={{ margin: "10px" }}>
+                      ₹{minValue}
+                    </div>
+                    <div className="font-bold" style={{ margin: "10px" }}>
+                      ₹{maxValue}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                className="z-[90] relative bg-gray-300 ml-[15%] mt-[1%] mr-5  px-6 py-1.5 rounded-lg text-gray-700 hover:bg-gray-400 top-0"
+                onClick={handleBack}
+              >
+                Previous
+              </button>
+              <button
+                className="z-[90] relative px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
+                onClick={() => {
+                  handleNext();
+                  stepFormSubmit();
+                }}
+              >
+                Proceed
+              </button>
+              <ProgressBar progressPercentage={85} />
+            </div>
           ) : (
             <Step6 />
           )}
