@@ -397,6 +397,11 @@ const SizeCalculator = () => {
         </div>
       ) : (
         <Result
+          height={height}
+          weight={weight}
+          shoeSize={shoeSize}
+          age={age}
+          gender={gender}
           chestSize={chestSize}
           shoulderSize={shoulderSize}
           waistSize={waistSize}
@@ -483,6 +488,11 @@ const Result = (props) => {
         </div>
       ) : (
         <Manual
+          height={props.height}
+          weight={props.weight}
+          shoeSize={props.shoeSize}
+          age={props.age}
+          gender={props.gender}
           chestSize={props.chestSize}
           shoulderSize={props.shoulderSize}
           waistSize={props.waistSize}
@@ -497,6 +507,68 @@ const Result = (props) => {
 };
 
 const Manual = (props) => {
+  const initialForm = {
+    neckSize: "",
+    chestSize: "",
+    shoulderSize: "",
+    waistSize: "",
+    armLength: "",
+    inseam: "",
+  };
+  const [form, setForm] = useState(initialForm);
+  const handleChangeFinal = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  console.log(form);
+  const { orderDetails, setOrderDetails } = useHCustomization();
+
+  const [isShown, setIsShown] = useState(false);
+
+  //Order Details
+  useEffect(() => {
+    setOrderDetails({
+      ...orderDetails,
+      measurements: {
+        height: props.height,
+        weight: props.weight,
+        shoeSize: props.shoeSize,
+        age: props.age,
+        gender: props.gender,
+        neckSize: form.neckSize,
+        chestSize: form.chestSize,
+        shoulderSize: form.shoulderSize,
+        waistSize: form.waistSize,
+        armLength: form.armLength,
+        inseam: form.inseam,
+      },
+    });
+  }, [isShown]);
+  const navigateTo = useNavigate();
+
+  const handleSubmit = () => {
+    setOrderDetails({
+      ...orderDetails,
+      measurements: {
+        height: props.height,
+        weight: props.weight,
+        shoeSize: props.shoeSize,
+        age: props.age,
+        gender: props.gender,
+        neckSize: form.neckSize,
+        chestSize: form.chestSize,
+        shoulderSize: form.shoulderSize,
+        waistSize: form.waistSize,
+        armLength: form.armLength,
+        inseam: form.inseam,
+      },
+    });
+
+    // console.log(orderDetails);
+
+    navigateTo("/OrderDetails");
+  };
+
   return (
     <div className="bg-primary justify-center text-center mt-10 lg:mx-20">
       <div className="text-white text-3xl font-bold m-5">
@@ -616,6 +688,8 @@ const Manual = (props) => {
             <input
               type="number"
               defaultValue={props.neckSize}
+              name="neckSize"
+              onChange={handleChangeFinal}
               className=" outline-offset bg-transparent text-center font-semibold text-2xl lg:text-3xl w-[100%]  "
             />
             cm
@@ -625,6 +699,8 @@ const Manual = (props) => {
             <input
               type="number"
               defaultValue={props.chestSize}
+              name="chestSize"
+              onChange={handleChangeFinal}
               className=" focus:border-white bg-transparent text-center font-semibold text-2xl lg:text-3xl w-[100%]"
             />
             cm
@@ -634,6 +710,8 @@ const Manual = (props) => {
             <input
               type="number"
               defaultValue={props.shoulderSize}
+              name="shoulderSize"
+              onChange={handleChangeFinal}
               className=" focus:border-white bg-transparent text-center font-semibold text-2xl lg:text-3xl w-[100%]"
             />
             cm
@@ -643,6 +721,8 @@ const Manual = (props) => {
             <input
               type="number"
               defaultValue={props.waistSize}
+              name="waistSize"
+              onChange={handleChangeFinal}
               className=" focus:border-white bg-transparent text-center font-semibold text-2xl lg:text-3xl w-[100%]"
             />
             cm
@@ -652,6 +732,8 @@ const Manual = (props) => {
             <input
               type="number"
               defaultValue={props.armLength}
+              name="armLength"
+              onChange={handleChangeFinal}
               className=" focus:border-white bg-transparent text-center font-semibold text-2xl lg:text-3xl w-[100%]"
             />
             cm
@@ -661,6 +743,8 @@ const Manual = (props) => {
             <input
               type="number"
               defaultValue={props.inseam}
+              name="inseam"
+              onChange={handleChangeFinal}
               className="focus:border-white bg-transparent text-white text-center font-semibold text-2xl lg:text-3xl w-[100%]"
             />
             cm
@@ -671,7 +755,7 @@ const Manual = (props) => {
               // onClick={() => {
               //   handleClick1();
               // }}
-              onClick={props.handleSubmit}
+              onClick={handleSubmit}
             >
               Submit
             </button>

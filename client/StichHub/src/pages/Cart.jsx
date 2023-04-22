@@ -975,46 +975,12 @@ const Cart = () => {
                           <Tabs value={type} className="overflow-visible  ">
                             {/* tabs header */}
                             <TabsHeader className="relative z-0 h-full  ">
-                              <Tab
-                                value="card"
-                                className="w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] "
-                              >
+                              
                                 <input
                                   type="button"
                                   onChange={() => setType("card")}
                                 />
-                                <label className="ml-2 text-sm ">CARD</label>
-                              </Tab>
-                              <Tab
-                                value="bank"
-                                className="w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
-                              >
-                                <input
-                                  type="button"
-                                  onChange={() => setType("bank")}
-                                />
-                                <label className="ml-2">BANK</label>
-                              </Tab>
-                              <Tab
-                                value="upi"
-                                className=" w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
-                              >
-                                <input
-                                  type="button"
-                                  onChange={() => setType("upi")}
-                                />
-                                <label className="ml-2">UPI</label>
-                              </Tab>
-                              <Tab
-                                value="cod"
-                                className=" w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
-                              >
-                                <input
-                                  type="button"
-                                  onChange={() => setType("cod")}
-                                />
-                                <label className="ml-2">COD</label>
-                              </Tab>
+                              
                             </TabsHeader>
                             {/* tabs body */}
                             <TabsBody
@@ -1032,8 +998,7 @@ const Cart = () => {
                               }}
                             >
                               {/* tab body panels for each method 1.Card Payment */}
-                              <TabPanel value="card" className="p-0 ">
-                                <form className="mt-5 flex flex-col gap-4">
+                                <form className="mt-5 flex flex-col">
                                   <div className="my-0"></div>
                                   <Button
                                     size="lg"
@@ -1041,7 +1006,6 @@ const Cart = () => {
                                     className="h-auto p-3"
                                     onClick={() => {
                                       handlePayment();
-                                      handleChangeFinal();
                                     }}
                                     value={"₹2700.00"}
                                   >
@@ -1056,7 +1020,6 @@ const Cart = () => {
                                     Payments are secure and encrypted
                                   </Typography>
                                 </form>
-                              </TabPanel>
 
                               {/* Tabpanel2 for bank payment */}
                               <TabPanel value="bank" className="p-0">
@@ -1206,7 +1169,7 @@ const Cart = () => {
                   </button>
                   <button
                     className="bg-blue-500 w-[30%] ml-5 px-6 py-1.5 rounded-lg text-white hover:bg-blue-600 top-0"
-                    onClick={handleNext}
+                    onClick={handlePayment}
                   >
                     Pay Now
                   </button>
