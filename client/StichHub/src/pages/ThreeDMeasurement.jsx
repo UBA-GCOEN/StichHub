@@ -359,10 +359,12 @@ const SizeCalculator = () => {
               </div>
             </label>
           </div>
-          <label className=" text-xl ml-14 lg:ml-[18%] mt-3">
+          <label className=" text-2xl ml-14 lg:ml-[18%] mt-3">
             <label className="text-xl text-start">Gender</label>
             <br />
-            <div className="mt-3">
+            <div className="mt-3 flex gap-4">
+              <div className="px-5 py-1 bg-teal-900 rounded-md">
+              <label name="gender">
               <input
                 type="radio"
                 checked={gender == "male"}
@@ -371,16 +373,20 @@ const SizeCalculator = () => {
                 value="male"
                 onChange={handleOptionChange}
               />
-              <label>Male</label>
+              Male</label>
+              </div>
+              <div className="px-7 py-1 bg-red-900 rounded-md">
+              <label>
               <input
                 type="radio"
                 checked={gender == "female"}
                 name="gender"
-                className="mx-2 ml-10"
+                className="mx-2"
                 value="female"
                 onChange={handleOptionChange}
               />
-              <label>Female</label>
+             Female</label>
+            </div>
             </div>
             {/* <div className="font-bold text-white" >
                            {gender}
@@ -510,16 +516,26 @@ const Result = (props) => {
 
 const Manual = (props) => {
   const initialForm = {
-    neckSize: "",
-    chestSize: "",
-    shoulderSize: "",
-    waistSize: "",
-    armLength: "",
-    inseam: "",
+    neckSize: "0",
+    chestSize: "0",
+    shoulderSize: "0",
+    waistSize: "0",
+    armLength: "0",
+    inseam: "0",
   };
   const [form, setForm] = useState(initialForm);
   const handleChangeFinal = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+  };
+  const stepFormSubmit = () => {
+    setForm({ ...form, neckSize: props.neckSize });
+    setForm({ ...form, chestSize: props.chestSize });
+    setForm({ ...form, shoulderSize: props.shoulderSize });
+    setForm({ ...form, waistSize: props.waistSize });
+    setForm({ ...form, armLength: props.armLength });
+    setForm({ ...form, inseam: props.inseam });
+
+    // console.log(form);
   };
 
   console.log(form);
@@ -563,6 +579,7 @@ const Manual = (props) => {
         waistSize: form.waistSize,
         armLength: form.armLength,
         inseam: form.inseam,
+
       },
     });
 
@@ -571,6 +588,11 @@ const Manual = (props) => {
     navigateTo("/OrderDetails");
   };
 
+ 
+
+  // if (setOrderDetails.measurements.neckSize == "") {
+  //   // setOrderDetails.measurements.neckSize = props.neckSize;
+  // }
   return (
     <div className="bg-primary justify-center text-center mt-10 lg:mx-20">
       <div className="text-white text-3xl font-bold m-5">
@@ -711,6 +733,7 @@ const Manual = (props) => {
               defaultValue={props.chestSize}
               name="chestSize"
               onChange={handleChangeFinal}
+              value={props.chestSize}
               className=" focus:border-white bg-transparent text-center font-semibold text-2xl lg:text-3xl w-[100%]"
             />
             cm
@@ -721,7 +744,6 @@ const Manual = (props) => {
               type="number"
               defaultValue={props.shoulderSize}
               name="shoulderSize"
-              onChange={handleChangeFinal}
               className=" focus:border-white bg-transparent text-center font-semibold text-2xl lg:text-3xl w-[100%]"
             />
             cm
@@ -744,6 +766,7 @@ const Manual = (props) => {
               defaultValue={props.armLength}
               name="armLength"
               onChange={handleChangeFinal}
+            
               className=" focus:border-white bg-transparent text-center font-semibold text-2xl lg:text-3xl w-[100%]"
             />
             cm
@@ -761,11 +784,11 @@ const Manual = (props) => {
           </div>
           <div className="text-center mb-5 ">
             <button
-              className="bg-blue-700  hover:bg-blue-600   px-5 mt-3 mb-5 text-xl font-semibold py-3 rounded-lg ml-[55%] w-full drop-shadow-md shadow-inner-xl"
+              className="bg-blue-700 text-white  hover:bg-blue-600   px-5 mt-3 mb-5 text-xl font-semibold py-3 rounded-lg ml-[55%] w-full drop-shadow-md shadow-inner-xl"
               // onClick={() => {
               //   handleClick1();
               // }}
-              onClick={handleSubmit}
+              onClick={()=>{handleSubmit(); stepFormSubmit();}}
             >
               Submit
             </button>
