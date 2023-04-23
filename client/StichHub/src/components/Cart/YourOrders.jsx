@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CircularProgressbar } from "react-circular-progressbar";
-import Navbar from "../Navbar";
+import Navbar from "../Home/Navbar";
 import Footer from "../MainLandingPage/Footer";
 
 //progressbar function code
@@ -132,7 +132,10 @@ const YourOrders = () => {
                       Preparing to ship on{" "}
                       <time datetime="2023-03-24">March 24, 2023</time>
                     </p>
-                    <div className="mt-6" aria-hidden="true">
+                    <div
+                      className="mt-6"
+                      aria-hidden="true"
+                    >
                       <div className="bg-gray-200 rounded-full overflow-hidden">
                         {/* <div className="h-2 bg-indigo-600 rounded-full" style={"width: calc((1 * 2 + 1) / 8 * 100%)"}></div> */}
                         <Progressbar progressPercentage={50} />
@@ -201,15 +204,13 @@ const YourOrders = () => {
                             </button>
                           </dd>
                           <button
-              className="text-center text-white rounded-md hover:bg-blue-500 m-5 px-5 py-2 bg-blue-600"
-              onClick={() => setView(!view)}
-            >
-              Details
-            </button>
+                            className="text-center text-white rounded-md hover:bg-blue-500 m-5 px-5 py-2 bg-blue-600"
+                            onClick={() => setView(!view)}
+                          >
+                            Details
+                          </button>
                         </div>
-                        
                       </dl>
-                      
                     </div>
                   </div>
 
@@ -219,7 +220,10 @@ const YourOrders = () => {
                       Shipped on{" "}
                       <time datetime="2021-03-23">March 23, 2021</time>
                     </p>
-                    <div className="mt-6" aria-hidden="true">
+                    <div
+                      className="mt-6"
+                      aria-hidden="true"
+                    >
                       <div className="bg-gray-200 rounded-full overflow-hidden">
                         {/* <div className="h-2 bg-indigo-600 rounded-full" style={"width: calc((0 * 2 + 1) / 8 * 100%)"}></div> */}
                         <Progressbar progressPercentage={100} />
@@ -230,8 +234,7 @@ const YourOrders = () => {
                         <div className="text-center">Shipped</div>
                         <div className="text-right">Delivered</div>
                       </div>
-                    </div>  
-                    
+                    </div>
                   </div>
                 </div>
 
@@ -316,7 +319,10 @@ const YourOrders = () => {
           <Footer />
         </div>
       ) : (
-        <Orderdetail view={view} setView={setView} />
+        <Orderdetail
+          view={view}
+          setView={setView}
+        />
       )}
     </div>
   );

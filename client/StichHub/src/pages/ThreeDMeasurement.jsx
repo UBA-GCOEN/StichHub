@@ -5,6 +5,7 @@ import Graphs from "../components/TailorDashboard/Graphs";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import Navbardark from "../components/Navbardark";
+import Navbar from "../components/Home/Navbar";
 import { useNavigate } from "react-router-dom";
 import { useHCustomization } from "../contexts/Home";
 
@@ -13,7 +14,8 @@ const ThreeDMeasurement = () => {
 
   return (
     <div className="bg-primary h-[100vh]">
-      <Navbardark />
+      {/* <Navbardark /> */}
+      <Navbar />
       {!create ? (
         <div className="bg-primary justify-center text-center h-screen">
           <div className="text-white font-bold text-center justify-center mt-20 text-3xl mx-5 ">
@@ -610,7 +612,11 @@ const Manual = (props) => {
                   too tight, and record the measurement in inches or
                   centimeters.
                 </p>
-                <img src="" alt="Bust Measurement" className="mt-4" />
+                <img
+                  src=""
+                  alt="Bust Measurement"
+                  className="mt-4"
+                />
               </div>
               <div>
                 <h2 className="text-lg font-medium mb-2">
@@ -636,7 +642,11 @@ const Manual = (props) => {
                   your buttocks. Keep the measuring tape parallel to the floor,
                   and record the measurement.
                 </p>
-                <img src="" alt="Hips Measurement" className="mt-4" />
+                <img
+                  src=""
+                  alt="Hips Measurement"
+                  className="mt-4"
+                />
               </div>
               <div>
                 <h2 className="text-lg font-medium mb-2">
