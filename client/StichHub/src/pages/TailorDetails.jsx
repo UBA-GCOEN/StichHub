@@ -25,7 +25,7 @@ function TailorDetails() {
 
   // render mobile or desktop component based on isMobile state
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <TailorDetailsM />
       <TailorDetailsD />
     </div>
@@ -36,25 +36,30 @@ const TailorDetailsD = () => {
   const location = useLocation();
   const propsData = location.state;
   return (
-    <div className="w-screen h-[120%] min-h-screen cardGradient ">
-      <div className="hidden lg:block h-fit rounded-lg p-2 w-full text-black m-auto">
+    <div className="w-screen h-[100%] min-h-screen cardGradient">
+      <div className="relative hidden lg:block h-fit rounded-lg p-2 w-full text-black m-auto overflow-hidden">
+        {/* Gradient */}
+        <div className="absolute opacity-70 circleGradient-blue object-cover w-[70%] h-[115%] -top-24 -right-[48rem] z-5 blur-xl"></div>
+
+        {/* Gradient */}
+
+        {/* Gradient */}
+        <div className="absolute opacity-70 circleGradient-blue object-cover w-[70%] h-[115%] -bottom-[3rem] -left-[48rem] z-5 "></div>
+
+        {/* Gradient */}
         <div className=" w-full h-full flex justify-center ">
-          <div className="flex w-full h-full justify-around ">
-            <div className="w-1/2 min-h-fit drop-shadow-lg ">
+          <div className=" flex w-full h-full justify-around ">
+            <div className="relative first-letter:w-1/2 min-h-fit drop-shadow-lg">
               {/* Photo and book button */}
-              <div className="relative w-[80%] h-[80%] blur-md z-0  m-auto">
+              <div className="relative max-w-[38rem] top-[2rem] left-[1rem] w-[85%] h-[85%] max-h-[42rem]  blur-md -z-10  m-auto">
                 <TailorSum propsData={propsData} />
               </div>
-              <div className="absolute top-[3.7rem] left-[9.3rem] z-10 w-[60%] h-[60%]">
+              <div className="top-[13.03rem] left-[6.3rem] z-10 w-[60%] h-[60%] absolute  text-[black]  inline-block -translate-y-2/4 mx-auto my-0  ">
                 <TailorSum propsData={propsData} />
               </div>
             </div>
 
-            <div className="relative w-2/3 min-h-full rounded-lg drop-shadow-lg overflow-x-hidden">
-              {/* Gradient */}
-              <div className="absolute opacity-70 circleGradient-peach object-cover w-[110%] h-[100%] -top-28 -right-[38rem] z-5 "></div>
-
-              {/* Gradient */}
+            <div className=" w-2/3 min-h-full rounded-lg drop-shadow-lg overflow-x-hidden">
               <div className="w-full h-10 m-2 p-2">
                 {/* Back Button */}
                 <Link to="/home">
