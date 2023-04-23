@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, FilterSection, TailorList, Features } from "../components/Home/index.js";
+import { Navbar, FilterSection, TailorList, Features, CustomerOrder } from "../components/Home/index.js";
 
 const Home = () => {
   return (
