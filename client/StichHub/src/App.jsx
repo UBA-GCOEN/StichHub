@@ -101,34 +101,91 @@ function App() {
           />
 
           {/* Customer Side */}
-          <Route path="/home" element={<Home />} />
-          <Route path="/TailorDetails" element={<TailorDetails />} />
-          <Route path="/home/category" element={<Category />} />
-          <Route path="/Configurator" element={<ThreeDConfigurator />} />
-          <Route path="/measurement" element={<ThreeDMeasurement />} />
-          <Route path="/measurement/" element={<ThreeDMeasurement />} />
-          <Route path="/FabricModel" element={<FabricModel />} />
-          <Route path="/OrderDetails" element={<OrderConfirmation />} />
-          <Route path="/Cart" element={<Cart />} />
-          <Route path="/Orders" element={<CustomerOrder />} />
-          <Route path="/Cart/success" element={<PaymentSuccess />} />
-          <Route path="/Cart/cancel" element={<PaymentFailure />} />
+          <Route
+            path="/home"
+            element={<Home />}
+          />
+          <Route
+            path="/TailorDetails"
+            element={<TailorDetails />}
+          />
+          <Route
+            path="/home/category"
+            element={<Category />}
+          />
+          <Route
+            path="/Configurator"
+            element={<ThreeDConfigurator />}
+          />
+          <Route
+            path="/measurement"
+            element={<ThreeDMeasurement />}
+          />
+          <Route
+            path="/measurement/"
+            element={<ThreeDMeasurement />}
+          />
+          <Route
+            path="/FabricModel"
+            element={<FabricModel />}
+          />
+          <Route
+            path="/OrderDetails"
+            element={<OrderConfirmation />}
+          />
+          <Route
+            path="/Cart"
+            element={<Cart />}
+          />
+          <Route
+            path="/Orders"
+            element={<CustomerOrder />}
+          />
+          <Route
+            path="/Cart/success"
+            element={<PaymentSuccess />}
+          />
+          <Route
+            path="/Cart/cancel"
+            element={<PaymentFailure />}
+          />
           {/* Customer Features  */}
-          <Route path="/ClothesCategory" element={<ClothesCategory />} />
-          <Route path="/CustomersPage" element={<CustomerLandingPage />} />
+          <Route
+            path="/ClothesCategory"
+            element={<ClothesCategory />}
+          />
+          <Route
+            path="/CustomersPage"
+            element={<CustomerLandingPage />}
+          />
 
           {/* Tailor Side */}
-          <Route path="/TailorDashboard" element={<TailorDashboard />} />
-          <Route path="/TailorDashboard/Profile" element={<Profile />} />
-          <Route path="/TailorDashboard/NewTailor" element={<NewTailor />} />
+          <Route
+            path="/TailorDashboard"
+            element={<TailorDashboard />}
+          />
+          <Route
+            path="/TailorDashboard/Profile"
+            element={<Profile />}
+          />
+          <Route
+            path="/TailorDashboard/NewTailor"
+            element={<NewTailor />}
+          />
           <Route
             path="/TailorProfileVerification"
             element={<TailorProfileVerification />}
           />
 
           {/* Miscelleneous */}
-          <Route path="/FabricSelection" element={<FabricSelection />} />
-          <Route path="/HomeOnlineVisit" element={<HomeOnlineVisit />} />
+          <Route
+            path="/FabricSelection"
+            element={<FabricSelection />}
+          />
+          <Route
+            path="/HomeOnlineVisit"
+            element={<HomeOnlineVisit />}
+          />
         </Routes>
       </HomeProvider>
     </GoogleOAuthProvider>

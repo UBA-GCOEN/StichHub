@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
-function StarRateM() {
+function StarRateM(propsData) {
   const colors = {
     yellow: "#ebeb35",
     gray: "#676d67",
   };
   const stars = Array(5).fill(0);
 
-  const [currentValue, setCurrentValue] = useState(4); // To modify rating value in future
+  // const [currentValue, setCurrentValue] = useState(
+  //   propsData.propsData.item.rating
+  // ); // To modify rating value in future
 
+  console.log(propsData.propsData);
   return (
     <div>
       <div className="justify-center items-center text-center">

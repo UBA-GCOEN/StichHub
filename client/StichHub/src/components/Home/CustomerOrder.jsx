@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "../../axios.js";
 import { Player } from "@lottiefiles/react-lottie-player";
 import Navbar from "./Navbar.jsx";
+
 import Footer from "../MainLandingPage/Footer.jsx";
 import OrderConfirmation from "./OrderConfirmation.jsx";
 
@@ -47,6 +48,7 @@ const CustomerOrder = () => {
   const [state, setState] = useState();
 
   return (
+
     <div>
       <Navbar />
 
@@ -148,7 +150,6 @@ const CustomerOrder = () => {
           );
         })}
       </div>
-      <Footer />
     </div>
   );
 };
