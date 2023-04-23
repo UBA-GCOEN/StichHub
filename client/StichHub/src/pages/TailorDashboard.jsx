@@ -10,9 +10,13 @@ import FooterNavigation from "../components/TailorDashboard/mobile/FooterNavigat
 import OngoingOrders from "../components/TailorDashboard/ongoing/OngoingOrders";
 import OngoingOrdersOpen from "../components/TailorDashboard/ongoing/OngoingOrdersOpen";
 import Profiles from "../components/TailorDashboard/Profile";
+import NewOrder from "../components/TailorDashboard/mobile/Main/NewOrders";
 
 const elements = [<Dashboard />, <Profile />, <Ongoing />];
+const mobile_elements = [<MDashboard />, <Profile />, <MOngoing />];
+
 import Graphs from "../components/TailorDashboard/Graphs";
+import MobileOngoingOrders from "../components/TailorDashboard/mobile/Ongoing/MobileOngoingOrders";
 
 const TailorDashboard = () => {
   const [currentElementIndex, setCurrentElementIndex] = useState(0);
@@ -20,6 +24,7 @@ const TailorDashboard = () => {
   const handleNavigationLinkClick = (index) => {
     setCurrentElementIndex(index);
   };
+
   return (
     <div className="w-[100vw]">
       <div className="overflow-x-hidden hidden lg:block">
@@ -38,15 +43,17 @@ const TailorDashboard = () => {
           {/* <LeftView></LeftView>
         <MainDisplay></MainDisplay> */}
           <TopProfile className="place-self-center"></TopProfile>
-          <TopMobileDisplays />
-          <MainMobileDisplay></MainMobileDisplay>
-          <FooterNavigation></FooterNavigation>
+          {mobile_elements[currentElementIndex]}
+          <FooterNavigation
+            handleNavigationLinkClick={handleNavigationLinkClick}
+          ></FooterNavigation>
         </div>
       </div>
     </div>
   );
 };
 
+//navigation functions
 function Dashboard() {
   return (
     <div>
@@ -62,6 +69,20 @@ function Profile() {
 
 function Ongoing() {
   return <OngoingOrders />;
+}
+
+function MDashboard() {
+  return (
+    <div>
+      <TopMobileDisplays />
+      <NewOrder></NewOrder>
+      <MainMobileDisplay></MainMobileDisplay>
+    </div>
+  );
+}
+
+function MOngoing() {
+  return <MobileOngoingOrders />;
 }
 
 export default TailorDashboard;
