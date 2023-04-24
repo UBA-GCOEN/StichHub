@@ -8,6 +8,10 @@ function Worried() {
     <div className="w-sreen h-screen">
       {/* Section for models in spline (Now using oonly img)*/}
       <div className="text-center">
+        {/* Gradient */}
+        <div className="absolute opacity-70 circleGradient-peach object-cover w-[75%] h-[110%] -top-80 left-[29rem] z-0 "></div>
+        {/* Gradient End */}
+
         <div className="w-screen font-medium text-5xl">
           <h1 className="text-white">
             Worried about{" "}

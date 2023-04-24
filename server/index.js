@@ -51,6 +51,8 @@ app.post("/payment", async (req, res) => {
         },
       ],
       mode: "payment",
+
+      // ! Change this links
       success_url: "http://localhost:5173/cart/success",
       cancel_url: "http://localhost:5173/cart/cancel",
       // customer_email: 'sidd@test',

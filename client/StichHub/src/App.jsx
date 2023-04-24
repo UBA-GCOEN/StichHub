@@ -19,11 +19,13 @@ import {
 import CustomerAuth from "./components/Loginsignup/CustomerAuth";
 import AuthTailor from "./components/Loginsignup/AuthTailor";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { Category } from "./components/Home";
+import { Category, CustomerOrder } from "./components/Home";
 import NewTailor from "./components/TailorDashboard/NewTailor";
 import Profile from "./components/TailorDashboard/Profile";
 import { HomeProvider, useHCustomization } from "./contexts/Home";
 import OrderConfirmation from "./components/Home/OrderConfirmation";
+import PaymentSuccess from "./components/Cart/PaymentSuccess";
+import PaymentFailure from "./components/Cart/PaymentFailure";
 
 function App() {
   const [userCustomer, setUserCustomer] = useState(
@@ -99,32 +101,91 @@ function App() {
           />
 
           {/* Customer Side */}
-          <Route path="/home" element={<Home />} />
-          <Route path="/TailorDetails" element={<TailorDetails />} />
-          <Route path="/home/category" element={<Category />} />
-          <Route path="/Configurator" element={<ThreeDConfigurator />} />
-          <Route path="/measurement" element={<ThreeDMeasurement />} />
-          <Route path="/measurement/" element={<ThreeDMeasurement />} />
-          <Route path="/FabricModel" element={<FabricModel />} />
-          <Route path="/OrderDetails" element={<OrderConfirmation />} />
-
-          <Route path="/Cart" element={<Cart />} />
+          <Route
+            path="/home"
+            element={<Home />}
+          />
+          <Route
+            path="/TailorDetails"
+            element={<TailorDetails />}
+          />
+          <Route
+            path="/home/category"
+            element={<Category />}
+          />
+          <Route
+            path="/Configurator"
+            element={<ThreeDConfigurator />}
+          />
+          <Route
+            path="/measurement"
+            element={<ThreeDMeasurement />}
+          />
+          <Route
+            path="/measurement/"
+            element={<ThreeDMeasurement />}
+          />
+          <Route
+            path="/FabricModel"
+            element={<FabricModel />}
+          />
+          <Route
+            path="/OrderDetails"
+            element={<OrderConfirmation />}
+          />
+          <Route
+            path="/Cart"
+            element={<Cart />}
+          />
+          <Route
+            path="/Orders"
+            element={<CustomerOrder />}
+          />
+          <Route
+            path="/Cart/success"
+            element={<PaymentSuccess />}
+          />
+          <Route
+            path="/Cart/cancel"
+            element={<PaymentFailure />}
+          />
           {/* Customer Features  */}
-          <Route path="/ClothesCategory" element={<ClothesCategory />} />
-          <Route path="/CustomersPage" element={<CustomerLandingPage />} />
+          <Route
+            path="/ClothesCategory"
+            element={<ClothesCategory />}
+          />
+          <Route
+            path="/CustomersPage"
+            element={<CustomerLandingPage />}
+          />
 
           {/* Tailor Side */}
-          <Route path="/TailorDashboard" element={<TailorDashboard />} />
-          <Route path="/TailorDashboard/Profile" element={<Profile />} />
-          <Route path="/TailorDashboard/NewTailor" element={<NewTailor />} />
+          <Route
+            path="/TailorDashboard"
+            element={<TailorDashboard />}
+          />
+          <Route
+            path="/TailorDashboard/Profile"
+            element={<Profile />}
+          />
+          <Route
+            path="/TailorDashboard/NewTailor"
+            element={<NewTailor />}
+          />
           <Route
             path="/TailorProfileVerification"
             element={<TailorProfileVerification />}
           />
 
           {/* Miscelleneous */}
-          <Route path="/FabricSelection" element={<FabricSelection />} />
-          <Route path="/HomeOnlineVisit" element={<HomeOnlineVisit />} />
+          <Route
+            path="/FabricSelection"
+            element={<FabricSelection />}
+          />
+          <Route
+            path="/HomeOnlineVisit"
+            element={<HomeOnlineVisit />}
+          />
         </Routes>
       </HomeProvider>
     </GoogleOAuthProvider>

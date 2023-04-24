@@ -1,6 +1,6 @@
 import React from "react";
 import Navbardark from "../components/Navbardark";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import New from "../assets/img/new.png";
 import "react-phone-number-input/style.css";
 import N from "../assets/img/n.png";
@@ -56,6 +56,7 @@ const initialForm = {
   prizerange: [],
   types: [],
 };
+
 
 //Main Implementation from here
 const TailorProfileVerification = () => {
@@ -166,10 +167,8 @@ const TailorProfileVerification = () => {
 
   const totalSteps = steps.length;
 
-  const width = `${(100 / (totalSteps - 1)) * (activeStep - 1)}%`;
   const [isShown, setIsShown] = useState(false);
   const [isShown1, setIsShown1] = useState(false);
-  const [disabled, setDisabled] = useState(false);
 
   //button handlers
   const handleClick = (event) => {

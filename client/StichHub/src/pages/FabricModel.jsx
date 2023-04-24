@@ -124,15 +124,6 @@ const FabricModelM = () => {
       </div>
       {/* Center Text end */}
 
-      {/* Gradients */}
-      <div className="overflow-hidden">
-        <div className="absolute opacity-70 circleGradient-peach object-cover w-[110%] h-3/5 top-[-100px] left-[-260px] z-0 "></div>
-        <div className="absolute opacity-70 circleGradient-peach object-cover w-[110%] h-3/5 top-[-100px] right-[-260px] z-0 "></div>
-        <div className="absolute opacity-70 circleGradient-peach object-cover w-[110%] h-3/5 bottom-[-100px] left-[-260px] z-[0] "></div>
-        <div className="absolute opacity-70 circleGradient-peach object-cover w-[110%] h-3/5 bottom-[-100px] right-[-260px] z-[0] "></div>
-      </div>
-      {/*  */}
-
       {/* Cards of Choice */}
       <div className="relative z-[2]">
         <CardM

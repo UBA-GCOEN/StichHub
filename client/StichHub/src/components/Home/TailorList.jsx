@@ -19,7 +19,6 @@ const TailorList = () => {
 
     try {
       const res = await axios.get("/tailors/list");
-
       setTailorList(res.data);
       setIsLoading(false);
     } catch (err) {
