@@ -3,14 +3,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "../../axios.js";
 import { Player } from "@lottiefiles/react-lottie-player";
 import Navbar from "./Navbar.jsx";
-import {
-  FaGifts,
-  FaReceipt,
-  FaShoppingBag,
-  FaThermometer,
-  FaTorah,
-  FaTshirt,
-} from "react-icons/fa";
+
+import Footer from "../MainLandingPage/Footer.jsx";
+import OrderConfirmation from "./OrderConfirmation.jsx";
+
 const CustomerOrder = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   const [orders, setOrders] = useState([]);
@@ -49,106 +45,105 @@ const CustomerOrder = () => {
     getOrder();
   }, [1]);
 
+  const [state, setState] = useState();
+
   return (
-    <div className="mx-5 my-5 flex flex-wrap gap-3 sm:gap-7 ">
-      {isLoading ? (
-        <div className="relative ">
-          <div className="absolute z-[100] left-[-10vw] lg:left-[30vw] top-[10vh]">
-            <Player
-              src="https://assets2.lottiefiles.com/packages/lf20_a0liqnwx.json"
-              background="transparent"
-              speed="1"
-              style={{ height: "500px", width: "500px" }}
-              loop
-              autoplay
-            />
+
+    <div>
+      <Navbar />
+
+      <div className="mx-5 my-5 flex flex-wrap gap-3 sm:gap-7">
+        {isLoading ? (
+          <div className="relative">
+            <div className="absolute z-[100] left-[-10vw] lg:left-[30vw] top-[10vh]">
+              <Player
+                src="https://assets2.lottiefiles.com/packages/lf20_a0liqnwx.json"
+                background="transparent"
+                speed="1"
+                style={{ height: "500px", width: "500px" }}
+                loop
+                autoplay
+              />
+            </div>
+          </div>
+        ) : null}
+      </div>
+      <div className="max-w-2xl mx-auto pt-16 sm:py-24 sm:px-6 lg:max-w-2xl lg:px-8">
+        <div className="px-4 space-y-2 sm:px-0 sm:flex sm:items-baseline sm:justify-between sm:space-y-0">
+          <div className=" sm:items-baseline sm:space-x-4">
+            <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-xl">
+              Your Recent Order Acceptance Status
+            </h1>
+            <p className="text-gray-500 ml-0 text-left ">
+              if your order acceptance status is not changing, then please try
+              to{" "}
+              <button className="text-red-500 hover:text-red-800 hover:underline ">
+                refresh
+              </button>{" "}
+              this page to get status updated!
+            </p>
           </div>
         </div>
-      ) : null}
-      <div className="w-full">
-        <Navbar />
-      </div>
-      <div className="text-center font-semibold text-3xl  flex justify-center p-2 w-full ">
-        <FaGifts className="m-1" />
-        Your Recent Orders
-      </div>
-
-      <div className=" flex flex-wrap  p-2  gap-5 items-center ">
         {orders.map((items, index) => {
           return (
-            <div
-              key={index}
-              className="p-2 m-4 border-b-[4px] border-b-[cyan] border-[1px] border-[#c7c5c5] rounded-lg drop-shadow-md cardGradient w-[40vw]  text-white min-h-[18rem] min-w-[20rem] ml-0"
-            >
-              <span className="p-1 m-1 flex items-center">
-                <FaThermometer className="mr-2 m-1 border-2 border-white rounded-md h-[1.8rem] w-[1.8rem] p-1" />
-                <span className="text-lg font-medium ml-1 mr-1">
-                  {" "}
-                  TailorID :
-                </span>{" "}
-                {items.tailorId}
-              </span>
+            <div className="mt-6" key={index}>
               {items.requests.map((order, index2) => {
-                {
-                  const colorDiv = order.orderData.clothDetails.color;
+                if (order.customerId === user.result._id) {
+                  return (
+                    <div className="space-y-8" key={index2}>
+                      <div className="bg-white border-t border-b border-gray-200 shadow-sm sm:border sm:rounded-lg">
+                        <div className="py-6 px-4 sm:px-6 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:p-8">
+                          <div className="sm:flex lg:col-span-12">
+                            <div className="flex-shrink-0 w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden sm:aspect-none sm:w-40 sm:h-40">
+                              <img
+                                src="https://tailwindui.com/img/ecommerce-images/confirmation-page-04-product-02.jpg"
+                                alt="Off-white t-shirt with circular dot illustration on the front of mountain ridges that fade."
+                                className="object-center object-cover"
+                              />
+                            </div>
 
-                  if (order.customerId === user.result._id) {
-                    return (
-                      <div
-                        key={index2}
-                        className="flex flex-col p-1 m-1 text-left"
-                      >
-                        <div>
-                          <span className="text-lg font-medium flex items-center m-1 ml-0">
-                            <FaTorah className="mr-2 m-1 border-2 border-white rounded-md h-[1.8rem] w-[1.8rem] p-1" />
-                            Category : {order.orderData.category}
-                          </span>
-                        </div>
-                        <div>
-                          <span className="text-lg font-medium flex">
-                            <FaTshirt className="mr-2 m-1 border-2 border-white rounded-md h-[1.8rem] w-[1.8rem] p-1" />
-                            Cloth Details :{" "}
-                            <ul className="text-left ml-2">
-                              <li className="flex items-center ml-1">
-                                <span>Color:</span>
-                                <div
-                                  className={`bg-[${colorDiv}] ml-1 w-6 h-5 border-2 border-white`}
-                                ></div>
-                              </li>
-                              <li>
-                                <span>Fabric:</span>
-                                {order.orderData.clothDetails.fabric}
-                              </li>
-                            </ul>
-                          </span>
-                        </div>
+                            <div className="mt-6 sm:mt-0 sm:ml-6 text-center lg:text-left">
+                              <h3 className="text-2xl font-bold text-gray-900">
+                                {order.orderData.category}{" "}
+                              </h3>
+                              <p className="mt-3 font-semibold text-sm text-gray-500 ">
+                                Tailor Name: {items.tailorId}
+                              </p>
+                              <p className="mt-2 text-md font-semibold text-gray-900">
+                                ₹35.00
+                              </p>
+                              <p className="mt-2 font-semibold justify-center lg:justify-start text-sm text-gray-500 flex">
+                                Order Status:{" "}
+                                <p className="text-green-500 ml-4">
+                                  {order.status}
+                                </p>
+                              </p>
 
-                        <span className="p-1 m-1 ml-0 flex items-center">
-                          <FaReceipt className="mr-2 ml-0 m-1 border-2 border-white rounded-md h-[1.8rem] w-[1.8rem] p-1" />
-                          <span className="text-lg font-medium">Status : </span>
-                          {order.status}
-                        </span>
-                        {order.status === "accepted" && !order.order && (
-                          <div className="justify-center items-center flex">
-                            <button
-                              className="bg-blue-500 rounded-lg py-2 px-3 w-fit text-white flex items-center"
-                              onClick={(e) =>
-                                handleSubmit(
-                                  e,
-                                  order,
-                                  items.tailorId,
-                                  order._id
-                                )
-                              }
-                            >
-                              <FaShoppingBag className="mr-2 ml-0 m-1 border-2 border-white rounded-md h-[1.8rem] w-[1.8rem] p-1" />
-                              Add to Cart
-                            </button>
+                              {order.status === "accepted" && !order.order && (
+                                <div>
+                                  <button
+                                    className="bg-blue-500 rounded-lg py-2 px-3 w-fit text-white"
+                                    onClick={(e) =>
+                                      handleSubmit(
+                                        e,
+                                        order,
+                                        items.tailorId,
+                                        order._id
+                                      )
+                                    }
+                                  >
+                                    Add to Cart
+                                  </button>
+                                </div>
+                              )}
+                            </div>
                           </div>
-                        )}
+                        </div>
                       </div>
-                    );
-                  }
+
+                      {/* <!-- More products... --> */}
+                    </div>
+                  );
                 }
               })}
             </div>
