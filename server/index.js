@@ -43,9 +43,9 @@ app.post("/payment", async (req, res) => {
           price_data: {
             currency: "inr",
             product_data: {
-              name: "Russian",
+              name: "Order Details",
             },
-            unit_amount: "6000" * 100,
+            unit_amount: "2700" * 100,
           },
           quantity: 1,
         },
