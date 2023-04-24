@@ -13,6 +13,7 @@ const MainDisplay = () => {
 
   const [orderStatus, setOrderStatus] = useState("");
 
+
   const getOrder = async () => {
     // setIsLoading(true);
 
@@ -77,9 +78,9 @@ const MainDisplay = () => {
         {/* new orders */}
 
         <div>
-          {OrderList.map((order) => {
+          {OrderList.map((order, index) => {
             return (
-              <div className=" grid grid-cols-5 bg-white rounded-2xl row-span-6 mb-10 mr-8 w-full h-11/12">
+              <div key={index} className=" grid grid-cols-5 bg-white rounded-2xl row-span-6 mb-10 mr-8 w-full h-11/12">
                 {/* New orders */}
                 <div className="col-start-1 col-span-2 text-left text-xl font-bold p-3">
                   New Orders

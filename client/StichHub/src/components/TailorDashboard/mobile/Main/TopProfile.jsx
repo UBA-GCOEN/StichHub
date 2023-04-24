@@ -1,10 +1,27 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import jwt_decode from "jwt-decode";
 
 const TopProfile = () => {
-  return (
+
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+ 
+  useEffect(() => {
+    const token = user?.token;
+
+    if (token) {
+      const decodedToken = jwt_decode(token);
+
+      if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+    }
+
+    setUser(JSON.parse(localStorage.getItem("tailorProfile")));
+  }, [location]);
+  // https://cdn-icons-png.flaticon.com/512/6522/6522516.png
+  const bg = user?.result.picture ? (user?.result.picture) : "url('https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg')" ;
+   return (
     <div className="flex w-fit h-fit grow flex-row justify-between m-10 mb-5">
       <div>
-        <div className="text-sm text-white text-left">Mr. Akash Malhotra</div>
+        <div className="text-sm text-white text-left">{user?.result.name}</div>
         <div className="text-sm text-grey">inaamajay007@gmail.com</div>
         <div className="h-max mb-auto grid grid-flow-col auto-cols-max mt-[2%]">
           <svg
@@ -56,7 +73,7 @@ const TopProfile = () => {
       </div>
       {/* profile image */}
       <div className="h-fit w-fit ml-[30%]">
-        <div className="grid justify-items-end rounded-full mt-auto h-[70px] w-[70px] bg-cover bg-center bg-[url('https://media.istockphoto.com/id/1318858332/photo/headshot-portrait-of-smiling-female-employee-posing-in-office.jpg?s=612x612&w=is&k=20&c=f0NR-g76WDrQo_Qa7x3gXOGmmH-CIBZ3Ud-rQFRMlks=')]">
+        <div style={{backgroundImage:bg}} className="grid justify-items-end rounded-full bg-['url(https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg)'] mt-auto h-[70px] w-[70px] bg-cover bg-center ">
           <div className="rounded-full h-[15px] w-[15px] bg-green-500"></div>
         </div>
       </div>

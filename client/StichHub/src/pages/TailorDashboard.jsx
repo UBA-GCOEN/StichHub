@@ -26,7 +26,7 @@ const TailorDashboard = () => {
   };
 
   return (
-    <div className="w-[100vw]">
+    <div className="w-[100vw] bg-primary">
       <div className="overflow-x-hidden hidden lg:block">
         <NavBar />
         <div className="grid grid-rows-3  grid-flow-col grid-cols-[13%] text-5xl text-center select-none bg-primary - w-[100vw]  h-[92.7vh]">
@@ -40,8 +40,7 @@ const TailorDashboard = () => {
       <div className="lg:hidden">
         <NavBar />
         <div className="grid text-center select-none bg-primary justify-items-start text-5xl w-[100vw]  h-full">
-          {/* <LeftView></LeftView>
-        <MainDisplay></MainDisplay> */}
+     
           <TopProfile className="place-self-center"></TopProfile>
           {mobile_elements[currentElementIndex]}
           <FooterNavigation
