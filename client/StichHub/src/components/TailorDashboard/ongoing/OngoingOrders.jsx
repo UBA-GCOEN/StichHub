@@ -10,7 +10,7 @@ const OngoingOrders = () => {
       </div>
       <div>
         {/* first */}
-        <div className="relative w-[30%] m-5">
+        <div className="relative w-[40%] m-5">
           {/* top */}
           <div className="bg-[url('./src/assets/TailorDashboard/ongoingtop-2.png')] bg-cover bg-no-repeat p-20">
             <div className="flex  justify-center">
@@ -34,7 +34,7 @@ const OngoingOrders = () => {
                   Customer Information
                 </div>
 
-                <div className="grid grid-cols-5  text-sm">
+                <div className="grid grid-cols-5  text-xs">
                   <ClockIcon className="col-start-3 self-center fill-slate-400 h-[20px] w-[20px]" />
                   <div className="col-start-4 text-slate-400 text-left col-end-6">
                     1 hour ago

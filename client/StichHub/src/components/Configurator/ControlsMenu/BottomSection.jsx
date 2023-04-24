@@ -51,7 +51,7 @@ const BottomSection = () => {
         fabric: selected.name,
       },
     });
-    // console.log(orderDetails);
+     console.log(orderDetails);
 
     navigateTo("/measurement");
   };

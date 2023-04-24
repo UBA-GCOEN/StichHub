@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+
+
+import axios from "axios";
 import {
   Card,
   CardHeader,
@@ -25,7 +28,6 @@ import se from "../../assets/img/se.png";
 import img from "../../assets/img/img.png";
 
 //Payment Imports
-import axios from "../../axios";
 import { loadStripe } from "@stripe/stripe-js";
 
 //Card Number Regular Expression
@@ -100,7 +102,7 @@ const Step3 = () => {
         />
         <div class="block max-w-lg rounded-lg bg-white p-6 ">
           {/* payment form */}
-          <form>
+          <form onSubmit={handleSubmit}>
             <span className="text-gray-700 font-bold text-lg ">Payment</span>
             <br />
             <br />
@@ -179,7 +181,8 @@ const Step3 = () => {
                             </span>
                             <input
                               type="number"
-                              name="q"
+                              name="card_number"
+                              id="card_number"
                               className=" text-black pl-14 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                             />
                           </div>
@@ -227,13 +230,13 @@ const Step3 = () => {
                             Save Card Details
                           </label>
                         </div>
-                        <Button
+                        <button
                           size="lg"
                           className="h-auto p-3"
                           onClick={handlePayment}
                         >
                           Pay Now
-                        </Button>
+                        </button>
                         <Typography
                           variant="small"
                           color="gray"
