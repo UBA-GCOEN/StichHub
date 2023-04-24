@@ -93,12 +93,12 @@ export default function TabsM(props) {
         >
           <ul>
             {/* {categories.Details.map((post) => ( */}
-              <li
-                className="relative rounded-md p-3 hover:bg-gray-100"
-              >
-                <h3 className="text-sm font-medium leading-5">{props.item.bio}</h3>
+            <li className="relative rounded-md p-3 hover:bg-gray-100">
+              <h3 className="text-sm font-medium leading-5">
+                {props.item.bio}
+              </h3>
 
-                {/* <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
+              {/* <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
                   <li>{post.date}</li>
                   <li>&middot;</li>
                   <li>{post.commentCount} comments</li>
@@ -106,14 +106,14 @@ export default function TabsM(props) {
                   <li>{post.shareCount} shares</li>
                 </ul> */}
 
-                <a
-                  href="#"
-                  className={classNames(
-                    "absolute inset-0 rounded-md",
-                    "ring-blue-400 focus:z-10 focus:outline-none focus:ring-2"
-                  )}
-                />
-              </li>
+              <a
+                href="#"
+                className={classNames(
+                  "absolute inset-0 rounded-md",
+                  "ring-blue-400 focus:z-10 focus:outline-none focus:ring-2"
+                )}
+              />
+            </li>
             {/* ))} */}
           </ul>
         </Tab.Panel>
@@ -146,7 +146,7 @@ export default function TabsM(props) {
                 })}
               </div>
             </div>
-           ))} 
+          ))}
         </Tab.Panel>
 
         <Tab.Panel
@@ -157,13 +157,15 @@ export default function TabsM(props) {
         >
           <ul>
             {/* {categories.Details.map((post) => ( */}
-              <li
-                // key={post.id}
-                className="relative rounded-md p-3 hover:bg-gray-100"
-              >
-                <h3 className="text-sm font-medium leading-5">{props.item.bio}</h3>
+            <li
+              // key={post.id}
+              className="relative rounded-md p-3 hover:bg-gray-100"
+            >
+              <h3 className="text-sm font-medium leading-5">
+                {props.item.bio}
+              </h3>
 
-                {/* <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
+              {/* <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
                   <li>{post.date}</li>
                   <li>&middot;</li>
                   <li>{post.commentCount} comments</li>
@@ -171,14 +173,14 @@ export default function TabsM(props) {
                   <li>{post.shareCount} shares</li>
                 </ul> */}
 
-                <a
-                  href="#"
-                  className={classNames(
-                    "absolute inset-0 rounded-md",
-                    "ring-blue-400 focus:z-10 focus:outline-none focus:ring-2"
-                  )}
-                />
-              </li>
+              <a
+                href="#"
+                className={classNames(
+                  "absolute inset-0 rounded-md",
+                  "ring-blue-400 focus:z-10 focus:outline-none focus:ring-2"
+                )}
+              />
+            </li>
             {/* ))} */}
           </ul>
         </Tab.Panel>

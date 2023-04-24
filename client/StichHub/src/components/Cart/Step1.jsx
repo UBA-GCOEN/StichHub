@@ -1,13 +1,52 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import imr from "../../assets/img/imr.png";
 import el from "../../assets/img/el.png";
 import el2 from "../../assets/img/el2.png";
 import im from "../../assets/img/im.png";
+import axios from "axios";
 
 //main definition
 const Step1 = () => {
+  const [qty, setqty] = useState(0);
+  const handleqty = () => {
+    setqty(qty + 1);
+  };
+  const handleqtydown = () => {
+    setqty(qty - 1);
+  };
+
+  //Fetching the Cart List
+  const [cartList, setCartList] = useState([]);
+
+  const getCartList = async () => {
+    try {
+      const res = await axios.get("/cart/list");
+      setCartList(res.data);
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    getCartList();
+  }, [2]);
+
+
+  const initialForm = {
+    service:"",
+    delivery:"",
+  };
+  const [form, setForm] = useState(initialForm);
+
+
+  const handleChangeFinal = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+  // main declaration here
   return (
     <div class="h-screen pt-20">
+     
       <div className="grid grid-cols-2">
         {/* header */}
         <h1 class="mb-5 ml-0 text-left text-2xl font-bold">Orders</h1>
@@ -15,6 +54,30 @@ const Step1 = () => {
           Payment Summary
         </h1>
       </div>
+      {
+        cartList.map((items, index) => {
+          return (
+            <div key={index}>
+                <label>
+                  {
+                    items.orders.map((order, indexOrder) => {
+                      return (
+                      <div key={indexOrder}>
+                        {order.orderData.category}
+                        {order._id}
+                        {order.orderData.clothDetails.backDetails}
+                        {order.orderData.clothDetails.collar}
+                        {order.orderData.clothDetails.fabric}
+
+                        {order.orderData.clothDetails.sleeve}
+                      </div>)
+                    })
+                  }
+                </label>
+            </div>
+          )
+        })
+      }
 
       {/* first block/orders block */}
       <div class="mx-auto max-w-5xl justify-center px-1 lg:px-6 md:flex md:space-x-6 xl:px-0">
@@ -40,20 +103,26 @@ const Step1 = () => {
               </div>
               <div class="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                 <div class="flex items-center border-gray-100">
-                  <span class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50">
+                  <button
+                    class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"
+                    onClick={handleqtydown}
+                  >
                     {" "}
                     -{" "}
-                  </span>
+                  </button>
                   <input
                     class="h-8 w-8 border bg-white text-center text-xs outline-none"
                     type="number"
-                    value="2"
-                    min="1"
+                    value={qty}
+                    min={1}
                   />
-                  <span class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50">
+                  <button
+                    class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"
+                    onClick={handleqty}
+                  >
                     {" "}
                     +{" "}
-                  </span>
+                  </button>
                 </div>
                 <div class="lg:hidden flex items-center space-x-4">
                   <p class="text-sm">₹2590.00</p>
@@ -88,7 +157,7 @@ const Step1 = () => {
               <div className="grid grid-cols-2 gap-1">
                 <input
                   type="text"
-                  className=" border-gray-500 solid border rounded-md"
+                  className=" border solid  rounded-md"
                 ></input>
                 <button className="  text-center ml-3 bg-blue-700 px-6 py-1.5 rounded-lg text-white hover:bg-blue-600">
                   Apply

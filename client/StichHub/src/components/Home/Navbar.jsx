@@ -86,7 +86,7 @@ const Navbar = () => {
                     </span>
                   </Link>
 
-                  <Link to="/home">
+                  <Link to="/Orders">
                     <span className="ml-6 text-white cursor-pointer my-2 hover:text-cyan-300">
                       Your Orders
                     </span>
