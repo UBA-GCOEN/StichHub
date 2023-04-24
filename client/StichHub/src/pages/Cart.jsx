@@ -414,7 +414,7 @@ const Cart = () => {
                         {items.orders.map((order, indexOrder) => {
                           return (
                             <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-                              <img src={imr} className="h-[30%]" />
+                              {/* <img src={imr} className="h-[30%]" /> */}
                               <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                                 <div className="mt-5 sm:mt-0">
                                   <h2 className="text-lg font-bold text-gray-900">
