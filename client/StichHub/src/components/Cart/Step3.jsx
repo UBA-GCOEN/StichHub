@@ -28,7 +28,6 @@ import se from "../../assets/img/se.png";
 import img from "../../assets/img/img.png";
 
 //Payment Imports
-import axios from "../../axios";
 import { loadStripe } from "@stripe/stripe-js";
 
 //Card Number Regular Expression

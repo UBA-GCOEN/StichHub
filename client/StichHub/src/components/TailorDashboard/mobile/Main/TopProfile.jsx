@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from "react";
 import jwt_decode from "jwt-decode";
+import axios from "../../../../axios"
 
 const TopProfile = () => {
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  const [tailorDetails, setTailorDetails] = useState([]);
  
   useEffect(() => {
     const token = user?.token;
@@ -16,8 +18,24 @@ const TopProfile = () => {
 
     setUser(JSON.parse(localStorage.getItem("tailorProfile")));
   }, [location]);
+
+  const getTailorDetails = async() => {
+    try {
+      const res = await axios.get("/tailors/selected");
+      setTailorDetails(res.data);
+      console.log(res.data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  useEffect(() => {
+    getTailorDetails();
+  }, [tailorDetails]);
+
+
   // https://cdn-icons-png.flaticon.com/512/6522/6522516.png
-  const bg = user?.result.picture ? (user?.result.picture) : "url('https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg')" ;
+  const bg = user?.result.picture ? (user?.result.picture) : "url('https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg')" ;
    return (
     <div className="flex w-fit h-fit grow flex-row justify-between m-10 mb-5">
       <div>
@@ -73,8 +91,10 @@ const TopProfile = () => {
       </div>
       {/* profile image */}
       <div className="h-fit w-fit ml-[30%]">
-        <div style={{backgroundImage:bg}} className="grid justify-items-end rounded-full bg-['url(https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg)'] mt-auto h-[70px] w-[70px] bg-cover bg-center ">
-          <div className="rounded-full h-[15px] w-[15px] bg-green-500"></div>
+        <div className="grid justify-items-end rounded-full mt-auto h-[70px] w-[70px] bg-cover bg-center">
+        <div className="rounded-full h-[15px] w-[15px] bg-green-500"></div>
+          <img src={bg} className="grid justify-items-end rounded-full mt-auto h-[70px] w-[70px] bg-cover bg-center"/>
+          
         </div>
       </div>
     </div>

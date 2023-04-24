@@ -88,7 +88,7 @@ const NavBar = () => {
 
             {isOpen && (
 
-              <div onClick={logout}  className="absolute flex flex-row justify-between top-[8%] p-2 right-5 bg-white h-fit w-[100px] rounded-xl ">
+              <div onClick={logout}  className="z-50 absolute flex flex-row justify-between top-[8%] p-2 right-5 bg-white h-fit w-[100px] rounded-xl ">
                <ArrowLeftOnRectangleIcon className="grid h-6 w-6 items-center"/>
                Log Out
               </div>
