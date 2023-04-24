@@ -53,8 +53,8 @@ app.post("/payment", async (req, res) => {
       mode: "payment",
 
       // ! Change this links
-      success_url: "http://localhost:5173/cart/success",
-      cancel_url: "http://localhost:5173/cart/cancel",
+      success_url: "https://stichhub.vercel.app/cart/success",
+      cancel_url: "https://stichhub.vercel.app/cart/cancel",
       // customer_email: 'sidd@test',
     });
     // Return the session ID to the client
