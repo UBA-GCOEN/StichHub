@@ -1,16 +1,41 @@
 @tailwind base;
 
-*::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 7px;
+  height: 5px;
   display: block;
+
 }
 
-*::-webkit-scrollbar-track {
-  background: #130f26;
+
+
+::-webkit-scrollbar-track {
   border-radius: 0px;
 }
 
-*::-webkit-scrollbar-thumb {
+.configurator::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(0, 3, 130);
+  border-radius: 20px;
+  border: 3px solid rgb(0, 3, 130);;
+}
+
+.configurator::-webkit-scrollbar-thumb {
+  background-color: rgb(165 180 252);
+  border-radius: 20px;
+  border: 3px solid rgb(165 180 252);
+}
+
+.filter::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 0px;
+}
+
+.filter::-webkit-scrollbar-thumb {
   background-color: aquamarine;
   border-radius: 20px;
   border: 3px solid aquamarine;
@@ -49,4 +74,16 @@
   background: #ffffff;
   filter: blur(225px);
   transform: rotate(32.28deg);
+}
+
+.cardGradient {
+  background: linear-gradient(
+    144.39deg,
+    #ffffff -278.56%,
+    #6d6d6d -78.47%,
+    #11101d 91.61%,
+    #11101d 100.61%
+  );
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(2px);
 }

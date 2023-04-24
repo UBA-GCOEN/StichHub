@@ -1,14 +1,46 @@
 import React from "react";
 import MouseIcon from "@mui/icons-material/Mouse";
 import { demo3d } from "../../assets/MainLandingPage/Icons";
+import { DemoShirtIcon } from "../../assets/MainLandingPage/Icons";
 function PageContent() {
   return (
     <div>
-      <div className="flex justify-around w-screen h-screen ">
-        <div className="absolute w-[330px] h-[571px] top-28 left-6 modelGradient z-[1]"></div>
-        <div className="w-2/5">
-          <img src={demo3d} />
+      <div className="relative flex justify-around w-screen h-screen ">
+        {/* Div containing image of girl and background gradient */}
+        <div className="relative w-2/5 p-4">
+          <img
+            src={demo3d}
+            className="relative z-[5] w-[300px] h-[571px]"
+          />
+          <div className="absolute float-left w-[330px] h-[571px] top-12 left-3 modelGradient z-[0]" />
         </div>
+        {/* Div end */}
+
+        {/* Div containing buttons (From Main Page) */}
+        <div className="absolute left-96 top-32">
+          <div className="p-3 mt-2 rounded-lg bg-gray-800 flex flex-col justify-center hover:bg-black hover:cursor-pointer drop-shadow-2xl">
+            <img
+              src={DemoShirtIcon}
+              className="w-[50px] ml-3"
+            />
+            <p className="text-sm text-white mt-2">Short Sleeve</p>
+          </div>
+          <div className="p-3 mt-2 rounded-lg bg-gray-800 flex flex-col justify-center hover:bg-black hover:cursor-pointer drop-shadow-2xl">
+            <img
+              src={DemoShirtIcon}
+              className="w-[50px] ml-3"
+            />
+            <p className="text-sm text-white mt-2">Short Sleeve</p>
+          </div>
+          <div className="p-3 mt-2 rounded-lg bg-gray-800 flex flex-col justify-center hover:bg-black hover:cursor-pointer drop-shadow-2xl">
+            <img
+              src={DemoShirtIcon}
+              className="w-[50px] ml-3"
+            />
+            <p className="text-sm text-white mt-2">Short Sleeve</p>
+          </div>
+        </div>
+
         <div className="text-center text-6xl text-white w-2/5 h-72  items-center p-5 leading-relaxed tracking-wide">
           Let's Become <br /> the <br />{" "}
           <span className="font-semibold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-orange-300 to-orange-600">
@@ -24,6 +56,11 @@ function PageContent() {
                 Click on the button to customize the model
               </span>
             </h1>
+          </div>
+          <div>
+            <button class="bg-[#e68600] hover:bg-[chocolate] text-black font-semibold p-1 rounded-full h-10 text-lg w-36">
+              Start Stitching
+            </button>
           </div>
         </div>
       </div>
