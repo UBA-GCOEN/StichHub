@@ -12,6 +12,7 @@ import im from "../assets/img/im.png";
 import "react-phone-number-input/style.css";
 import Phoneinput from "react-phone-number-input";
 import ime from "../assets/img/ime.png";
+import { useLocation } from "react-router-dom";
 import {
   Card,
   CardHeader,
@@ -301,7 +302,7 @@ const Cart = () => {
     firstname: "",
     lastname: "",
     paymentstatus: "",
-    total: "₹2700.00",
+    total: "2700.00",
   };
 
   const [selectedValue, setSelectedValue] = useState("");
@@ -327,28 +328,30 @@ const Cart = () => {
 
     // console.log(form);
   };
-  console.log(form);
 
-  //Payment
-  const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_SCERET_KEY);
+  // console.log(form);
+  const location = useLocation();
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("profile")));
+  }, [location]);
+
+  //? Payment
   const handlePayment = async () => {
+    const userId = user.result._id;
+    const orderId = `${userId}-${Date.now()}`;
+    const paymentData = {
+      amount: form.total,
+      orderId: orderId,
+      customerName: user.result.name,
+      customerEmail: user.result.email,
+      customerPhone: "9876543210",
+    };
     try {
-      const stripe = await stripePromise;
-      const paymentData = {
-        items: [{ name: "Russian", price: "6000" }],
-        email: "sidd@test",
-      };
-      const res = await axios.post("/payment", paymentData);
-
-      // console.log(res.data);
-
-      const result = await stripe.redirectToCheckout({
-        sessionId: res.data.id,
-      });
-
-      if (result.error) {
-        console.log(result.error.message);
-      }
+      const res = await axios.post(`/payment`, paymentData);
+      console.log(res.data);
+      window.location.href = res.data.paymentLink;
     } catch (error) {
       console.log(error);
     }
