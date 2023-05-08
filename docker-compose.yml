@@ -1,0 +1,14 @@
+version: '2'
+services:
+  client:
+    build: ./client/StichHub
+    ports:
+      - "5173:5173"
+    env_file:
+      - .env.client
+  server:
+    build: ./server
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env.server
