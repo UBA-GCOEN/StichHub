@@ -46,10 +46,10 @@ link here- -->
 
 # Seting up Local development :
   - ## Docker Compose 
-     - Download the docker-compose.yml file from here <a href="https://github.com/Naresh-chandanbatve/StichHub/raw/main/docker-compose.yml" download >docker-compose.yml</a>
+     - Download the docker-compose.yml file from here <a href="https://github.com/Naresh-chandanbatve/StichHub/raw/main/docker-compose.yml" download="docker-compose.yml" >docker-compose.yml</a>
      - Make .env.client and .env.server file in root folder and add all required keys in boh the files as shown in respected env example files (links below)
      
-       [.env.client](https://github.com/Naresh-chandanbatve/StichHub/raw/main/.env.client) and [.env.server](https://github.com/Naresh-chandanbatve/StichHub/raw/main/.env.server).
+       [.env.client](https://github.com/Naresh-chandanbatve/StichHub/raw/main/.env.client?raw=true) and [.env.server](https://github.com/Naresh-chandanbatve/StichHub/raw/main/.env.server).
      - Run Command
        ```bash 
        docker-compose pull
@@ -58,6 +58,7 @@ link here- -->
        ```bash
        docker-compose up
        ```
+     - And enjoy on ``` http:localhost:5173 ```  :)  
   - ## Manually
 # SRS Document :
 ## ➡[_Check_](SRS.md)
