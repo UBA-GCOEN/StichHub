@@ -67,14 +67,13 @@ const Home = () => {
           {/* Heading */}
           <div className="text-center z-[5] lg:text-left lg:text-8xl text-gray-100 font-semibold">
             <span>
-              STICH <br /> YOUR WAY{" "}
+              STITCH <br /> YOUR WAY{" "}
             </span>
           </div>
 
           {/* Text */}
           <p className="z-[5] relative text-white text-center lg:text-left py-4 px-10 lg:px-0 lg:py-8 text-xs lg:text-xl">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
-            aliquam tenetur, dicta sequi ea natus excepturi
+            Choose your style make your own trend. Select the one you want to get your clothes stitched from!
           </p>
 
           {/* Buttons */}
