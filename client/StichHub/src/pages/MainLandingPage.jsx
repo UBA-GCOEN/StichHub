@@ -21,7 +21,7 @@ const MainLandingPage = () => {
       <HowItWorks />
       <About />
       <ContactUs />
-      <p>@ Stichhub 2023</p>
+      <p className="text-sm">@ Stichhub 2023</p>
     </div>
   );
 };
