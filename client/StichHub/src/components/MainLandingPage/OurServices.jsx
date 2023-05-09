@@ -26,8 +26,7 @@ const OurServices = () => {
             >
               <img src={forcustomers} className="lg:w-[150px] w-[90px]" />
               <p className="text-xs lg:text-base px-20 lg:px-10 py-5 lg:p-3">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.sit
-                amet consectetur, adipisicing elit.{" "}
+                You can choose your own style, see how it looks as well as choose from a choice of tailor whom who want to get your clothes stitched from.{" "}
               </p>
               <Link to="/CustomersPage">
                 <button className="px-4 py-2 lg:p-4 bg-white text-black rounded-xl text-lg font-medium lg:m-5 cursor-pointer">
@@ -48,8 +47,7 @@ const OurServices = () => {
             >
               <img src={fortailors} className="lg:h-[100px] h-[70px] m-6" />
               <p className="text-xs lg:text-base px-20 lg:px-10 py-5 lg:p-3">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.sit
-                amet consectetur, adipisicing elit.{" "}
+                You can keep track of your orders, showcase your previous work as well as add your specialities to your profile to increase cutomer-base.{" "}
               </p>
               <Link to="/auth">
                 <button className="px-4 py-2 lg:p-4 bg-white text-black rounded-xl text-lg font-medium lg:m-5 cursor-pointer">

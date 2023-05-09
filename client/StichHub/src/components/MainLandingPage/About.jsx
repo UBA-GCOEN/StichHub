@@ -1,5 +1,10 @@
 import React from "react";
 import { AboutUsVector, AvatarDemo } from "../../assets/MainLandingPage/Icons";
+import vk from "../../assets/vk.jpg";
+import sp from "../../assets/sp.jpg";
+import nc from "../../assets/nc.jpg";
+import sy from "../../assets/sy.jpg";
+import hl from "../../assets/hl.jpg";
 
 const About = () => {
   return (
@@ -23,7 +28,7 @@ const About = () => {
             <div className="relative lg:ml-[100px] lg:mt-[40px]">
               <div className="flex justify-center">
                 <img
-                  src={AvatarDemo}
+                  src={sp}
                   className="relative bg-black/50 rounded-3xl lg:w-[140px] w-[100px]"
                 />
               </div>
@@ -36,7 +41,7 @@ const About = () => {
             <div className="relative lg:ml-0 lg:pt-[180px] pt-14">
               <div className="flex justify-center">
                 <img
-                  src={AvatarDemo}
+                  src={vk}
                   className="relative bg-black/50 rounded-3xl lg:w-[140px] w-[100px] ml-2"
                 />
               </div>
@@ -49,7 +54,7 @@ const About = () => {
             <div className="relative lg:mt-[120px] mt-4">
               <div className="flex justify-center">
                 <img
-                  src={AvatarDemo}
+                  src={nc}
                   className="relative bg-black/50 rounded-3xl lg:w-[140px] w-[100px] lg:ml-7"
                 />
               </div>
@@ -62,7 +67,7 @@ const About = () => {
             <div className="relative lg:mt-[60px] mt-14">
               <div className="flex justify-center">
                 <img
-                  src={AvatarDemo}
+                  src={hl}
                   className="relative bg-black/50 rounded-3xl lg:w-[140px] w-[100px]"
                 />
               </div>
@@ -75,7 +80,7 @@ const About = () => {
             <div className="relative lg:mt-[150px] mt-4">
               <div className="flex justify-center">
                 <img
-                  src={AvatarDemo}
+                  src={sy}
                   className="relative bg-black/50 rounded-3xl lg:w-[140px] w-[100px]"
                 />
               </div>
