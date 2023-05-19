@@ -60,6 +60,20 @@ link here- -->
        ```
      - And enjoy on ``` http:localhost:5173 ```  :)  
   - ## Manually
+     - Fork the repo 
+     - Clone your copy of repo using following command 
+         ```bash
+         git clone <Your forked repo url>
+         ```
+      - replace your API keys in the .env.client for frontend and .env.server for backend.
+      - run command 
+        ```bash
+        npm install
+        ```
+      - then run
+        ```bash
+        npm run dev
+        ```
 # SRS Document :
 ## ➡[_Check_](SRS.md)
 
