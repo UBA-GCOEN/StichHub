@@ -53,7 +53,7 @@ This project is open-source and welcomes contributions of all kinds. Whether you
       - improving documentation.
       - raising issues 
       - Improving UI/UX 
-      - Detective bugs 
+      - Detecting bugs 
       - Adding new Feastures
 
 
