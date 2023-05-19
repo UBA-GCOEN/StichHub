@@ -35,7 +35,7 @@ link here- -->
  - Connect with our [community]()
  - Follow [StichHub]() and let us know what you think!
 
-# Team Member:
+# Maintsiners :
   - [Siddhant Patil](https://github.com/Siddhant-Patil0203) (Project Lead)
   - [Naresh Chandanbatve](https://github.com/Naresh-chandanbatve)
   - [Harshal Lade](https://github.com/LadeHarshal)
@@ -51,6 +51,11 @@ This project is open-source and welcomes contributions of all kinds. Whether you
 
    - You can contribute in many ways like              i
       - improving documentation.
+      - raising issues 
+      - Improving UI/UX 
+      - Detective bugs 
+      - Adding new Feastures
+
 
         
 
