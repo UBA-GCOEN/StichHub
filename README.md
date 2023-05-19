@@ -43,6 +43,16 @@ link here- -->
   - [Saurabh Yadav](https://github.com/Saurabb-coder)
 
 # Contributing :
+This project is open-source and welcomes contributions of all kinds. Whether you're a experienced developer or just starting your journey, your input and ideas are invaluable. Join us in shaping the future of this project and together let's create something amazing
+
+   - To contribute first set the project in your local machine.
+
+   - Test the different features of app to get the bug
+
+   - You can contribute in many ways like              i
+      - improving documentation.
+
+        
 
 # Seting up Local development :
   - ## Docker Compose 
