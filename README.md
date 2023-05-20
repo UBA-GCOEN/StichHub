@@ -35,7 +35,7 @@ link here- -->
  - Connect with our [community]()
  - Follow [StichHub]() and let us know what you think!
 
-# Team Member:
+# Maintainers :
   - [Siddhant Patil](https://github.com/Siddhant-Patil0203) (Project Lead)
   - [Naresh Chandanbatve](https://github.com/Naresh-chandanbatve)
   - [Harshal Lade](https://github.com/LadeHarshal)
@@ -43,6 +43,21 @@ link here- -->
   - [Saurabh Yadav](https://github.com/Saurabb-coder)
 
 # Contributing :
+This project is open-source and welcomes contributions of all kinds. Whether you're a experienced developer or just starting your journey, your input and ideas are invaluable. Join us in shaping the future of this project and together let's create something amazing
+
+   - To contribute first set the project in your local machine.
+
+   - Test the different features of app to get the bug
+
+   - You can contribute in many ways like              i
+      - improving documentation.
+      - raising issues 
+      - Improving UI/UX 
+      - Detecting bugs 
+      - Adding new Feastures
+
+
+        
 
 # Seting up Local development :
   - ## Docker Compose 
@@ -60,6 +75,29 @@ link here- -->
        ```
      - And enjoy on ``` http:localhost:5173 ```  :)  
   - ## Manually
+     - Fork the repo 
+     - Clone your copy of repo using following command 
+         ```bash
+         git clone <Your forked repo url>
+         ```
+      - replace your API keys in the .env.client for frontend and .env.server for backend.
+      - run command 
+        ```bash
+        npm install
+        ```
+      - then run
+        ```bash
+        npm run dev
+        ```
+        
+ ## Our Valuable Contributors
+
+<a href = "https://github.com/Tanu-N-Prabhu/Python/graphs/contributors">
+
+  <img src = "https://contrib.rocks/image?repo=UBA-GCOEN/StichHub"/>
+
+</a>       
+        
 # SRS Document :
 ## ➡[_Check_](SRS.md)
 
