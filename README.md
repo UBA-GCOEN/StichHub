@@ -75,7 +75,7 @@ This project is open-source and welcomes contributions of all kinds. Whether you
        ```
      - And enjoy on ``` http:localhost:5173 ```  :)  
   - ## Manually
-     - Fork the repo 
+     - Give a star and Fork the repo 
      - Clone your copy of repo using following command 
          ```bash
          git clone <Your forked repo url>
