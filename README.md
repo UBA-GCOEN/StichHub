@@ -35,7 +35,7 @@ link here- -->
  - Connect with our [community]()
  - Follow [StichHub]() and let us know what you think!
 
-# Maintsiners :
+# Maintainers :
   - [Siddhant Patil](https://github.com/Siddhant-Patil0203) (Project Lead)
   - [Naresh Chandanbatve](https://github.com/Naresh-chandanbatve)
   - [Harshal Lade](https://github.com/LadeHarshal)
