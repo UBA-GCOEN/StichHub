@@ -4,24 +4,25 @@ import { Dropdown } from "rsuite";
 const Footer = () => {
   return (
     <div>
-      <div className=" grid grid-col-1 lg:grid-col-3 mx-[20%] bg-gradient-to-r from-neutral-700 to-neutral-800 my-[5%] rounded-xl">
+      <div className=" flex flex-col md:flex-row w-11/12 md:w-3/5 items-center justify-evenly  py-12 bg-gradient-to-r from-neutral-700 to-neutral-800 my-[5%] mx-auto rounded-xl">
+       <div>
         <h4 className="text-white col-span-2  text-2xl font-bold  mx-[5%] mt-[5%]">
-          Let's Try Out Services Now!
-        </h4>
-        <h6 className="text-white text-xs mb-5 ml-[7%] mt-3 mr-[15%] ">
-          Everything you need to accept card payments and Grow your business
-          anywhere on the planet.
-        </h6>
-        <button className="block bg-[#33BBCF] w-auto mr-10 col-span-1 h-10  pr-[10%] ml-[-14%] mb-[30%] lg:mt-[-5%] mt-[5%] w-[130px] px-6 py-1.5 rounded-xl text-white hover:bg-[#5CE1E6]">
+            Let's Try Out Services Now!
+          </h4>
+          <h6 className="text-white text-xs mb-5 ml-[7%] mt-3 mr-[15%] ">
+            Everything you need to accept card payments and Grow your business
+            anywhere on the planet.
+          </h6>
+       </div>
+        <button className="block bg-[#33BBCF]   col-span-1 h-10 px-24   rounded-xl text-white hover:bg-[#5CE1E6] text-center">
           Get Started
         </button>
       </div>
 
       <footer class="bg-[#0B0A0C] self-center">
         <div class="mx-auto w-full container p-4 sm:p-6 ">
-          <div className=" flex grid lg:grid-col-2 mb-10">
-            <div className="col-start-1 col-end-2 w-1/2 ml-14 lg:ml-0">
-              {" "}
+          <div className=" flex flex-col md:justify-evenly md:flex-row md:items-center  mb-10">
+            <div className="col-start-1 col-end-2 md:w-1/2 text-center md:text-start  lg:ml-0">
               <h4 className="text-white   text-xl font-bold  mx-[2%] mt-[5%]">
                 Sign up to our newsletter
               </h4>
@@ -236,7 +237,7 @@ const Footer = () => {
             </Dropdown>
           </div>
           <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-          <div class="sm:flex sm:items-center sm:justify-between">
+          <div class="flex items-center  flex-col md:flex-row justify-between">
             <span class="text-sm text-white  sm:text-center dark:text-gray-400">
               © 2023{" "}
               <a href="#" class="hover:underline">
@@ -244,7 +245,7 @@ const Footer = () => {
               </a>
               . All Rights Reserved.
             </span>
-            <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+            <div class="flex  mt-4 space-x-6 sm:justify-center sm:mt-0">
               <a
                 href="#"
                 class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
