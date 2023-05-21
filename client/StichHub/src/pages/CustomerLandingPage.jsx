@@ -12,6 +12,7 @@ import FeaturesM from "../components/CustomerLandingPage/FeaturesM.jsx";
 import GetListM from "../components/CustomerLandingPage/GetListM.jsx";
 import WorriedM from "../components/CustomerLandingPage/WorriedM.jsx";
 // import { Highlight } from "../assets/CustomerLandingPage/Icons";
+import GoToTop from "../components/GoToTop";
 
 function CustomerLandingPage() {
   const [isMobile, setIsMobile] = useState(false);
@@ -25,6 +26,7 @@ function CustomerLandingPage() {
   // render mobile or desktop component based on isMobile state
   return (
     <div>
+      <GoToTop />
       <CustomerLandingPageM />
       <CustomerLandingPageD />
     </div>
