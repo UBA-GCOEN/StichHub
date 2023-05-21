@@ -73,11 +73,11 @@ const Wrapper = styled.section`
     }
   }
 
-  @media (max-width:1200px) {
+  @media (max-width:768px) {
     .top-btn {
       bottom: 2rem;
 
-        right: 2rem;
+      right: 2rem;
 
     }
   }
@@ -85,3 +85,4 @@ const Wrapper = styled.section`
 
 
 export default GoToTop;
+tu
