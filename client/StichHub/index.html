@@ -7,6 +7,7 @@
       type="image/svg+xml"
       href="./src/assets/logo/Short-Logo Transparent (Black).png"
     />
+    <link rel="stylesheet" href="./src/loading_style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
       type="module"
@@ -16,7 +17,11 @@
     <title>StichHub</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="content-wrapper">
+        <img src="./public/loading_animation.svg" alt="loading...">
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
