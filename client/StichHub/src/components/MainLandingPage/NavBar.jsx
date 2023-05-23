@@ -7,13 +7,13 @@ const NavBar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <nav className="w-[100vw] flex lg:pt-6 justify-center fixed z-[100] pt-3 px-4 lg:p-4">
+    <nav className=" bg-inherit w-[100vw] flex lg:pt-6 justify-center fixed z-[100] pt-3 px-4 lg:p-4">
       <div className="">
         <a href="#">
           <img
             src={logo}
             alt="StichHub"
-            className=" w-[150px] mr-[100px] mt-2"
+            className=" w-[180px] mr-[100px] mt-2"
           />
         </a>
       </div>
@@ -21,7 +21,7 @@ const NavBar = () => {
         {navbar.map((nav, index) => (
           <li
             key={nav.title}
-            className={`font-poppins font-normal cursor-pointer text-[16px]  ${
+            className={`font-poppins font-normal cursor-pointer hover:text-[#3094d3] hover:text-[20px] text-[16px]  ${
               index === navbar.length - 1 ? "mr-0" : "mr-10"
             }`}
             onClick={() => setActive(nav.title)}
