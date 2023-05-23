@@ -1,13 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { navbar, logo, menu, close } from "../../constants/MainLandingPage";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isTop = window.scrollY === 0;
+      setIsScrolled(!isTop);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <nav className=" bg-inherit w-[100vw] flex lg:pt-6 justify-center fixed z-[100] pt-3 px-4 lg:p-4">
+    <nav className={`bg ${isScrolled ? "bg-inherit" : "bg-transparent"
+      } w-[100vw] flex lg:pt-6 justify-center fixed z-[100] pt-3 px-4 lg:p-4`}>
       <div className="">
         <a href="#">
           <img
