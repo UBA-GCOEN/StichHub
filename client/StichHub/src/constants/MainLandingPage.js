@@ -32,7 +32,7 @@ const hiwcustomer = [
 const hiwtailor = [
   {step: '1', img: CreatProfileIcon, title: `CREATE PROFILE`, style: ""},
   {step: '2', img: TakeOrdersIcon, title: 'TAKE ORDER', style: ""},
-  {step: '3', img: tailor, title: 'STITCH CLOTHS', style: ""},
+  {step: '3', img: tailor, title: 'STITCH CLOTHES', style: ""},
   {step: '4', img: delivery, title: 'DELIVER IT', style: ""},
 ];
 
