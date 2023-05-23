@@ -7,12 +7,14 @@ import gr4 from "../assets/img/gr4.png";
 import g5 from "../assets/img/g5.png";
 import gr6 from "../assets/img/gr6.png";
 import Footer from "../components/MainLandingPage/Footer.jsx";
+import GoToTop from "../components/GoToTop";
 
 // main definition
 const ClothesCategory = () => {
   return (
     <div className="bg-[#040017]">
       {/* navigation bar */}
+      <GoToTop />
       <Navbardark />
 
       {/* hero page */}
