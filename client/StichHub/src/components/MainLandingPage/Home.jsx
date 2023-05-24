@@ -55,7 +55,7 @@ const Home = () => {
                 }`}
                 onClick={() => setDemoButton(item)}
               >
-                <img src={item.img} className={item.style} />
+                <img src={item.img} className={item.style} alt={item.alt}/>
                 <p className="hidden text-xs text-white mt-2">{item.text}</p>
               </div>
             ))}

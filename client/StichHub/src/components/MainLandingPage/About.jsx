@@ -30,6 +30,7 @@ const About = () => {
                 <img
                   src={sp}
                   className="relative bg-black/50 rounded-3xl lg:w-[140px] w-[100px]"
+                  alt="siddhant"
                 />
               </div>
               <div id="name">
@@ -43,6 +44,7 @@ const About = () => {
                 <img
                   src={vk}
                   className="relative bg-black/50 rounded-3xl lg:w-[140px] w-[100px] ml-2"
+                  alt="vishal"
                 />
               </div>
               <div id="name">
@@ -56,6 +58,7 @@ const About = () => {
                 <img
                   src={nc}
                   className="relative bg-black/50 rounded-3xl lg:w-[140px] w-[100px] lg:ml-7"
+                  alt="naresh"
                 />
               </div>
               <div id="name">
@@ -69,6 +72,7 @@ const About = () => {
                 <img
                   src={hl}
                   className="relative bg-black/50 rounded-3xl lg:w-[140px] w-[100px]"
+                  alt="harshal"
                 />
               </div>
               <div id="name">
@@ -82,6 +86,7 @@ const About = () => {
                 <img
                   src={sy}
                   className="relative bg-black/50 rounded-3xl lg:w-[140px] w-[100px]"
+                  alt="saurabh"
                 />
               </div>
               <div id="name">
@@ -93,14 +98,14 @@ const About = () => {
           {/* Bottom Part */}
           <div id="description" className="flex flex-col lg:flex-row mt-5 lg:mt-0">
           <div className="flex justify-center">
-          <img src={AboutUsVector} className="lg:hidden lg:w-[340px] w-[200px]" />
+          <img src={AboutUsVector} className="lg:hidden lg:w-[340px] w-[200px]" alt="about us"/>
           </div>
             <p className="text-base lg:text-lg lg:mt-28 lg:ml-40 text-left">
               We're a team of enthusiasts , hoping to bring the tailor community
               online and introduce them to the benifits of online business.
               Ismai customers kaa bhii dalnaa haii.
             </p>
-            <img src={AboutUsVector} className="hidden lg:block lg:w-[340px] w-[200px]" />
+            <img src={AboutUsVector} className="hidden lg:block lg:w-[340px] w-[200px]" alt="about us"/>
           </div>
         </div>
       </div>
