@@ -1,5 +1,20 @@
 ![Logo (Black BG)](https://user-images.githubusercontent.com/77800620/217613866-35741ca4-a2a2-4d19-a0ad-5315a5e5a02a.png)
-
+<div align="center">
+      <img src="https://forthebadge.com/images/badges/built-with-love.svg" />
+      <img src="https://forthebadge.com/images/badges/uses-brains.svg" />
+      <img src="https://forthebadge.com/images/badges/powered-by-responsibility.svg" />
+      <br>
+      <img src="https://img.shields.io/github/repo-size/UBA-GCOEN/StichHub?style=for-the-badge" />
+      <img src="https://img.shields.io/github/issues/UBA-GCOEN/StichHub?style=for-the-badge" />
+      <img src="https://img.shields.io/github/issues-raw/UBA-GCOEN/StichHub?style=for-the-badge" />
+      <img src="https://img.shields.io/github/forks/UBA-GCOEN/StichHub?style=for-the-badge" />
+      <img src="https://img.shields.io/github/issues-pr-closed/UBA-GCOEN/StichHub?style=for-the-badge" />
+      <br>
+      <img src="https://img.shields.io/github/stars/UBA-GCOEN/StichHub?style=for-the-badge" />
+      <img src="https://img.shields.io/github/contributors/UBA-GCOEN/StichHub?style=for-the-badge" />
+      <img src="https://img.shields.io/github/issues-pr-closed/UBA-GCOEN/StichHub?style=for-the-badge" />
+      <img src="https://img.shields.io/github/last-commit/UBA-GCOEN/StichHub?style=for-the-badge" />
+ </div>
 # StichHub
 
 We bridge the physical gap between a tailor and the customers through our platform. Providing customers a choice of the tailors and the tailors with an increased reach for customers.
