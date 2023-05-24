@@ -1,0 +1,23 @@
+on:
+  pull_request_target:
+
+jobs:
+  pr_comment:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: mshick/add-pr-comment@v2
+        with:
+          repo-token: ${{ secrets.ACCESS_TOKEN }}
+          message: "Hello @${{ github.actor }}!
+
+Thank you for submitting this pull request
+Your pull request will be reviewed by maintainers shortly. Meanwhile make sure you have referenced the respected issue in this pr 
+Your pr will not be merged if it does not refer respected pr and have read our Contributing Guidelines
+https://github.com/UBA-GCOEN/StichHub/blob/main/CONTRIBUTING.md
+And Code of Conduct
+https://github.com/UBA-GCOEN/StichHub/blob/main/CODE_OF_CONDUCT.md"
+            
+
+

@@ -43,11 +43,11 @@ const Home = () => {
           </div>
 
           {/* buttons */}
-          <div className="z-[5] absolute right-0 top-14">
+          <div className="z-[9999] absolute right-0 top-14">
             {demoButtons.map((item, index) => (
               <div
                 key={index}
-                className={`p-2 w-fit bg-black/80 rounded-3xl m-5 cursor-pointer 
+                className={`p-2 w-fit bg-black/80 rounded-3xl m-5 cursor-pointer  flex justify-center items-center
                 ${
                   item.text === demoButton.text
                     ? "border-[2px] border-blue-400 hover:bg-black/80"
@@ -63,7 +63,7 @@ const Home = () => {
         </div>
 
         {/* leftside */}
-        <div className="lg:w-[50%] mt-5 lg:mt-[60px] relative z-[5]">
+        <div className="lg:w-[50%] mt-5 lg:mt-[60px] relative z-[5] ">
           {/* Heading */}
           <div className="text-center z-[5] lg:text-left lg:text-8xl text-gray-100 font-semibold">
             <span>
