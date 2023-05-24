@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: mshick/add-pr-comment@v2
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
           message: "Hello @${{ github.actor }}!
 
 Thank you for submitting this pull request
@@ -18,6 +18,7 @@ Your pr will not be merged if it does not refer respected pr and have read our C
 https://github.com/UBA-GCOEN/StichHub/blob/main/CONTRIBUTING.md
 And Code of Conduct
 https://github.com/UBA-GCOEN/StichHub/blob/main/CODE_OF_CONDUCT.md"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             
 
 
