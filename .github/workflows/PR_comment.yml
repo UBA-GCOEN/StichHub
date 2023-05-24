@@ -2,10 +2,10 @@ on:
   pull_request:
 
 jobs:
-  test:
+  pr_comment:
     runs-on: ubuntu-latest
     permissions:
-      pull-requests: write-all
+      pull-requests: write
     steps:
       - uses: mshick/add-pr-comment@v2
         with:
