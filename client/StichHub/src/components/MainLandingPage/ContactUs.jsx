@@ -133,7 +133,7 @@ const ContactUs = () => {
             ></textarea>
             <button
               type="submit"
-              className="mt-[30px] block w-full bg-[#0074FD] py-3 lg:py-[16px] rounded-2xl hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 lg:text-3xl text-lg"
+              className="mt-[30px] block w-full bg-[#0054B8] py-3 lg:py-[16px] rounded-2xl hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 lg:text-3xl text-lg"
             >
               Send
             </button>
