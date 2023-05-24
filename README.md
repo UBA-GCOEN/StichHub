@@ -1,4 +1,20 @@
 ![Logo (Black BG)](https://user-images.githubusercontent.com/77800620/217613866-35741ca4-a2a2-4d19-a0ad-5315a5e5a02a.png)
+    
+<div align="center">
+   <img src="https://img.shields.io/github/repo-size/UBA-GCOEN/StichHub?style=for-the-badge" />
+   <img src="https://img.shields.io/github/issues-raw/UBA-GCOEN/StichHub?style=for-the-badge" />
+   <img src="https://img.shields.io/github/issues-closed-raw/UBA-GCOEN/StichHub?style=for-the-badge" />
+    <img src="https://img.shields.io/github/license/UBA-GCOEN/StichHub?style=for-the-badge" />
+
+   <img src="https://img.shields.io/github/issues-pr-raw/UBA-GCOEN/StichHub?style=for-the-badge" />
+    <img src="https://img.shields.io/github/issues-pr-closed-raw/UBA-GCOEN/StichHub?style=for-the-badge" />
+    <img src="https://img.shields.io/github/stars/UBA-GCOEN/StichHub?style=for-the-badge" />
+ 
+   <img src="https://img.shields.io/github/contributors/UBA-GCOEN/StichHub?style=for-the-badge" />
+   <img src="https://img.shields.io/github/forks/UBA-GCOEN/StichHub?style=for-the-badge" />
+  <img src="https://img.shields.io/github/last-commit/UBA-GCOEN/StichHub?style=for-the-badge" />
+     </div>
+     <br>
 
 # StichHub
 
