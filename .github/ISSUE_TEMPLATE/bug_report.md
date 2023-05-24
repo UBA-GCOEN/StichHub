@@ -1,11 +1,18 @@
 ---
+
 name: 🪲 Bug Report
 about: Create a bug report to help us improve
 title: "[BUG] "
+
+
+
+
+
 labels: ''
 assignees: ''
 
 ---
+
 
 ## Description
 
@@ -21,10 +28,18 @@ A clear and concise description of what actually happened.
 ## Reproduction Steps
 
 **Steps to reproduce the behavior:**
+
+
+
+
+
+
+
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
 4. See error
+
 
 **Expected result:**
 A clear and concise description of what you expected to happen at each step.
@@ -44,4 +59,5 @@ If applicable, add screenshots to help explain your problem.
 - Version [e.g., 22]
 
 **Additional context:**
+
 Add any other context about the problem here.
