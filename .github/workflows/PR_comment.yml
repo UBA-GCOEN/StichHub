@@ -3,7 +3,7 @@ on: pull_request
 jobs:
   example_comment_pr:
     runs-on: ubuntu-latest
-    name:  comment a PR guidline 
+    name:  PR guidlines
     permissions: write-all
     steps:
       - name: Checkout
