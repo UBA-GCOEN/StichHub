@@ -33,7 +33,7 @@ const About = () => {
                   alt="siddhant"
                 />
               </div>
-              <div id="name">
+              <div className="name">
                 <span className=" text-base lg:text-lg font-medium">SIDDHANT</span>
               </div>
             </div>
@@ -47,7 +47,7 @@ const About = () => {
                   alt="vishal"
                 />
               </div>
-              <div id="name">
+              <div className="name">
                 <span className="text-base lg:text-lg font-medium">VISHAL</span>
               </div>
             </div>
@@ -61,7 +61,7 @@ const About = () => {
                   alt="naresh"
                 />
               </div>
-              <div id="name">
+              <div className="name">
                 <span className="text-base lg:text-lg font-medium">NARESH</span>
               </div>
             </div>
@@ -75,7 +75,7 @@ const About = () => {
                   alt="harshal"
                 />
               </div>
-              <div id="name">
+              <div className="name">
                 <span className="text-base lg:text-lg font-medium">HARSHAL</span>
               </div>
             </div>
@@ -89,7 +89,7 @@ const About = () => {
                   alt="saurabh"
                 />
               </div>
-              <div id="name">
+              <div className="name">
                 <span className="text-base lg:text-lg font-medium">SAURABH</span>
               </div>
             </div>
