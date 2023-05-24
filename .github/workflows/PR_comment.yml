@@ -9,6 +9,7 @@ jobs:
     steps:
       - uses: mshick/add-pr-comment@v2
         with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           message: "Hello @${{ github.actor }}!
 
 Thank you for submitting this pull request
