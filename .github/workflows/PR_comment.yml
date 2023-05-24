@@ -2,7 +2,7 @@ on:
   pull_request:
 
 jobs:
-  pr_comment:
+  pr_intro:
     runs-on: ubuntu-latest
     permissions: write-all
 
