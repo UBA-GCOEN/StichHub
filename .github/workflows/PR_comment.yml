@@ -2,7 +2,7 @@ on:
   pull_request_target:
 
 jobs:
-  pr_comment:
+  pr_comments:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
