@@ -4,8 +4,8 @@ on:
 jobs:
   pr_comment:
     runs-on: ubuntu-latest
-    permissions: write-all
-
+    permissions:
+      pull-requests: write
     steps:
       - uses: mshick/add-pr-comment@v2
         with:
