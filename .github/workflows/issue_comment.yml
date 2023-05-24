@@ -1,0 +1,30 @@
+name: issue-checklist
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: ben-z/actions-comment-on-issue@1.0.2
+      with:
+        message: "Hello @${{ github.actor }}! 
+
+Thank you for opening this new issue
+. We appreciate your interest in our project
+
+we kindly request that you please review our Contributing Guidelines
+
+https://github.com/UBA-GCOEN/StichHub/blob/main/CONTRIBUTING.md and Code of Conduct
+
+https://github.com/UBA-GCOEN/StichHub/blob/main/CODE_OF_CONDUCT.md
+
+ thoroughly.
+
+Mentors will review your issue. Meanwhile 
+
+please take a moment to check if a similar issue has already been opened."
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
