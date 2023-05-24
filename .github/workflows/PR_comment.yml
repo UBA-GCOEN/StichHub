@@ -1,15 +1,18 @@
-on:
-  pull_request:
+on: pull_request
 
 jobs:
-  pr_comment:
+  example_comment_pr:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
+    name:  comment a PR guidline 
+    permissions: write-all
     steps:
-      - uses: mshick/add-pr-comment@v2
-        with:
+      - name: Checkout
+        uses: actions/checkout@v3
 
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          GITHUB_TOKEN: ${{ github.token }}
           message: "Hello @${{ github.actor }}!
 
 Thank you for submitting this pull request
@@ -18,7 +21,7 @@ Your pr will not be merged if it does not refer respected pr and have read our C
 https://github.com/UBA-GCOEN/StichHub/blob/main/CONTRIBUTING.md
 And Code of Conduct
 https://github.com/UBA-GCOEN/StichHub/blob/main/CODE_OF_CONDUCT.md"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
             
 
 
