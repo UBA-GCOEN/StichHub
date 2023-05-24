@@ -21,7 +21,7 @@ const ContactUs = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSumbmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
   };
@@ -51,7 +51,7 @@ const ContactUs = () => {
           </div>
 
           {/* Form */}
-          <form id="form-Container" className="" onSubmit={handleSumbmit}>
+          <form id="form-Container" className="" onSubmit={handleSubmit}>
             <div id="yourName" className="">
               <img
                 src={AvatarIcon}
@@ -60,6 +60,7 @@ const ContactUs = () => {
                 className="absolute ml-[5px] mt-[2px]"
               />
               <input
+                autoComplete="on"
                 type="text"
                 placeholder="Your Name"
                 name="name"
@@ -81,6 +82,7 @@ const ContactUs = () => {
                 className="absolute ml-[5px] mt-[2px]"
               />
               <input
+                autoComplete="on"
                 type="email"
                 placeholder="Email"
                 name="email"
@@ -117,8 +119,8 @@ const ContactUs = () => {
             </div>
             <textarea
               placeholder="Describe your issue here"
-              name=""
-              id=""
+              name="message"
+              id="message"
               cols="30"
               rows="6"
               value={form.message}
@@ -138,7 +140,7 @@ const ContactUs = () => {
           </form>
           <img
             src={SendVector}
-            alt=""
+            alt="send"
             className="hidden lg:block absolute right-[-120px] bottom-[1px]"
           />
         </div>
