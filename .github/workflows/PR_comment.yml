@@ -7,9 +7,13 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - uses: mshick/add-pr-comment@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Comment a pull_request
+        uses: mb2dev/github-action-comment-pull-request@1.0.0
         with:
-          repo-token: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           message: "Hello @${{ github.actor }}!
 
 Thank you for submitting this pull request

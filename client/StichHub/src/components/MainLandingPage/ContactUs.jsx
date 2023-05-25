@@ -35,7 +35,7 @@ const ContactUs = () => {
         {/* left-Side */}
         <div id="leftside" className="lg:block hidden mb-[20px] bottom-[20p]">
           <img src={ContactUsVector} className="" />
-          <p className="text-left text-xl w-[800px]"></p>
+          <p className="text-left text-xl w-[500px]"></p>
         </div>
 
         {/* Right-Side */}
@@ -120,7 +120,11 @@ const ContactUs = () => {
             <textarea
               placeholder="Describe your issue here"
               name="message"
+
               id="message"
+
+   
+
               cols="30"
               rows="6"
               value={form.message}
