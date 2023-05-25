@@ -97,9 +97,9 @@ const AuthTailor = () => {
       <div className="relative bg-primary w-full lg:w-[49vw] my-10 rounded-3xl lg:rounded-r-3xl">
         <div className="relative z-[5]">
           {/* logo */}
-          <div className="flex justify-center mt-10">
+          <a href="/" className="flex justify-center mt-10">
             <img src={logo} className="w-[240px]" />
-          </div>
+          </a>
           {/* title */}
           <div className="flex justify-center my-4">
             <div>
@@ -114,7 +114,7 @@ const AuthTailor = () => {
 
           {/* Auth Error */}
           <div className="flex justify-center">
-            <p className="text-red-500 m-2">{error}</p>
+            <p className="text-red-500 m-2 text-center">{error}</p>
           </div>
 
           {/* form */}
