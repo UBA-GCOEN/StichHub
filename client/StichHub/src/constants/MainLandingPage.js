@@ -24,8 +24,8 @@ const navbar = [
 
 const hiwcustomer = [
   {step: '1', img: designIcon, title: 'DESIGN YOUR CLOTH', style: "sm:mb-7"},
-  {step: '2', img: Measurement, title: 'TAKE ONLINE MEASUREMENTS', style: ""},
-  {step: '3', img: tailor, title: 'SELECT YOUR FAVOURITE TAILOR', style: ""},
+  {step: '2', img: Measurement, title: 'TAKE ONLINE MEASUREMENTS', style: "sm:mb-7"},
+  {step: '3', img: tailor, title: 'SELECT YOUR FAVOURITE TAILOR', style: "sm:mb-7"},
   {step: '4', img: CartIcon, title: 'PLACE YOUR ORDER', style: "sm:mb-7"},
 ];
 
