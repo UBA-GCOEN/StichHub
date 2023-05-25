@@ -6,17 +6,17 @@ const demoButtons = [
   {
     img: DemoShirtIcon,
     text: "With Sleeve",
-    style: "w-[35px] sm:w-[50px] sm:ml-4"
+    style: "w-[35px] sm:w-[50px]  md:ml-0 lg:ml-4"
   },
   {
     img: SleevlessShirt,
     text: "Sleeve-Less",
-    style: "sm:w-[52px] w-[37px] sm:ml-4"
+    style: "sm:w-[52px] w-[37px]  md:ml-0 lg:ml-4"
   },
   {
     img: ModernDress,
     text: "Modern Dress",
-    style: "sm:w-[59px] w-[37px] sm:ml-4"
+    style: "sm:w-[59px] w-[37px]  md:ml-0 lg:ml-4"
   },
 ];
 

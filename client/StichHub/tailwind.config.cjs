@@ -13,6 +13,9 @@ module.exports = {
         left_nav_blue: "#33BBCF",
         left_nav_icon_orange: "#FDCF6F"
       },
+      screens: {
+        '3xl': '2560px',
+      },
     },
   },
   plugins: [],
