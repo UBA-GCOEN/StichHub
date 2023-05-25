@@ -21,7 +21,7 @@ const ContactUs = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSumbmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
   };
@@ -51,7 +51,7 @@ const ContactUs = () => {
           </div>
 
           {/* Form */}
-          <form id="form-Container" className="" onSubmit={handleSumbmit}>
+          <form id="form-Container" className="" onSubmit={handleSubmit}>
             <div id="yourName" className="">
               <img
                 src={AvatarIcon}
@@ -60,6 +60,7 @@ const ContactUs = () => {
                 className="absolute ml-[5px] mt-[2px]"
               />
               <input
+                autoComplete="on"
                 type="text"
                 placeholder="Your Name"
                 name="name"
@@ -81,6 +82,7 @@ const ContactUs = () => {
                 className="absolute ml-[5px] mt-[2px]"
               />
               <input
+                autoComplete="on"
                 type="email"
                 placeholder="Email"
                 name="email"
@@ -118,7 +120,11 @@ const ContactUs = () => {
             <textarea
               placeholder="Describe your issue here"
               name="message"
-              id=""
+
+              id="message"
+
+   
+
               cols="30"
               rows="6"
               value={form.message}
@@ -131,14 +137,14 @@ const ContactUs = () => {
             ></textarea>
             <button
               type="submit"
-              className="mt-[30px] block w-full bg-[#0074FD] py-3 lg:py-[16px] rounded-2xl hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 lg:text-3xl text-lg"
+              className="mt-[30px] block w-full bg-[#0054B8] py-3 lg:py-[16px] rounded-2xl hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 lg:text-3xl text-lg"
             >
               Send
             </button>
           </form>
           <img
             src={SendVector}
-            alt=""
+            alt="send"
             className="hidden lg:block absolute right-[-120px] bottom-[1px]"
           />
         </div>

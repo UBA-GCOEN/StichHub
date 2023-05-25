@@ -31,8 +31,18 @@ const Tailors = () => {
               >
                 {item.step}
               </div>
-              <img id="stepLogo" src={item.img} className="mx-[80px] my-[50px] lg:w-[80px]" />
-              <div id="stepTitle" className={`text-xl ${item.style}`}>{item.title}</div>
+
+              <img
+                id="stepLogo"
+                src={item.img}
+                className="mx-[80px] my-[50px]
+                lg:w-[80px]"
+                alt="step logo"
+              />
+              <div id="stepTitle" className={`text-xl ${item.style}`}>
+                {item.title}
+              </div>
+
             </div>
           ))}
         </div>
@@ -58,6 +68,7 @@ const Tailors = () => {
                 id="stepLogo"
                 src={item.img}
                 className="mx-[45px] lg:mx-[80px] lg:my-[50px]"
+                alt="step logo"
               />
               <div id="stepTitle" className={`mt-5 text-lg ${item.style}`}>
                 {item.title}
