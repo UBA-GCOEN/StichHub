@@ -117,7 +117,7 @@ const ContactUs = () => {
             </div>
             <textarea
               placeholder="Describe your issue here"
-              name=""
+              name="message"
               id=""
               cols="30"
               rows="6"
