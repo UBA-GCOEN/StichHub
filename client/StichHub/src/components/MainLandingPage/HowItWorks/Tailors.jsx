@@ -35,8 +35,8 @@ const Tailors = () => {
               <img
                 id="stepLogo"
                 src={item.img}
-                className="mx-[80px] my-[50px]"
-                lg:w-[80px]
+                className="mx-[80px] my-[50px]
+                lg:w-[80px]"
                 alt="step logo"
               />
               <div id="stepTitle" className={`text-xl ${item.style}`}>
