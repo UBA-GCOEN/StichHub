@@ -1,27 +1,33 @@
 import jwt from "jsonwebtoken";
 import * as dotenv from "dotenv";
+import userTailorModel from "../models/userTailor.js";
 dotenv.config();
 
 const SECRET = process.env.TAILOR_USER;
 
 const authTailor = async (req, res, next) => {
-  try {
-    const token = req.headers.authorization.split(" ")[1];
-    const isCustomAuth = token.length < 500;
+  // Implementation Athorization using Bearer Token
+  let token;
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer")
+  ) {
+    try {
+      token = req.headers.authorization.split(" ")[1];
 
-    let decodedData;
+      //decodes token id
+      const decoded = jwt.verify(token, SECRET);
 
-    if (token && isCustomAuth) {
-      decodedData = jwt.verify(token, SECRET);
-      req.userId = decodedData?.id;
-    } else {
-      decodedData = jwt.decode(token);
-      req.userId = decodedData?.sub;
+      req.user = await userTailorModel.findById(decoded.id).select("-password");
+
+      next();
+    } catch (error) {
+      res.status(401).json({
+        success: false,
+        message: "Not Authorize please Sign In",
+      });
+      // throw new Error("Not authorized, token failed");
     }
-
-    next();
-  } catch (error) {
-    console.log(error);
   }
 };
 
