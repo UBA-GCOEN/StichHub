@@ -45,7 +45,7 @@ const NavBar = () => {
           </li>
         ))}
       </ul>
-      <Link to="/auth">
+      <Link to="/auth" aria-label="Auth">
         <button className="hidden lg:block bg-white rounded-xl w-fit lg:px-5  shadow-xl drop-shadow-2xl mt-[6px] ml-14">
           <span className="text-[16px] text-black">Get Started</span>
         </button>
@@ -78,7 +78,7 @@ const NavBar = () => {
               </li>
             ))}
 
-            <Link to="/auth">
+            <Link to="/auth" aria-label="Auth">
               <button className="px-3 bg-white rounded-xl w-fit shadow-xl drop-shadow-2xl mt-20">
                 <span className="text-[16px] text-black">Get Started</span>
               </button>
