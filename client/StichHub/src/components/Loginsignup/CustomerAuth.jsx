@@ -111,7 +111,7 @@ const CustomerAuth = () => {
 
           {/* Auth Error */}
           <div className="flex justify-center">
-            <p className="text-red-500 m-2">{error}</p>
+            <p className="text-red-500 m-2 text-center">{error}</p>
           </div>
 
           {/* form */}

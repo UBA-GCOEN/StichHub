@@ -29,8 +29,8 @@ We at StichHub aim at reducing this hassle and making tailoring a convenient exp
 link here- -->
 
 ## Feedback
- - [Ask a question or report an issue](https://github.com/Siddhant-Patil0203/StichHub/issues)
- - Request a [new feature](https://github.com/Siddhant-Patil0203/StichHub/issues)
+ - [Ask a question or report an issue](https://github.com/UBA-GCOEN/StichHub/issues)
+ - Request a [new feature](https://github.com/UBA-GCOEN/StichHub/issues)
  - [Upvote]() popular feature
  - Connect with our [community]()
  - Follow [StichHub]() and let us know what you think!
@@ -92,7 +92,7 @@ This project is open-source and welcomes contributions of all kinds. Whether you
         
  ## Our Valuable Contributors
 
-<a href = "https://github.com/Tanu-N-Prabhu/Python/graphs/contributors">
+<a href = "https://github.com/UBA-GCOEN/StichHub/graphs/contributors">
 
   <img src = "https://contrib.rocks/image?repo=UBA-GCOEN/StichHub"/>
 
