@@ -43,6 +43,7 @@ const About = () => {
         <div>
           {/* Top Part */}
           <div id="devId" className="ml-10 lg:ml-0 flex flex-wrap justify-between">
+
             {contributors.map((contributor, index) => (
               <div
                 key={index}
@@ -59,18 +60,21 @@ const About = () => {
                 </div>
               </div>
             ))}
+
           </div>
 
 
           {/* Bottom Part */}
           <div id="description" className="flex flex-col lg:flex-row mt-5 lg:mt-0">
-            <div className="flex justify-center">
-              <img src={AboutUsVector} className="lg:hidden lg:w-[340px] w-[200px]" />
-            </div>
+
+          <div className="flex justify-center">
+          <img src={AboutUsVector} className="lg:hidden lg:w-[340px] w-[200px]" alt="about us"/>
+          </div>
+
             <p className="text-base lg:text-lg lg:mt-28 lg:ml-40 text-left">
               We're a team of enthusiasts, hoping to bring the tailoring community online and introduce them to the benefits of online business, while also providing customers with a convenient and easy way to find tailors who can meet their needs.
             </p>
-            <img src={AboutUsVector} className="hidden lg:block lg:w-[340px] w-[200px]" />
+            <img src={AboutUsVector} className="hidden lg:block lg:w-[340px] w-[200px]" alt="about us"/>
           </div>
         </div>
       </div>
