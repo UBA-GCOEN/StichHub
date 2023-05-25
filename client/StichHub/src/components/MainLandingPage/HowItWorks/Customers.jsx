@@ -32,7 +32,7 @@ const Customers = () => {
                 {item.step}
               </div>
 
-              <img id="stepLogo" src={item.img} className="mx-[80px] my-[50px]" lg:w-[80px] alt="step logo"/>
+              <img id="stepLogo" src={item.img} className="mx-[80px] my-[50px] lg:w-[80px]" alt="step logo"/>
 
               
 
