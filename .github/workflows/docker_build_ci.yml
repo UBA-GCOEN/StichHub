@@ -25,12 +25,12 @@ jobs:
         with:
           context: ./client/StichHub
           push: true
-          tags: your-dockerhub-username/stichhub:client
+          tags: nareshchandanbatve/stichhub:client
 
       - name: Build and push Server Docker image
         uses: docker/build-push-action@v2
         with:
           context: ./server
           push: true
-          tags: your-dockerhub-username/server:latest
+          tags: nareshchandanbatve/stichhub:server
 
