@@ -5,13 +5,18 @@ import sp from "../../assets/sp.jpg";
 import nc from "../../assets/nc.jpg";
 import sy from "../../assets/sy.jpg";
 import hl from "../../assets/hl.jpg";
+import "./About.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+
+
 const About = () => {
   const [contributors, setContributors] = useState([
-    { name: 'SIDDHANT', image: sp },
-    { name: 'VISHAL', image: vk },
-    { name: 'NARESH', image: nc },
-    { name: 'HARSHAL', image: hl },
-    { name: 'SAURABH', image: sy },
+    { name: 'SIDDHANT', image: sp, github: "https://github.com/Siddhant-Patil0203" },
+    { name: 'VISHAL', image: vk,github: "https://github.com/vishal10kesharwani" },
+    { name: 'NARESH', image: nc ,github:"https://github.com/Naresh-chandanbatve"  },
+    { name: 'HARSHAL', image: hl, github: "https://github.com/LadeHarshal" },
+    { name: 'SAURABH', image: sy, github: "https://github.com/Saurabb-coder" },
   ]);
 
   useEffect(() => {
@@ -50,10 +55,23 @@ const About = () => {
                 className={`relative ${index === 0 ? 'lg:ml-[100px] lg:mt-[40px]' : index === 1 ? 'lg:ml-0 lg:pt-[180px] pt-14' : index === 2 ? 'lg:mt-[120px] mt-4' : index === 3 ? 'lg:mt-[60px] mt-14' : 'lg:mt-[150px] mt-4'}`}
               >
                 <div className="flex justify-center">
-                  <img
-                    src={contributor.image}
-                    className="relative bg-black/50 rounded-3xl lg:w-[140px] w-[100px] ml-2"
-                  />
+                  <div className="relative  ml-2">
+                    <img
+                      src={contributor.image}
+                      className="w-full rounded-3xl bg-black/50 lg:w-[140px] w-[100px]"
+                      alt={contributor.name}
+                    />
+                    <div className="hoverContainer">
+                      <a
+                        href={contributor.github}
+                        className="githubLink hoverAnimation"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FontAwesomeIcon icon={faGithub}/>
+                      </a>
+                    </div>
+                  </div>
                 </div>
                 <div id="name">
                   <span className="text-base lg:text-lg font-medium">{contributor.name}</span>
@@ -67,14 +85,14 @@ const About = () => {
           {/* Bottom Part */}
           <div id="description" className="flex flex-col lg:flex-row mt-5 lg:mt-0">
 
-          <div className="flex justify-center">
-          <img src={AboutUsVector} className="lg:hidden lg:w-[340px] w-[200px]" alt="about us"/>
-          </div>
+            <div className="flex justify-center">
+              <img src={AboutUsVector} className="lg:hidden lg:w-[340px] w-[200px]" alt="about us" />
+            </div>
 
             <p className="text-base lg:text-lg lg:mt-28 lg:ml-40 text-left">
               We're a team of enthusiasts, hoping to bring the tailoring community online and introduce them to the benefits of online business, while also providing customers with a convenient and easy way to find tailors who can meet their needs.
             </p>
-            <img src={AboutUsVector} className="hidden lg:block lg:w-[340px] w-[200px]" alt="about us"/>
+            <img src={AboutUsVector} className="hidden lg:block lg:w-[340px] w-[200px]" alt="about us" />
           </div>
         </div>
       </div>
