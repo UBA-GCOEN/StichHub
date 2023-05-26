@@ -1,0 +1,36 @@
+name: Build and Push Docker Images
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+
+      - name: Build and push Client Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./client/StichHub
+          push: true
+          tags: your-dockerhub-username/client:latest
+
+      - name: Build and push Server Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: ./server
+          push: true
+          tags: your-dockerhub-username/server:latest
+
