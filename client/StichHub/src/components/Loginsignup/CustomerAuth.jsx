@@ -8,6 +8,7 @@ import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import axios from "../../axios.js";
 import { Player } from "@lottiefiles/react-lottie-player";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 const initialForm = {
   name: "",
@@ -71,6 +72,16 @@ const CustomerAuth = () => {
 
   const googleError = () => {
     alert("Google Sign In was unsuccessful. Try again later");
+  };
+
+  const [passwordType, setPasswordType] = useState("password");
+  
+  const passwordToggle = () => {
+    if (passwordType === "password") {
+      setPasswordType("text");
+    }
+    else
+      setPasswordType("password");
   };
 
   return (
@@ -194,17 +205,21 @@ const CustomerAuth = () => {
                 </svg>
 
                 <input
-                  type="password"
+                  type={passwordType}
                   placeholder="Password"
                   name="password"
                   id="password"
                   value={form.password}
                   onChange={handleChange}
-                  className="mt-[10px] block w-[300px] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                  className="mt-[10px] block w-[300px] py-2 pl-[45px] pr-[2.3rem] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
                 />
+                <div onClick={passwordToggle} className="absolute cursor-pointer flex items-center z-[5] mt-[-1.8rem] ml-[17rem]">
+                {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
+                </div>
+
               </div>
               {isregister && (
                 <div>
@@ -230,7 +245,7 @@ const CustomerAuth = () => {
                     id="confirmPassword"
                     value={form.confirmPassword}
                     onChange={handleChange}
-                    className="mt-[10px] block w-[300px] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                    className="mt-[10px] block w-[300px] py-2 pl-[45px] pr-[2.3rem] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
