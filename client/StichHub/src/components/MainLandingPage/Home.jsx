@@ -55,7 +55,7 @@ const Home = () => {
                 }`}
                 onClick={() => setDemoButton(item)}
               >
-                <img src={item.img} className={item.style} />
+                <img src={item.img} className={item.style} alt={item.alt}/>
                 <p className="hidden text-xs text-white mt-2">{item.text}</p>
               </div>
             ))}
@@ -79,7 +79,7 @@ const Home = () => {
           {/* Buttons */}
           <div className="flex justify-center lg:justify-normal">
             <Link to="/auth">
-              <button className="bg-white px-3 py-2 lg:p-3 rounded-xl w-[30vw] lg:w-[200px] drop-shadow-2xl">
+              <button className="bg-white px-[1%] py-2 lg:p-3 rounded-xl w-[30vw] lg:w-[200px] drop-shadow-2xl">
                 <span className="text-lg lg:text-[1.5rem] text-black">
                   Get Started
                 </span>
