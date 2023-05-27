@@ -44,6 +44,9 @@ We at StichHub aim at reducing this hassle and making tailoring a convenient exp
 ## Previous Builds
 link here- -->
 
+## Blog
+Our related [blog post](https://medium.com/@sidd0203/stichhub-38d01da27f37) provides a comprehensive look at the project's implementation and in-depth insights.
+
 ## Feedback
  - [Ask a question or report an issue](https://github.com/UBA-GCOEN/StichHub/issues)
  - Request a [new feature](https://github.com/UBA-GCOEN/StichHub/issues)
@@ -51,12 +54,39 @@ link here- -->
  - Connect with our [community]()
  - Follow [StichHub]() and let us know what you think!
 
-# Maintainers :
-  - [Siddhant Patil](https://github.com/Siddhant-Patil0203) (Project Lead)
-  - [Naresh Chandanbatve](https://github.com/Naresh-chandanbatve)
-  - [Harshal Lade](https://github.com/LadeHarshal)
-  - [Vishal Kesharwani](https://github.com/vishal10kesharwani)
-  - [Saurabh Yadav](https://github.com/Saurabb-coder)
+## Project Admins
+
+[![Siddhant Patil](https://avatars.githubusercontent.com/u/77800620?s=400&u=9c3f4f58397091889e6d06a9ccf6e1ef8c7c6884&v=4)](https://github.com/Siddhant-Patil0203)
+- Siddhant Patil
+- [LinkedIn](https://www.linkedin.com/in/sidd0203)
+- [Instagram](https://www.instagram.com/sidd.0203)
+- [Twitter](https://twitter.com/Sidd0203)
+
+[![Naresh Chandanbatve](https://pbs.twimg.com/profile_images/1487298591236378625/-Zx8DMul_400x400.jpg)](https://github.com/Naresh-chandanbatve)
+- Naresh Chandanbatve
+- [LinkedIn](https://www.linkedin.com/in/naresh-chandanbatve)
+- [Instagram](https://www.instagram.com/naresh_chandanbatve)
+- [Twitter](https://twitter.com/NareshChandanb1)
+
+[![Harshal Lade](https://media.licdn.com/dms/image/C4E03AQG23TOyYdzKGQ/profile-displayphoto-shrink_800_800/0/1630992132577?e=1690416000&v=beta&t=oh9nVzAaFqpFjIjiJhLmdjc6RqSUCHuruoUrgyhp_SU)](https://github.com/LadeHarshal)
+- Harshal Lade
+- [LinkedIn](https://www.linkedin.com/in/harshal-lade-08749a214)
+- [Instagram](https://www.instagram.com/harshallade2)
+- [Twitter](https://twitter.com/Sidd0203)
+
+[![Vishal Kesharwani](https://media.licdn.com/dms/image/D5635AQFJ41qoGjjevg/profile-framedphoto-shrink_800_800/0/1649525051562?e=1685815200&v=beta&t=RpaVc8huoiBiMFa23SQAN2XfVAep10Lf8jMJbVzbLRA)](https://github.com/vishal10kesharwani)
+- Vishal Kesharwani
+- [LinkedIn](https://www.linkedin.com/in/vishal-kesharwani-1004vs)
+- [Instagram](https://www.instagram.com/dev.vishalvsk)
+- [Twitter](https://twitter.com/Vishal46255005)
+
+[![Saurabh Yadav](https://media.licdn.com/dms/image/D5603AQE1P3SOmWd8gg/profile-displayphoto-shrink_800_800/0/1679335495027?e=1690416000&v=beta&t=m1ShB8DLAvmykJBxtCPhyYPQZa57yhHZKYcwQwdKUPs)](https://github.com/Saurabb-coder)
+- Saurabh Yadav
+- [LinkedIn](https://www.linkedin.com/in/saurabh-yadav-469323208)
+- [Instagram](https://www.instagram.com/saurabh739)
+- [Twitter](https://twitter.com/Sidd0203)
+
+<br>
 
 # Contributing :
 This project is open-source and welcomes contributions of all kinds. Whether you're a experienced developer or just starting your journey, your input and ideas are invaluable. Join us in shaping the future of this project and together let's create something amazing
