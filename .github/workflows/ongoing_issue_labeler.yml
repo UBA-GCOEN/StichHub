@@ -20,7 +20,8 @@ jobs:
           script: |
             const issue = context.payload.issue;
             const labelToAdd = '🚧STATUS : in progress';
-            const labelToRemove = ['⏳STATUS : waiting for triage', '👍STATUS : ready to assign'];
+            const labelToRemove = '⏳STATUS : waiting for triage';
+            const labelToRemove2 = '👍STATUS : ready to assign';
             
             await github.issues.addLabels({
               owner: context.repo.owner,
@@ -37,6 +38,17 @@ jobs:
               issue_number: issue.number,
 
               name: labelToRemove,
+
+            });
+            await github.issues.removeLabel({
+
+              owner: context.repo.owner,
+
+              repo: context.repo.repo,
+
+              issue_number: issue.number,
+
+              name: labelToRemove2,
 
             });
 
