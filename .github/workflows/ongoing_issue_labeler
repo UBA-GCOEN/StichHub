@@ -1,0 +1,21 @@
+name: Update Issue Label when assigned 
+
+on:
+  issues:
+    types:
+      - assigned
+
+jobs:
+  update-issue:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Update Issue Label
+        uses: peter-evans/issue-labeler@v3
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          remove-labels: "⏳STATUS : waiting for triage", "👍STATUS : ready to assign"
+          add-labels: "🚧STATUS : in progress"
