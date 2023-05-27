@@ -10,14 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repositry
         uses: actions/checkout@v2
 
       - name: Update Issue Label
         uses: actions/labeler@v4
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          remove-labels: |
-                "⏳STATUS : waiting for triage"
-                "👍STATUS : ready to assign"
-          add-labels: "🚧STATUS : in progress"
+          congratulation-path: .github/labeler.yml
