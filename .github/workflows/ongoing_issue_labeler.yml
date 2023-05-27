@@ -1,4 +1,4 @@
-name: Update Issue Label when assigned 
+name: Assign Label to Assigned Issues
 
 on:
   issues:
@@ -6,15 +6,38 @@ on:
       - assigned
 
 jobs:
-  update-issue:
+  assign-label:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repositry
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Update Issue Label
-        uses: github-actions/auto-label@v1
+      - name: Assign Label
+        uses: actions/github-script@v4
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          configuration-path: .github/labeler.yml
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issue = context.payload.issue;
+            const labelToAdd = '🚧STATUS : in progress';
+            const labelToRemove = '⏳STATUS : waiting for triage', '👍STATUS : ready to assign';
+            
+            await github.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              labels: [labelToAdd],
+            });
+            await github.issues.removeLabel({
+
+              owner: context.repo.owner,
+
+              repo: context.repo.repo,
+
+              issue_number: issue.number,
+
+              name: labelToRemove,
+
+            });
+
+
