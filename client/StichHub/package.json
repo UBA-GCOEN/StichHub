@@ -12,6 +12,8 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@google/model-viewer": "^3.1.0",
     "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.16",
@@ -58,7 +60,7 @@
     "react-slick": "^0.29.0",
     "react-tailwindcss-select": "^1.8.5",
     "rsuite": "^5.28.3",
-    "styled-components": "^5.3.9",
+    "styled-components": "^5.3.10",
     "three": "^0.151.2",
     "tw-elements": "^1.0.0-beta2"
   },

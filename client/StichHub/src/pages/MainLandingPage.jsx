@@ -9,10 +9,12 @@ import {
   Footer,
 } from "../components/MainLandingPage";
 import { LandingPageDemo } from "../contexts/LandingPageDemo";
+import GoToTop from "../components/GoToTop";
 
 const MainLandingPage = () => {
   return (
     <div className="text-center text-white overflow-hidden text-3xl bg-primary">
+      <GoToTop />
       <NavBar />
       <LandingPageDemo>
         <Home />
@@ -21,7 +23,7 @@ const MainLandingPage = () => {
       <HowItWorks />
       <About />
       <ContactUs />
-      <p className="text-sm">	&#169; Stichhub 2023</p>
+      <p className="text-sm">	&copy; Stichhub {new Date().getFullYear()}</p>
     </div>
   );
 };

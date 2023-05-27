@@ -1,13 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+*{
+  font-family: "Quicksand","sans-serif",
+}
 @tailwind base;
 
 ::-webkit-scrollbar {
   width: 7px;
   height: 5px;
   display: block;
-
 }
-
-
 
 ::-webkit-scrollbar-track {
   border-radius: 0px;
@@ -21,7 +23,7 @@
 ::-webkit-scrollbar-thumb {
   background-color: rgb(0, 3, 130);
   border-radius: 20px;
-  border: 3px solid rgb(0, 3, 130);;
+  border: 3px solid rgb(0, 3, 130);
 }
 
 .configurator::-webkit-scrollbar-thumb {
