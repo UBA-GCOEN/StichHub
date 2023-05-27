@@ -68,11 +68,10 @@ jobs:
                owner: context.repo.owner,
 
                repo: context.repo.repo,
- 
-               issue_number: issue.number,
 
-               name: labelToRemove2,
+                issue_number: issue.number,
 
+                name: labelToRemove2,
             });
 
 
