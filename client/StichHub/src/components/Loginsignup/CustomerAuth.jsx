@@ -255,7 +255,7 @@ const CustomerAuth = () => {
                   cookiePolicy="single_host_origin"
                 />
               </div>
-              <h1 className="text-center text-white text-md pt-6">
+              <h1 className="text-center text-white text-md pt-6 last-txt-C">
                 {isregister ? "Already a user?" : "Don't have an account?"}
                 <a
                   className="cursor-pointer text-blue-400"
@@ -274,7 +274,7 @@ const CustomerAuth = () => {
       </div>
 
       {/* Right Side (img)*/}
-      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.png')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10 rounded-l-3xl">
+      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.png')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10 rounded-l-3xl .img-style">
         <img
           src={shortlogo}
           className="w-[5vw] absolute bottom-14 right-5"

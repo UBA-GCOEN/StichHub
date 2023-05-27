@@ -86,10 +86,10 @@ const AuthTailor = () => {
         </div>
       ) : null}
       {/* Left Side (img)*/}
-      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.png')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10 rounded-l-3xl">
+      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.png')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10 rounded-l-3xl img-style">
         <img
           src={shortlogo}
-          className="w-[5vw] absolute bottom-14 left-5"
+          className="w-[5vw] absolute bottom-14 left-5 img-style"
         ></img>
       </div>
 
@@ -251,14 +251,14 @@ const AuthTailor = () => {
 
               <h1 className="text-center text-white text-xl py-4">or</h1>
 
-              <div className="flex justify-center">
+              <div className="flex justify-center ggl-btn">
                 <GoogleLogin
                   onSuccess={googleSuccess}
                   onFailure={googleError}
                   cookiePolicy="single_host_origin"
                 />
               </div>
-              <h1 className="text-center text-white text-md pt-6">
+              <h1 className="text-center text-white text-md pt-6 last-txt">
                 {isregister ? "Already a user?" : "Don't have an account?"}
                 <a
                   className="cursor-pointer text-blue-400"
