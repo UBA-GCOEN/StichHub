@@ -246,7 +246,7 @@ const CustomerAuth = () => {
                 </button>
               </div>
 
-              <h1 className="text-center text-white text-xl py-4">or</h1>
+              <h1 className="text-center text-white text-xl py-2">or</h1>
 
               <div className="flex justify-center">
                 <GoogleLogin
