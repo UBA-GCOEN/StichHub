@@ -48,7 +48,6 @@ export default function Navbardark() {
   const logout = () => {
     localStorage.clear();
     navigateTo("/auth/tailor");
-    setUser(null);
   };
 
   return (

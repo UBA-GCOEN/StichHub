@@ -40,7 +40,7 @@ const TopProfile = () => {
     <div className="flex w-fit h-fit grow flex-row justify-between m-10 mb-5">
       <div>
         <div className="text-sm text-white text-left">{user?.result.name}</div>
-        <div className="text-sm text-grey">inaamajay007@gmail.com</div>
+        <div className="text-sm text-grey">{user?.result.email}</div>
         <div className="h-max mb-auto grid grid-flow-col auto-cols-max mt-[2%]">
           <svg
             fill="#d97706"
