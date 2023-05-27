@@ -29,26 +29,49 @@ jobs:
               issue_number: issue.number,
               labels: [labelToAdd],
             });
-            await github.issues.removeLabel({
+            
+            const labelExists = await github.issues.getLabel({
 
-              owner: context.repo.owner,
+                owner: context.repo.owner,
 
-              repo: context.repo.repo,
+                repo: context.repo.repo,
 
-              issue_number: issue.number,
+                name: labelToRemove,
 
-              name: labelToRemove,
+              }).catch(() => false);
+              
+              const labelExists2 = await github.issues.getLabel({
 
-            });
-            await github.issues.removeLabel({
+                owner: context.repo.owner,
 
-              owner: context.repo.owner,
+                repo: context.repo.repo,
 
-              repo: context.repo.repo,
+                name: labelToRemove2,
+                }).catch(() => false);
+              
+             if (labelExists) { 
+               await github.issues.removeLabel({
 
-              issue_number: issue.number,
+                owner: context.repo.owner,
 
-              name: labelToRemove2,
+                repo: context.repo.repo,
+
+                issue_number: issue.number,
+
+                name: labelToRemove,
+              });
+            }
+            
+            if (labelExists2) {
+              await github.issues.removeLabel({
+
+               owner: context.repo.owner,
+
+               repo: context.repo.repo,
+ 
+               issue_number: issue.number,
+
+               name: labelToRemove2,
 
             });
 
