@@ -72,6 +72,7 @@ jobs:
                 issue_number: issue.number,
 
                 name: labelToRemove2,
-            });
+              });
+            }
 
 
