@@ -1,4 +1,3 @@
-
 name: Assign Label to Assigned Issues
 
 on:
@@ -31,17 +30,14 @@ jobs:
               labels: [labelToAdd],
             });
 
-            const labelExists = await github.issues.getLabel({
+            const { data: labels } = await github.issues.listLabelsOnIssue({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              name: labelToRemove,
-            }).catch(() => false);
+              issue_number: issue.number,
+            });
 
-            const labelExists2 = await github.issues.getLabel({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              name: labelToRemove2,
-            }).catch(() => false);
+            const labelExists = labels.some(label => label.name === labelToRemove);
+            const labelExists2 = labels.some(label => label.name === labelToRemove2);
 
             if (labelExists) {
               await github.issues.removeLabel({
@@ -60,3 +56,5 @@ jobs:
                 name: labelToRemove2,
               });
             }
+
+
