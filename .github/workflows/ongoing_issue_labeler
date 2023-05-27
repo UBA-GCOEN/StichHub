@@ -17,5 +17,5 @@ jobs:
         uses: peter-evans/issue-labeler@v3
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          remove-labels: "⏳STATUS : waiting for triage"
-          add-labels: new-label
+          remove-labels: "⏳STATUS : waiting for triage", "👍STATUS : ready to assign"
+          add-labels: "🚧STATUS : in progress"
