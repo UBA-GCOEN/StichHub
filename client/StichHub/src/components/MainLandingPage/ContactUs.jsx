@@ -54,9 +54,9 @@ const ContactUs = () => {
             <div id="yourName" className="">
               <img
                 src={AvatarIcon}
-                alt=""
+                alt="N"
                 id="icon"
-                className="absolute ml-[5px] mt-[2px]"
+                className="absolute ml-[10px] mt-[12px] h-9"
               />
               <input
                 autoComplete="on"
@@ -76,9 +76,9 @@ const ContactUs = () => {
             <div id="Email" className="">
               <img
                 src={EmailIcon}
-                alt=""
+                alt="E"
                 id="icon"
-                className="absolute ml-[5px] mt-[2px]"
+                className="absolute ml-[10px] mt-[12px] h-9"
               />
               <input
                 autoComplete="on"
@@ -98,9 +98,9 @@ const ContactUs = () => {
             <div id="Phone no." className="">
               <img
                 src={PhoneIcon}
-                alt=""
+                alt="P"
                 id="icon"
-                className="absolute ml-[5px] mt-[2px]"
+                className="absolute ml-[10px] mt-[12px] h-9"
               />
               <input
                 type="tel"
