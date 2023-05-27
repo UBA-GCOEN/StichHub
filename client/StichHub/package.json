@@ -54,7 +54,7 @@
     "react-dropzone-uploader": "^2.11.0",
     "react-icons": "^4.8.0",
     "react-ios-time-picker": "^0.2.2",
-    "react-otp-input": "^3.0.0",
+    "react-otp-input": "^3.0.2",
     "react-phone-number-input": "^3.2.19",
     "react-rating-stars-component": "^2.2.0",
     "react-slick": "^0.29.0",
