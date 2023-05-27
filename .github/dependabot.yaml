@@ -1,6 +1,10 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
-    directory: "/"
+    directory: "client/StichHub"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "server"
     schedule:
       interval: "daily"
