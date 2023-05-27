@@ -8,62 +8,94 @@ import userCustomerModel from "../models/userCustomer.js";
 const SECRET = process.env.CUSTOMER_USER;
 
 export const signin = async (req, res) => {
-  const { email, password } = req.body;
+    const { email, password } = req.body;
 
-  try {
-    const oldUser = await userCustomerModel.findOne({ email });
+    try {
+        const oldUser = await userCustomerModel.findOne({ email });
 
-    if (!oldUser)
-      return res.status(404).json({ message: "User doesn't exist" });
+        if (!oldUser)
+            return res.status(404).json({ message: "User doesn't exist" });
 
-    const isPasswordCorrect = await bcrypt.compare(password, oldUser.password);
+        const isPasswordCorrect = await bcrypt.compare(
+            password,
+            oldUser.password
+        );
 
-    if (!isPasswordCorrect)
-      return res.status(404).json({ message: "Invalid Credentials" });
+        if (!isPasswordCorrect)
+            return res.status(404).json({ message: "Invalid Credentials" });
 
-    const token = jwt.sign({ email: oldUser.email, id: oldUser._id }, SECRET, {
-      expiresIn: "1h",
-    });
+        const token = jwt.sign(
+            { email: oldUser.email, id: oldUser._id },
+            SECRET,
+            {
+                expiresIn: "1h",
+            }
+        );
 
-    res.status(200).json({ result: oldUser, token });
-  } catch (error) {
-    res.status(500).json({ message: "Something went wrong" });
-    console.log(error);
-  }
+        res.status(200).json({ result: oldUser, token });
+    } catch (error) {
+        res.status(500).json({ message: "Something went wrong" });
+        console.log(error);
+    }
 };
 
 export const register = async (req, res) => {
-  const { name, email, password, confirmPassword } = req.body;
-  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$%#^&*])(?=.*[0-9]).{8,}$/;
+    const { name, email, password, confirmPassword } = req.body;
+    const passwordRegex =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$%#^&*])(?=.*[0-9]).{8,}$/;
+    const emailDomains = [
+        "gmail.com",
+        "yahoo.com",
+        "hotmail.com",
+        "aol.com",
+        "outlook.com",
+    ];
 
-  if(name.length < 6){
-  return res.status(404).json({message: "Name must be atleast 6 characters long."})
-  }
+    if (name.length < 6) {
+        return res
+            .status(404)
+            .json({ message: "Name must be atleast 6 characters long." });
+    }
 
-  if(!passwordRegex.test(password)){
-    return res.status(404).json({message: "Password must be at least 8 characters long and include at least 1 uppercase letter, 1 lowercase letter, 1 symbol (@$%#^&*), and 1 number (0-9)"})
-  }
+    if (!passwordRegex.test(password)) {
+        return res.status(404).json({
+            message:
+                "Password must be at least 8 characters long and include at least 1 uppercase letter, 1 lowercase letter, 1 symbol (@$%#^&*), and 1 number (0-9)",
+        });
+    }
 
-  try {
-    const oldUser = await userCustomerModel.findOne({ email });
+    if (!emailDomains.some((v) => email.indexOf(v) >= 0)) {
+        return res.status(404).json({
+            message: "Please enter a valid email address",
+        });
+    }
 
-    if (oldUser)
-      return res.status(404).json({ message: "User already exist" });
+    try {
+        const oldUser = await userCustomerModel.findOne({ email });
 
-    if(password !== confirmPassword)
-        return res.status(404).json({message: "Password doesn't Match"})
-       
+        if (oldUser)
+            return res.status(404).json({ message: "User already exist" });
 
-    const hashedPassword = await bcrypt.hash(password, 12);
+        if (password !== confirmPassword)
+            return res.status(404).json({ message: "Password doesn't Match" });
 
-    const result = await userCustomerModel.create({name, email, password: hashedPassword})
+        const hashedPassword = await bcrypt.hash(password, 12);
 
-    const token = jwt.sign({email: result.email, id: result._id}, SECRET, { expiresIn: '1h'});
+        const result = await userCustomerModel.create({
+            name,
+            email,
+            password: hashedPassword,
+        });
 
-    res.status(201).json({result, token});
+        const token = jwt.sign(
+            { email: result.email, id: result._id },
+            SECRET,
+            { expiresIn: "1h" }
+        );
 
-  } catch (error) {
-    res.status(500).json({ message: "Something went wrong" });
-    console.log(error);
-  }
+        res.status(201).json({ result, token });
+    } catch (error) {
+        res.status(500).json({ message: "Something went wrong" });
+        console.log(error);
+    }
 };
