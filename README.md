@@ -1,9 +1,25 @@
 ![Logo (Black BG)](https://user-images.githubusercontent.com/77800620/217613866-35741ca4-a2a2-4d19-a0ad-5315a5e5a02a.png)
+    
+<div align="center">
+   <img src="https://img.shields.io/github/repo-size/UBA-GCOEN/StichHub?style=for-the-badge" />
+   <img src="https://img.shields.io/github/issues-raw/UBA-GCOEN/StichHub?style=for-the-badge" />
+   <img src="https://img.shields.io/github/issues-closed-raw/UBA-GCOEN/StichHub?style=for-the-badge" />
+    <img src="https://img.shields.io/github/license/UBA-GCOEN/StichHub?style=for-the-badge" />
+
+   <img src="https://img.shields.io/github/issues-pr-raw/UBA-GCOEN/StichHub?style=for-the-badge" />
+    <img src="https://img.shields.io/github/issues-pr-closed-raw/UBA-GCOEN/StichHub?style=for-the-badge" />
+    <img src="https://img.shields.io/github/stars/UBA-GCOEN/StichHub?style=for-the-badge" />
+ 
+   <img src="https://img.shields.io/github/contributors/UBA-GCOEN/StichHub?style=for-the-badge" />
+   <img src="https://img.shields.io/github/forks/UBA-GCOEN/StichHub?style=for-the-badge" />
+  <img src="https://img.shields.io/github/last-commit/UBA-GCOEN/StichHub?style=for-the-badge" />
+     </div>
+     <br>
 
 # StichHub
 
 We bridge the physical gap between a tailor and the customers through our platform. Providing customers a choice of the tailors and the tailors with an increased reach for customers.
-We're a team of enthusiasts , hoping to bring the tailor community online and introduce them to the benifits of online business.
+We're a team of enthusiasts, hoping to bring the tailor community online and introduce them to the benefits of online business.
 
 
 ## Project Overview
@@ -11,26 +27,29 @@ We're a team of enthusiasts , hoping to bring the tailor community online and in
 >>You can increase your reach to the customers out of your locality and hence increase the income you make while simultaneously creating a regular base of customers from the people who like your clothes.
 >
 >**As a customer**
->>Have you ever had trouble finding a good tailor? os found it inconvinient to vist the tailor stores multiple times to inquire or collect your own piece?
-We at Stichhub aim at reducing this hassle and making tailoring a convinient experience for not just the customer but also the tailor.
+>>Have you ever had trouble finding a good tailor? or found it inconvenient to visit the tailor stores multiple times to inquire or collect your own piece?
+We at StichHub aim at reducing this hassle and making tailoring a convenient experience for not just the customer but also the tailor.
 
 ## Project Highlights
 >We aim to ease the stitching business by providing the following features
 > - Tailor of Choice-<br>
->  Choose from a list of experienced tailors , with whom you want to request your order.
+>  Choose from a list of experienced tailors, with whom you want to request your order.
 > - 3D Configurator-<br>
->  Make changes to your wanted design while simultaneously seeing how it looks overall through a 3D model of yourself
+>  Make changes to your wanted design while simultaneously seeing how it looks overall through a 3D model of yourself.
 > - Online Measurements-<br>
->  We provide an online facility that enables users to accurately provide the measurements for the clothes
+>  We provide an online facility that enables users to accurately provide the measurements for the clothes.
 > - AR Tech-<br>
->  Ever wondered if an ordered piece will turn out to be exactly same as it looks , with our tech you come one step closer to that. It enables you to kmnow just hoe your piece is going to turn out  
+>  Ever wondered if an ordered piece will turn out to be exactly same as it looks, with our tech you come one step closer to that. It enables you to know just how your piece is going to turn out.
 <!-- 
 ## Previous Builds
 link here- -->
 
+## Blog
+Our related [blog post](https://medium.com/@sidd0203/stichhub-38d01da27f37) provides a comprehensive look at the project's implementation and in-depth insights.
+
 ## Feedback
- - Ask a [question or Report issue](https://github.com/Siddhant-Patil0203/StichHub/issues)
- - Request a [new feature](https://github.com/Siddhant-Patil0203/StichHub/issues)
+ - [Ask a question or report an issue](https://github.com/UBA-GCOEN/StichHub/issues)
+ - Request a [new feature](https://github.com/UBA-GCOEN/StichHub/issues)
  - [Upvote]() popular feature
  - Connect with our [community]()
  - Follow [StichHub]() and let us know what you think!
@@ -49,20 +68,20 @@ This project is open-source and welcomes contributions of all kinds. Whether you
 
    - Test the different features of app to get the bug
 
-   - You can contribute in many ways like              i
-      - improving documentation.
-      - raising issues 
+   - You can contribute in many ways like:
+      - Improving documentation
+      - Raising issues 
       - Improving UI/UX 
       - Detecting bugs 
-      - Adding new Feastures
+      - Adding new features
 
 
         
 
-# Seting up Local development :
+# Setting up Local development :
   - ## Docker Compose 
      - Download the docker-compose.yml file from here <a href="https://github.com/Naresh-chandanbatve/StichHub/raw/main/docker-compose.yml" download="docker-compose.yml" >docker-compose.yml</a>
-     - Make .env.client and .env.server file in root folder and add all required keys in boh the files as shown in respected env example files (links below)
+     - Make .env.client and .env.server file in root folder and add all required keys in both the files as shown in respected env example files (links below)
      
        [.env.client](https://github.com/Naresh-chandanbatve/StichHub/raw/main/.env.client?raw=true) and [.env.server](https://github.com/Naresh-chandanbatve/StichHub/raw/main/.env.server).
      - Run Command
@@ -92,7 +111,7 @@ This project is open-source and welcomes contributions of all kinds. Whether you
         
  ## Our Valuable Contributors
 
-<a href = "https://github.com/Tanu-N-Prabhu/Python/graphs/contributors">
+<a href = "https://github.com/UBA-GCOEN/StichHub/graphs/contributors">
 
   <img src = "https://contrib.rocks/image?repo=UBA-GCOEN/StichHub"/>
 

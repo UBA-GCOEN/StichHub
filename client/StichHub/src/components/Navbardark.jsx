@@ -1,5 +1,5 @@
-import { useState } from "react";
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Logo from "../assets/logo/Long - Logo Transparent (White).png";
 
 const pages = ["Home", "Our Services", "How it works", "About", "Contact Us"];
@@ -12,6 +12,8 @@ export default function Navbardark() {
   const [isShown1, setIsShown1] = useState(false);
   const [isShown2, setIsShown2] = useState(false);
   const [isShown3, setIsShown3] = useState(false);
+
+  const navigateTo = useNavigate();
 
   const handleClick = (event) => {
     // 👇️ toggle shown state
@@ -41,8 +43,16 @@ export default function Navbardark() {
     // 👇️ or simply set it to true
     // setIsShown(true);
   };
+
+  // redirects to /auth/tailor and clears the info of the tailor from localStorage
+  const logout = () => {
+    localStorage.clear();
+    navigateTo("/auth/tailor");
+    setUser(null);
+  };
+
   return (
-    <div className="bg-transparent">
+    <div className="bg-black">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
@@ -327,12 +337,12 @@ export default function Navbardark() {
           </a>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a
-            href="#"
-            className="text-2sm  font-semibold leading-6 text-white"
-          >
-            Log Out <span aria-hidden="true">&rarr;</span>
-          </a>
+        <div
+          onClick={logout}
+          className="cursor-pointer text-2sm  font-semibold leading-6 text-white"
+        >
+          Log Out <span aria-hidden="true">&rarr;</span>
+        </div>
         </div>
       </nav>
       {isShown1 && (
@@ -451,12 +461,12 @@ export default function Navbardark() {
                   </a>
                 </div>
                 <div className="py-6">
-                  <a
-                    href="#"
-                    className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-white hover:bg-gray-50"
+                  <div
+                    onClick={logout}
+                    className="cursor-pointer text-2sm  font-semibold leading-6 text-white"
                   >
-                    Log Out
-                  </a>
+                      Log Out
+                    </div>  
                 </div>
               </div>
             </div>
