@@ -21,10 +21,9 @@ const ContactUs = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  // };
 
   return (
     <div
@@ -51,13 +50,13 @@ const ContactUs = () => {
           </div>
 
           {/* Form */}
-          <form id="form-Container" className="" onSubmit={handleSubmit}>
+          <form id="form-Container" className="" action="https://formsubmit.co/uba.gcoen@gmail.com" method="POST">
             <div id="yourName" className="">
               <img
                 src={AvatarIcon}
-                alt=""
+                alt="N"
                 id="icon"
-                className="absolute ml-[5px] mt-[2px]"
+                className="absolute ml-[10px] mt-[12px] h-9"
               />
               <input
                 autoComplete="on"
@@ -77,9 +76,9 @@ const ContactUs = () => {
             <div id="Email" className="">
               <img
                 src={EmailIcon}
-                alt=""
+                alt="E"
                 id="icon"
-                className="absolute ml-[5px] mt-[2px]"
+                className="absolute ml-[10px] mt-[12px] h-9"
               />
               <input
                 autoComplete="on"
@@ -99,9 +98,9 @@ const ContactUs = () => {
             <div id="Phone no." className="">
               <img
                 src={PhoneIcon}
-                alt=""
+                alt="P"
                 id="icon"
-                className="absolute ml-[5px] mt-[2px]"
+                className="absolute ml-[10px] mt-[12px] h-9"
               />
               <input
                 type="tel"
@@ -120,11 +119,7 @@ const ContactUs = () => {
             <textarea
               placeholder="Describe your issue here"
               name="message"
-
               id="message"
-
-   
-
               cols="30"
               rows="6"
               value={form.message}
@@ -133,7 +128,8 @@ const ContactUs = () => {
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 invalid:border-pink-500 invalid:text-pink-600
-                focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
+                focus:invalid:border-pink-500 focus:invalid:ring-pink-500
+                resize-none"
             ></textarea>
             <button
               type="submit"
