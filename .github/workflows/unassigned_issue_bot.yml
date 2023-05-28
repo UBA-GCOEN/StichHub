@@ -1,0 +1,53 @@
+name: Assign Label to sUmAigned Issues
+
+on:
+  issues:
+    types:
+      - unassigned
+
+jobs:
+  assign-label:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Assign Label
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issue = context.payload.issue;
+            const labelToAdd = '👍STATUS : ready to assign';
+            const labelToRemove = '🚧STATUS : in progress';
+            
+
+            await github.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              labels: [labelToAdd],
+            });
+
+            const { data: labels } = await github.issues.listLabelsOnIssue({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+            });
+
+            const labelExists = labels.some(label => label.name === labelToRemove);
+            
+
+            if (labelExists) {
+              await github.issues.removeLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                name: labelToRemove,
+              });
+            }
+
+            
+
+

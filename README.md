@@ -44,6 +44,9 @@ We at StichHub aim at reducing this hassle and making tailoring a convenient exp
 ## Previous Builds
 link here- -->
 
+## Blog
+Our related [blog post](https://medium.com/@sidd0203/stichhub-38d01da27f37) provides a comprehensive look at the project's implementation and in-depth insights.
+
 ## Feedback
  - [Ask a question or report an issue](https://github.com/UBA-GCOEN/StichHub/issues)
  - Request a [new feature](https://github.com/UBA-GCOEN/StichHub/issues)
