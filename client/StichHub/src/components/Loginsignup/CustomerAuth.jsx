@@ -135,7 +135,7 @@ const CustomerAuth = () => {
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-6 h-6 absolute z-[5] m-3"
+                      className="w-6 left-[62px] h-6 absolute z-[5] m-3"
                     >
                       <path
                         strokeLinecap="round"
@@ -150,7 +150,7 @@ const CustomerAuth = () => {
                       id="name"
                       value={form.name}
                       onChange={handleChange}
-                      className="mt-[10px] block w-[300px] py-2 pl-[45px] bg-white border rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                      className="mt-[10px] m-auto block w-[300px] py-2 pl-[45px] bg-white border rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
@@ -164,7 +164,7 @@ const CustomerAuth = () => {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="w-6 h-6 absolute z-[5] m-3"
+                    className="w-6 left-[62px] h-6 absolute z-[5] m-3"
                   >
                     <path
                       strokeLinecap="round"
@@ -180,7 +180,7 @@ const CustomerAuth = () => {
                     id="email"
                     value={form.email}
                     onChange={handleChange}
-                    className="mt-[10px] block w-[300px] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                    className="mt-[10px] m-auto block w-[300px] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 invalid:border-pink-500 invalid:text-pink-600
@@ -194,7 +194,7 @@ const CustomerAuth = () => {
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="currentColor"
-                    className="w-6 h-6 absolute z-[5] m-3"
+                    className="w-6 left-[62px] h-6 absolute z-[5] m-3"
                   >
                     <path
                       strokeLinecap="round"
@@ -210,14 +210,14 @@ const CustomerAuth = () => {
                     id="password"
                     value={form.password}
                     onChange={handleChange}
-                    className="mt-[10px] block w-[300px] py-2 pl-[45px] pr-[2.3rem] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                    className="mt-[10px] m-auto block w-[300px] py-2 pl-[45px] pr-[2.3rem] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
                   />
                   <div
                     onClick={passwordToggle}
-                    className="absolute cursor-pointer flex items-center z-[5] mt-[-1.8rem] ml-[17rem]"
+                    className=" absolute cursor-pointer flex items-center z-[5] mt-[-1.8rem] ml-[20rem]"
                   >
                     {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
                   </div>
@@ -230,7 +230,7 @@ const CustomerAuth = () => {
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-6 h-6 absolute z-[5] m-3"
+                      className="w-6 left-[62px] h-6 absolute z-[5] m-3"
                     >
                       <path
                         strokeLinecap="round"
@@ -246,7 +246,7 @@ const CustomerAuth = () => {
                       id="confirmPassword"
                       value={form.confirmPassword}
                       onChange={handleChange}
-                      className="mt-[10px] block w-[300px] py-2 pl-[45px] pr-[2.3rem] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                      className="mt-[10px] m-auto  block w-[300px] py-2 pl-[45px] pr-[2.3rem] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
@@ -256,16 +256,16 @@ const CustomerAuth = () => {
                 <div className="flex flex-col lg:flex-row justify-center">
                   <button
                     type="submit"
-                    className="mt-[15px] block w-[170px] m-auto py-2 bg-blue-500 text-white rounded-xl font-regular text-xl"
+                    className="mt-[15px] block w-[100px] m-auto py-2 bg-blue-500 text-white rounded-md font-regular text-lg"
                   >
                     {isregister ? "Register" : "Sign in"}
                   </button>
 
-                  <h1 className="mt-4 text-center text-white text-xl px-2 py-1">
+                  <h1 className="mt-0 lg:mt-4 text-center text-white text-xl px-2 py-1">
                     or
                   </h1>
 
-                  <div className="lg:m-[9px] block w-[170px] mx-auto py-2 text-white rounded-xl font-regular text-xl">
+                  <div className="lg:m-[9px] block w-[120px] mx-auto py-2 text-white rounded-xl font-regular text-xl">
                     <GoogleLogin
                       onSuccess={googleSuccess}
                       onFailure={googleError}
