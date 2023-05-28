@@ -1,0 +1,17 @@
+on:
+  schedule:
+  - cron: '0 23 */2 * *'
+
+jobs:
+  pull-changes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Pull changes from main branch
+        run: |
+          git checkout backup-branch
+          git pull origin main
+          git push origin backup-branch
+
