@@ -69,7 +69,7 @@ const AuthTailor = () => {
   };
 
   return (
-    <div className="bg-gray-800 h-[100vh] flex justify-between overflow-hidden">
+    <div className="bg-gray-800 h-[105vh] flex justify-between overflow-hidden">
       {/* Loading Animations */}
       {isLoading ? (
         <div className="relative">
@@ -97,11 +97,11 @@ const AuthTailor = () => {
       <div className="relative bg-primary w-full lg:w-[49vw] my-10 rounded-3xl lg:rounded-r-3xl">
         <div className="relative z-[5]">
           {/* logo */}
-          <div className="flex justify-center mt-10">
+          <div className="flex justify-center mt-6">
             <img src={logo} className="w-[240px]" />
           </div>
           {/* title */}
-          <div className="flex justify-center my-4">
+          <div className="flex justify-center my-1">
             <div>
               <img src={tailorimg} alt="" className="w-[60px] mr-5" />
             </div>
