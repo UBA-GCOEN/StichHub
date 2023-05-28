@@ -1,0 +1,12 @@
+# .github/
+
+rules:
+  - label: "👍STATUS : ready to assign"
+    conditions: issue.labels contains '👍STATUS : ready to assign'
+    remove: true
+  - label: "⏳STATUS : waiting for triage"
+    conditions: issue.labels contains '👍STATUS : ready to assign'
+    remove: true
+  - label: "🚧STATUS : in progress"
+    
+    

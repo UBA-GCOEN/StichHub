@@ -21,10 +21,9 @@ const ContactUs = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSumbmit = async (e) => {
-    e.preventDefault();
-
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  // };
 
   return (
     <div
@@ -35,7 +34,7 @@ const ContactUs = () => {
         {/* left-Side */}
         <div id="leftside" className="lg:block hidden mb-[20px] bottom-[20p]">
           <img src={ContactUsVector} className="" />
-          <p className="text-left text-xl w-[800px]"></p>
+          <p className="text-left text-xl w-[500px]"></p>
         </div>
 
         {/* Right-Side */}
@@ -51,15 +50,16 @@ const ContactUs = () => {
           </div>
 
           {/* Form */}
-          <form id="form-Container" className="" onSubmit={handleSumbmit}>
+          <form id="form-Container" className="" action="https://formsubmit.co/uba.gcoen@gmail.com" method="POST">
             <div id="yourName" className="">
               <img
                 src={AvatarIcon}
-                alt=""
+                alt="N"
                 id="icon"
-                className="absolute ml-[5px] mt-[2px]"
+                className="absolute ml-[10px] mt-[12px] h-9"
               />
               <input
+                autoComplete="on"
                 type="text"
                 placeholder="Your Name"
                 name="name"
@@ -76,11 +76,12 @@ const ContactUs = () => {
             <div id="Email" className="">
               <img
                 src={EmailIcon}
-                alt=""
+                alt="E"
                 id="icon"
-                className="absolute ml-[5px] mt-[2px]"
+                className="absolute ml-[10px] mt-[12px] h-9"
               />
               <input
+                autoComplete="on"
                 type="email"
                 placeholder="Email"
                 name="email"
@@ -97,9 +98,9 @@ const ContactUs = () => {
             <div id="Phone no." className="">
               <img
                 src={PhoneIcon}
-                alt=""
+                alt="P"
                 id="icon"
-                className="absolute ml-[5px] mt-[2px]"
+                className="absolute ml-[10px] mt-[12px] h-9"
               />
               <input
                 type="tel"
@@ -117,8 +118,8 @@ const ContactUs = () => {
             </div>
             <textarea
               placeholder="Describe your issue here"
-              name=""
-              id=""
+              name="message"
+              id="message"
               cols="30"
               rows="6"
               value={form.message}
@@ -127,18 +128,19 @@ const ContactUs = () => {
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 invalid:border-pink-500 invalid:text-pink-600
-                focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
+                focus:invalid:border-pink-500 focus:invalid:ring-pink-500
+                resize-none"
             ></textarea>
             <button
               type="submit"
-              className="mt-[30px] block w-full bg-[#0074FD] py-3 lg:py-[16px] rounded-2xl hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 lg:text-3xl text-lg"
+              className="mt-[30px] block w-full bg-[#0054B8] py-3 lg:py-[16px] rounded-2xl hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 lg:text-3xl text-lg"
             >
               Send
             </button>
           </form>
           <img
             src={SendVector}
-            alt=""
+            alt="send"
             className="hidden lg:block absolute right-[-120px] bottom-[1px]"
           />
         </div>
