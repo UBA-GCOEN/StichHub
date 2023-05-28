@@ -1,10 +1,10 @@
 on:
   schedule:
-  - cron: '0 23 */2 * *'
+  - cron: '0 * * * *'
 
 jobs:
   pull-changes:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-lates
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
