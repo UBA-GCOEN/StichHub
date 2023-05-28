@@ -22,6 +22,7 @@ jobs:
             const labelToAdd = '🚧STATUS : in progress';
             const labelToRemove = '⏳STATUS : waiting for triage';
             const labelToRemove2 = '👍STATUS : ready to assign';
+            const labelToRemove3 = 'question';
 
             await github.issues.addLabels({
               owner: context.repo.owner,
@@ -38,6 +39,7 @@ jobs:
 
             const labelExists = labels.some(label => label.name === labelToRemove);
             const labelExists2 = labels.some(label => label.name === labelToRemove2);
+            const labelExists3 = labels.some(label => label.name === labelToRemove3);
 
             if (labelExists) {
               await github.issues.removeLabel({
@@ -55,6 +57,22 @@ jobs:
                 issue_number: issue.number,
                 name: labelToRemove2,
               });
+            }
+            
+            if (labelExists3) {
+
+              await github.issues.removeLabel({
+
+                owner: context.repo.owner,
+
+                repo: context.repo.repo,
+
+                issue_number: issue.number,
+
+                name: question,
+
+              });
+
             }
 
 
