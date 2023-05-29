@@ -11,7 +11,6 @@ jobs:
 
       - name: Pull changes from main branch
         run: |
-          git branch -D backup-branch 
           git checkout -B backup-branch
          
           git pull origin main
