@@ -20,7 +20,6 @@ const TailorList = () => {
       const res = await axios.get("/tailors/list");
       setTailorList(res.data);
       setIsLoading(false);
-      console.log(tailorList);
     } catch (err) {
       console.log(err);
       setIsLoading(false);
