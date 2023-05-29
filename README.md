@@ -100,6 +100,14 @@ This project is open-source and welcomes contributions of all kinds. Whether you
          git clone <Your forked repo url>
          ```
       - replace your API keys in the .env.client for frontend and .env.server for backend.
+      - run command for development in frontend
+        ```bash
+        cd client/StichHub
+        ```
+        or for development in backend
+        ```bash
+        cd server 
+        ```
       - run command 
         ```bash
         npm install
