@@ -12,6 +12,7 @@ jobs:
       - name: Pull changes from main branch
         run: |
           git checkout -B backup-branch
+          
           git pull origin main
-          git push origin backup-branch
+          git push origin backup-branch -f
 
