@@ -4,6 +4,7 @@ import Navbardark from "../Navbardark";
 import styled from "styled-components";
 import "react-phone-number-input/style.css";
 import Phoneinput from "react-phone-number-input";
+import axios from "../../axios";
 import { Tabs } from "./Tabs";
 
 const fileTypes = ["JPG", "PNG", "GIF"];
@@ -133,6 +134,33 @@ const steps = [
 ];
 
 const Profile = () => {
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [tailorDetails, setTailorDetails] = useState(null);
+
+  
+    const fetchData = async () => {
+      setIsLoading(true);
+      try{
+        const res = await axios.get("/tailors/specific");
+        setTailorDetails(res.data);
+        console.log(res.data);
+        setIsLoading(false);
+  
+      } catch(error) {
+        console.log(error);
+        setIsLoading(false);
+      }
+    }
+
+    useEffect(() => {
+      fetchData();
+    }, [1]);
+  
+
+    
+  console.log(tailorDetails.name);
+
   //some custom react hooks
   const [value, setValue] = useState();
 
@@ -187,7 +215,14 @@ const Profile = () => {
     const [region, setRegion] = useState("");
     const [value, setValue] = useState();
     return (
+      <>
+      {isLoading?
+        
+        <h1>Loading...</h1>
+        :      
+      
       <div className="ml-[10%] mt-0 mr-10">
+        
         <div className="mb-5">
           <span className="font-bold text-2xl">Edit Profile</span>
         </div>
@@ -217,9 +252,10 @@ const Profile = () => {
                 <input
                   type="text"
                   name="name"
-                  defaultValue=""
-                  className="shadow-sm shadow-blue-400 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                  defaultValue={user?.result.name}
+                  className="shadow-sm shadow-blue-400 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] disabled:text-gray-500"
                   placeholder="John cook"
+                  disabled={user?.result.name}
                   required
                 />
                 <br />
@@ -271,7 +307,7 @@ const Profile = () => {
               <input
                 name="address"
                 type="address"
-                defaultValue="Nagpur"
+                defaultValue={tailorDetails?tailorDetails.address : ""}
                 className="shadow-sm shadow-blue-400 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                 placeholder="House number and street name"
                 required
@@ -370,6 +406,9 @@ const Profile = () => {
           Next
         </button>
       </div>
+  }
+        
+  </>
     );
   };
 
