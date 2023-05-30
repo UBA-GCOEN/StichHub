@@ -1,9 +1,9 @@
-name: Assign Label to Assigned Issues
+name: Assign Label to sUmAigned Issues
 
 on:
   issues:
     types:
-      - assigned
+      - unassigned
 
 jobs:
   assign-label:
@@ -19,10 +19,9 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const issue = context.payload.issue;
-            const labelToAdd = '🚧STATUS : in progress';
-            const labelToRemove = '⏳STATUS : waiting for triage';
-            const labelToRemove2 = '👍STATUS : ready to assign';
-            const labelToRemove3 = 'question';
+            const labelToAdd = '👍STATUS : ready to assign';
+            const labelToRemove = '🚧STATUS : in progress';
+            
 
             await github.issues.addLabels({
               owner: context.repo.owner,
@@ -38,8 +37,7 @@ jobs:
             });
 
             const labelExists = labels.some(label => label.name === labelToRemove);
-            const labelExists2 = labels.some(label => label.name === labelToRemove2);
-            const labelExists3 = labels.some(label => label.name === labelToRemove3);
+            
 
             if (labelExists) {
               await github.issues.removeLabel({
@@ -50,29 +48,6 @@ jobs:
               });
             }
 
-            if (labelExists2) {
-              await github.issues.removeLabel({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: issue.number,
-                name: labelToRemove2,
-              });
-            }
             
-            if (labelExists3) {
-
-              await github.issues.removeLabel({
-
-                owner: context.repo.owner,
-
-                repo: context.repo.repo,
-
-                issue_number: issue.number,
-
-                name: question,
-
-              });
-
-            }
 
 
