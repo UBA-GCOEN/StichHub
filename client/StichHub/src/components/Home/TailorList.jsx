@@ -28,7 +28,7 @@ const TailorList = () => {
 
   useEffect(() => {
     getTailor();
-  }, [1]);
+  }, [1]);  
 
   const linkTo = user ? "/home/category" : "/auth/customer";
 

@@ -19,19 +19,20 @@ const TopProfile = () => {
     setUser(JSON.parse(localStorage.getItem("tailorProfile")));
   }, [location]);
 
-  const getTailorDetails = async() => {
-    try {
-      const res = await axios.get("/tailors/selected");
-      setTailorDetails(res.data);
-      console.log(res.data);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
+  
+  // const getTailorDetails = async() => {
+  //   try {
+  //     const res = await axios.get("/tailors/selected");
+  //     setTailorDetails(res.data);
+  //     console.log(res.data);
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // }
 
-  useEffect(() => {
-    getTailorDetails();
-  }, [tailorDetails]);
+  // useEffect(() => {
+  //   getTailorDetails();
+  // }, [tailorDetails]);
 
 
   // https://cdn-icons-png.flaticon.com/512/6522/6522516.png
