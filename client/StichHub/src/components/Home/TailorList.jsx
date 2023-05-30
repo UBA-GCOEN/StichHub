@@ -103,10 +103,10 @@ const TailorList = () => {
                   class="h-[50px] rounded-sm"
                 />
                 <h2 class="text-slate-500 mt-3 md:mt-1 ml-4 font-medium">
-                  {item.name} |
+                  {item.name}
                 </h2>
                 <p class="text-slate-500 mt-3 md:mt-1 ml-5 font-medium">
-                  12 minutes ago
+                  | 12 minutes ago
                 </p>
               </div>
               <div class="mr-[100px] mt-[20px]">
