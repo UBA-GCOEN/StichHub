@@ -87,7 +87,7 @@ const TailorList = () => {
               <span className="text-sm"> {item.city}</span>
             </div>
           </div> */}
-          <div class="h-fit  md:h-[350px] w-full mt-5 md:flex  gap-[50px]">
+          <div class="h-fit  md:h-fit w-full mt-5 md:flex  gap-[50px]">
             <div>
               <img
                 src={shopposter}
@@ -114,7 +114,7 @@ const TailorList = () => {
                 {item.bio ? (
                   <p class="text-left mt-[20px] mb-[20px]">{item.bio}</p>
                 ) : (
-                  <p class="text-left mt-[20px] mb-[20px] w-[300px] md:w-full">
+                  <p class="text-left mt-[20px] mb-[20px] w-[250px] md:w-full">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Atque neque eos consequatur laudantium aliquam quia
                     quibusdam? Deleniti distinctio, delectus, similique expedita
