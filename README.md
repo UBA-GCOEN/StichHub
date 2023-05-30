@@ -47,6 +47,11 @@ link here- -->
 ## Blog
 Our related [blog post](https://medium.com/@sidd0203/stichhub-38d01da27f37) provides a comprehensive look at the project's implementation and in-depth insights.
 
+## Domains
+- Primary Domain: **[stichhub.vercel.app](https://stichhub.vercel.app)**
+- Another Domain: **[uba-gcoen.com](https://www.uba-gcoen.com)**
+- Backend Domain: **[stichhub-backend.vercel.app](https://stichhub-backend.vercel.app)**
+
 ## Feedback
  - [Ask a question or report an issue](https://github.com/UBA-GCOEN/StichHub/issues)
  - Request a [new feature](https://github.com/UBA-GCOEN/StichHub/issues)
