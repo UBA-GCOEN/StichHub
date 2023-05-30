@@ -19,18 +19,20 @@ const About = () => {
     { name: 'SAURABH', image: sy, github: "https://github.com/Saurabb-coder" },
   ]);
 
-  useEffect(() => {
-    // Shuffle the array of contributors
-    const shuffledContributors = [...contributors];
-    for (let i = shuffledContributors.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffledContributors[i], shuffledContributors[j]] = [
-        shuffledContributors[j],
-        shuffledContributors[i],
-      ];
-    }
-    setContributors(shuffledContributors);
-  }, []);
+  // Shuffling is not required as of now
+  // useEffect(() => {
+  //   // Shuffle the array of contributors
+  //   const shuffledContributors = [...contributors];
+  //   for (let i = shuffledContributors.length - 1; i > 0; i--) {
+  //     const j = Math.floor(Math.random() * (i + 1));
+  //     [shuffledContributors[i], shuffledContributors[j]] = [
+  //       shuffledContributors[j],
+  //       shuffledContributors[i],
+  //     ];
+  //   }
+  //   setContributors(shuffledContributors);
+  // }, []);
+
   return (
     <div
       id="aboutus"
@@ -58,7 +60,7 @@ const About = () => {
                   <div className="relative  ml-2">
                     <img
                       src={contributor.image}
-                      className="w-full rounded-3xl bg-black/50 lg:w-[140px] w-[100px]"
+                      className="rounded-3xl bg-black/50 lg:w-[140px] w-[100px]"
                       alt={contributor.name}
                     />
                     <div className="hoverContainer">
