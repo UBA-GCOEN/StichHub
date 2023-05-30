@@ -61,6 +61,9 @@ Our related [blog post](https://medium.com/@sidd0203/stichhub-38d01da27f37) prov
 
 ## Project Admins
 
+<table>
+   <tr>
+      <td>
 
 [<img src="https://avatars.githubusercontent.com/u/77800620?s=200&u=9c3f4f58397091889e6d06a9ccf6e1ef8c7c6884&v=4" width="200px;"/><br /><sub><b>Siddhant Patil</b></sub>](https://github.com/Siddhant-Patil0203)
 <div >
@@ -69,7 +72,8 @@ Our related [blog post](https://medium.com/@sidd0203/stichhub-38d01da27f37) prov
    <a href="https://twitter.com/Sidd0203"><img src="https://img.icons8.com/color/60/000000/twitter--v2.png" alt="Twitter" /></a>
 </div>
 
-<br>
+</td>
+      <td>
 
 [<img src="https://pbs.twimg.com/profile_images/1487298591236378625/-Zx8DMul_400x400.jpg" width="200px;"/><br /><sub><b>Naresh Chandanbatve</b></sub>](https://github.com/Naresh-chandanbatve)
 <div >
@@ -78,7 +82,8 @@ Our related [blog post](https://medium.com/@sidd0203/stichhub-38d01da27f37) prov
    <a href="https://twitter.com/NareshChandanb1"><img src="https://img.icons8.com/color/60/000000/twitter--v2.png" alt="Twitter" /></a>
 </div>
 
-<br>
+</td>
+      <td>
 
 [<img src="https://media.licdn.com/dms/image/C4E03AQG23TOyYdzKGQ/profile-displayphoto-shrink_800_800/0/1630992132577?e=1690416000&v=beta&t=oh9nVzAaFqpFjIjiJhLmdjc6RqSUCHuruoUrgyhp_SU" width="200px;"/><br /><sub><b>Harshal Lade</b></sub>](https://github.com/LadeHarshal)
 <div >
@@ -87,7 +92,10 @@ Our related [blog post](https://medium.com/@sidd0203/stichhub-38d01da27f37) prov
    <a href="https://twitter.com/Sidd0203"><img src="https://img.icons8.com/color/60/000000/twitter--v2.png" alt="Twitter" /></a>
 </div>
 
-<br>
+</td>
+      </tr>
+   <tr>
+      <td>
 
 [<img src="https://media.licdn.com/dms/image/D5635AQFJ41qoGjjevg/profile-framedphoto-shrink_800_800/0/1649525051562?e=1685815200&v=beta&t=RpaVc8huoiBiMFa23SQAN2XfVAep10Lf8jMJbVzbLRA" width="200px;"/><br /><sub><b>Vishal Kesharwani</b></sub>](https://github.com/vishal10kesharwani)
 <div >
@@ -96,7 +104,8 @@ Our related [blog post](https://medium.com/@sidd0203/stichhub-38d01da27f37) prov
    <a href="https://twitter.com/Vishal46255005"><img src="https://img.icons8.com/color/60/000000/twitter--v2.png" alt="Twitter" /></a>
 </div>
 
-<br>
+</td>
+      <td>
 
 [<img src="https://media.licdn.com/dms/image/D5603AQE1P3SOmWd8gg/profile-displayphoto-shrink_800_800/0/1679335495027?e=1690416000&v=beta&t=m1ShB8DLAvmykJBxtCPhyYPQZa57yhHZKYcwQwdKUPs" width="200px;"/><br /><sub><b>Saurabh Yadav</b></sub>](https://github.com/Saurabb-coder)
 <div >
@@ -105,7 +114,9 @@ Our related [blog post](https://medium.com/@sidd0203/stichhub-38d01da27f37) prov
    <a href="https://twitter.com/Sidd0203"><img src="https://img.icons8.com/color/60/000000/twitter--v2.png" alt="Twitter" /></a>
 </div>
 
-<br>
+</td>
+      </tr>
+   </table>
 
 # Contributing
 This project is open-source and welcomes contributions of all kinds. Whether you're an experienced developer or just starting your journey, your input and ideas are invaluable. Join us in shaping the future of this project and let's create something amazing together!
@@ -140,6 +151,7 @@ This project is open-source and welcomes contributions of all kinds. Whether you
     git clone <your_forked_repo_url>
     ```
   - Replace the API keys in `.env.client` for the frontend and `.env.server` for the backend.
+  - change directory to client/StichHub for frontend development and to server for backend development using cd command.
   - Run the following command to install the dependencies:
     ```bash
     npm install
