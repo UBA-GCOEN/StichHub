@@ -14,7 +14,7 @@ diverse, inclusive, and healthy community.
 
 ## Our Standards
 
-Examples of behavior that contributes to a positive environment for our
+Examples of behaviors that contributes to a positive environment for our
 community include:
 
 * Demonstrating empathy and kindness toward other people
@@ -64,7 +64,7 @@ gmail.
 All complaints will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the
-reporter of any incident.
+reporters of any incident.
 
 ## Enforcement Guidelines
 
