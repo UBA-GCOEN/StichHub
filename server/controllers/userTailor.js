@@ -32,12 +32,12 @@ export const signin = async (req, res) => {
       const url = `http://localhost:5173/verify-email/${token}`;
 
       const options = {
-        name: result.name,
-        email: result.email,
+        name: oldUser.name,
+        email: oldUser.email,
         subject: "Verify Email",
         message_Content:
           "<p> Hi " +
-          result.name +
+          oldUser.name +
           ",<br /> Please verify your Tailor StichHub Account by clicking on the verification link. This Verification link is valid for 5:00 minutes <br /> <a href =" +
           url +
           " >Verify</a></p> ",
@@ -65,7 +65,7 @@ export const register = async (req, res) => {
   const { name, email, password, confirmPassword, mobile } = req.body;
 
   try {
-    if (!name || !email || !mobile || !password || !confirmPassword) {
+    if (!name || !email || !password || !confirmPassword) {
       return res.status(500).json({
         success: false,
         message: "Please Fill all the Details.",
@@ -223,7 +223,7 @@ export const resendVerificationLink = async (req, res) => {
  */
 export const getMySelf = async (req, res) => {
   try {
-    const tailorUser = req.user;
+    const tailorUser = req.userId;
     return res.status(200).json({
       success: true,
       tailorUser,

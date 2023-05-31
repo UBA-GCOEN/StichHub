@@ -6,7 +6,10 @@ const userTailorSchema = mongoose.Schema({
   email: { type: String, required: true },
   password: { type: String, required: true },
   // adding additional field to improve registration process.
-  mobile: { type: Number, required: true },
+  mobile: {
+    type: Number,
+    // required: true,
+  },
   role: {
     type: String,
     default: "tailor",

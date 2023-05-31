@@ -18,7 +18,9 @@ const authTailor = async (req, res, next) => {
       //decodes token id
       const decoded = jwt.verify(token, SECRET);
 
-      req.user = await userTailorModel.findById(decoded.id).select("-password");
+      req.userId = await userTailorModel
+        .findById(decoded.id)
+        .select("-password");
 
       next();
     } catch (error) {
