@@ -109,12 +109,12 @@ const TailorList = () => {
                   | 12 minutes ago
                 </p>
               </div>
-              <div class="mr-[100px] mt-[20px]">
+              <div class="md:mr-[100px] mt-[20px]">
                 <h1 class="text-xl font-semibold">Title</h1>
                 {item.bio ? (
                   <p class="text-left mt-[20px] mb-[20px]">{item.bio}</p>
                 ) : (
-                  <p class="text-left mt-[20px] mb-[20px] w-[250px] md:w-full">
+                  <p class="text-left mt-[20px] mb-[20px] w-full md:w-full">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Atque neque eos consequatur laudantium aliquam quia
                     quibusdam? Deleniti distinctio, delectus, similique expedita
@@ -132,19 +132,19 @@ const TailorList = () => {
                     </div>
                   ))}
                 </div>
-                <div className="flex flex-col md:flex-row gap-2 py-2 mt-4">
-            <Link to="/TailorDetails" state={{item}}>
-              <button className="text-xs bg-cyan-100 text-black font-medium py-2 px-2 rounded-lg w-fit">
-                More Details
-              </button>
-            </Link>
+                <div className="flex md:flex-row flex-col gap-2 py-2 mt-4 w-full ">
+                  <Link to="/TailorDetails" state={{ item }}>
+                    <button className="text-xs bg-cyan-100 text-black font-medium py-2 px-2 rounded-lg w-full">
+                      More Details
+                    </button>
+                  </Link>
 
-            <Link to={linkTo} state={{ item }}>
-              <button className="text-xs bg-blue-500 px-2 py-2 rounded-lg w-fit md:mt-0 mt-2">
-                Book Tailor
-              </button>
-            </Link>
-          </div> 
+                  <Link to={linkTo} state={{ item }}>
+                    <button className="text-xs bg-blue-500 px-2 py-2 rounded-lg w-full">
+                      Book Tailor
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
