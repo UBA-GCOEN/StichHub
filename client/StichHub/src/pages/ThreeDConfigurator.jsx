@@ -2,13 +2,13 @@ import React from "react";
 import { ControlsMenu, ClothModel, Navbar } from "../components/Configurator";
 import {
   ConfiguratorProvider,
-  useCCustomization
+  useCCustomization,
 } from "../contexts/Configurator";
 
 const ThreeDConfigurator = () => {
   return (
     <ConfiguratorProvider>
-      <div className={`h-[100vh] overflow-hidden`}>
+      <div className={`h-[100vh] overflow-hidden pt-2`}>
         <Navbar />
         <ClothModel />
         <ControlsMenu />
