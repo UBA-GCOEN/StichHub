@@ -61,7 +61,7 @@ const TailorList = () => {
                 src={
                   item.passport.length
                     ? item.passport
-                    : "https://cdn.pixabay.com/photo/2019/03/22/11/03/dressmaker-4073022_1280.jpg"
+                    : "https://img.icons8.com/?size=512&id=492ILERveW8G&format=png"
                 }
                 className="mb-1 w-[60px] h-[60px] rounded-full"
               />
@@ -99,7 +99,7 @@ const TailorList = () => {
                 <span
                   key={id}
                   id="badge-dismiss-default"
-                  className="bg-[#3b82f6] rounded-md px-2 text-white text-[10px] lg:inline-flex items-center py-1 mr-2 sm:text-sm font-medium"
+                  className="bg-indigo-500 rounded-md px-2 text-white text-[10px] lg:inline-flex items-center py-1 mr-2 sm:text-sm font-medium"
                 >
                   {tags}
                  
