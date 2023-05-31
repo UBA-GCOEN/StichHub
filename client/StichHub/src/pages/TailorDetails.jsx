@@ -252,7 +252,7 @@ const TailorDetailsM = () => {
         <div className="flex justify-center">
           <Link to="/home/category" state={{ item: propsData.item }}>
             <div className="text-center m-4 drop-shadow-lg">
-              <button className="drop-shadow-lg bg-[white] hover:bg-[gray] text-black font-semibold py-2 px-4 rounded-full">
+              <button className="drop-shadow-lg bg-[white] hover:bg-[gray] text-black font-semibold py-2 px-4 rounded-md">
                 Book Appointmet
               </button>
             </div>
