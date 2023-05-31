@@ -26,6 +26,7 @@ import { HomeProvider, useHCustomization } from "./contexts/Home";
 import OrderConfirmation from "./components/Home/OrderConfirmation";
 import PaymentSuccess from "./components/Cart/PaymentSuccess";
 import PaymentFailure from "./components/Cart/PaymentFailure";
+import ErrorPage from "./components/ErrorPage/404ErrorPage";
 
 function App() {
   const [userCustomer, setUserCustomer] = useState(
@@ -185,6 +186,10 @@ function App() {
           <Route
             path="/HomeOnlineVisit"
             element={<HomeOnlineVisit />}
+          />
+          <Route
+            path="*"
+            element={<ErrorPage/>}
           />
         </Routes>
       </HomeProvider>
