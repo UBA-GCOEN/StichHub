@@ -1,6 +1,7 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import * as dotenv from "dotenv";
+import sendWelcomeMail from "../services/mail.js";
 dotenv.config();
 
 import userTailorModel from "../models/userTailor.js";
@@ -76,6 +77,9 @@ export const register = async (req, res) => {
     const token = jwt.sign({ email: result.email, id: result._id }, SECRET, {
       expiresIn: "1h",
     });
+
+    let userName = name.split(' ')[0];
+    await sendWelcomeMail(userName, email);
 
     res.status(201).json({ result, token });
   } catch (error) {
