@@ -3,7 +3,6 @@ import { tailorCards } from "../../constants/home";
 import { Link, useLocation } from "react-router-dom";
 import axios from "../../axios.js";
 import { Player } from "@lottiefiles/react-lottie-player";
-
 const TailorList = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [tailorList, setTailorList] = useState([]);
@@ -12,7 +11,7 @@ const TailorList = () => {
 
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem("profile")));
-  },[location])
+  }, [location]);
 
   const getTailor = async () => {
     setIsLoading(true);
@@ -31,10 +30,10 @@ const TailorList = () => {
     getTailor();
   }, [1]);
 
-  const linkTo = (user ? '/home/category' : "/auth/customer")
+  const linkTo = user ? "/home/category" : "/auth/customer";
 
   return (
-    <div className="mx-5 my-5 flex flex-wrap gap-3 sm:gap-7">
+    <div className="mx-5 my-5 flex justify-center flex-wrap gap-3 sm:gap-7">
       {isLoading ? (
         <div className="relative">
           <div className="absolute z-[100] left-[-10vw] lg:left-[30vw] top-[10vh]">
@@ -53,14 +52,18 @@ const TailorList = () => {
       {tailorList.map((item, index) => (
         <div
           key={index}
-          className="p-3 cardGradient w-[43vw] sm:w-[20vw] rounded-lg text-white"
+          className="cursor-pointer transition-all duration-200 ease-in transform sm:hover:scale-105 p-3 cardGradient w-[43vw] sm:w-[20vw] rounded-lg text-white"
         >
           {/* Top Display */}
           <div className="flex justify-between">
             <div>
               <img
-                src={item.passport}
-                className="mb-1 w-[60px] h-[60px] rounded-lg"
+                src={
+                  item.passport.length
+                    ? item.passport
+                    : "https://img.icons8.com/?size=512&id=492ILERveW8G&format=png"
+                }
+                className="mb-1 w-[60px] h-[60px] rounded-full"
               />
               <span className="font-semibold text-lg">{item.name}</span>
             </div>
@@ -85,21 +88,29 @@ const TailorList = () => {
             </div>
           </div>
           {/* middle Display */}
-          <p className="text-xs py-1">{item.bio}</p>
+          <p className="text-xs py-1">
+            {item.bio.length
+              ? item.bio.slice(0, 20)
+              : "I can design all types of designer clothes for women for party and daily wear"}
+          </p>
           <div className="flex flex-wrap gap-1 py-1">
-            {item.types.map((tags, id) => (
-              <div
-                key={id}
-                className="bg-indigo-500 rounded-md px-2 text-white text-xs"
-              >
-                {tags}
-              </div>
-            ))}
+            {item.types
+              .map((tags, id) => (
+                <span
+                  key={id}
+                  id="badge-dismiss-default"
+                  className="bg-indigo-500 rounded-md px-2 text-white text-[10px] lg:inline-flex items-center py-1 mr-2 sm:text-sm font-medium"
+                >
+                  {tags}
+                 
+                </span>
+              ))
+              .slice(0, 3)}
           </div>
 
           {/* Buttons */}
           <div className="flex flex-col justify-between gap-2 py-2">
-            <Link to="/TailorDetails" state={{item}}>
+            <Link to="/TailorDetails" state={{ item }}>
               <button className="text-xs bg-cyan-100 text-black py-2 px-2 rounded-lg w-full">
                 More Details
               </button>
