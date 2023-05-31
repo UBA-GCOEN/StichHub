@@ -34,12 +34,9 @@ export const getTailorList = async (req, res) => {
 };
 
 export const getSpecificTailor = async(req, res) => {
-    console.log(req.userId);
     const userId = req.userId;
-
     try {
         const tailor = await TailorList.findOne({creator: userId});
-        console.log(tailor);
         res.status(200).json(tailor);
     } catch(error) {
         res.status(400).json({message: error.message});

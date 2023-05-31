@@ -6,10 +6,11 @@ import "react-phone-number-input/style.css";
 import Phoneinput from "react-phone-number-input";
 import axios from "../../axios";
 import { Tabs } from "./Tabs";
+import { Player } from "@lottiefiles/react-lottie-player";
 
 const fileTypes = ["JPG", "PNG", "GIF"];
 
-const user = JSON.parse(localStorage.getItem("tailorProfile"));
+const user = await JSON.parse(localStorage.getItem("tailorProfile"));
 
 import {
   CountryDropdown,
@@ -144,7 +145,6 @@ const Profile = () => {
       try{
         const res = await axios.get("/tailors/specific");
         setTailorDetails(res.data);
-        console.log(res.data);
         setIsLoading(false);
   
       } catch(error) {
@@ -158,8 +158,6 @@ const Profile = () => {
     }, [1]);
   
 
-    
-  console.log(tailorDetails.name);
 
   //some custom react hooks
   const [value, setValue] = useState();
@@ -218,7 +216,18 @@ const Profile = () => {
       <>
       {isLoading?
         
-        <h1>Loading...</h1>
+        <div className="relative">
+          <div className="absolute z-[100] left-[-10vw] lg:left-[30vw] top-[10vh]">
+            <Player
+              src="https://assets8.lottiefiles.com/packages/lf20_prjwp0b2.json"
+              background="transparent"
+              speed="1"
+              style={{ height: "500px", width: "500px" }}
+              loop
+              autoplay
+            />
+          </div>
+        </div>
         :      
       
       <div className="ml-[10%] mt-0 mr-10">
@@ -235,10 +244,10 @@ const Profile = () => {
                 <input
                   type="text"
                   name="name"
-                  defaultValue={user?.result.name}
+                  defaultValue={tailorDetails?tailorDetails.name : ""}
                   className="shadow-sm shadow-blue-400 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] disabled:text-gray-500"
                   placeholder="Vishal"
-                  disabled={user?.result.name}
+                  disabled={tailorDetails?tailorDetails.name : ""}
                   required
                 />
               </label>
@@ -252,10 +261,10 @@ const Profile = () => {
                 <input
                   type="text"
                   name="name"
-                  defaultValue={user?.result.name}
+                  defaultValue={tailorDetails?tailorDetails.name : ""}
                   className="shadow-sm shadow-blue-400 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] disabled:text-gray-500"
                   placeholder="John cook"
-                  disabled={user?.result.name}
+                  disabled={tailorDetails?tailorDetails.name : ""}
                   required
                 />
                 <br />
@@ -321,7 +330,7 @@ const Profile = () => {
             <Phoneinput
               className="shadow-sm shadow-blue-400 pl-2 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
               placeholder="Enter phone number"
-              value="8788878786"
+              value={tailorDetails?tailorDetails.contact : ""}
               defaultCountry="IN"
               onChange={setValue}
             />
@@ -334,9 +343,9 @@ const Profile = () => {
                 <input
                   name="city"
                   type="city"
-                  defaultValue="Nagpur"
+                  defaultValue={tailorDetails?tailorDetails.city : ""}
                   className="shadow-sm shadow-blue-400 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
-                  placeholder="Nagpur"
+                  placeholder="City"
                   required
                 />{" "}
               </label>
@@ -350,9 +359,9 @@ const Profile = () => {
                 <input
                   name="state"
                   type="state"
-                  defaultValue="Maharashtra"
+                  defaultValue={tailorDetails?tailorDetails.state : ""}
                   className="shadow-sm shadow-blue-400 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
-                  placeholder="Maharashtra"
+                  placeholder="State"
                   required
                 />{" "}
               </label>
@@ -415,7 +424,7 @@ const Profile = () => {
   const Step2 = () => {
     return (
       <div className="justify-center">
-        <Tabs color="pink" />
+        <Tabs color="pink" tailorDetails={tailorDetails} />
 
         <button
           className="bg-gray-300 w-fit ml-5 mr-5 px-6 py-1.5 rounded-lg text-gray-700 hover:bg-gray-400 top-0"
