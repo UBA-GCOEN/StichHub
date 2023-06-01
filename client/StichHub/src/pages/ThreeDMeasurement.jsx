@@ -299,8 +299,22 @@ const SizeCalculator = () => {
                   handleInput(e);
                 }}
                 onChange={(e) => setHeight(Number(e.target.value))}
+              /><br></br>
+              <div className="flex flex-row justify-between w-[80%] mb-4">
+              <input
+                type="number"
+                value={minValue}
+                className="font-bold"
+                min={18}
+                max={80}
+                step={1}
+                onInput={(e) => {
+                  handleInput(e);
+                }}
+                onChange={(e) => setHeight(Number(e.target.value))}
               />
-              <div className="font-bold text-center">{minValue} cm</div>
+              <p>cm</p>
+              </div>
             </label>
             <label className="mt-10 text-xl">
               Weight (kg)<br></br>
@@ -314,8 +328,22 @@ const SizeCalculator = () => {
                   handleInput1(e);
                 }}
                 onChange={(e) => setWeight(Number(e.target.value))}
+              /><br></br>
+              <div className="flex flex-row justify-between w-[80%] mb-4">
+              <input
+                type="number"
+                value={minValue2}
+                className="font-bold"
+                min={18}
+                max={80}
+                step={1}
+                onInput={(e) => {
+                  handleInput1(e);
+                }}
+                onChange={(e) => setWeight(Number(e.target.value))}
               />
-              <div className="font-bold text-center">{minValue2} kg</div>
+              <p>kg</p>
+              </div>
             </label>
             <label className="mt-5 text-xl">
               Age<br></br>
@@ -330,9 +358,21 @@ const SizeCalculator = () => {
                   handleInput2(e);
                 }}
                 onChange={(e) => setAge(Number(e.target.value))}
+              /><br></br>
+              <div className="flex flex-row justify-between w-[80%] mb-4">
+              <input
+                type="number"
+                value={minValue3}
+                className="font-bold"
+                min={18}
+                max={80}
+                step={1}
+                onInput={(e) => {
+                  handleInput2(e);
+                }}
+                onChange={(e) => setAge(Number(e.target.value))}
               />
-              <div className="font-bold text-white text-center">
-                {minValue3} years
+              <p> years </p>
               </div>
             </label>
             <label className="mt-10 text-xl">
@@ -349,9 +389,21 @@ const SizeCalculator = () => {
                   handleInput3(e);
                 }}
                 onChange={(e) => setShoeSize(Number(e.target.value))}
+              /><br></br>
+              <div className="flex flex-row justify-between w-[80%] mb-2">
+              <input
+                type="number"
+                value={minValue4}
+                className="font-bold"
+                min={18}
+                max={80}
+                step={1}
+                onInput={(e) => {
+                  handleInput3(e);
+                }}
+                onChange={(e) => setShoeSize(Number(e.target.value))}
               />
-              <div className="font-bold text-center text-white">
-                US {minValue4}
+              <p>US</p>
               </div>
             </label>
           </div>

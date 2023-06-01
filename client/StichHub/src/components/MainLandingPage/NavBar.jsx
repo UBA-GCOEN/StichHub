@@ -1,19 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { navbar, logo, menu, close } from "../../constants/MainLandingPage";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isTop = window.scrollY === 0;
+      setIsScrolled(!isTop);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <nav className="w-[100vw] flex lg:pt-6 justify-center fixed z-[100] pt-3 px-4 lg:p-4">
+    <nav className={`bg ${isScrolled ? "bg-inherit" : "bg-transparent"
+      } w-[100vw] flex lg:pt-6 justify-center fixed z-[100] pt-3 px-4 lg:p-4`}>
       <div className="">
         <a href="#">
           <img
             src={logo}
             alt="StichHub"
-            className=" w-[150px] mr-[100px] mt-2"
+            className=" w-[180px] mr-[100px] mt-2"
           />
         </a>
       </div>
@@ -21,7 +36,7 @@ const NavBar = () => {
         {navbar.map((nav, index) => (
           <li
             key={nav.title}
-            className={`font-poppins font-normal cursor-pointer text-[16px]  ${
+            className={`font-poppins font-normal cursor-pointer hover:text-[#3094d3] hover:scale-125 text-[16px]  ${
               index === navbar.length - 1 ? "mr-0" : "mr-10"
             }`}
             onClick={() => setActive(nav.title)}
@@ -30,7 +45,7 @@ const NavBar = () => {
           </li>
         ))}
       </ul>
-      <Link to="/auth">
+      <Link to="/auth" aria-label="Auth">
         <button className="hidden lg:block bg-white rounded-xl w-fit lg:px-5  shadow-xl drop-shadow-2xl mt-[6px] ml-14">
           <span className="text-[16px] text-black">Get Started</span>
         </button>
@@ -63,7 +78,7 @@ const NavBar = () => {
               </li>
             ))}
 
-            <Link to="/auth">
+            <Link to="/auth" aria-label="Auth">
               <button className="px-3 bg-white rounded-xl w-fit shadow-xl drop-shadow-2xl mt-20">
                 <span className="text-[16px] text-black">Get Started</span>
               </button>

@@ -99,7 +99,7 @@ const BottomSection = () => {
         )}
       </div>
 
-      <div className="">
+      <div className="" style={{height: "10vh"}}>
         <div id="parts" className={`flex justify-between cursor-pointer`}>
           {sleeveType.typeName === "Sleeve 1"
             ? shirtPart.map((item, index) => (
@@ -109,6 +109,7 @@ const BottomSection = () => {
                     index < part ? "border-indigo-500" : "border-gray-200"
                   } p-1 mt-2 text-sm`}
                   onClick={() => setPart(index)}
+                  style={{color: "rgb(59 130 246)"}}
                 >
                   {item.text}
                 </div>
@@ -122,12 +123,14 @@ const BottomSection = () => {
                       index < part ? "border-indigo-500" : "border-gray-200"
                     } p-1 mt-2 text-sm`}
                     onClick={() => setPart(index)}
+                    
                   >
                     {item.text}
                   </div>
                 ))}
         </div>
       </div>
+      
     </div>
   );
 };

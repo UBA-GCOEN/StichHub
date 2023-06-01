@@ -36,9 +36,9 @@ const Navbar = () => {
       <div className="flex justify-between sm:justify-center">
         {/* Logo */}
         <div className="flex mt-2">
-          <div className="ml-5">
+          <a href="/" className="ml-5">
             <img src={logo} alt="stichHub" className="w-[120px] sm:w-[140px]" />
-          </div>
+          </a>
         </div>
 
         {/* Search */}

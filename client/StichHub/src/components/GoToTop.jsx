@@ -47,8 +47,8 @@ const Wrapper = styled.section`
     width: 4rem;
     height: 4rem;
     color: #fff;
-    background-color:black;
-    box-shadow:rgba(0,0,0,0.2) 0px 0px 10px 0px;
+    background-color: black;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px 0px;
     border-radius: 50%;
     position: fixed;
     bottom: 3rem;
@@ -60,29 +60,26 @@ const Wrapper = styled.section`
     cursor: pointer;
 
     &--icon {
-      animation: gototop 1.2s linear infinite alternate-reverse;
+      animation: gototop 900ms linear infinite alternate-reverse;
     }
 
     @keyframes gototop {
       0% {
-        transform: translateY(-0.5rem);
+        transform: translateY(-0.125rem);
       }
       100% {
-        transform: translateY(1rem);
+        transform: translateY(0.125rem);
       }
     }
   }
 
-  @media (max-width:768px) {
+  @media (max-width: 768px) {
     .top-btn {
       bottom: 2rem;
 
       right: 2rem;
-
     }
   }
 `;
 
-
 export default GoToTop;
-
