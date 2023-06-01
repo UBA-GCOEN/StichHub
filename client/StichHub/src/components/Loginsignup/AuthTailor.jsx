@@ -109,7 +109,7 @@ const AuthTailor = () => {
         <div className="relative z-[5]">
           {/* logo */}
  overflow-iss
-          <div className="flex justify-center mt-6">
+         
 
           <a href="/" className="flex justify-center mt-10">
  main
