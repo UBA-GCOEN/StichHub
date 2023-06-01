@@ -285,7 +285,7 @@ const SizeCalculator = () => {
           <h1 className="text-center text-3xl mx-10 mt-10 font-bold">
             Create Your Measurement
           </h1>
-          <div className="text-left ml-14 lg:ml-[18%] mt-10">
+          <div className="text-left ml-10 lg:ml-[18%] mt-2">
             <label className="mt-10 text-xl ">
               <label className="text-left">Height (cm)</label>
               <br></br>
@@ -444,7 +444,7 @@ const SizeCalculator = () => {
           </label>
 
           <button
-            className="bg-blue-500 w-fit ml-[35%] lg:ml-[47%]  px-5 mt-5 text-xl font-semibold py-3 mx-20 rounded-2xl drop-shadow-md shadow-inner-xl"
+            className="bg-blue-500 w-fit ml-[35%] lg:ml-[47%]  px-5 mt-3 text-xl font-semibold py-3 mx-20 rounded-2xl drop-shadow-md shadow-inner-xl"
             onClick={() => {
               setCreate2(!create2);
               handleCalculate();
