@@ -585,14 +585,14 @@ const Manual = (props) => {
   //   // setOrderDetails.measurements.neckSize = props.neckSize;
   // }
   return (
-    <div className="bg-primary justify-center text-center mt-10 lg:mx-20">
+    <div className="bg-primary justify-center text-center mt-10 lg:mx-20 lg:overflow-hidden h-[85vh]">
       <div className="text-white text-3xl font-bold m-5">
         Provide Your Measurement Details
       </div>
 
-      <div className="grid grid-col-2 grid-row-3 col-start-2 mb-3 gap-3 lg:gap-10 text-black mt-7 p-[10px] justify-center">
-        <div className="text-white row-start-2 text-justify lg:row-span-4 bg-primary min-h-screen flex items-center justify-center">
-          <div className="bg-white bg-opacity-30 p-8 shadow-md rounded-md max-w-2lg w-full">
+      <div className="grid mb-3 gap-3 lg:gap-10 text-black mt-7 p-[10px] justify-center">
+        <div className="text-white row-start-2 text-justify lg:row-span-4 bg-primary min-h-screen flex  justify-center">
+          <div className="bg-white bg-opacity-30 p-8 shadow-md rounded-md max-w-2lg w-full lg:overflow-x-scroll lg:h-1/6">
             <h1 className="text-2xl text-center font-semibold mb-6">
               Tailor Guide: How to Take Body Measurements
             </h1>
