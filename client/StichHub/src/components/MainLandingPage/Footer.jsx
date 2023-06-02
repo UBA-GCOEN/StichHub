@@ -32,7 +32,7 @@ const Footer = () => {
             </div>
             <div className="col-start-2 col-end-3 ">
               <input
-                className="rounded-lg bg-white text-black p-2 m-2"
+                className="w-[9rem] lg:w-[15rem] rounded-lg bg-white text-black p-2 m-2"
                 type="text"
                 placeholder="Enter email"
               />
