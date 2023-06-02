@@ -1,0 +1,78 @@
+name: Assign Label to Assigned Issues
+
+on:
+  issues:
+    types:
+      - assigned
+
+jobs:
+  assign-label:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Assign Label
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issue = context.payload.issue;
+            const labelToAdd = '🚧STATUS : in progress';
+            const labelToRemove = '⏳STATUS : waiting for triage';
+            const labelToRemove2 = '👍STATUS : ready to assign';
+            const labelToRemove3 = 'question';
+
+            await github.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              labels: [labelToAdd],
+            });
+
+            const { data: labels } = await github.issues.listLabelsOnIssue({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+            });
+
+            const labelExists = labels.some(label => label.name === labelToRemove);
+            const labelExists2 = labels.some(label => label.name === labelToRemove2);
+            const labelExists3 = labels.some(label => label.name === labelToRemove3);
+
+            if (labelExists) {
+              await github.issues.removeLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                name: labelToRemove,
+              });
+            }
+
+            if (labelExists2) {
+              await github.issues.removeLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                name: labelToRemove2,
+              });
+            }
+            
+            if (labelExists3) {
+
+              await github.issues.removeLabel({
+
+                owner: context.repo.owner,
+
+                repo: context.repo.repo,
+
+                issue_number: issue.number,
+
+                name: question,
+
+              });
+
+            }
+
+
