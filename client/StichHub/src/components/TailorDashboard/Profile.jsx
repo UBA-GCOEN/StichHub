@@ -10,7 +10,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 
 const fileTypes = ["JPG", "PNG", "GIF"];
 
-const user = await JSON.parse(localStorage.getItem("tailorProfile"));
+
 
 import {
   CountryDropdown,
@@ -139,6 +139,7 @@ const Profile = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [tailorDetails, setTailorDetails] = useState(null);
 
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   
     const fetchData = async () => {
       setIsLoading(true);
@@ -155,6 +156,7 @@ const Profile = () => {
 
     useEffect(() => {
       fetchData();
+      setUser(JSON.parse(localStorage.getItem("tailorProfile")));
     }, [1]);
   
 
