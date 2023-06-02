@@ -55,7 +55,7 @@ const TailorList = () => {
       {tailorList.map((item, index) => (
         <div
           key={index}
-          className="p-3 cardGradient min-w-full min-h-[30px] sm:w-[20vw]
+          className="p-3 md:my-0 my-5 cardGradient min-w-full min-h-[30px] hover:scale-105 sm:w-[20vw] transition-all duration-200 ease-in transform md:hover:scale-105
            rounded-lg text-white bg-violet-300"
         >
           {/* Top Display */}
