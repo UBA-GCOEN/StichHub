@@ -3,12 +3,19 @@
 *{
   font-family: "Quicksand","sans-serif",
 }
+
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 ::-webkit-scrollbar {
   width: 7px;
   height: 5px;
   display: block;
+}
+
+#ourServices, #howitworks, #aboutus, #contactus {
+  padding-top: 7rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -42,9 +49,6 @@
   border-radius: 20px;
   border: 3px solid aquamarine;
 }
-
-@tailwind components;
-@tailwind utilities;
 
 .modelGradient {
   background: linear-gradient(
