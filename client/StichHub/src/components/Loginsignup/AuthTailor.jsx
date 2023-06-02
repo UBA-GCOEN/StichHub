@@ -80,7 +80,7 @@ const AuthTailor = () => {
   };
 
   return (
-    <div className="bg-gray-800 h-[100vh] flex justify-between overflow-hidden">
+    <div className="bg-gray-800 h-[105vh] flex justify-between overflow-hidden">
       {/* Loading Animations */}
       {isLoading ? (
         <div className="relative">
@@ -97,7 +97,7 @@ const AuthTailor = () => {
         </div>
       ) : null}
       {/* Left Side (img)*/}
-      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.png')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10 rounded-l-3xl">
+      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.png')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10  rounded-2xl">
         <img
           src={shortlogo}
           className="w-[5vw] absolute bottom-14 left-5"
@@ -108,11 +108,15 @@ const AuthTailor = () => {
       <div className="relative bg-primary w-full lg:w-[49vw] my-10 rounded-3xl lg:rounded-r-3xl">
         <div className="relative z-[5]">
           {/* logo */}
+ 
+         
+
           <a href="/" className="flex justify-center mt-10">
+ 
             <img src={logo} className="w-[240px]" />
           </a>
           {/* title */}
-          <div className="flex justify-center my-4">
+          <div className="flex justify-center my-1">
             <div>
               <img src={tailorimg} alt="" className="w-[60px] mr-5" />
             </div>
@@ -263,7 +267,7 @@ const AuthTailor = () => {
                 </button>
               </div>
 
-              <h1 className="text-center text-white text-xl py-4">or</h1>
+              <h1 className="text-center text-white text-xl py-1">or</h1>
 
               <div className="flex justify-center">
                 <GoogleLogin
