@@ -32,7 +32,7 @@ const Navbar = () => {
   const linkToMeasurement = user ? "/Cart" : "/auth/customer";
 
   return (
-    <nav className="pt-3">
+    <nav className="mt-3">
       <div className="flex justify-between sm:justify-center">
         {/* Logo */}
         <div className="flex mt-2">
