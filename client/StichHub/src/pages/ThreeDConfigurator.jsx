@@ -8,7 +8,7 @@ import {
 const ThreeDConfigurator = () => {
   return (
     <ConfiguratorProvider>
-      <div className={`h-[100vh] overflow-hidden pt-2`}>
+      <div className={`h-[100vh] overflow-hidden`}>
         <Navbar />
         <ClothModel />
         <ControlsMenu />
