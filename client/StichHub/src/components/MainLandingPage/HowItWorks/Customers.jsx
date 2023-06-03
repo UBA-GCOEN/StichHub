@@ -42,18 +42,18 @@ const Customers = () => {
         </div>
 
         {/*For Mobile Steps */}
-        <div id="steps" className="lg:hidden flex flex-wrap justify-between">
+        <div id="steps" className="lg:hidden flex flex-col flex-wrap justify-center items-center">
           {/* Steps */}
           {hiwcustomer.map((item, index) => (
             <div
               key={index}
               id="step1"
-              className="w-[40vw] flex flex-col justify-center mt-16"
+              className="w-[40vw] flex items-center mr-8 mt-16"
             >
-              <div className="flex justify-center">
+              <div className="flex flex-col justify-center items-center ">
               <div
                 id="stepNumber"
-                className=" w-10 p-1 lg:py-[10px] bg-[#B100AA] text-center lg:w-[60px] lg:h-[60px] rounded-full lg:ml-[95px] mb-5"
+                className="flex items-center justify-center w-10 p-1 lg:py-[10px] bg-[#B100AA] text-center sm:w-[60px] sm:h-[60px] rounded-full lg:ml-[95px] "
               >
                 {item.step}
               </div>
