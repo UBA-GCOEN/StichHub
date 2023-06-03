@@ -36,9 +36,9 @@ const NavBar = () => {
         {navbar.map((nav, index) => (
           <li
             key={nav.title}
-            className={`font-poppins font-normal cursor-pointer hover:text-[#3094d3] hover:scale-125 text-[16px]  ${
+            className={`font-poppins font-normal cursor-pointer hover:text-[#3094d3] hover:scale-125 text-[16px]  transition-colors duration-300 transform dark:hover:text-gray-200 hover:border-blue-500 ${
               index === navbar.length - 1 ? "mr-0" : "mr-10"
-            }`}
+            } ${active === nav.title ? 'underline-effect-class active' : ''} `}
             onClick={() => setActive(nav.title)}
           >
             <a href={`#${nav.id}`}>{nav.title}</a>
@@ -46,11 +46,11 @@ const NavBar = () => {
         ))}
       </ul>
       <Link to="/auth" aria-label="Auth">
-        <button className="hidden lg:block bg-white rounded-xl w-fit lg:px-5  shadow-xl drop-shadow-2xl mt-[6px] ml-14">
+        <button className="hidden lg:block bg-white rounded-xl w-fit lg:px-5  shadow-xl drop-shadow-2xl mt-[6px] ml-14 hover:scale-105 active:scale-95 transition-transform duration-300">
           <span className="text-[16px] text-black">Get Started</span>
         </button>
       </Link>
-      <div className="lg:hidden flex flex-1 justify-end items-center">
+      <div className="lg:hidden flex flex-1 justify-end items-center cursor-pointer">
         <img
           src={toggle ? close : menu}
           alt="menu"
@@ -67,10 +67,10 @@ const NavBar = () => {
             {navbar.map((nav, index) => (
               <li
                 key={nav.id}
-                className={`font-poppins font-medium cursor-pointer text-[16px] ${
+                className={`font-poppins font-medium cursor-pointer text-[16px] hover:text-white hover:scale-105 ${
                   index === navbar.length - 1 ? "mb-0" : "mb-4"
                 } 
-                ${active === nav.title ? "text-white" : "text-gray-500"}
+                ${active === nav.title ? "text-white hamburger-effect" : "text-gray-500"}
                 }`}
                 onClick={() => setActive(nav.title)}
               >
@@ -79,7 +79,7 @@ const NavBar = () => {
             ))}
 
             <Link to="/auth" aria-label="Auth">
-              <button className="px-3 bg-white rounded-xl w-fit shadow-xl drop-shadow-2xl mt-20">
+              <button className="px-3 bg-white rounded-xl w-fit shadow-xl drop-shadow-2xl mt-20 hover:scale-95 active:scale-95 transition-transform duration-300">
                 <span className="text-[16px] text-black">Get Started</span>
               </button>
             </Link>
