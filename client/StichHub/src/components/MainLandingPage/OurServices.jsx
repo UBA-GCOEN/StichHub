@@ -29,7 +29,7 @@ const OurServices = () => {
                 You can choose your own style, see how it looks as well as choose from a choice of tailor whom you want to get your clothes stitched from.{" "}
               </p>
               <Link to="/CustomersPage">
-                <button className="px-4 py-2 lg:p-4 bg-white text-black rounded-xl text-lg font-medium lg:m-5 cursor-pointer">
+                <button  className="px-4 py-2 lg:p-4 bg-white text-black rounded-xl text-lg font-medium lg:m-5 cursor-pointer transition-all duration-300 ease-in hover:bg-black hover:text-white">
                   Explore Now
                 </button>
               </Link>
@@ -50,7 +50,7 @@ const OurServices = () => {
                 You can keep track of your orders, showcase your previous work as well as add your specialities to your profile to increase customer-base.{" "}
               </p>
               <Link to="/auth">
-                <button className="px-4 py-2 lg:p-4 bg-white text-black rounded-xl text-lg font-medium lg:m-5 cursor-pointer">
+                <button  className="px-4 py-2 lg:p-4 bg-white text-black rounded-xl text-lg font-medium lg:m-5 cursor-pointer transition-all duration-300 ease-in hover:bg-black hover:text-white">
                   Get Started
                 </button>
               </Link>
