@@ -47,6 +47,9 @@ const ContactUs = () => {
     if (res.ok) {
       setIsLoading(false);
       alert("Your message has been sent successfully");
+    }else{
+      setIsLoading(false);
+      alert("Something went wrong, please try again later");
     }
 
     //reset the form
