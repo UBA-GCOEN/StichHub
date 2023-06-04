@@ -27,7 +27,7 @@ const Tailors = () => {
             >
               <div
                 id="stepNumber"
-                className={`relative py-[10px] bg-[#B100AA] text-center w-[60px] h-[60px] rounded-full  ${item.step!=4 ? "after:content-[''] after:w-[240px] after:h-[1px] after:bg-white after:absolute after:top-[50%] after:left-[100%] lg:after:w-[170px] xl:after:w-[230px] 2xl:after:w-[280px] 3xl:after:w-[450px]" : null}`}
+                className={`border border-black border-4 rounded-full text-black relative py-[10px] bg-[#02FBFF] text-center w-[60px] h-[60px] rounded-full  ${item.step!=4 ? "after:content-[''] after:w-[240px] after:h-[1px] after:bg-white after:absolute after:top-[50%] after:left-[100%] lg:after:w-[170px] xl:after:w-[230px] 2xl:after:w-[280px] 3xl:after:w-[450px]" : null}`}
               >
                 {item.step}
               </div>
@@ -59,7 +59,7 @@ const Tailors = () => {
               <div className="flex flex-col justify-center items-center">
                 <div
                   id="stepNumber"
-                  className="flex items-center justify-center w-10 p-1 lg:py-[10px] bg-[#B100AA] text-center sm:w-[60px] sm:h-[60px] rounded-full lg:ml-[95px] "
+                  className="border border-black border-4 rounded-full text-black flex items-center justify-center w-10 p-1 lg:py-[10px] bg-[#02FBFF] text-center sm:w-[50px] sm:h-[50px] rounded-full lg:ml-[95px] "
                 >
                   {item.step}
                 </div>
