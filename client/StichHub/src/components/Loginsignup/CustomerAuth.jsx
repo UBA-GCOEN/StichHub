@@ -85,7 +85,7 @@ const CustomerAuth = () => {
   };
 
   return (
-    <div className="bg-gray-800 h-[100vh] flex justify-between overflow-hidden">
+    <div className="bg-gray-800 h-[105vh] flex justify-between overflow-hidden">
       {/* Loading Animations */}
       {isLoading ? (
         <div className="relative">
@@ -105,11 +105,11 @@ const CustomerAuth = () => {
       <div className="relative bg-primary w-full lg:w-[49vw] my-10 rounded-3xl lg:rounded-r-3xl">
         <div className="relative z-[5]">
           {/* logo */}
-          <a href="/" className="flex justify-center mt-10">
+          <a href="/" className="flex justify-center mt-6">
             <img src={logo} className="w-[240px]" />
           </a>
           {/* title */}
-          <div className="flex justify-center my-4">
+          <div className="flex justify-center my-1">
             <div>
               <img src={customerimg} alt="" className="w-[50px] mr-5" />
             </div>
@@ -261,7 +261,7 @@ const CustomerAuth = () => {
                 </button>
               </div>
 
-              <h1 className="text-center text-white text-xl py-4">or</h1>
+              <h1 className="text-center text-white text-xl py-2">or</h1>
 
               <div className="flex justify-center">
                 <GoogleLogin
@@ -300,3 +300,5 @@ const CustomerAuth = () => {
 };
 
 export default CustomerAuth;
+
+
