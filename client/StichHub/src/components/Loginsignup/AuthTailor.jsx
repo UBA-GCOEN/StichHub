@@ -277,6 +277,15 @@ const AuthTailor = () => {
                 />
               </div>
               <h1 className="text-center text-white text-md pt-6">
+              {isregister ? "" : 
+                <a
+                  className="cursor-pointer text-blue-400"
+                  onClick={()=>{
+                    navigateTo("/forgotpassword/tailor");
+                  }}
+                >
+                  Forgot Password?
+                </a>}<br/>
                 {isregister ? "Already a user?" : "Don't have an account?"}
                 <a
                   className="cursor-pointer text-blue-400"

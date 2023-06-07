@@ -18,6 +18,7 @@ import {
 } from "./pages";
 import CustomerAuth from "./components/Loginsignup/CustomerAuth";
 import AuthTailor from "./components/Loginsignup/AuthTailor";
+import ForgotPassword from "./components/Loginsignup/ForgotPassword";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Category, CustomerOrder } from "./components/Home";
 import NewTailor from "./components/TailorDashboard/NewTailor";
@@ -186,6 +187,10 @@ function App() {
           <Route
             path="/HomeOnlineVisit"
             element={<HomeOnlineVisit />}
+          />
+          <Route
+            path="/forgotpassword/:userType"
+            element={<ForgotPassword />}
           />
           <Route
             path="*"
