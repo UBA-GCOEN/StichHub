@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
-import logo from "../../assets/logo/Long - Logo Transparent (Black).png";
+import logo from "../../assets/logo/Long - Logo Transparent (White).png";
 
 const Navbar = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   const [toggle, setToggle] = useState(false);
   const location = useLocation();
   const navigateTo = useNavigate();
-
+//   const Style = { color: 'White' };
   useEffect(() => {
     const token = user?.token;
 
@@ -55,8 +55,8 @@ const Navbar = () => {
         <div className="mx-5">
           {user?.result ? (
             <div className="flex ">
-              <span className="mt-2">Welcome! &nbsp;</span>
-              <span className="text-indigo-600 mr-3 mt-2">
+              <span className="mt-2 text-white">Welcome! &nbsp;</span>
+              <span className="text-indigo-300 mr-3 mt-2">
                 {" "}
                 {user?.result.name}{" "}
               </span>
