@@ -18,7 +18,7 @@ const MainLandingPage = () => {
       <GoToTop />
       <NavBar />
       <LandingPageDemo>
-        <Home />
+      <Home />
       </LandingPageDemo>
       <OurServices />
       <HowItWorks />
