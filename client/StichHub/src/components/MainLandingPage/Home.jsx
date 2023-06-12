@@ -25,7 +25,7 @@ const Home = () => {
   });
 
   return (
-    <div id="" className="mt-10 lg:pt-10 lg:mt-10 h-[100vh] relative">
+    <div id="" className="my-10 lg:pt-10 lg:mt-10 h-[100vh] relative">
       <div className="relative lg:px-20 pt-10 flex flex-col lg:flex-row justify-evenly z-[5]">
         {/* Mobile Model */}
         <div className="flex relative lg:hidden">
