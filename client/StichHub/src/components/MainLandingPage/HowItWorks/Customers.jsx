@@ -23,7 +23,7 @@ const Customers = () => {
             <div
               key={index}
               id="step1"
-              className="w-[250px] flex flex-col  items-center mt-16"
+              className="w-[250px] flex flex-col  items-center mt-16 hover:scale-110 transition-transform duration-300 cursor-pointer"
             >
               <div
                 id="stepNumber"
