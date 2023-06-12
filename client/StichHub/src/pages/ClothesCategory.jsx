@@ -53,15 +53,14 @@ const ClothesCategory = () => {
 
         <div class="flex overflow-x-auto gap-4 m-[5%] w-1/1 sm:w-1/1 mb-[20%] lg:overflow-visible lg:justify-center">
           {/* first block */}
-          <div class="bg-[#ED5050] flex-shrink-0  rounded-[10px]  h-[200px] w-[200px] text-white text-center font-bold pt-3">
+          <div class="bg-[#ED5050] flex-shrink-0 rounded-[10px] h-[200px] w-[200px] text-white text-center font-bold pt-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
             Shirt/ Pants
-            <img
-              src="https://cdn3d.iconscout.com/3d/premium/thumb/fashion-6807362-5600842.png?f=webp"
-              className="w-[90%] "
-            />
-          </div>
+           <img src="https://cdn3d.iconscout.com/3d/premium/thumb/fashion-6807362-5600842.png?f=webp" class="w-[90%]" />
+           </div>
+
+ 
           {/* 2nd block */}
-          <div class="bg-[#FFBB54] flex-shrink-0  rounded-[10px]  h-[200px] w-[200px] text-white text-center font-bold pt-3 ...">
+          <div class="bg-[#FFBB54] flex-shrink-0 rounded-[10px] h-[200px] w-[200px] text-white text-center font-bold pt-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
             Coat/ Suits
             <img
               src="https://cdn3d.iconscout.com/3d/premium/thumb/shirt-shopping-6802508-5602012.png"
@@ -69,7 +68,7 @@ const ClothesCategory = () => {
             />
           </div>
           {/* 3rd block */}
-          <div class="bg-[#00732E] flex-shrink-0 rounded-[10px] h-[200px] w-[200px] text-white text-center font-bold pt-3 ...">
+          <div class="bg-[#00732E] flex-shrink-0 rounded-[10px] h-[200px] w-[200px] text-white text-center font-bold pt-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
             Lehengas
             <img
               src={gr1}
@@ -77,12 +76,12 @@ const ClothesCategory = () => {
             />
           </div>
           {/* 4th block */}
-          <div class="bg-[#98C1FF] flex-shrink-0 rounded-[10px] h-[200px] w-[200px] text-white text-center font-bold pt-3 ...">
+          <div class="bg-[#98C1FF] flex-shrink-0 rounded-[10px] h-[200px] w-[200px] text-white text-center font-bold pt-3 hover:scale-110 transition-transform duration-300 cursor-pointer.">
             Kurta/Kurti/Pajamas
             <img src={gr3} className="object-cover pt-5 ml-5  " />
           </div>
           {/* 5th block */}
-          <div class="bg-[#E786FF] flex-shrink-0 rounded-[10px] h-[200px] w-[200px] text-white text-center font-bold pt-3 ...">
+          <div class="bg-[#E786FF] flex-shrink-0 rounded-[10px] h-[200px] w-[200px] text-white text-center font-bold pt-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
             formals/ Offices <br />
             <img
               src="https://cdn3d.iconscout.com/3d/premium/thumb/coat-6249197-5117392.png?f=webp"
@@ -95,7 +94,7 @@ const ClothesCategory = () => {
       {/* Mens category layout  */}
       <div className="grid lg:grid-col-2  lg:w-[90%] h-auto rounded-r-2xl bg-gradient-to-r from-neutral-700 to-neutral-800 sm:w-[100%]">
         {/* image */}
-        <div class="mb-[10%] bg-transparent lg:ml-[8%] mt-[-7%] col-start-1  rounded-[10px] col-end-2 h-[300px] lg:w-[500px] text-white text-center font-bold pt-3 ">
+        <div class="mb-[10%] bg-transparent lg:ml-[8%] mt-[-7%] col-start-1  rounded-[10px] col-end-2 h-[300px] lg:w-[500px] text-white text-center font-bold pt-3">
           <img
             src="https://imgeng.jagran.com/images/2022/sep/men%20formal%20shirts1663832127171.jpg"
             className="flex ml:0 lg:ml-[70px] w-[90%] h-[100%] rounded-2xl shadow-md "
@@ -108,7 +107,7 @@ const ClothesCategory = () => {
         {/* small blocks for categories */}
         <div class="grid  col-start-1  bg-transparent m-[1%] lg:col-start-2 rounded-[10px] lg:col-end-3 text-white text-center font-bold p-5 ...">
           {/* 1st */}
-          <div class="relative   rounded-[10px] h-[200px] w-[100px]  lg:w-[60%] text-white text-center font-bold pt-3">
+          <div class="relative   rounded-[10px] h-[200px] w-[100px]  lg:w-[60%] text-white text-center font-bold pt-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
             <img
               src="https://images.unsplash.com/photo-1602810319428-019690571b5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
               className=" object-cover rounded-t-xl h-[150px] "
@@ -118,7 +117,7 @@ const ClothesCategory = () => {
             </div>
           </div>
           {/* 2nd */}
-          <div class="relative col-start-2  rounded-[10px] col-end-3 h-[200px]  w-[100px] lg:w-[60%] text-white text-center font-bold pt-3">
+          <div class="relative col-start-2  rounded-[10px] col-end-3 h-[200px]  w-[100px] lg:w-[60%] text-white text-center font-bold pt-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
             <img
               src="https://s.alicdn.com/@sc04/kf/Hcb6130a3858f4ed1877eb4a5ef467fad0.jpg_300x300.jpg"
               className=" object-cover rounded-t-xl h-[150px] w-full "
@@ -128,7 +127,7 @@ const ClothesCategory = () => {
             </div>
           </div>
           {/* 3rd */}
-          <div class="relative col-start-3  rounded-t-xl-[10px] col-end-4 h-[200px]  w-[100px] lg:w-[60%] text-white text-center font-bold pt-3">
+          <div class="relative col-start-3  rounded-t-xl-[10px] col-end-4 h-[200px]  w-[100px] lg:w-[60%] text-white text-center font-bold pt-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
             <img
               src="https://img.freepik.com/premium-photo/new-business-men-s-suits-are-hanging-hangers-store-modern-fashionable-clothes-luxury-store-with-mens-clothing-designer-business-suits_678914-6119.jpg?w=740"
               className=" object-cover rounded-t-xl h-[150px] "
@@ -138,7 +137,7 @@ const ClothesCategory = () => {
             </div>
           </div>
           {/* 4th */}
-          <div class="relative col-start-1  rounded-[10px] col-end-2 h-[200px]  w-[100px] lg:w-[60%] text-white text-center font-bold pt-3">
+          <div class="relative col-start-1  rounded-[10px] col-end-2 h-[200px]  w-[100px] lg:w-[60%] text-white text-center font-bold pt-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
             <img
               src="https://media.istockphoto.com/id/887360960/photo/mens-suits-on-hangers-in-different-colors.jpg?s=170667a&w=0&k=20&c=T9rwqgwv45lssYlSekcUP901NuVq-2A8PS9Vt4skHA8="
               className=" object-cover  rounded-t-xl h-[150px] "
@@ -148,7 +147,7 @@ const ClothesCategory = () => {
             </div>
           </div>
           {/* 5th */}
-          <div class="relative col-start-2  rounded-[10px] col-end-3 h-[200px]  w-[100px] lg:w-[60%] text-white text-center font-bold pt-3">
+          <div class="relative col-start-2  rounded-[10px] col-end-3 h-[200px]  w-[100px] lg:w-[60%] text-white text-center font-bold pt-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
             <img
               src="https://media.istockphoto.com/id/1408851061/photo/female-summer-wardrobe-in-white-room.jpg?s=612x612&w=0&k=20&c=LNgDm8hEostbQ4xQmvVfIEPk2ex7DFjPnScfg2kUXFQ="
               className=" object-cover rounded-t-xl h-[150px] "
@@ -158,7 +157,7 @@ const ClothesCategory = () => {
             </div>
           </div>
           {/* 6th */}
-          <div class="relative col-start-3  rounded-[10px] col-end-4 h-[200px]  w-[100px] lg:w-[60%] text-white text-center font-bold pt-3">
+          <div class="relative col-start-3  rounded-[10px] col-end-4 h-[200px]  w-[100px] lg:w-[60%] text-white text-center font-bold pt-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
             <img
               src="https://cdn.fcglcdn.com/brainbees/images/products/438x531/10907866a.webp"
               className="  object-cover rounded-t-xl h-[150px] w-full "
@@ -174,7 +173,7 @@ const ClothesCategory = () => {
       <div className="mt-[10%] grid grid-col-2 gap-4 lg:ml-[10%] h-auto rounded-l-2xl bg-gradient-to-r from-neutral-700 to-neutral-800 ">
         <div class="grid grid-col-3 mb-10 ml-[10%] bg-transparent m-[1%] col-start-1 rounded-[10px] col-end-2 text-white text-center font-bold pt-3 ...">
           {/* 1st */}
-          <div class="relative col-start-1  rounded-[10px] col-end-2 h-[200px] w-[100px] lg:w-[60%] text-white text-center font-bold pt-3">
+          <div class="relative col-start-1  rounded-[10px] col-end-2 h-[200px] w-[100px] lg:w-[60%] text-white text-center font-bold pt-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
             <img
               src="https://images.unsplash.com/photo-1602810319428-019690571b5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
               className=" object-cover rounded-t-xl h-[150px] "
@@ -184,7 +183,7 @@ const ClothesCategory = () => {
             </div>
           </div>
           {/* 2nd */}
-          <div class="relative col-start-2  rounded-[10px] col-end-3 h-[200px] w-[100px] lg:w-[60%] text-white text-center font-bold pt-3">
+          <div class="relative col-start-2  rounded-[10px] col-end-3 h-[200px] w-[100px] lg:w-[60%] text-white text-center font-bold pt-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
             <img
               src="https://s.alicdn.com/@sc04/kf/Hcb6130a3858f4ed1877eb4a5ef467fad0.jpg_300x300.jpg"
               className=" object-cover rounded-t-xl h-[150px] w-full "
@@ -194,7 +193,7 @@ const ClothesCategory = () => {
             </div>
           </div>
           {/* 3rd */}
-          <div class="relative col-start-3  rounded-[10px] col-end-4 h-[200px] w-[100px] lg:w-[60%] text-white text-center font-bold pt-3">
+          <div class="relative col-start-3  rounded-[10px] col-end-4 h-[200px] w-[100px] lg:w-[60%] text-white text-center font-bold pt-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
             <img
               src="https://img.freepik.com/premium-photo/new-business-men-s-suits-are-hanging-hangers-store-modern-fashionable-clothes-luxury-store-with-mens-clothing-designer-business-suits_678914-6119.jpg?w=740"
               className=" object-cover rounded-t-xl h-[150px] "
@@ -204,7 +203,7 @@ const ClothesCategory = () => {
             </div>
           </div>
           {/* 4th */}
-          <div class="relative col-start-1  rounded-[10px] col-end-2 h-[200px] w-[100px] lg:w-[60%] text-white text-center font-bold pt-3">
+          <div class="relative col-start-1  rounded-[10px] col-end-2 h-[200px] w-[100px] lg:w-[60%] text-white text-center font-bold pt-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
             <img
               src="https://media.istockphoto.com/id/887360960/photo/mens-suits-on-hangers-in-different-colors.jpg?s=170667a&w=0&k=20&c=T9rwqgwv45lssYlSekcUP901NuVq-2A8PS9Vt4skHA8="
               className=" object-cover rounded-t-xl h-[150px] "
@@ -214,7 +213,7 @@ const ClothesCategory = () => {
             </div>
           </div>
           {/* 5th */}
-          <div class="relative col-start-2  rounded-[10px] col-end-3 h-[200px] w-[100px] lg:w-[60%] text-white text-center font-bold pt-3">
+          <div class="relative col-start-2  rounded-[10px] col-end-3 h-[200px] w-[100px] lg:w-[60%] text-white text-center font-bold pt-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
             <img
               src="https://media.istockphoto.com/id/1408851061/photo/female-summer-wardrobe-in-white-room.jpg?s=612x612&w=0&k=20&c=LNgDm8hEostbQ4xQmvVfIEPk2ex7DFjPnScfg2kUXFQ="
               className=" object-cover rounded-t-xl h-[150px] w-full "
@@ -224,7 +223,7 @@ const ClothesCategory = () => {
             </div>
           </div>
           {/* 6th */}
-          <div class="relative col-start-3  rounded-[10px] col-end-4 h-[200px] w-[100px] lg:w-[60%] text-white text-center font-bold pt-3">
+          <div class="relative col-start-3  rounded-[10px] col-end-4 h-[200px] w-[100px] lg:w-[60%] text-white text-center font-bold pt-3 hover:scale-110 transition-transform duration-300 cursor-pointer">
             <img
               src="https://cdn.fcglcdn.com/brainbees/images/products/438x531/10907866a.webp"
               className=" object-cover rounded-t-xl h-[150px] w-full "
@@ -264,7 +263,7 @@ const ClothesCategory = () => {
         {/* men's fabric blocks */}
         <div class="flex overflow-x-auto gap-4 m-[5%] lg:justify-center lg:ml-0  spcae-x-8 w-1/1 sm:w-1/1 mb-[15%]  lg:overflow-x-none mt-[5%] ">
           {/* 1st */}
-          <div class="bg-[#ED5050] flex-shrink-0  col-start-1  rounded-[10px] col-end-2 h-[200px] w-[200px] text-white text-center font-bold">
+          <div class="bg-[#ED5050] flex-shrink-0  col-start-1  rounded-[10px] col-end-2 h-[200px] w-[200px] text-white text-center font-bold ">
             <img
               src="https://threadsmonthly.com/wp-content/uploads/2020/10/cotton-plaid-flannel-fabric-minervacrafts.jpg"
               className=" object-fill h-[200px] w-[100%] rounded-xl"
@@ -346,3 +345,5 @@ const ClothesCategory = () => {
 };
 
 export default ClothesCategory;
+
+// Vercel Deployment Commit //! Delete this comment later
