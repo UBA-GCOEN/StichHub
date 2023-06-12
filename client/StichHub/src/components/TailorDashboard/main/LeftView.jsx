@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import jwt_decode from "jwt-decode";
 import {
   Squares2X2Icon,
   UserIcon,
@@ -13,6 +14,23 @@ const LeftView = (props) => {
       handleNavigationLinkClick(index);
     };
 
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+
+    useEffect(() => {
+        const token = user?.token;
+    
+        if (token) {
+          const decodedToken = jwt_decode(token);
+    
+          if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+        }
+    
+        setUser(JSON.parse(localStorage.getItem("tailorProfile")));
+      }, [location]);
+
+    
+    
+
   return (
     <div className="grid grid-flow-row auto-rows-fr row-span-3 mt-4 z-50 rounded-3xl container h-[100hv] bg-gradient-to-br from-grey to-dark_grey ">
       {/* Leftview top Profile*/}
@@ -25,11 +43,11 @@ const LeftView = (props) => {
         </div>
 
         {/**profile name */}
-        <div className="text-slate-50 mt-auto text-sm">Mr. Akash Malhotra</div>
+        <div className="text-slate-50 mt-auto text-sm">{user?.result.name}</div>
 
         {/**email */}
         <div className="h-max top-0 mb-auto text-slate-100  text-xs">
-          inaamajay007@gmail.com
+          {user?.result.email}
         </div>
 
         {/**profile ratings */}
