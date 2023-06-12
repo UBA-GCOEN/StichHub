@@ -89,3 +89,50 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(2px);
 }
+
+.underline-effect-class {
+  position: relative;
+}
+
+.underline-effect-class::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: blue; /* Customize the color of the underline */
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.underline-effect-class.active::after,
+.underline-effect-class:hover::after,
+.underline-effect-class:focus::after {
+  transform: scaleX(1);
+  background-color: #3094d3;
+}
+
+
+.hamburger-effect {
+  position: relative;
+}
+
+.hamburger-effect::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: blue; /* Customize the color of the underline */
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.hamburger-effect:hover::after,
+.hamburger-effect:focus::after {
+  transform: scaleX(1);
+}
