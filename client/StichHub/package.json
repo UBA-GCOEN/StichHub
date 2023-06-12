@@ -58,6 +58,7 @@
     "react-otp-input": "^3.0.2",
     "react-phone-number-input": "^3.2.19",
     "react-rating-stars-component": "^2.2.0",
+    "react-scroll": "^1.8.9",
     "react-slick": "^0.29.0",
     "react-tailwindcss-select": "^1.8.5",
     "rsuite": "^5.28.3",
