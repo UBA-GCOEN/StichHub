@@ -52,7 +52,7 @@ const Drag = () => {
   );
 };
 
-export const Tabs = ({ color }) => {
+export const Tabs = ({ color, tailorDetails } ) => {
   const [openTab, setOpenTab] = React.useState(1);
   const [file, setFile] = useState();
   function handleChange(e) {
@@ -176,7 +176,7 @@ export const Tabs = ({ color }) => {
                     </span>
                     <div className="flex mb-5 justify-center lg:justify-start">
                       <img
-                        src={file}
+                        src={file?file:tailorDetails.passport}
                         className="border border-black w-[100px] h-[100px] shadow-md mt-5 rounded-lg "
                       ></img>
                     </div>
@@ -207,13 +207,16 @@ export const Tabs = ({ color }) => {
                       Choose Specialities
                     </span>
                     <div className="flex flex-col lg:flex-row lg:gap-2 mt-3">
-                      <div
-                        id="alert-1"
-                        className="flex w-fit  border border-blue-700 p-2 mb-4 text-blue-800 rounded-lg bg-blue-50"
-                        role="alert"
-                      >
+                      {
+                        tailorDetails.types.map((type) => (
+                          
+                          <div
+                            id="alert-1"
+                            className="flex w-fit  border border-blue-700 p-2 mb-4 text-blue-800 rounded-lg bg-blue-50"
+                            role="alert"
+                          >
                         <div className="ml-3 text-sm font-medium">
-                          Women's tailor
+                          {type}
                         </div>
                         <button
                           type="button"
@@ -237,66 +240,9 @@ export const Tabs = ({ color }) => {
                           </svg>
                         </button>
                       </div>
-                      <div
-                        id="alert-1"
-                        className=" w-fit flex border border-blue-700 p-2 mb-4 text-blue-800 rounded-lg bg-blue-50"
-                        role="alert"
-                      >
-                        <div className="ml-3 text-sm font-medium">
-                          Men's tailor
-                        </div>
-                        <button
-                          type="button"
-                          className="ml-auto -mx-1.5 -my-1.5 bg-blue-50 text-blue-500 rounded-lg focus:ring-2 focus:ring-blue-400 p-1.5 hover:bg-blue-200 inline-flex h-8 w-8 "
-                          data-dismiss-target="#alert-1"
-                          aria-label="Close"
-                        >
-                          <span className="sr-only">Close</span>
-                          <svg
-                            aria-hidden="true"
-                            className="w-5 h-5"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                              clipRule="evenodd"
-                            ></path>
-                          </svg>
-                        </button>
-                      </div>
-                      <div
-                        id="alert-1"
-                        className=" w-fit flex border border-blue-700 p-2 mb-4 text-blue-800 rounded-lg bg-blue-50"
-                        role="alert"
-                      >
-                        <div className="ml-3 text-sm font-medium">
-                          Custom tailor
-                        </div>
-                        <button
-                          type="button"
-                          className="ml-auto -mx-1.5 -my-1.5 bg-blue-50 text-blue-500 rounded-lg focus:ring-2 focus:ring-blue-400 p-1.5 hover:bg-blue-200 inline-flex h-8 w-8 "
-                          data-dismiss-target="#alert-1"
-                          aria-label="Close"
-                        >
-                          <span className="sr-only">Close</span>
-                          <svg
-                            aria-hidden="true"
-                            className="w-5 h-5"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                              clipRule="evenodd"
-                            ></path>
-                          </svg>
-                        </button>
-                      </div>
+                          )
+                        )
+                      }
                     </div>
                     {/* selection field with option selection view and close */}
                     <div className="lg:mr-14 rounded-lg  mb-3">
@@ -325,8 +271,8 @@ export const Tabs = ({ color }) => {
 
                       <hr />
                       <MultiRangeSlider
-                        min={100}
-                        max={10000}
+                        min={tailorDetails.prizerange[0]?tailorDetails.prizerange[0]:500}
+                        max={tailorDetails.prizerange[1]?tailorDetails.prizerange[1]:10000}
                         step={500}
                         minValue={minValue}
                         maxValue={maxValue}
@@ -516,7 +462,7 @@ export const Tabs = ({ color }) => {
                           <br />
                           <textarea
                             name="state"
-                            defaultValue="Hello i am blablablablbla"
+                            defaultValue={tailorDetails?tailorDetails.bio:""}
                             className=" border box-border w-full text-sm justify-around mb-[5px] p-2 rounded-[10px] border-solid border-[#cecece]"
                             placeholder="blablabla"
                             required
