@@ -17,7 +17,7 @@ const ThreeDMeasurement = () => {
       {/* <Navbardark /> */}
       <Navbar />
       {!create ? (
-        <div className="bg-primary justify-center text-center h-screen">
+        <div className="bg-primary justify-center text-center h-auto">
           <div className="text-white font-bold text-center justify-center mt-20 text-3xl mx-5 ">
             Choose Your Measurements
           </div>
@@ -26,8 +26,7 @@ const ThreeDMeasurement = () => {
               id="profile"
               class="bg-gray-800 border text-gray-400 ml-10 mt-5 w-[80%] lg:w-[45%] text-center
             text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              disabled
-            >
+              disabled>
               <option selected>--choose profile</option>
               <option value="new">m1</option>
               <option value="new">m2</option>
@@ -52,8 +51,7 @@ const ThreeDMeasurement = () => {
           <div>
             <button
               className="bg-blue-500 shadow-inner-md drop-shadow-md ml-0 mt-5  w-1/2 lg:w-1/4 rounded-xl px-5 py-3 text-white text-xl"
-              onClick={() => setCreate(!create)}
-            >
+              onClick={() => setCreate(!create)}>
               Create
             </button>
           </div>
@@ -78,8 +76,7 @@ const Mainpage = () => {
           id="profile"
           class="bg-gray-800 border text-gray-400 ml-10 mt-5 w-[80%] lg:w-[45%] text-center
             text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          disabled
-        >
+          disabled>
           <option selected>--choose profile</option>
           <option value="new">m1</option>
           <option value="new">m2</option>
@@ -104,8 +101,7 @@ const Mainpage = () => {
       <div>
         <button
           className="bg-blue-500 shadow-inner-md drop-shadow-md ml-0 mt-5  w-1/2 lg:w-1/4 rounded-xl px-5 py-3 text-white text-xl"
-          onClick={() => setCreate(!create)}
-        >
+          onClick={() => setCreate(!create)}>
           Create
         </button>
       </div>
@@ -289,7 +285,7 @@ const SizeCalculator = () => {
           <h1 className="text-center text-3xl mx-10 mt-10 font-bold">
             Create Your Measurement
           </h1>
-          <div className="text-left ml-14 lg:ml-[18%] mt-10">
+          <div className="text-left ml-10 lg:ml-[18%] mt-2">
             <label className="mt-10 text-xl ">
               <label className="text-left">Height (cm)</label>
               <br></br>
@@ -416,29 +412,31 @@ const SizeCalculator = () => {
             <br />
             <div className="mt-3 flex gap-4">
               <div className="px-5 py-1 bg-teal-900 rounded-md">
-              <label name="gender">
-              <input
-                type="radio"
-                checked={gender == "male"}
-                name="gender"
-                className="mx-2"
-                value="male"
-                onChange={handleOptionChange}
-              />
-              Male</label>
+                <label name="gender">
+                  <input
+                    type="radio"
+                    checked={gender == "male"}
+                    name="gender"
+                    className="mx-2"
+                    value="male"
+                    onChange={handleOptionChange}
+                  />
+                  Male
+                </label>
               </div>
               <div className="px-7 py-1 bg-red-900 rounded-md">
-              <label>
-              <input
-                type="radio"
-                checked={gender == "female"}
-                name="gender"
-                className="mx-2"
-                value="female"
-                onChange={handleOptionChange}
-              />
-             Female</label>
-            </div>
+                <label>
+                  <input
+                    type="radio"
+                    checked={gender == "female"}
+                    name="gender"
+                    className="mx-2"
+                    value="female"
+                    onChange={handleOptionChange}
+                  />
+                  Female
+                </label>
+              </div>
             </div>
             {/* <div className="font-bold text-white" >
                            {gender}
@@ -446,12 +444,11 @@ const SizeCalculator = () => {
           </label>
 
           <button
-            className="bg-blue-500 w-fit ml-[35%] lg:ml-[47%]  px-5 mt-5 text-xl font-semibold py-3 mx-20 rounded-2xl drop-shadow-md shadow-inner-xl"
+            className="bg-blue-500 w-fit ml-[35%] lg:ml-[47%]  px-5 mt-3 text-xl font-semibold py-3 mx-20 rounded-2xl drop-shadow-md shadow-inner-xl"
             onClick={() => {
               setCreate2(!create2);
               handleCalculate();
-            }}
-          >
+            }}>
             Calculate
           </button>
         </div>
@@ -481,7 +478,7 @@ const Result = (props) => {
   return (
     <div className="bg-primary">
       {!create1 ? (
-        <div className="ml-[10%] mr-[10%]  mt-[10%] text-center">
+        <div className="ml-[10%] mr-[10%]  mt-10 text-center">
           <div className="text-white text-3xl font-bold mb-3 ">
             Give Your Profile a Name
           </div>
@@ -527,22 +524,19 @@ const Result = (props) => {
           </div>
           <Link
             to="/Mainpage"
-            className="underline text-gray-400 hover:text-gray-200"
-          >
+            className="underline text-gray-400 hover:text-gray-200">
             +6 More measurements
           </Link>
           <br />
 
           <button
             className="px-5 mt-10 py-3 w-full lg:w-fit lg:mb-20 text-xl text-center text-white bg-blue-500 rounded-xl"
-            onClick={props.handleSubmit}
-          >
+            onClick={props.handleSubmit}>
             Next
           </button>
           <button
             className="px-5 mt-3 lg:mt-10 lg:w-fit py-3 lg:ml-5 mb-20 w-full text-xl text-center text-white bg-teal-500 rounded-xl"
-            onClick={() => setCreate1(!create1)}
-          >
+            onClick={() => setCreate1(!create1)}>
             Manually Enter Your Details
           </button>
         </div>
@@ -631,7 +625,6 @@ const Manual = (props) => {
         waistSize: form.waistSize,
         armLength: form.armLength,
         inseam: form.inseam,
-
       },
     });
 
@@ -640,20 +633,18 @@ const Manual = (props) => {
     navigateTo("/OrderDetails");
   };
 
- 
-
   // if (setOrderDetails.measurements.neckSize == "") {
   //   // setOrderDetails.measurements.neckSize = props.neckSize;
   // }
   return (
-    <div className="bg-primary justify-center text-center mt-10 lg:mx-20">
+    <div className="bg-primary justify-center text-center mt-10 lg:mx-20 lg:overflow-hidden h-[85vh]">
       <div className="text-white text-3xl font-bold m-5">
         Provide Your Measurement Details
       </div>
 
-      <div className="grid grid-col-2 grid-row-3 col-start-2 mb-3 gap-3 lg:gap-10 text-black mt-7 p-[10px] justify-center">
-        <div className="text-white row-start-2 text-justify lg:row-span-4 bg-primary min-h-screen flex items-center justify-center">
-          <div className="bg-white bg-opacity-30 p-8 shadow-md rounded-md max-w-2lg w-full">
+      <div className="grid mb-3 gap-3 lg:gap-10 text-black mt-7 p-[10px] justify-center">
+        <div className="text-white row-start-2 text-justify lg:row-span-4 bg-primary min-h-screen flex  justify-center">
+          <div className="bg-white bg-opacity-30 p-8 shadow-md rounded-md max-w-2lg w-full lg:overflow-x-scroll lg:h-1/6">
             <h1 className="text-2xl text-center font-semibold mb-6">
               Tailor Guide: How to Take Body Measurements
             </h1>
@@ -686,11 +677,7 @@ const Manual = (props) => {
                   too tight, and record the measurement in inches or
                   centimeters.
                 </p>
-                <img
-                  src=""
-                  alt="Bust Measurement"
-                  className="mt-4"
-                />
+                <img src="" alt="Bust Measurement" className="mt-4" />
               </div>
               <div>
                 <h2 className="text-lg font-medium mb-2">
@@ -716,11 +703,7 @@ const Manual = (props) => {
                   your buttocks. Keep the measuring tape parallel to the floor,
                   and record the measurement.
                 </p>
-                <img
-                  src=""
-                  alt="Hips Measurement"
-                  className="mt-4"
-                />
+                <img src="" alt="Hips Measurement" className="mt-4" />
               </div>
               <div>
                 <h2 className="text-lg font-medium mb-2">
@@ -818,7 +801,6 @@ const Manual = (props) => {
               defaultValue={props.armLength}
               name="armLength"
               onChange={handleChangeFinal}
-            
               className=" focus:border-white bg-transparent text-center font-semibold text-2xl lg:text-3xl w-[100%]"
             />
             cm
@@ -840,8 +822,10 @@ const Manual = (props) => {
               // onClick={() => {
               //   handleClick1();
               // }}
-              onClick={()=>{handleSubmit(); stepFormSubmit();}}
-            >
+              onClick={() => {
+                handleSubmit();
+                stepFormSubmit();
+              }}>
               Submit
             </button>
           </div>

@@ -2,7 +2,7 @@ import React from "react";
 import { ControlsMenu, ClothModel, Navbar } from "../components/Configurator";
 import {
   ConfiguratorProvider,
-  useCCustomization
+  useCCustomization,
 } from "../contexts/Configurator";
 
 const ThreeDConfigurator = () => {
