@@ -19,19 +19,20 @@ const TopProfile = () => {
     setUser(JSON.parse(localStorage.getItem("tailorProfile")));
   }, [location]);
 
-  const getTailorDetails = async() => {
-    try {
-      const res = await axios.get("/tailors/selected");
-      setTailorDetails(res.data);
-      console.log(res.data);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
+  
+  // const getTailorDetails = async() => {
+  //   try {
+  //     const res = await axios.get("/tailors/selected");
+  //     setTailorDetails(res.data);
+  //     console.log(res.data);
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // }
 
-  useEffect(() => {
-    getTailorDetails();
-  }, [tailorDetails]);
+  // useEffect(() => {
+  //   getTailorDetails();
+  // }, [tailorDetails]);
 
 
   // https://cdn-icons-png.flaticon.com/512/6522/6522516.png
@@ -40,7 +41,7 @@ const TopProfile = () => {
     <div className="flex w-fit h-fit grow flex-row justify-between m-10 mb-5">
       <div>
         <div className="text-sm text-white text-left">{user?.result.name}</div>
-        <div className="text-sm text-grey">inaamajay007@gmail.com</div>
+        <div className="text-sm text-grey">{user?.result.email}</div>
         <div className="h-max mb-auto grid grid-flow-col auto-cols-max mt-[2%]">
           <svg
             fill="#d97706"
