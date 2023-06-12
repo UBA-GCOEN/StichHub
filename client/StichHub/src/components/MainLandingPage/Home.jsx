@@ -78,19 +78,19 @@ const Home = () => {
 
           {/* Buttons */}
           <div className="flex justify-center lg:justify-normal">
-            <Link to="/auth">
-              <button className="bg-white px-[1%] py-2 lg:p-3 rounded-xl w-[30vw] lg:w-[200px] drop-shadow-2xl">
-                <span className="text-lg lg:text-[1.5rem] text-black">
-                  Get Started
-                </span>
-              </button>
-            </Link>
-            <Link to="/Configurator">
-              <button className="ml-[30px] text-white outline outline-white w-[30vw] px-3 py-2 lg:p-3 rounded-xl lg:w-[200px] drop-shadow-2xl">
-                <span className="text-lg lg:text-[1.5rem] ">Demo</span>
-              </button>
-            </Link>
-          </div>
+  <Link to="/auth">
+    <button className="bg-white px-[1%] py-2 lg:p-3 rounded-xl w-[30vw] lg:w-[200px] drop-shadow-2xl transition duration-300 ease-in-out hover:bg-gray-200 hover:text-black">
+      <span className="text-lg lg:text-[1.5rem] text-black">Get Started</span>
+    </button>
+  </Link>
+  <Link to="/Configurator">
+    <button className="ml-[30px] text-white outline outline-white w-[30vw] px-3 py-2 lg:p-3 rounded-xl lg:w-[200px] drop-shadow-2xl transition duration-300 ease-in-out hover:bg-white hover:text-black">
+      <span className="text-lg lg:text-[1.5rem]">Demo</span>
+    </button>
+  </Link>
+</div>
+
+
 
           {/* MajorFeature */}
           <div className="hidden xl:block pt-8 justify-start content-start">
