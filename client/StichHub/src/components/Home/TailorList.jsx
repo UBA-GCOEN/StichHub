@@ -55,8 +55,8 @@ const TailorList = () => {
       {tailorList.map((item, index) => (
         <div
           key={index}
-          className="p-3 md:my-0 my-5 cardGradient min-w-full min-h-[30px] hover:scale-105 sm:w-[20vw] transition-all duration-200 ease-in transform md:hover:scale-105
-           rounded-lg text-white bg-violet-300"
+          className="p-3 md:my-0 my-5 cardGradient min-w-full min-h-[30px] hover:scale-105 sm:w-[20vw] transition-transform duration-200 ease-in transform md:hover:scale-105
+           rounded-lg text-white bg-violet-300 "
         >
           {/* Top Display */}
           {/* <div className="flex justify-between">
@@ -87,7 +87,7 @@ const TailorList = () => {
               <span className="text-sm"> {item.city}</span>
             </div>
           </div> */}
-          <div class="h-fit  md:h-fit w-full mt-5 md:flex  gap-[50px] group">
+          <div class="h-fit  md:h-fit w-full mt-5 md:flex  gap-[50px]">
             <div>
               <img
                 src={shopposter}
@@ -95,7 +95,7 @@ const TailorList = () => {
                 class="md:h-[300px] h-[200px] rounded-lg"
               />
             </div>
-            <div class=" md:w-[800px]">
+            <div class=" md:w-[800px] ">
               <div class="flex py-2">
                 <img
                   src={item.passport ? item.passport : avtr}
@@ -110,11 +110,11 @@ const TailorList = () => {
                 </p>
               </div>
               <div class="md:mr-[100px] mt-[20px] relative ">
-                <h1 class="text-xl font-semibold group-hover:filter group-hover:blur-sm">Title</h1>
+                <h1 class="text-xl font-semibold ">Title</h1>
                 {item.bio ? (
-                  <p class="text-left mt-[20px] mb-[20px] group-hover:filter group-hover:blur-sm">{item.bio}</p>
+                  <p class="text-left mt-[20px] mb-[20px] ">{item.bio}</p>
                 ) : (
-                  <p class="text-left mt-[20px] mb-[20px] w-full md:w-full group-hover:filter group-hover:blur-sm">
+                  <p class="text-left mt-[20px] mb-[20px] w-full md:w-full  subpixel-antialiased">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Atque neque eos consequatur laudantium aliquam quia
                     quibusdam? Deleniti distinctio, delectus, similique expedita
@@ -122,7 +122,7 @@ const TailorList = () => {
                   </p>
                 )}
 
-                <div className="flex flex-wrap gap-1 py-1 group-hover:filter group-hover:blur-sm">
+                <div className="flex flex-wrap gap-1 py-1 ">
                   {item.types.map((tags, id) => (
                     <div
                       key={id}
@@ -134,13 +134,13 @@ const TailorList = () => {
                 </div>
                 <div className="flex md:flex-row flex-col gap-2 py-2 mt-4 w-full ">
                   <Link to="/TailorDetails" state={{ item }}>
-                    <button className="text-xs bg-cyan-100 hover:scale-105 transition-transform text-black font-medium py-2 px-2 rounded-[5px] w-full">
+                    <button className="text-xs bg-cyan-100 hover:scale-105 transition-transform text-black font-medium py-2 px-2 rounded-lg w-full">
                       More Details
                     </button>
                   </Link>
 
                   <Link to={linkTo} state={{ item }}>
-                    <button className="text-xs bg-blue-500 px-2 py-2 hover:scale-105 transition-transform rounded-[5px] w-full">
+                    <button className="text-xs bg-blue-500 px-2 py-2 hover:scale-105 transition-transform rounded-lg w-full">
                       Book Tailor
                     </button>
                   </Link>
