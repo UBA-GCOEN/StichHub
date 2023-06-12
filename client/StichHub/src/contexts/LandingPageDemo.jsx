@@ -7,7 +7,7 @@ const demoButtons = [
     img: DemoShirtIcon,
     text: "With Sleeve",
 
-    style: "w-[35px] sm:w-[50px] sm:ml-4",
+    style: "w-[35px] sm:w-[50px] lg:ml-4",
     alt: "Demo Shirt Icon"
 
   },
@@ -15,7 +15,7 @@ const demoButtons = [
     img: SleevlessShirt,
     text: "Sleeve-Less",
 
-    style: "sm:w-[52px] w-[37px] sm:ml-4",
+    style: "sm:w-[52px] w-[37px] lg:ml-4",
     alt: "Sleeveless Shirt Icon"
 
   },
@@ -23,7 +23,7 @@ const demoButtons = [
     img: ModernDress,
     text: "Modern Dress",
 
-    style: "sm:w-[59px] w-[37px] sm:ml-4",
+    style: "sm:w-[59px] w-[37px] lg:ml-4",
     alt: "Modern Dress Icon"
 
   },
