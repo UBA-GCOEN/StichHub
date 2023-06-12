@@ -87,7 +87,7 @@ const TailorList = () => {
               <span className="text-sm"> {item.city}</span>
             </div>
           </div> */}
-          <div class="h-fit  md:h-fit w-full mt-5 md:flex  gap-[50px]">
+          <div class="h-fit  md:h-fit w-full mt-5 md:flex  gap-[50px] group">
             <div>
               <img
                 src={shopposter}
@@ -109,12 +109,12 @@ const TailorList = () => {
                   | 12 minutes ago
                 </p>
               </div>
-              <div class="md:mr-[100px] mt-[20px]">
-                <h1 class="text-xl font-semibold">Title</h1>
+              <div class="md:mr-[100px] mt-[20px] relative ">
+                <h1 class="text-xl font-semibold group-hover:filter group-hover:blur-sm">Title</h1>
                 {item.bio ? (
-                  <p class="text-left mt-[20px] mb-[20px]">{item.bio}</p>
+                  <p class="text-left mt-[20px] mb-[20px] group-hover:filter group-hover:blur-sm">{item.bio}</p>
                 ) : (
-                  <p class="text-left mt-[20px] mb-[20px] w-full md:w-full">
+                  <p class="text-left mt-[20px] mb-[20px] w-full md:w-full group-hover:filter group-hover:blur-sm">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Atque neque eos consequatur laudantium aliquam quia
                     quibusdam? Deleniti distinctio, delectus, similique expedita
@@ -122,11 +122,11 @@ const TailorList = () => {
                   </p>
                 )}
 
-                <div className="flex flex-wrap gap-1 py-1">
+                <div className="flex flex-wrap gap-1 py-1 group-hover:filter group-hover:blur-sm">
                   {item.types.map((tags, id) => (
                     <div
                       key={id}
-                      className="bg-indigo-500 rounded-md px-2 mt[20px] text-white text-xs"
+                      className="bg-indigo-500 rounded-md px-2 py-2 mt[20px] text-white text-xs"
                     >
                       {tags}
                     </div>
@@ -134,13 +134,13 @@ const TailorList = () => {
                 </div>
                 <div className="flex md:flex-row flex-col gap-2 py-2 mt-4 w-full ">
                   <Link to="/TailorDetails" state={{ item }}>
-                    <button className="text-xs bg-cyan-100 text-black font-medium py-2 px-2 rounded-lg w-full">
+                    <button className="text-xs bg-cyan-100 hover:scale-105 transition-transform text-black font-medium py-4 px-2 rounded-lg w-full">
                       More Details
                     </button>
                   </Link>
 
                   <Link to={linkTo} state={{ item }}>
-                    <button className="text-xs bg-blue-500 px-2 py-2 rounded-lg w-full">
+                    <button className="text-xs bg-blue-500 px-2 py-4 hover:scale-105 transition-transform rounded-lg w-full">
                       Book Tailor
                     </button>
                   </Link>
