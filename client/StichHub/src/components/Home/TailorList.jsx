@@ -134,13 +134,13 @@ const TailorList = () => {
                 </div>
                 <div className="flex md:flex-row flex-col gap-2 py-2 mt-4 w-full ">
                   <Link to="/TailorDetails" state={{ item }}>
-                    <button className="text-xs bg-cyan-100 hover:scale-105 transition-transform text-black font-medium py-4 px-2 rounded-lg w-full">
+                    <button className="text-xs bg-cyan-100 hover:scale-105 transition-transform text-black font-medium py-2 px-2 rounded-[5px] w-full">
                       More Details
                     </button>
                   </Link>
 
                   <Link to={linkTo} state={{ item }}>
-                    <button className="text-xs bg-blue-500 px-2 py-4 hover:scale-105 transition-transform rounded-lg w-full">
+                    <button className="text-xs bg-blue-500 px-2 py-2 hover:scale-105 transition-transform rounded-[5px] w-full">
                       Book Tailor
                     </button>
                   </Link>
