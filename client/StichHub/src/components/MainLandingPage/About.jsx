@@ -69,13 +69,14 @@ const About = () => {
                         className="githubLink hoverAnimation"
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label="Github Link"
                       >
                         <FontAwesomeIcon icon={faGithub}/>
                       </a>
                     </div>
                   </div>
                 </div>
-                <div id="name">
+                <div className="name">
                   <span className="text-base lg:text-lg font-medium">{contributor.name}</span>
                 </div>
               </div>
