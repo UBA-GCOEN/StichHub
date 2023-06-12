@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
-import logo from "../../assets/logo/Long - Logo Transparent (Black).png";
+import logo from "../../assets/logo/Long - Logo Transparent (White).png";
 
 const Navbar = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   const [toggle, setToggle] = useState(false);
   const location = useLocation();
   const navigateTo = useNavigate();
-
+//   const Style = { color: 'White' };
   useEffect(() => {
     const token = user?.token;
 
@@ -28,8 +28,8 @@ const Navbar = () => {
     setUser(null);
   };
 
-  const linkToCart = (user ? '/Cart' : "/auth/customer")
-  const linkToMeasurement = (user ? '/Cart' : "/auth/customer")
+  const linkToCart = user ? "/Cart" : "/auth/customer";
+  const linkToMeasurement = user ? "/Cart" : "/auth/customer";
 
   return (
     <nav className="mt-3">
@@ -55,15 +55,14 @@ const Navbar = () => {
         <div className="mx-5">
           {user?.result ? (
             <div className="flex ">
-              <span className="mt-2">Welcome! &nbsp;</span>
-              <span className="text-indigo-600 mr-3 mt-2">
+              <span className="mt-2 text-white">Welcome! &nbsp;</span>
+              <span className="text-indigo-300 mr-3 mt-2">
                 {" "}
                 {user?.result.name}{" "}
               </span>
               <div
                 className="rounded-full w-9 cursor-pointer"
-                onClick={() => setToggle(!toggle)}
-              >
+                onClick={() => setToggle(!toggle)}>
                 {user?.result.picture ? (
                   <img src={user?.result.picture} className="rounded-full" />
                 ) : (
@@ -77,12 +76,11 @@ const Navbar = () => {
               <div
                 className={`${
                   !toggle ? "hidden" : "flex"
-                } cardGradient w-[240px] absolute mx-[-80px] lg:mx-[-10px] py-2 min-w-[140px] top-14 rounded-xl z-[100]`}
-              >
+                } cardGradient w-[240px] absolute mx-[-80px] lg:mx-[-10px] py-2 min-w-[140px] top-14 rounded-xl z-[100]`}>
                 <div className="flex flex-col gap-2 mt-3">
                   <Link to="/Cart">
                     <span className="ml-6 text-white cursor-pointer my-2 hover:text-cyan-300">
-                    Your Cart
+                      Your Cart
                     </span>
                   </Link>
 
@@ -94,19 +92,18 @@ const Navbar = () => {
 
                   <Link to="/home">
                     <span className="ml-6 text-white cursor-pointer my-2 hover:text-cyan-300">
-                    Your Profile
+                      Your Profile
                     </span>
                   </Link>
 
                   <Link to="/home">
                     <span className="ml-6 text-white cursor-pointer my-2 hover:text-cyan-300">
-                    Your Measurements
+                      Your Measurements
                     </span>
                   </Link>
                   <button
                     className="bg-red-500 text-white py-1 px-3 rounded-lg ml-6 mt-9 mb-3"
-                    onClick={logout}
-                  >
+                    onClick={logout}>
                     Log Out
                   </button>
                 </div>
@@ -136,8 +133,7 @@ const Navbar = () => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-6 h-6 absolute right-8 mt-2"
-        >
+          className="w-6 h-6 absolute right-8 mt-2">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
