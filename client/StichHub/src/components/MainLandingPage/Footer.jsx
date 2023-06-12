@@ -263,7 +263,7 @@ const Footer = () => {
               <a
                 href=" mailto:uba.gcoen@gmail.com"
                 target="_blank"
-                class="text-[#c13584] hover:text-[#c13584]-500 dark:hover:text-white"
+                class="text-[#c13584] hover:text-[#c13584]-500 dark:hover:text-white pt-1"
               >
                 <svg
                   height="19"
