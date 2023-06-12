@@ -8,7 +8,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const location = useLocation();
   const navigateTo = useNavigate();
-  const Style = { color: 'White' };
+//   const Style = { color: 'White' };
   useEffect(() => {
     const token = user?.token;
 
@@ -55,8 +55,8 @@ const Navbar = () => {
         <div className="mx-5">
           {user?.result ? (
             <div className="flex ">
-              <span className="mt-2" style={ Style }>Welcome! &nbsp;</span>
-              <span className="text-indigo-600 mr-3 mt-2">
+              <span className="mt-2 text-white">Welcome! &nbsp;</span>
+              <span className="text-indigo-300 mr-3 mt-2">
                 {" "}
                 {user?.result.name}{" "}
               </span>
