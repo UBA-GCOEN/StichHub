@@ -22,10 +22,8 @@ const Navbar = () => {
   }, [location]);
 
   const logout = () => {
-    // localStorage.clear();
-    localStorage.removeItem("profile");
-    navigateTo("/home");
-    setUser(null);
+    localStorage.clear();
+    navigateTo("/auth/tailor");
   };
 
   const linkToCart = user ? "/Cart" : "/auth/customer";

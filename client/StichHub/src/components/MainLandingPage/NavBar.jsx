@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { navbar, logo, menu, close } from "../../constants/MainLandingPage";
 import { Link } from "react-router-dom";
+import { scroller } from "react-scroll";
 
 const NavBar = () => {
   const [active, setActive] = useState("Home");
@@ -20,9 +21,19 @@ const NavBar = () => {
     };
   }, []);
 
+  const scrollToSection = (id) => {
+    scroller.scrollTo(id, {
+      smooth: true,
+      offset: -70, // Adjust this offset according to your needs
+    });
+  };
+
   return (
-    <nav className={`bg ${isScrolled ? "bg-inherit" : "bg-transparent"
-      } w-[100vw] flex lg:pt-6 justify-center fixed z-[100] pt-3 px-4 lg:p-4`}>
+    <nav
+      className={`bg ${
+        isScrolled ? "bg-inherit" : "bg-transparent"
+      } w-[100vw] flex lg:pt-6 justify-center fixed z-[100] pt-3 px-4 lg:p-4`}
+    >
       <div className="">
         <a href="#">
           <img
@@ -39,7 +50,10 @@ const NavBar = () => {
             className={`font-poppins font-normal cursor-pointer hover:text-[#3094d3] hover:scale-125 text-[16px]  ${
               index === navbar.length - 1 ? "mr-0" : "mr-10"
             }`}
-            onClick={() => setActive(nav.title)}
+            onClick={() => {
+              setActive(nav.title);
+              scrollToSection(nav.id);
+            }}
           >
             <a href={`#${nav.id}`}>{nav.title}</a>
           </li>
@@ -72,7 +86,10 @@ const NavBar = () => {
                 } 
                 ${active === nav.title ? "text-white" : "text-gray-500"}
                 }`}
-                onClick={() => setActive(nav.title)}
+                onClick={() => {
+                  setActive(nav.title);
+                  scrollToSection(nav.id);
+                }}
               >
                 <a href={`#${nav.id}`}>{nav.title}</a>
               </li>

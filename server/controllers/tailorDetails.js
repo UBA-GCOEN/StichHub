@@ -33,4 +33,15 @@ export const getTailorList = async (req, res) => {
     }
 };
 
+export const getSpecificTailor = async(req, res) => {
+    const userId = req.userId;
+    try {
+        const tailor = await TailorList.findOne({creator: userId});
+        res.status(200).json(tailor);
+    } catch(error) {
+        res.status(400).json({message: error.message});
+    }
+    
+}
+
 export default router;
