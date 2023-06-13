@@ -55,9 +55,14 @@ const TailorList = () => {
       {tailorList.map((item, index) => (
         <div
           key={index}
-          className="p-3 md:my-0 my-5 cardGradient min-w-full min-h-[30px] hover:scale-105 sm:w-[20vw] transition-transform duration-200 ease-in transform md:hover:scale-105
+          className=" relative p-3 md:my-0 my-5 cardGradient min-w-full min-h-[30px] group
            rounded-lg text-white bg-violet-300 "
         >
+        <div
+          key={index}
+          className="absolute left-0 right-0 top-0 bottom-0  cardGradient min-w-full min-h-[30px] group-hover:scale-105 sm:w-[20vw] transition-transform duration-200 md:group-hover:scale-105
+           rounded-lg text-white bg-violet-300 "
+        />
           {/* Top Display */}
           {/* <div className="flex justify-between">
             <div>
@@ -87,7 +92,7 @@ const TailorList = () => {
               <span className="text-sm"> {item.city}</span>
             </div>
           </div> */}
-          <div class="h-fit  md:h-fit w-full mt-5 md:flex  gap-[50px]">
+          <div class="h-fit relative  md:h-fit w-full mt-5 md:flex  gap-[50px]">
             <div>
               <img
                 src={shopposter}
