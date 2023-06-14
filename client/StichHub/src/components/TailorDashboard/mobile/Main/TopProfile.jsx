@@ -2,10 +2,20 @@ import React, {useState, useEffect} from "react";
 import jwt_decode from "jwt-decode";
 import axios from "../../../../axios"
 
-const TopProfile = () => {
+const TopProfile = (props) => {
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
-  const [tailorDetails, setTailorDetails] = useState([]);
+  
+  const {tailorDetails} = props
+
+    let image = ''
+
+    // if user does not have profile pic default profile pic is displayed
+    if(tailorDetails) {
+        image = (tailorDetails.passport !== '') ? tailorDetails.passport:'https://img.icons8.com/?size=512&id=492ILERveW8G&format=png'
+    } else {
+        image = 'https://img.icons8.com/?size=512&id=492ILERveW8G&format=png'
+    }
  
   useEffect(() => {
     const token = user?.token;
@@ -94,7 +104,7 @@ const TopProfile = () => {
       <div className="h-fit w-fit ml-[30%]">
         <div className="grid justify-items-end rounded-full mt-auto h-[70px] w-[70px] bg-cover bg-center">
         <div className="rounded-full h-[15px] w-[15px] bg-green-500"></div>
-          <img src={bg} className="grid justify-items-end rounded-full mt-auto h-[70px] w-[70px] bg-cover bg-center"/>
+          <img src={image} className="grid justify-items-end rounded-full mt-auto h-[70px] w-[70px] bg-cover bg-center"/>
           
         </div>
       </div>
