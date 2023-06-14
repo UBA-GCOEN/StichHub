@@ -1,17 +1,19 @@
-import Cart from "./Cart";
-import ClothesCategory from "./ClothesCategory";
-import CustomerLandingPage from "./CustomerLandingPage";
-import FabricModel from "./FabricModel";
-import FabricSelection from "./FabricSelection";
-import HomeOnlineVisit from "./HomeOnlineVisit";
-import LoginSignUp from "./LoginSignUp";
-import MainLandingPage from "./MainLandingPage";
-import TailorDashboard from "./TailorDashboard";
-import TailorDetails from "./TailorDetails";
-import Home from "./Home";
-import TailorProfileVerification from "./TailorProfileVerification";
-import ThreeDConfigurator from "./ThreeDConfigurator";
-import ThreeDMeasurement from "./ThreeDMeasurement";
+import {lazy} from 'react'
+
+const Cart=lazy(()=>import("./Cart"))
+const ClothesCategory=lazy(()=>import("./ClothesCategory"))
+const CustomerLandingPage=lazy(()=>import("./CustomerLandingPage"))
+const FabricModel=lazy(()=>import("./FabricModel"))
+const FabricSelection=lazy(()=>import("./FabricSelection"))
+const HomeOnlineVisit=lazy(()=>import("./HomeOnlineVisit"))
+const LoginSignUp=lazy(()=>import("./LoginSignUp"))
+const MainLandingPage=lazy(()=>import("./MainLandingPage"))
+const TailorDashboard=lazy(()=>import("./TailorDashboard"))
+const TailorDetails=lazy(()=>import("./TailorDetails"))
+const Home=lazy(()=>import("./Home"))
+const TailorProfileVerification=lazy(()=>import("./TailorProfileVerification"))
+const ThreeDConfigurator=lazy(()=>import("./ThreeDConfigurator"))
+const ThreeDMeasurement=lazy(()=>import("./ThreeDMeasurement"))
 
 export {
   Cart,
