@@ -3,6 +3,9 @@ import { tailorCards } from "../../constants/home";
 import { Link, useLocation } from "react-router-dom";
 import axios from "../../axios.js";
 import { Player } from "@lottiefiles/react-lottie-player";
+import shopposter from "./../../assets/home/bady-abbas-YZm-WKqxTIU-unsplash.jpg";
+import avtr from "./../../assets/home/7309681.jpg";
+
 const TailorList = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [tailorList, setTailorList] = useState([]);
@@ -33,7 +36,7 @@ const TailorList = () => {
   const linkTo = user ? "/home/category" : "/auth/customer";
 
   return (
-    <div className="mx-5 my-5 flex justify-center flex-wrap gap-3 sm:gap-7">
+    <div className="mx-[50px] my-5 flex flex-col  gap-3 sm:gap-7">
       {isLoading ? (
         <div className="relative">
           <div className="absolute z-[100] left-[-10vw] lg:left-[30vw] top-[10vh]">
@@ -52,22 +55,24 @@ const TailorList = () => {
       {tailorList.map((item, index) => (
         <div
           key={index}
-          className="cursor-pointer transition-all duration-200 ease-in transform sm:hover:scale-105 p-3 cardGradient w-[43vw] sm:w-[20vw] rounded-lg text-white"
+          className=" relative p-3 md:my-0 my-5 cardGradient min-w-full min-h-[30px] group
+           rounded-lg text-white bg-violet-300 "
         >
+        <div
+          key={index}
+          className="absolute left-0 right-0 top-0 bottom-0  cardGradient min-w-full min-h-[30px] group-hover:scale-105 sm:w-[20vw] transition-transform duration-200 md:group-hover:scale-105
+           rounded-lg text-white bg-violet-300 "
+        />
           {/* Top Display */}
-          <div className="flex justify-between">
+          {/* <div className="flex justify-between">
             <div>
               <img
-                src={
-                  item.passport.length
-                    ? item.passport
-                    : "https://img.icons8.com/?size=512&id=492ILERveW8G&format=png"
-                }
-                className="mb-1 w-[60px] h-[60px] rounded-full"
+                src={item.passport}
+                className="mb-1 w-[60px] h-[60px] rounded-lg"
               />
               <span className="font-semibold text-lg">{item.name}</span>
             </div>
-            {/* Rating */}
+          {*Rating*}
             <div>
               <div className="flex justify-end">
                 <span className="text-sm px-1">{item.rating}</span>
@@ -86,31 +91,75 @@ const TailorList = () => {
               </div>
               <span className="text-sm"> {item.city}</span>
             </div>
-          </div>
-          {/* middle Display */}
-          <p className="text-xs py-1">
-            {item.bio.length
-              ? item.bio.slice(0, 20)
-              : "I can design all types of designer clothes for women for party and daily wear"}
-          </p>
-          <div className="flex flex-wrap gap-1 py-1">
-            {item.types
-              .map((tags, id) => (
-                <span
-                  key={id}
-                  id="badge-dismiss-default"
-                  className="bg-indigo-500 rounded-md px-2 text-white text-[10px] lg:inline-flex items-center py-1 mr-2 sm:text-sm font-medium"
-                >
-                  {tags}
-                 
-                </span>
-              ))
-              .slice(0, 3)}
+          </div> */}
+          <div class="h-fit relative  md:h-fit w-full mt-5 md:flex  gap-[50px]">
+            <div>
+              <img
+                src={shopposter}
+                alt="img"
+                class="md:h-[300px] h-[200px] rounded-lg"
+              />
+            </div>
+            <div class=" md:w-[800px] ">
+              <div class="flex py-2">
+                <img
+                  src={item.passport ? item.passport : avtr}
+                  alt="avtr"
+                  class="h-[50px] rounded-sm"
+                />
+                <h2 class="text-slate-500 mt-3 md:mt-1 ml-4 font-medium">
+                  {item.name}
+                </h2>
+                <p class="text-slate-500 mt-3 md:mt-1 ml-5 font-medium">
+                  | 12 minutes ago
+                </p>
+              </div>
+              <div class="md:mr-[100px] mt-[20px] relative ">
+                <h1 class="text-xl font-semibold ">Title</h1>
+                {item.bio ? (
+                  <p class="text-left mt-[20px] mb-[20px] ">{item.bio}</p>
+                ) : (
+                  <p class="text-left mt-[20px] mb-[20px] w-full md:w-full  subpixel-antialiased">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Atque neque eos consequatur laudantium aliquam quia
+                    quibusdam? Deleniti distinctio, delectus, similique expedita
+                    fugit illum facere iure aperiam magni vitae culpa. Harum.
+                  </p>
+                )}
+
+                <div className="flex flex-wrap gap-1 py-1 ">
+                  {item.types.map((tags, id) => (
+                    <div
+                      key={id}
+                      className="bg-indigo-500 rounded-md px-2 py-2 mt[20px] text-white text-xs"
+                    >
+                      {tags}
+                    </div>
+                  ))}
+                </div>
+                <div className="flex md:flex-row flex-col gap-2 py-2 mt-4 w-full ">
+                  <Link to="/TailorDetails" state={{ item }}>
+                    <button className="text-xs bg-cyan-100 hover:scale-105 transition-transform text-black font-medium py-2 px-2 rounded-lg w-full">
+                      More Details
+                    </button>
+                  </Link>
+
+                  <Link to={linkTo} state={{ item }}>
+                    <button className="text-xs bg-blue-500 px-2 py-2 hover:scale-105 transition-transform rounded-lg w-full">
+                      Book Tailor
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
 
+          {/* middle Display */}
+          {/* <p className="text-xs py-1">{item.bio}</p> */}
+
           {/* Buttons */}
-          <div className="flex flex-col justify-between gap-2 py-2">
-            <Link to="/TailorDetails" state={{ item }}>
+          {/* <div className="flex flex-col justify-between gap-2 py-2">
+            <Link to="/TailorDetails" state={{item}}>
               <button className="text-xs bg-cyan-100 text-black py-2 px-2 rounded-lg w-full">
                 More Details
               </button>
@@ -121,7 +170,7 @@ const TailorList = () => {
                 Book Tailor
               </button>
             </Link>
-          </div>
+          </div> */}
         </div>
       ))}
     </div>
