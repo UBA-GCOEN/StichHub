@@ -2,10 +2,20 @@ import React, {useState, useEffect} from "react";
 import jwt_decode from "jwt-decode";
 import axios from "../../../../axios"
 
-const TopProfile = () => {
+const TopProfile = (props) => {
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
-  const [tailorDetails, setTailorDetails] = useState([]);
+  
+  const {tailorDetails} = props
+
+    let image = ''
+
+    // if user does not have profile pic default profile pic is displayed
+    if(tailorDetails) {
+        image = (tailorDetails.passport !== '') ? tailorDetails.passport:'https://img.icons8.com/?size=512&id=492ILERveW8G&format=png'
+    } else {
+        image = 'https://img.icons8.com/?size=512&id=492ILERveW8G&format=png'
+    }
  
   useEffect(() => {
     const token = user?.token;
@@ -19,19 +29,20 @@ const TopProfile = () => {
     setUser(JSON.parse(localStorage.getItem("tailorProfile")));
   }, [location]);
 
-  const getTailorDetails = async() => {
-    try {
-      const res = await axios.get("/tailors/selected");
-      setTailorDetails(res.data);
-      console.log(res.data);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
+  
+  // const getTailorDetails = async() => {
+  //   try {
+  //     const res = await axios.get("/tailors/selected");
+  //     setTailorDetails(res.data);
+  //     console.log(res.data);
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // }
 
-  useEffect(() => {
-    getTailorDetails();
-  }, [tailorDetails]);
+  // useEffect(() => {
+  //   getTailorDetails();
+  // }, [tailorDetails]);
 
 
   // https://cdn-icons-png.flaticon.com/512/6522/6522516.png
@@ -40,7 +51,7 @@ const TopProfile = () => {
     <div className="flex w-fit h-fit grow flex-row justify-between m-10 mb-5">
       <div>
         <div className="text-sm text-white text-left">{user?.result.name}</div>
-        <div className="text-sm text-grey">inaamajay007@gmail.com</div>
+        <div className="text-sm text-grey">{user?.result.email}</div>
         <div className="h-max mb-auto grid grid-flow-col auto-cols-max mt-[2%]">
           <svg
             fill="#d97706"
@@ -93,7 +104,7 @@ const TopProfile = () => {
       <div className="h-fit w-fit ml-[30%]">
         <div className="grid justify-items-end rounded-full mt-auto h-[70px] w-[70px] bg-cover bg-center">
         <div className="rounded-full h-[15px] w-[15px] bg-green-500"></div>
-          <img src={bg} className="grid justify-items-end rounded-full mt-auto h-[70px] w-[70px] bg-cover bg-center"/>
+          <img src={image} className="grid justify-items-end rounded-full mt-auto h-[70px] w-[70px] bg-cover bg-center"/>
           
         </div>
       </div>

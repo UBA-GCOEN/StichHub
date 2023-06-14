@@ -1,6 +1,7 @@
 import About from './About';
 import ContactUs from './ContactUs';
 import Footer from './Footer';
+import FooterHomePage from './FooterHomePage';
 import Home from './Home';
 import NavBar from './NavBar';
 import OurServices from './OurServices';
@@ -15,5 +16,6 @@ export {
     OurServices, 
     HowItWorks, 
     faq,
-    Footer
-}
+    Footer,
+    FooterHomePage,
+};

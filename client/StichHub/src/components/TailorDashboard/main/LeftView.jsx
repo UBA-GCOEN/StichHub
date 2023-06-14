@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import jwt_decode from "jwt-decode";
 import {
   Squares2X2Icon,
   UserIcon,
@@ -8,10 +9,37 @@ import {
 
 const LeftView = (props) => {
     const { handleNavigationLinkClick } = props;
+    const {tailorDetails} = props
+
+    let image = ''
+
+    // if user does not have profile pic default profile pic is displayed
+    if(tailorDetails) {
+        image = (tailorDetails.passport !== '') ? tailorDetails.passport:'https://img.icons8.com/?size=512&id=492ILERveW8G&format=png'
+    } else {
+        image = 'https://img.icons8.com/?size=512&id=492ILERveW8G&format=png'
+    }
 
     const handleLinkClick = (index) => {
       handleNavigationLinkClick(index);
     };
+
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+
+    useEffect(() => {
+        const token = user?.token;
+    
+        if (token) {
+          const decodedToken = jwt_decode(token);
+    
+          if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+        }
+    
+        setUser(JSON.parse(localStorage.getItem("tailorProfile")));
+      }, [location]);
+
+    
+    
 
   return (
     <div className="grid grid-flow-row auto-rows-fr row-span-3 mt-4 z-50 rounded-3xl container h-[100hv] bg-gradient-to-br from-grey to-dark_grey ">
@@ -20,16 +48,17 @@ const LeftView = (props) => {
         <div className="h-[30px]"></div>
 
         {/**profile image */}
-        <div className="grid justify-items-end rounded-full mt-auto h-[50px] w-[50px] bg-cover bg-center bg-[url('https://media.istockphoto.com/id/1318858332/photo/headshot-portrait-of-smiling-female-employee-posing-in-office.jpg?s=612x612&w=is&k=20&c=f0NR-g76WDrQo_Qa7x3gXOGmmH-CIBZ3Ud-rQFRMlks=')]">
+        <div className="grid justify-items-end rounded-full mt-auto h-[50px] w-[50px] bg-cover bg-center" style={{background: `url(${image}) no-repeat center center/cover`, height: '100%'}}>
+            
           <div className="rounded-full h-[15px] w-[15px] bg-green-500"></div>
         </div>
 
         {/**profile name */}
-        <div className="text-slate-50 mt-auto text-sm">Mr. Akash Malhotra</div>
+        <div className="text-slate-50 mt-auto text-sm">{user?.result.name}</div>
 
         {/**email */}
         <div className="h-max top-0 mb-auto text-slate-100  text-xs">
-          inaamajay007@gmail.com
+          {user?.result.email}
         </div>
 
         {/**profile ratings */}

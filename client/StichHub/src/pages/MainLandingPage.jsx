@@ -7,6 +7,7 @@ import {
   OurServices,
   HowItWorks,
   Footer,
+  FooterHomePage
 } from "../components/MainLandingPage";
 import FAQ from "../components/MainLandingPage/FAQs/faq"
 import { LandingPageDemo } from "../contexts/LandingPageDemo";
@@ -18,14 +19,15 @@ const MainLandingPage = () => {
       <GoToTop />
       <NavBar />
       <LandingPageDemo>
-        <Home />
+      <Home />
       </LandingPageDemo>
       <OurServices />
       <HowItWorks />
       <About />
       <FAQ/>
       <ContactUs />
-      <p className="text-sm">	&copy; Stichhub {new Date().getFullYear()}</p>
+      <FooterHomePage />
+      {/* <p className="text-sm">	&copy; Stichhub {new Date().getFullYear()}</p> */}
     </div>
   );
 };
