@@ -20,7 +20,8 @@ jobs:
           Thank you for submitting this pull request
           Your pull request will be reviewed by maintainers shortly.
           Meanwhile make sure you have referenced the respected issue in this pr 
-          Your pr will not be merged if it does not refer respected pr and 
+          Your pr will not be merged if it does not have reference to respected issue 
+          
           please read our Contributing Guidelines
           https://github.com/UBA-GCOEN/StichHub/blob/main/CONTRIBUTING.md
           And Code of Conduct
