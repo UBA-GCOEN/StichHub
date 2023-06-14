@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "../../axios.js";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import validate from "../../common/validation";
+import AuthErrorMessage from "../AuthError";
 
 const initialForm = {
   name: "",
@@ -19,7 +21,7 @@ const initialForm = {
 const AuthTailor = () => {
   const [isregister, setIsRegister] = useState(true);
   const [form, setForm] = useState(initialForm);
-  const [error, setError] = useState("");
+  const [error, setError] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const navigateTo = useNavigate();
 
@@ -30,10 +32,35 @@ const AuthTailor = () => {
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    if(e.target.name !== "confirmPassword"){
+      const validationMessage = validate[e.target.name](e.target.value);
+      setError((prev)=>{
+        return {...prev, ...validationMessage}
+      })
+    }else{
+       if(form.password !== e.target.value){
+         setError((prev)=>{
+          return {...prev, confirmPassword: true, confirmPasswordError: "Password does not match"}
+         })
+       }else{
+        setError((prev)=>{
+          return {...prev, confirmPassword: false, confirmPasswordError: false}
+         })
+       }
+    }
   };
 
   const handleSumbmit = async (e) => {
     e.preventDefault();
+    let submitable = true
+    Object.values(error).forEach(e=>{
+      if(e){
+        submitable = false;
+        return ;
+      }
+    })
+
+    if(submitable){
     setIsLoading(true);
 
     try {
@@ -49,8 +76,10 @@ const AuthTailor = () => {
       setIsLoading(false);
       navigateTo("/TailorProfileVerification");
     } catch (error) {
-      setError(error.response.data.message);
+      alert(error.response.data.message);
       setIsLoading(false);
+    }}else{
+      alert("Please enter valid values");
     }
   };
 
@@ -127,11 +156,6 @@ const AuthTailor = () => {
             </div>
           </div>
 
-          {/* Auth Error */}
-          <div className="flex justify-center">
-            <p className="text-red-500 m-2 text-center">{error}</p>
-          </div>
-
           {/* form */}
           <div className="flex justify-center">
             <form onSubmit={handleSumbmit}>
@@ -163,6 +187,7 @@ const AuthTailor = () => {
                     disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
                   />
+                    {(error.name && error.nameError)? <AuthErrorMessage message={error.nameError}/>:null}
                 </div>
               )}
               <div>
@@ -194,6 +219,7 @@ const AuthTailor = () => {
                   invalid:border-pink-500 invalid:text-pink-600
                   focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
                 />
+                   {(error.email && error.emailError)? <AuthErrorMessage message={error.emailError}/>:null}
               </div>
               <div>
                 <svg
@@ -223,6 +249,7 @@ const AuthTailor = () => {
                   disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
                 />
+                   {(error.password && error.passwordError)? <AuthErrorMessage message={error.passwordError}/>:null}
                 <div onClick={passwordToggle} className="absolute cursor-pointer flex items-center z-[5] mt-[-1.8rem] ml-[17rem]">
                 {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
                 </div>
@@ -256,6 +283,7 @@ const AuthTailor = () => {
                     disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
                   />
+                        {(error.confirmPassword && error.confirmPasswordError)? <AuthErrorMessage message={error.confirmPasswordError}/>:null}
                 </div>
               )}
               <div className="flex justify-center">
