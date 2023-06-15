@@ -20,14 +20,14 @@ body:
 
   - type: textarea
     attributes:
-      label: "Add ScreenShots"
+      label: "Add Screenshots"
       description: "Add sufficient screenshots to explain your issue."
     validations:
       required: true
 
   - type: checkboxes
     attributes:
-      label: "Record"
+      label: "Record Options"
       options:
         - label: "I agree to follow this project's Code of Conduct"
           required: true
