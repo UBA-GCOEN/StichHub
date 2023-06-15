@@ -1,10 +1,9 @@
 name: "✨ Feature Request"
-description: "Suggest an idea for this project "
+description: "Suggest an idea for this project"
 title: "Feat:"
 labels: [Feat, Needs Triage]
 body:
- 
-- type: checkboxes
+  - type: checkboxes
     attributes:
       label: "Is there an existing issue raised for this?"
       description: "Please search to see if an issue already exists for the bug you encountered."
@@ -12,19 +11,20 @@ body:
         - label: "I have searched the existing issues"
           required: true
 
-- type: textarea
+  - type: textarea
     attributes:
       label: "Describe the feature"
-      description: 
+      description: "Describe the feature you are requesting."
     validations:
       required: true
+
   - type: textarea
     attributes:
       label: "Add ScreenShots"
-      description: "Add sufficient SS to explain your issue."
+      description: "Add sufficient screenshots to explain your issue."
     validations:
       required: true
- 
+
   - type: checkboxes
     attributes:
       label: "Record"
