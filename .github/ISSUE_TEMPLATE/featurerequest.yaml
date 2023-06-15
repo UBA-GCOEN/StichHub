@@ -1,7 +1,7 @@
 name: "✨ Feature Request"
 description: "Suggest an idea for this project"
 title: "Feat:"
-labels: [Feat, Needs Triage]
+labels: ["Feat", "Needs Triage"]
 body:
   - type: checkboxes
     attributes:
