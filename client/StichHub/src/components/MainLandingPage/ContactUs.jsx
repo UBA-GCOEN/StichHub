@@ -41,11 +41,11 @@ const ContactUs = () => {
         <div id="rightSide" className="">
           {/* Title */}
           <div id="Headings" className="text-left">
-            <h1 id="title" className="lg:text-5xl font-medium pb-4">
+            <h1 id="title" className="text-xl lg:text-4xl font-medium pb-4">
               GET IN TOUCH
             </h1>
-            <span id="subTitle" className="text-lg lg:text-3xl text-slate-300">
-              We will answer your every questions and problems
+            <span id="subTitle" className="text-lg lg:text-xl text-slate-300">
+            Have a question? We're here to help! Send us a message.
             </span>
           </div>
 
@@ -56,7 +56,7 @@ const ContactUs = () => {
                 src={AvatarIcon}
                 alt="N"
                 id="icon"
-                className="absolute ml-[10px] mt-[12px] h-9"
+                className="absolute ml-[10px] mt-[6px] h-7"
               />
               <input
                 autoComplete="on"
@@ -66,7 +66,7 @@ const ContactUs = () => {
                 id="name"
                 value={form.name}
                 onChange={handleChange}
-                className="mt-[30px] block w-full py-[16px] pl-[80px] bg-white border border-slate-300 rounded-2xl text-xl shadow-sm placeholder-slate-400 text-black focus:font-medium
+                className="mt-[10px] h-10 block w-full py-[16px] pl-[80px] bg-white border border-slate-300 rounded-2xl text-xl shadow-sm placeholder-slate-400 text-black focus:font-medium
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 invalid:border-pink-500 invalid:text-pink-600
@@ -78,7 +78,7 @@ const ContactUs = () => {
                 src={EmailIcon}
                 alt="E"
                 id="icon"
-                className="absolute ml-[10px] mt-[12px] h-9"
+                className="absolute ml-[10px] mt-[6px] h-7"
               />
               <input
                 autoComplete="on"
@@ -88,7 +88,7 @@ const ContactUs = () => {
                 id="email"
                 value={form.email}
                 onChange={handleChange}
-                className="mt-[30px] block w-full py-[16px] pl-[80px] bg-white border border-slate-300 rounded-2xl text-xl shadow-sm placeholder-slate-400 text-black focus:font-medium
+                className="mt-[10px] h-10 block w-full py-[16px] pl-[80px] bg-white border border-slate-300 rounded-2xl text-xl shadow-sm placeholder-slate-400 text-black focus:font-medium
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 invalid:border-pink-500 invalid:text-pink-600
@@ -100,7 +100,7 @@ const ContactUs = () => {
                 src={PhoneIcon}
                 alt="P"
                 id="icon"
-                className="absolute ml-[10px] mt-[12px] h-9"
+                className="absolute ml-[10px] mt-[6px] h-7"
               />
               <input
                 type="tel"
@@ -109,7 +109,7 @@ const ContactUs = () => {
                 id="phoneno"
                 value={form.phoneno}
                 onChange={handleChange}
-                className="mt-[30px] block w-full py-[16px] pl-[80px] bg-white border border-slate-300 rounded-2xl text-xl shadow-sm placeholder-slate-400 text-black focus:font-medium
+                className="mt-[10px] h-10 block w-full py-[16px] pl-[80px] bg-white border border-slate-300 rounded-2xl text-xl shadow-sm placeholder-slate-400 text-black focus:font-medium
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 invalid:border-pink-500 invalid:text-pink-600
@@ -124,7 +124,7 @@ const ContactUs = () => {
               rows="6"
               value={form.message}
               onChange={handleChange}
-              className="mt-[30px] block w-full py-[16px] pl-[40px] bg-white border border-slate-300 rounded-2xl text-xl shadow-sm placeholder-slate-400 text-black focus:font-medium
+              className="mt-[10px] block w-full py-[16px] pl-[40px] bg-white border border-slate-300 rounded-2xl text-xl shadow-sm placeholder-slate-400 text-black focus:font-medium
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 invalid:border-pink-500 invalid:text-pink-600
@@ -133,7 +133,7 @@ const ContactUs = () => {
             ></textarea>
             <button
               type="submit"
-              className="mt-[30px] block w-full bg-[#0054B8] py-3 lg:py-[16px] rounded-2xl hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 lg:text-3xl text-lg"
+              className="mt-[20px] block w-full bg-[#0054B8] py-3 lg:py-[16px] rounded-2xl hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 lg:text-3xl text-lg"
             >
               Send
             </button>
