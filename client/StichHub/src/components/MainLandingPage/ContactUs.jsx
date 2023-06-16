@@ -6,6 +6,8 @@ import {
   PhoneIcon,
   SendVector,
 } from "../../assets/MainLandingPage/Icons";
+import validate from "../../common/validation";
+import AuthErrorMessage from "../AuthError";
 
 const initialForm = {
   name: "",
@@ -16,9 +18,14 @@ const initialForm = {
 
 const ContactUs = () => {
   const [form, setForm] = useState(initialForm);
+  const [error, setError] = useState(validate.contactInitialVal);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    const validationMessage = validate[e.target.name](e.target.value);
+    setError((prev) => {
+      return { ...prev, ...validationMessage };
+    });
   };
 
   // const handleSubmit = async (e) => {
@@ -72,6 +79,9 @@ const ContactUs = () => {
                 invalid:border-pink-500 invalid:text-pink-600
                 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
               ></input>
+              {error.name && error.nameError ? (
+                <AuthErrorMessage message={error.nameError} />
+              ) : null}
             </div>
             <div id="Email" className="">
               <img
@@ -94,6 +104,9 @@ const ContactUs = () => {
                 invalid:border-pink-500 invalid:text-pink-600
                 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
               ></input>
+              {error.email && error.emailError ? (
+                <AuthErrorMessage message={error.emailError} />
+              ) : null}
             </div>
             <div id="Phone no." className="">
               <img
@@ -115,6 +128,9 @@ const ContactUs = () => {
                 invalid:border-pink-500 invalid:text-pink-600
                 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
               ></input>
+              {error.phoneno && error.phonenoError ? (
+                <AuthErrorMessage message={error.phonenoError} />
+              ) : null}
             </div>
             <textarea
               placeholder="Describe your issue here"
@@ -131,10 +147,13 @@ const ContactUs = () => {
                 focus:invalid:border-pink-500 focus:invalid:ring-pink-500
                 resize-none"
             ></textarea>
+            {error.message && error.messageError ? (
+              <AuthErrorMessage message={error.messageError} />
+            ) : null}
             <button
               type="submit"
-              className="mt-[30px] block w-full bg-[#0054B8] py-3 lg:py-[16px] rounded-2xl hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 lg:text-3xl text-lg"
-            >
+              className="mt-[30px] block w-full bg-[#0054B8] py-3 lg:py-[16px] rounded-2xl hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 lg:text-3xl text-lg disabled:bg-[#0054B8] disabled:cursor-not-allowed"
+             disabled={Object.values(error).includes(true)}>
               Send
             </button>
           </form>
