@@ -1,5 +1,7 @@
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$%#^&*])(?=.*[0-9]).{8,}$/;
 const emailRegex = /^\w+([\.-]?\w+)*@(gmail\.com|yahoo\.com|hotmail\.com|aol\.com|outlook\.com)$/;
+const phoneRegex =/^\d{10}$/;
+
 
 
 const validate = {
@@ -7,7 +9,7 @@ const validate = {
     if (!value) return { name: true, nameError: "Name field cannot be empty" };
     else {
       return value.length < 6
-        ? { name: true, nameError: "Name must be atleast 6 characters long." }
+        ? { name: true, nameError: "Name must be atleast 6 characters long" }
         : { name: false, nameError: false };
     }
   },
@@ -24,9 +26,36 @@ const validate = {
       : {
           password: true,
           passwordError:
-            "Minimum 8 characters, 1 uppercase, 1 lowercase, 1 symbol (@$%#^&*), 1 number (0-9).",
+            "Minimum 8 characters, 1 uppercase, 1 lowercase, 1 symbol (@$%#^&*), 1 number (0-9)",
         };
   },
+
+  phoneno: (value)=>{
+    return phoneRegex.test(value)
+    ? { phoneno: false, phonenoError: false }
+    : {
+        phoneno: true,
+        phonenoError:
+          "Please Enter valid Phone number",
+      };
+  },
+
+  message: (value)=>{
+    const numOfWords = value.split(" ").length;
+
+    if(numOfWords < 20 || numOfWords > 100){
+      return {message: true, messageError: "Describe the issue in 20 to 100 words"}
+    }else{
+      return {message: false, messageError: false}
+    }
+  },
+  contactInitialVal:{
+    name: true, nameError: null,
+    email: true, emailError: null,
+    phoneno: true, phonenoError: null,
+    message: true, messageError: null
+  }
+
 };
 
 export default validate;
