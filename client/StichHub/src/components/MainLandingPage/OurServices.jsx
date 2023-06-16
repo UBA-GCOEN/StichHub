@@ -22,14 +22,14 @@ const OurServices = () => {
             </div>
             <div
               id="customerCardContent"
-              className="lg:w-[350px] lg:h-[360px] rounded-3xl mt-5 drop-shadow-md flex justify-center content-center flex-wrap lg:bg-black/40"
+              className="lg:w-[350px] lg:h-[360px] rounded-3xl mt-5 drop-shadow-md flex justify-center content-center flex-wrap lg:bg-black/40 transform transition duration-500 hover:scale-105"
             >
               <img src={forcustomers} className="lg:w-[150px] w-[90px]" alt="customers" />
               <p className="text-xs lg:text-base px-20 lg:px-10 py-5 lg:p-3">
                 You can choose your own style, see how it looks as well as choose from a choice of tailor whom you want to get your clothes stitched from.{" "}
               </p>
               <Link to="/CustomersPage">
-                <button  className="px-4 py-2 lg:p-4 bg-white text-black rounded-xl text-lg font-medium lg:m-5 cursor-pointer transition-all duration-300 ease-in hover:bg-black hover:text-white">
+                <button  className="px-4 py-2 lg:p-4 bg-white text-black rounded-xl text-lg font-medium lg:m-5 cursor-pointer transition-all duration-300 ease-in hover:bg-black hover:text-white hover:border hover:border-white">
                   Explore Now
                 </button>
               </Link>
@@ -43,14 +43,14 @@ const OurServices = () => {
             </div>
             <div
               id="tailerCardContent"
-              className="lg:w-[350px] lg:h-[360px] rounded-3xl mt-5 drop-shadow-md flex justify-center content-center flex-wrap lg:bg-black/40"
+              className="lg:w-[350px] lg:h-[360px] rounded-3xl mt-5 drop-shadow-md flex justify-center content-center flex-wrap lg:bg-black/40 transform transition duration-500 hover:scale-105"
             >
               <img src={fortailors} className="lg:h-[100px] h-[70px] m-6" alt="tailors" />
               <p className="text-xs lg:text-base px-20 lg:px-10 py-5 lg:p-3">
                 You can keep track of your orders, showcase your previous work as well as add your specialities to your profile to increase customer-base.{" "}
               </p>
               <Link to="/auth">
-                <button  className="px-4 py-2 lg:p-4 bg-white text-black rounded-xl text-lg font-medium lg:m-5 cursor-pointer transition-all duration-300 ease-in hover:bg-black hover:text-white">
+                <button  className="px-4 py-2 lg:p-4 bg-white text-black rounded-xl text-lg font-medium lg:m-5 cursor-pointer transition-all duration-300 ease-in hover:bg-black hover:text-white hover:border hover:border-white">
                   Get Started
                 </button>
               </Link>
