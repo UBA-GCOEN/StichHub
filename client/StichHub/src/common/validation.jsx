@@ -43,8 +43,8 @@ const validate = {
   message: (value)=>{
     const numOfWords = value.split(" ").length;
 
-    if(numOfWords < 20 || numOfWords > 100){
-      return {message: true, messageError: "Describe the issue in 20 to 100 words"}
+    if(numOfWords < 10 || numOfWords > 100){
+      return {message: true, messageError: "Describe the issue in 10 to 100 words"}
     }else{
       return {message: false, messageError: false}
     }
