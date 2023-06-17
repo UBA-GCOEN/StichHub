@@ -1,5 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom"
+import GitHubIcon from '@mui/icons-material/GitHub';
+import TwitterIcon from '@mui/icons-material/Twitter';
 import logo from "../../assets/logo/Long - Logo Transparent (White).png"
 
 const Footer = () => {
@@ -35,8 +37,8 @@ const Footer = () => {
             <h3 className="font-semibold text-lg py-2">Socials</h3>
             <div className="socials text-sm">
               <ul className="text-[#A8A8A8]">
-                <li className="py-1 hover:text-[white] cursor-pointer"><a href="https://github.com/UBA-GCOEN/StichHub">GitHub</a> </li>
-                <li className="py-1 hover:text-[white] cursor-pointer"><a href="">Twitter</a></li>
+                <li className="py-1 hover:text-[white] cursor-pointer"><a href="https://github.com/UBA-GCOEN/StichHub"><GitHubIcon /> GitHub</a> </li>
+                <li className="py-1 hover:text-[white] cursor-pointer"><a href=""><TwitterIcon /> Twitter</a></li>
                 <li className="py-1 hover:text-[white] cursor-pointer"><a href="#contactus">Contact Us</a></li>
               </ul>
             </div>
