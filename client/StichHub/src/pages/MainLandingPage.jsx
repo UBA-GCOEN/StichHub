@@ -9,6 +9,7 @@ import {
   Footer,
   FooterHomePage
 } from "../components/MainLandingPage";
+import FAQ from "../components/MainLandingPage/FAQs/faq"
 import { LandingPageDemo } from "../contexts/LandingPageDemo";
 import GoToTop from "../components/GoToTop";
 
@@ -23,6 +24,7 @@ const MainLandingPage = () => {
       <OurServices />
       <HowItWorks />
       <About />
+      <FAQ/>
       <ContactUs />
       <FooterHomePage />
       {/* <p className="text-sm">	&copy; Stichhub {new Date().getFullYear()}</p> */}

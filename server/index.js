@@ -12,6 +12,8 @@ import tailorsDetails from "./routes/tailorsDetails.js";
 import orders from "./routes/orders.js";
 import cart from "./routes/cart.js";
 import payment from "./routes/payment.js";
+import { forgotpassword } from './controllers/forgotpassword.js';
+
 
 const app = express();
 
@@ -29,6 +31,7 @@ app.use("/tailors", tailorsDetails);
 app.use("/order", orders);
 app.use("/cart", cart);
 app.use("/payment", payment);
+app.use("/forgotpassword", forgotpassword);
 
 const CONNECTION_URL = process.env.MONGO_URL;
 const PORT = process.env.PORT || 5000;
