@@ -16,12 +16,14 @@ import {
   ThreeDConfigurator,
   ThreeDMeasurement,
 } from "./pages";
+
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Category, CustomerOrder } from "./components/Home";
 import { HomeProvider, useHCustomization } from "./contexts/Home";
 
 const CustomerAuth=lazy(()=>import("./components/Loginsignup/CustomerAuth"))
 const AuthTailor=lazy(()=>import("./components/Loginsignup/AuthTailor"))
+const ForgotPassword=lazy(()=>import("./components/Loginsignup/ForgotPassword"))
 const NewTailor=lazy(()=>import("./components/TailorDashboard/NewTailor"))
 const Profile=lazy(()=>import("./components/TailorDashboard/Profile"))
 const OrderConfirmation=lazy(()=>import("./components/Home/OrderConfirmation"))
@@ -180,22 +182,27 @@ function App() {
               element={<TailorProfileVerification />}
             />
 
-            {/* Miscelleneous */}
-            <Route
-              path="/FabricSelection"
-              element={<FabricSelection />}
-            />
-            <Route
-              path="/HomeOnlineVisit"
-              element={<HomeOnlineVisit />}
-            />
-            <Route
-              path="*"
-              element={<ErrorPage/>}
-            />
-          </Routes>
-        </HomeProvider>
+          {/* Miscelleneous */}
+          <Route
+            path="/FabricSelection"
+            element={<FabricSelection />}
+          />
+          <Route
+            path="/HomeOnlineVisit"
+            element={<HomeOnlineVisit />}
+          />
+          <Route
+            path="/forgotpassword/:userType"
+            element={<ForgotPassword />}
+          />
+          <Route
+            path="*"
+            element={<ErrorPage/>}
+          />
+        </Routes>
+      </HomeProvider>
       </Suspense>
+
     </GoogleOAuthProvider>
   );
 }
