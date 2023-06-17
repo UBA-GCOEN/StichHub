@@ -6,6 +6,8 @@ import {
   PhoneIcon,
   SendVector,
 } from "../../assets/MainLandingPage/Icons";
+import validate from "../../common/validation";
+import AuthErrorMessage from "../AuthError";
 
 const initialForm = {
   name: "",
@@ -16,9 +18,14 @@ const initialForm = {
 
 const ContactUs = () => {
   const [form, setForm] = useState(initialForm);
+  const [error, setError] = useState(validate.contactInitialVal);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    const validationMessage = validate[e.target.name](e.target.value);
+    setError((prev) => {
+      return { ...prev, ...validationMessage };
+    });
   };
 
   // const handleSubmit = async (e) => {
@@ -71,6 +78,9 @@ const ContactUs = () => {
                 invalid:border-pink-500 invalid:text-pink-600
                 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
               ></input>
+              {error.name && error.nameError ? (
+                <AuthErrorMessage message={error.nameError} />
+              ) : null}
             </div>
             <div id="Email" className="">
               <img
@@ -93,6 +103,9 @@ const ContactUs = () => {
                 invalid:border-pink-500 invalid:text-pink-600
                 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
               ></input>
+              {error.email && error.emailError ? (
+                <AuthErrorMessage message={error.emailError} />
+              ) : null}
             </div>
             <div id="Phone no." className="">
               <img
@@ -114,6 +127,9 @@ const ContactUs = () => {
                 invalid:border-pink-500 invalid:text-pink-600
                 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
               ></input>
+              {error.phoneno && error.phonenoError ? (
+                <AuthErrorMessage message={error.phonenoError} />
+              ) : null}
             </div>
             <textarea
               placeholder="Describe your issue here"
@@ -130,10 +146,18 @@ const ContactUs = () => {
                 focus:invalid:border-pink-500 focus:invalid:ring-pink-500
                 resize-none"
             ></textarea>
-            <button type="submit" className="relative inline-flex mt-[20px] w-full rounded-2xl items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-              <span className="relative px-5 py-2.5 w-full rounded-2xl lg:text-2xl text-lg transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-2xl group-hover:bg-opacity-0">
-                Send
-              </span>
+               {error.message && error.messageError ? (
+                  <AuthErrorMessage message={error.messageError} />
+                ) : null}
+            <button 
+              type="submit"
+              className="relative inline-flex mt-[20px] w-full rounded-2xl items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900
+                group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none
+                focus:ring-blue-300 dark:focus:ring-blue-800"
+              disabled={Object.values(error).includes(true)}>
+                  <span className="relative px-5 py-2.5 w-full rounded-2xl lg:text-2xl text-lg transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-2xl group-hover:bg-opacity-0">
+                   Send
+                 </span>
             </button>
           </form>
           <img
