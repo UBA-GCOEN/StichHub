@@ -30,15 +30,14 @@ const ContactUs = () => {
       id="contactus"
       className="h-[100%] relative mt-10 lg:mt-0 p-10 lg:p-20 lg:ml-20 lg:mr-20"
     >
-      <div className="relative z-[5] flex justify-evenly">
+      <div className="relative z-[5] flex items-center justify-center">
         {/* left-Side */}
         <div id="leftside" className="lg:block hidden mb-[20px] bottom-[20p]">
           <img src={ContactUsVector} className="" />
-          <p className="text-left text-xl w-[500px]"></p>
         </div>
 
         {/* Right-Side */}
-        <div id="rightSide" className="">
+        <div id="rightSide" className="lg:mt-12">
           {/* Title */}
           <div id="Headings" className="text-left">
             <h1 id="title" className="text-xl lg:text-4xl font-medium pb-4">
@@ -121,7 +120,7 @@ const ContactUs = () => {
               name="message"
               id="message"
               cols="30"
-              rows="6"
+              rows="4"
               value={form.message}
               onChange={handleChange}
               className="mt-[10px] block w-full py-[16px] pl-[40px] bg-white border border-slate-300 rounded-2xl text-xl shadow-sm placeholder-slate-400 text-black focus:font-medium
@@ -131,11 +130,10 @@ const ContactUs = () => {
                 focus:invalid:border-pink-500 focus:invalid:ring-pink-500
                 resize-none"
             ></textarea>
-            <button
-              type="submit"
-              className="mt-[20px] block w-full bg-[#0054B8] py-3 lg:py-[16px] rounded-2xl hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 lg:text-3xl text-lg"
-            >
-              Send
+            <button type="submit" className="relative inline-flex mt-[20px] w-full rounded-2xl items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+              <span className="relative px-5 py-2.5 w-full rounded-2xl lg:text-2xl text-lg transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-2xl group-hover:bg-opacity-0">
+                Send
+              </span>
             </button>
           </form>
           <img
