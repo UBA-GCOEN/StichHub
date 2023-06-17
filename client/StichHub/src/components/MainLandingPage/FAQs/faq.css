@@ -1,0 +1,149 @@
+  
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
+.faq-heading{
+    color: #fff;
+    font-size: 50px;
+    font-family: 'Londrina Solid', cursive;
+}
+
+#rightSide{
+    margin-top: 50px;
+}
+#leftside {
+    margin-bottom: 20px;
+  }
+  
+  #leftside img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .accordion {
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+  }
+  
+  .accordion .accordion-item {
+    border-style: none;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 2px;
+    /* font-family: 'Londrina Solid', cursive; */
+  }
+  
+  .accordion .accordion-item button[aria-expanded='true'] {
+    border-bottom: 1px solid #fff;
+  }
+  
+  .accordion button {
+    position: relative;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 1em 0;
+    color: #7288a2;
+    font-size: 1.15rem;
+    font-weight: 400;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .accordion button:hover,
+  .accordion button:focus {
+    color: #fff;
+  }
+  
+  .accordion button:hover::after,
+  .accordion button:focus::after {
+    color: #fff;
+    border: 1px solid #fff;
+  }
+  
+  .accordion button .accordion-title {
+    padding: 1em 1.5em 1em 0;
+  }
+  
+  .accordion button .icon {
+    display: inline-block;
+    position: absolute;
+    top: 18px;
+    right: 0;
+    width: 22px;
+    height: 22px;
+    border: 1px solid;
+    border-radius: 22px;
+  }
+  
+  .accordion button .icon::before {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 9px;
+    left: 5px;
+    width: 10px;
+    height: 2px;
+    background: currentColor;
+  }
+  
+  .accordion button .icon::after {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 5px;
+    left: 9px;
+    width: 2px;
+    height: 10px;
+    background: currentColor;
+  }
+  
+  .accordion button[aria-expanded='true'] {
+    color: #fff;
+  }
+  
+  .accordion button[aria-expanded='true'] .icon::after {
+    width: 0;
+  }
+  
+  .accordion button[aria-expanded='true'] + .accordion-content {
+    opacity: 1;
+    max-height:9rem;
+    transition: all 200ms linear;
+    will-change: opacity, max-height;
+  }
+  
+  .accordion .accordion-content {
+    line-height: 20px;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 200ms linear, max-height 200ms linear;
+    will-change: opacity, max-height;
+  }
+  
+  .accordion .accordion-content p {
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 2em 0;
+  }
+  
+  @media (max-width: 750px) {
+  
+    .accordion .accordion-item button .icon {
+      top: 14px;
+    }
+  
+    .accordion .accordion-content p {
+      font-size: 0.9rem;
+      margin: 1em 0;
+    }
+    .faq-heading{
+        line-height: 55px;
+    }
+    
+  }
+
+
+  
