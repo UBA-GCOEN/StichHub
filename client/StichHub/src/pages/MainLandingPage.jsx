@@ -23,8 +23,8 @@ const MainLandingPage = () => {
       </LandingPageDemo>
       <OurServices />
       <HowItWorks />
-      <About />
       <FAQ/>
+      <About />
       <ContactUs />
       <FooterHomePage />
       {/* <p className="text-sm">	&copy; Stichhub {new Date().getFullYear()}</p> */}
