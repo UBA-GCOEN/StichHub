@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-const FilterSection = () => {
+const FilterSection = ({handleChange}) => {
   const [toggle, setToggle] = useState(false);
-
+  
   return (
     <div>
       {/* Top Display */}
@@ -16,7 +16,7 @@ const FilterSection = () => {
               {/* Button */}
               <div
                 className="flex text-red-500 cursor-pointer"
-                onClick={() => setToggle(!toggle)}
+                onClick={() => setToggle(false)}
               >
                 <span>Close</span>
                 <svg
@@ -44,9 +44,10 @@ const FilterSection = () => {
                       <input
                         type="radio"
                         name="category"
-                        value="MensShirt"
+                        value="mensShirt"
                         className="mr-1"
                         id="MensShirt"
+                        onChange={handleChange}
                       />
                       <label
                         className="cursor-pointer"
@@ -59,13 +60,14 @@ const FilterSection = () => {
                       <input
                         type="radio"
                         name="category"
-                        value="MensBlazer"
+                        value="mensBlazer"
                         id="MensBlazer"
                         className="mr-1"
+                        onChange={handleChange}
                       />
                       <label
                         className="cursor-pointer"
-                        for="MensBlazer"
+                        for="mensBlazer"
                       >
                         Men's Blazer
                       </label>
@@ -74,9 +76,10 @@ const FilterSection = () => {
                       <input
                         type="radio"
                         name="category"
-                        value="WomensShirt"
+                        value="womensShirt"
                         id="WomensShirt"
                         className="mr-1"
+                        onChange={handleChange}
                       />
                       <label
                         className="cursor-pointer"
@@ -89,9 +92,10 @@ const FilterSection = () => {
                       <input
                         type="radio"
                         name="category"
-                        value="WomensBlazer"
+                        value="womensBlazer"
                         id="WomensBlazer"
                         className="mr-1"
+                        onChange={handleChange}
                       />
                       <label
                         className="cursor-pointer"
@@ -109,9 +113,10 @@ const FilterSection = () => {
                       <input
                         type="checkbox"
                         name="price"
-                        value="under1000"
+                        value="under 1000"
                         id="under1000"
                         className="mr-1"
+                        onChange={handleChange}
                       />
                       <label
                         className="cursor-pointer"
@@ -124,9 +129,10 @@ const FilterSection = () => {
                       <input
                         type="checkbox"
                         name="price"
-                        value="1000-5000"
+                        value="1000 - 5000"
                         id="1000-5000"
                         className="mr-1"
+                        onChange={handleChange}
                       />
                       <label
                         className="cursor-pointer"
@@ -139,9 +145,10 @@ const FilterSection = () => {
                       <input
                         type="checkbox"
                         name="price"
-                        value="5000-15000"
+                        value="5000 - 15000"
                         id="5000-15000"
                         className="mr-1"
+                        onChange={handleChange}
                       />
                       <label
                         className="cursor-pointer"
@@ -154,9 +161,10 @@ const FilterSection = () => {
                       <input
                         type="checkbox"
                         name="price"
-                        value="Abovecheckbox"
+                        value="Above 15000"
                         id="Abovecheckbox"
                         className="mr-1"
+                        onChange={handleChange}
                       />
                       <label
                         className="cursor-pointer"
@@ -174,9 +182,10 @@ const FilterSection = () => {
                       <input
                         type="checkbox"
                         name="rating"
-                        value="5star"
+                        value={5}
                         id="5star"
                         className="mr-1"
+                        onChange={handleChange}
                       />
                       <label
                         className="cursor-pointer"
@@ -189,9 +198,10 @@ const FilterSection = () => {
                       <input
                         type="checkbox"
                         name="rating"
-                        value="4star"
+                        value={4}
                         id="4star"
                         className="mr-1"
+                        onChange={handleChange}
                       />
                       <label
                         className="cursor-pointer"
@@ -204,9 +214,10 @@ const FilterSection = () => {
                       <input
                         type="checkbox"
                         name="rating"
-                        value="3star"
+                        value={3}
                         id="3star"
                         className="mr-1"
+                        onChange={handleChange}
                       />
                       <label
                         className="cursor-pointer"
@@ -219,9 +230,10 @@ const FilterSection = () => {
                       <input
                         type="checkbox"
                         name="rating"
-                        value="2star"
+                        value={2}
                         id="2star"
                         className="mr-1"
+                        onChange={handleChange}
                       />
                       <label
                         className="cursor-pointer"
@@ -234,9 +246,10 @@ const FilterSection = () => {
                       <input
                         type="checkbox"
                         name="rating"
-                        value="1star"
+                        value={1}
                         id="1star"
                         className="mr-1"
+                        onChange={handleChange}
                       />
                       <label
                         className="cursor-pointer"
