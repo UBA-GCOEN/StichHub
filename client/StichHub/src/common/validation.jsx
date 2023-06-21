@@ -3,6 +3,7 @@ const emailRegex =
   /^\w+([\.-]?\w+)*@(gmail\.com|yahoo\.com|hotmail\.com|aol\.com|outlook\.com)$/;
 const phoneRegex = /^\d{10}$/;
 const countryRegex = /^[A-Za-z]{4,}$/;
+const pincodeRegex = /^[0-9]+$/;
 
 const validate = {
   name: (value) => {
@@ -86,6 +87,12 @@ const validate = {
   files: (name, length)=>{
       const messageKey = name + "Error";
       return (length === 0)? {[name]: true, [messageKey]: "Plesae Fill this Field"} : {[name]: false, [messageKey]: false} 
+  },
+
+  pincode: (value)=>{
+    return pincodeRegex.test(value)
+    ? { pincode: false, pincodeError: false }
+    : { pincode: true, pincodeError: "Please Enter Valid Pincode" };
   },
 
   contactInitialVal: {

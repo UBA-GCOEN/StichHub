@@ -1,15 +1,15 @@
 import React from "react";
 import Navbardark from "../components/Navbardark";
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback } from "react";
 import New from "../assets/img/new.png";
 import "react-phone-number-input/style.css";
 import N from "../assets/img/n.png";
 import Profileveri from "../assets/img/profileverify.png";
 import Speciality from "../assets/img/speciality.png";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import {useLocation, useNavigate } from "react-router-dom";
 import Verified from "../assets/img/verified.png";
 import V from "../assets/img/v.png";
-import MultiRangeSlider, { ChangeResult } from "multi-range-slider-react";
+import MultiRangeSlider from "multi-range-slider-react";
 import axios from "../axios.js";
 import { Player } from "@lottiefiles/react-lottie-player";
 import AuthErrorMessage from "../components/AuthError";
@@ -61,7 +61,6 @@ const initialForm = {
 
 //Main Implementation from here
 const TailorProfileVerification = () => {
-  // const [country, setCountry] = useState("");
   const [activeStep, setActiveStep] = useState(1);
   const [step, setStep] = useState(1);
   const [user, setUser] = useState(
@@ -90,15 +89,19 @@ const TailorProfileVerification = () => {
     if (!user) navigateTo("/auth/tailor");
   }, []);
 
-  const [checkedItems, setCheckedItems] = useState([]);
 
   const handleCheckboxChange = (e) => {
     const { value, checked } = e.target;
     if (checked) {
-      setCheckedItems((prevValues) => [...prevValues, value]);
+      setForm((prev)=>{
+        const newTypes = [...prev.types, value];
+        return {...prev, types: newTypes};
+      })
     } else {
-      setCheckedItems((prevValues) =>
-        prevValues.filter((val) => val !== value)
+      setForm((prev) =>{
+        const newTypes = prev.types.filter((val) => val !== value)
+        return {...prev, types: newTypes}; 
+      }
       );
     }
   };
@@ -117,10 +120,6 @@ const TailorProfileVerification = () => {
       });
   };
 
-  const [image1, setImage1] = useState("");
-  const [image2, setImage2] = useState("");
-  const [image3, setImage3] = useState("");
-
   const handleImageChange = (event) => {
         setFormError((prev)=>{
           const errorMessage = validate.files(event.target.name, event.target.files.length);
@@ -136,36 +135,12 @@ const TailorProfileVerification = () => {
         })
     }
    
-      // Set the state variables to the uploaded image URLs
-      
-      // if (event.target.name === "passport") {
-      //   setImage1(uploadedImage);
-      //   setForm({ ...form, passport: uploadedImage });
-      // } else if (event.target.name === "aadhar") {
-      //   setImage2(uploadedImage);
-      //   setForm({ ...form, aadhar: uploadedImage });
-      // } else if (event.target.name === "proffesionalDoc") {
-      //   setImage3(uploadedImage);
-      //   setForm({ ...form, proffesionalDoc: uploadedImage });
-      // }
-
     reader.readAsDataURL(file);
   };
-
-  // const stepFormSubmit = () => {
-  //   setForm({ ...form, country: country });
-  //   setForm({ ...form, prizerange: [minValue, maxValue] });
-  //   setForm({ ...form, types: checkedItems });
-  //   // console.log(form);
-  // };
 
   useEffect(() => {
     setForm({ ...form, prizerange: [minValue, maxValue] });
   }, [minValue, maxValue]);
-
-  useEffect(() => {
-    setForm({ ...form, types: checkedItems });
-  }, [checkedItems]);
 
   const shouldProceed = () => {
     switch (step) {
@@ -479,7 +454,6 @@ const TailorProfileVerification = () => {
   return (
     
     <div className="bg-[#130F26] h-fit">
-    {console.log(formError)}
       {isLoading ? (
         <div className="relative">
           <div className="absolute z-[100] left-[-10vw] lg:left-[30vw] top-[10vh]">
@@ -705,7 +679,6 @@ const TailorProfileVerification = () => {
                 className="relative z-[100] px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
                 onClick={() => {
                   handleNext();
-                  // stepFormSubmit();
                 }}
               >
                 Proceed
@@ -826,7 +799,7 @@ const TailorProfileVerification = () => {
                         type="pincode"
                         onChange={handleFormChange}
                         value={form.pincode}
-                        className="z-[5] bg-white border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] noempty"
+                        className="z-[5] bg-white border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                         placeholder=""
                         required
                       />{" "}
@@ -845,7 +818,6 @@ const TailorProfileVerification = () => {
                 className="z-[100] relative px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
                 onClick={() => {
                   handleNext();
-                  // stepFormSubmit();
                 }}
               >
                 Proceed
@@ -883,7 +855,7 @@ const TailorProfileVerification = () => {
                   </label>
                   <div className="flex z-[5] relative">
                     <img
-                      src={image1}
+                      src={form.passport}
                       className="w-[100px] h-[100px] mt-5 rounded-lg border border-white"
                     ></img>
                     <input
@@ -956,7 +928,6 @@ const TailorProfileVerification = () => {
                 className="   px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
                 onClick={() => {
                   handleNext();
-                  // stepFormSubmit();
                 }}
               >
                 Proceed
@@ -1018,7 +989,7 @@ const TailorProfileVerification = () => {
                       name="mensShirt"
                       value="mensShirt"
                       className="mx-2"
-                      checked={checkedItems.includes("mensShirt")}
+                      checked={form.types.includes("mensShirt")}
                       onChange={handleCheckboxChange}
                     />
                     Men's Shirt
@@ -1030,7 +1001,7 @@ const TailorProfileVerification = () => {
                       name="womensShirt"
                       value="womensShirt"
                       className="mx-2"
-                      checked={checkedItems.includes("womensShirt")}
+                      checked={form.types.includes("womensShirt")}
                       onChange={handleCheckboxChange}
                     />
                     Women's Shirt
@@ -1042,7 +1013,7 @@ const TailorProfileVerification = () => {
                       name="mensBlazer"
                       value="mensBlazer"
                       className="mx-2"
-                      checked={checkedItems.includes("mensBlazer")}
+                      checked={form.types.includes("mensBlazer")}
                       onChange={handleCheckboxChange}
                     />
                     Men's Blazer
@@ -1054,7 +1025,7 @@ const TailorProfileVerification = () => {
                       name="womensBlazer"
                       value="womensBlazer"
                       className="mx-2"
-                      checked={checkedItems.includes("womensBlazer")}
+                      checked={form.types.includes("womensBlazer")}
                       onChange={handleCheckboxChange}
                     />
                     Women's Blazer
@@ -1113,7 +1084,6 @@ const TailorProfileVerification = () => {
                 className="z-[90] relative px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
                 onClick={() => {
                   handleNext();
-                  // stepFormSubmit();
                 }}
               >
                 Proceed
