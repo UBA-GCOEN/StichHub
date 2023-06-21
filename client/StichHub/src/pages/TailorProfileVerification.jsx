@@ -12,6 +12,8 @@ import V from "../assets/img/v.png";
 import MultiRangeSlider, { ChangeResult } from "multi-range-slider-react";
 import axios from "../axios.js";
 import { Player } from "@lottiefiles/react-lottie-player";
+import AuthErrorMessage from "../components/AuthError";
+import validate from "../common/validation";
 
 //steps list
 const steps = [
@@ -57,10 +59,9 @@ const initialForm = {
   types: [],
 };
 
-
 //Main Implementation from here
 const TailorProfileVerification = () => {
-  const [country, setCountry] = useState("");
+  // const [country, setCountry] = useState("");
   const [activeStep, setActiveStep] = useState(1);
   const [step, setStep] = useState(1);
   const [user, setUser] = useState(
@@ -72,6 +73,7 @@ const TailorProfileVerification = () => {
   const [minValue, set_minValue] = useState(500);
   const [maxValue, set_maxValue] = useState(5000);
   const [isLoading, setIsLoading] = useState(false);
+  const [formError, setFormError] = useState(validate.verificationInitialValue);
   const handleInput = (e) => {
     set_minValue(e.minValue);
     set_maxValue(e.maxValue);
@@ -101,16 +103,18 @@ const TailorProfileVerification = () => {
     }
   };
 
-  const [telephone, setTelephone] = useState("");
-
-  const handletelChange = (event) => {
-    const { value } = event.target;
-    const telRegex = /^\d{0,10}$/; // allow up to 10 digits
-    if (telRegex.test(value)) {
-      setTelephone(value);
-    }
-
-    setForm({ ...form, contact: telephone });
+  const handleFormChange = (event) => {
+    const { name, value } = event.target;
+    setForm({ ...form, [name]: value });
+      setFormError((prev) => {
+        let getError;
+        if(event.target.classList.contains("noempty")){
+         getError = validate.notEmpty(name, value);
+        }else{
+          getError = validate[name](value);
+        }
+        return { ...prev, ...getError };
+      });
   };
 
   const [image1, setImage1] = useState("");
@@ -118,34 +122,42 @@ const TailorProfileVerification = () => {
   const [image3, setImage3] = useState("");
 
   const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-
-    reader.onload = function (upload) {
-      const uploadedImage = upload.target.result;
-
+        setFormError((prev)=>{
+          const errorMessage = validate.files(event.target.name, event.target.files.length);
+          return {...prev, ...errorMessage}
+        })
+      const file = event.target.files[0];
+      const reader = new FileReader();
+  
+      reader.onload = function (upload) {
+        const uploadedImage = upload.target.result;
+        setForm((prev)=>{
+          return {...prev, [event.target.name]: uploadedImage}
+        })
+    }
+   
       // Set the state variables to the uploaded image URLs
-      if (event.target.name === "passport") {
-        setImage1(uploadedImage);
-        setForm({ ...form, passport: uploadedImage });
-      } else if (event.target.name === "aadhar") {
-        setImage2(uploadedImage);
-        setForm({ ...form, aadhar: uploadedImage });
-      } else if (event.target.name === "proffesionalDoc") {
-        setImage3(uploadedImage);
-        setForm({ ...form, proffesionalDoc: uploadedImage });
-      }
-    };
+      
+      // if (event.target.name === "passport") {
+      //   setImage1(uploadedImage);
+      //   setForm({ ...form, passport: uploadedImage });
+      // } else if (event.target.name === "aadhar") {
+      //   setImage2(uploadedImage);
+      //   setForm({ ...form, aadhar: uploadedImage });
+      // } else if (event.target.name === "proffesionalDoc") {
+      //   setImage3(uploadedImage);
+      //   setForm({ ...form, proffesionalDoc: uploadedImage });
+      // }
 
     reader.readAsDataURL(file);
   };
 
-  const stepFormSubmit = () => {
-    setForm({ ...form, country: country });
-    setForm({ ...form, prizerange: [minValue, maxValue] });
-    setForm({ ...form, types: checkedItems });
-    // console.log(form);
-  };
+  // const stepFormSubmit = () => {
+  //   setForm({ ...form, country: country });
+  //   setForm({ ...form, prizerange: [minValue, maxValue] });
+  //   setForm({ ...form, types: checkedItems });
+  //   // console.log(form);
+  // };
 
   useEffect(() => {
     setForm({ ...form, prizerange: [minValue, maxValue] });
@@ -155,9 +167,37 @@ const TailorProfileVerification = () => {
     setForm({ ...form, types: checkedItems });
   }, [checkedItems]);
 
+  const shouldProceed = () => {
+    switch (step) {
+      case 1:
+        return true;
+        break;
+      case 2:
+        return formError.contact ? false : true;
+        break;
+        case 3:
+          const isError = formError.country || formError.address || formError.address2 || formError.city ||formError.state ||formError.pincode; 
+        return  isError? false : true;
+        break;
+        case 4:
+          const docError = formError.passport || formError.aadhar || formError.proffesionalDoc; 
+        return  docError? false : true;
+        break;
+        case 5:
+          const error = formError.bio || (form.types.length === 0) || (form.prizerange.length < 2 && form.prizerange.length>2 ) ; 
+        return  error? false : true;
+        break;
+    }
+  };
+
   const handleNext = () => {
-    setStep(step + 1);
-    setActiveStep(activeStep + 1);
+    const proceedable = shouldProceed();
+    if (proceedable) {
+      setStep(step + 1);
+      setActiveStep(activeStep + 1);
+    } else {
+      alert("Please provide valid data in all fields");
+    }
   };
 
   const handleBack = () => {
@@ -231,10 +271,6 @@ const TailorProfileVerification = () => {
         )}
       </div>
     );
-  };
-
-  const handleChangeFinal = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async () => {
@@ -441,7 +477,9 @@ const TailorProfileVerification = () => {
 
   // Main Start from here
   return (
+    
     <div className="bg-[#130F26] h-fit">
+    {console.log(formError)}
       {isLoading ? (
         <div className="relative">
           <div className="absolute z-[100] left-[-10vw] lg:left-[30vw] top-[10vh]">
@@ -492,7 +530,7 @@ const TailorProfileVerification = () => {
                             value={user?.result.email}
                             className="bg-white border box-border text-gray-400 w-full justify-around mb-[10px] p-2.5 rounded-[10px] border-solid border-white "
                             placeholder="abc@example.com"
-                            required="true"
+                            required
                             disabled
                           />
                           <button
@@ -571,11 +609,16 @@ const TailorProfileVerification = () => {
                               type="tel"
                               name="contact"
                               id="contact"
-                              onChange={handletelChange}
-                              value={telephone}
+                              onChange={handleFormChange}
+                              value={form.contact}
                               className="bg-white border box-border w-full justify-around gap-3 mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                               placeholder="Enter phone number"
                             />
+                            {formError.contact && formError.contactError ? (
+                              <AuthErrorMessage
+                                message={formError.contactError}
+                              />
+                            ) : null}
                           </div>
                           <button
                             className="hidden mt-1 px-6 py-1.5 rounded-lg text-white bg-[#3E00FF] hover:bg-blue-600 top-0"
@@ -662,7 +705,7 @@ const TailorProfileVerification = () => {
                 className="relative z-[100] px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
                 onClick={() => {
                   handleNext();
-                  stepFormSubmit();
+                  // stepFormSubmit();
                 }}
               >
                 Proceed
@@ -696,11 +739,16 @@ const TailorProfileVerification = () => {
                       type="text"
                       class="country"
                       value={form.country}
-                      onChange={handleChangeFinal}
+                      onChange={handleFormChange}
                       name="country"
                       id="country"
                       className="border box-border text-black w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-white bg-white"
                     />
+                    {(formError.country && formError.countryError) ? (
+                              <AuthErrorMessage
+                                message={formError.countryError}
+                              />
+                            ) : null}
                   </div>
 
                   <div className="mb-2">
@@ -711,21 +759,23 @@ const TailorProfileVerification = () => {
                         name="address"
                         id="address"
                         type="address"
-                        onChange={handleChangeFinal}
+                        onChange={handleFormChange}
                         value={form.address}
-                        className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-white bg-white"
+                        className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-white bg-white noempty"
                         placeholder="House number and street name"
                         required
                       />{" "}
+                      {formError.address && formError.addressError? <AuthErrorMessage message={formError.addressError}/>:null}
                       <input
                         name="address2"
                         type="address"
-                        onChange={handleChangeFinal}
+                        onChange={handleFormChange}
                         value={form.address2}
-                        className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-white bg-white"
+                        className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-white bg-white noempty"
                         placeholder="Appartment, suite, landmark, etc. (optional)"
                         required
                       />{" "}
+                       {formError.address2 && formError.address2Error? <AuthErrorMessage message={formError.address2Error}/>:null}
                     </label>
                   </div>
                   <div class="grid grid-cols-2 gap-4">
@@ -737,12 +787,13 @@ const TailorProfileVerification = () => {
                           <input
                             name="city"
                             type="city"
-                            onChange={handleChangeFinal}
+                            onChange={handleFormChange}
                             value={form.city}
-                            className="bg-white border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-white"
+                            className="bg-white border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-white noempty"
                             placeholder="enter city"
                             required
                           />{" "}
+                          {formError.city && formError.cityError? <AuthErrorMessage message={formError.cityError}/>:null}
                         </label>
                       </div>
                     </div>
@@ -753,14 +804,15 @@ const TailorProfileVerification = () => {
                           <br />
                           <input
                             type="state"
-                            className="bg-white border box-border text-black w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                            className="bg-white border box-border text-black w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] noempty"
                             placeholder="enter state"
                             name="state"
                             id="state"
-                            onChange={handleChangeFinal}
+                            onChange={handleFormChange}
                             value={form.state}
                             required
                           />{" "}
+                          {formError.state && formError.stateError? <AuthErrorMessage message={formError.stateError}/>:null}
                         </label>
                       </div>
                     </div>
@@ -772,12 +824,13 @@ const TailorProfileVerification = () => {
                       <input
                         name="pincode"
                         type="pincode"
-                        onChange={handleChangeFinal}
+                        onChange={handleFormChange}
                         value={form.pincode}
-                        className="z-[5] bg-white border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                        className="z-[5] bg-white border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] noempty"
                         placeholder=""
                         required
                       />{" "}
+                      {formError.pincode && formError.pincodeError? <AuthErrorMessage message={formError.pincodeError}/>:null}
                     </label>
                   </div>
                 </form>
@@ -792,7 +845,7 @@ const TailorProfileVerification = () => {
                 className="z-[100] relative px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
                 onClick={() => {
                   handleNext();
-                  stepFormSubmit();
+                  // stepFormSubmit();
                 }}
               >
                 Proceed
@@ -903,7 +956,7 @@ const TailorProfileVerification = () => {
                 className="   px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
                 onClick={() => {
                   handleNext();
-                  stepFormSubmit();
+                  // stepFormSubmit();
                 }}
               >
                 Proceed
@@ -938,13 +991,14 @@ const TailorProfileVerification = () => {
                       <label>
                         <textarea
                           name="bio"
-                          onChange={handleChangeFinal}
+                          onChange={handleFormChange}
                           value={form.bio}
                           className=" border box-border w-full text-sm justify-around mb-[5px] p-2 rounded-[10px] border-solid border-[#cecece]"
                           placeholder="Enter your decription here..."
                           required
                           rows="7"
                         />
+                        {formError.bio && formError.bioError ? <AuthErrorMessage message={formError.bioError}/>:null}
                       </label>
                     </div>
                   </div>
@@ -1059,7 +1113,7 @@ const TailorProfileVerification = () => {
                 className="z-[90] relative px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
                 onClick={() => {
                   handleNext();
-                  stepFormSubmit();
+                  // stepFormSubmit();
                 }}
               >
                 Proceed
