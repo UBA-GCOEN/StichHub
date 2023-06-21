@@ -113,22 +113,22 @@ const Footer = () => {
                 </h2>
                 <ul class="text-gray-500 dark:text-white font-medium">
                   <li class="mb-2">
-                    <a href="#" target='_blank' class="hover:underline">
+                    <a href="#"  class="hover:underline">
                       Newsletter
                     </a>
                   </li>
                   <li class="mb-2">
-                    <a href="#" target='_blank' class="hover:underline">
+                    <a href="#"  class="hover:underline">
                       Events
                     </a>
                   </li>
                   <li class="mb-2">
-                    <a href="#" target='_blank' class="hover:underline">
+                    <a href="#"  class="hover:underline">
                       Tutorials
                     </a>
                   </li>
                   <li class="mb-2">
-                    <a href="#" target='_blank' class="hover:underline">
+                    <a href="#"  class="hover:underline">
                       Support
                     </a>
                   </li>
