@@ -1,8 +1,9 @@
 import { useState } from "react";
 
-const FilterSection = ({handleChange}) => {
+const FilterSection = ({ handleChange, clearFilter }) => {
   const [toggle, setToggle] = useState(false);
-  
+ 
+
   return (
     <div>
       {/* Top Display */}
@@ -37,6 +38,16 @@ const FilterSection = ({handleChange}) => {
 
               {/* Filter Menu */}
               <div className="filter p-5 text-white w-max sm:w-[40vw] md:w-[30vw] lg:w-[20vw] h-[60vh] overflow-y-auto cardGradient absolute right-6 rounded-l-xl rounded-r-lg mt-2 z-[90]">
+                <button
+                  type="button"
+                  class="focus:outline-none text-white bg-red-700 hover:bg-red-800 font-medium rounded-lg text-xs px-2 py-2 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 absolute right-0 top-1"
+                  onClick={()=>{
+                    clearFilter();
+                    setToggle(false)
+                  }}
+                >
+                  Clear Filters
+                </button>
                 <div>
                   <span className="font-semibold">Category :</span>
                   <div className="my-2">
@@ -49,10 +60,7 @@ const FilterSection = ({handleChange}) => {
                         id="MensShirt"
                         onChange={handleChange}
                       />
-                      <label
-                        className="cursor-pointer"
-                        for="MensShirt"
-                      >
+                      <label className="cursor-pointer" for="MensShirt">
                         Men's Shirt
                       </label>
                     </div>
@@ -65,10 +73,7 @@ const FilterSection = ({handleChange}) => {
                         className="mr-1"
                         onChange={handleChange}
                       />
-                      <label
-                        className="cursor-pointer"
-                        for="mensBlazer"
-                      >
+                      <label className="cursor-pointer" for="mensBlazer">
                         Men's Blazer
                       </label>
                     </div>
@@ -81,10 +86,7 @@ const FilterSection = ({handleChange}) => {
                         className="mr-1"
                         onChange={handleChange}
                       />
-                      <label
-                        className="cursor-pointer"
-                        for="WomensShirt"
-                      >
+                      <label className="cursor-pointer" for="WomensShirt">
                         Women's Shirt
                       </label>
                     </div>
@@ -97,10 +99,7 @@ const FilterSection = ({handleChange}) => {
                         className="mr-1"
                         onChange={handleChange}
                       />
-                      <label
-                        className="cursor-pointer"
-                        for="WomensBlazer"
-                      >
+                      <label className="cursor-pointer" for="WomensBlazer">
                         Women's Blazers
                       </label>
                     </div>
@@ -118,10 +117,7 @@ const FilterSection = ({handleChange}) => {
                         className="mr-1"
                         onChange={handleChange}
                       />
-                      <label
-                        className="cursor-pointer"
-                        for="under1000"
-                      >
+                      <label className="cursor-pointer" for="under1000">
                         under 1000
                       </label>
                     </div>
@@ -134,10 +130,7 @@ const FilterSection = ({handleChange}) => {
                         className="mr-1"
                         onChange={handleChange}
                       />
-                      <label
-                        className="cursor-pointer"
-                        for="1000-5000"
-                      >
+                      <label className="cursor-pointer" for="1000-5000">
                         1000 - 5000
                       </label>
                     </div>
@@ -150,10 +143,7 @@ const FilterSection = ({handleChange}) => {
                         className="mr-1"
                         onChange={handleChange}
                       />
-                      <label
-                        className="cursor-pointer"
-                        for="5000-15000"
-                      >
+                      <label className="cursor-pointer" for="5000-15000">
                         5000 - 15000
                       </label>
                     </div>
@@ -166,10 +156,7 @@ const FilterSection = ({handleChange}) => {
                         className="mr-1"
                         onChange={handleChange}
                       />
-                      <label
-                        className="cursor-pointer"
-                        for="Abovecheckbox"
-                      >
+                      <label className="cursor-pointer" for="Abovecheckbox">
                         Above 15000
                       </label>
                     </div>
@@ -187,10 +174,7 @@ const FilterSection = ({handleChange}) => {
                         className="mr-1"
                         onChange={handleChange}
                       />
-                      <label
-                        className="cursor-pointer"
-                        for="5star"
-                      >
+                      <label className="cursor-pointer" for="5star">
                         5 star
                       </label>
                     </div>
@@ -203,10 +187,7 @@ const FilterSection = ({handleChange}) => {
                         className="mr-1"
                         onChange={handleChange}
                       />
-                      <label
-                        className="cursor-pointer"
-                        for="4star"
-                      >
+                      <label className="cursor-pointer" for="4star">
                         4 star
                       </label>
                     </div>
@@ -219,10 +200,7 @@ const FilterSection = ({handleChange}) => {
                         className="mr-1"
                         onChange={handleChange}
                       />
-                      <label
-                        className="cursor-pointer"
-                        for="3star"
-                      >
+                      <label className="cursor-pointer" for="3star">
                         3 star
                       </label>
                     </div>
@@ -235,10 +213,7 @@ const FilterSection = ({handleChange}) => {
                         className="mr-1"
                         onChange={handleChange}
                       />
-                      <label
-                        className="cursor-pointer"
-                        for="2star"
-                      >
+                      <label className="cursor-pointer" for="2star">
                         2 star
                       </label>
                     </div>
@@ -251,10 +226,7 @@ const FilterSection = ({handleChange}) => {
                         className="mr-1"
                         onChange={handleChange}
                       />
-                      <label
-                        className="cursor-pointer"
-                        for="1star"
-                      >
+                      <label className="cursor-pointer" for="1star">
                         1 star
                       </label>
                     </div>

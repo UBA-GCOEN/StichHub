@@ -3,6 +3,9 @@ import { Navbar, FilterSection, TailorList, Features, CustomerOrder } from "../c
 
 const Home = () => {
   const [filter, setFilter] = useState({category: false, price: [], rating:[]});
+  const clearFilter = () => {
+    setFilter({category: false, price: [], rating:[]})
+  };
   const handleChange = (e)=>{
     const {name, value} = e.target;
     if(name !== "category"){
@@ -32,7 +35,7 @@ const Home = () => {
     <div className="">
       <Navbar />
       <Features />[]
-      <FilterSection handleChange={handleChange} />
+      <FilterSection handleChange={handleChange} clearFilter={clearFilter}/>
       <TailorList filters={filter} />
     </div>
   );
