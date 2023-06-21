@@ -28,10 +28,12 @@ function TailorDetails() {
 }
 
 const TailorDetailsD = () => {
+
   const location = useLocation();
   const propsData = location.state;
+
   return (
-    <div className="w-screen h-[100%] min-h-screen cardGradient font-serif">
+    <div className="w-screen h-[100%] min-h-screen cardGradient hidden md:block ">
       <div className="relative hidden lg:block h-fit rounded-lg p-2 w-full text-black m-auto overflow-hidden">
         {/* Gradient */}
         <div className="absolute opacity-70 circleGradient-blue object-cover w-[70%] h-[115%] -top-24 -right-[48rem] z-5 blur-xl"></div>
@@ -114,7 +116,7 @@ const TailorDetailsD = () => {
                 <h1 className=" text-white text-lg">
                   Current Stitching Price:
                 </h1>
-                <button className="border-2 border-blue-700 bg-blue-700 hover:bg-transparent text-white font-semibold py-2 px-10 rounded-xl">
+                <button className="border-2 border-blue-700 bg-blue-700 hover:bg-transparent text-white font-semibold py-2 px-10 rounded-full">
                   ₹ {propsData.item.prizerange[0]} - ₹{" "}
                   {propsData.item.prizerange[1]}
                 </button>
@@ -164,7 +166,7 @@ const TailorDetailsM = () => {
   const propsData = location.state;
   // console.log(propsData);
   return (
-    <div className="lg:hidden block cardGradient w-full h-full min-h-screen overflow-hidden font-serif">
+    <div className="lg:hidden block cardGradient w-full h-full min-h-screen overflow-hidden pb-10">
       {/* Back Button */}
       <Link to="/home">
         <div>
@@ -209,19 +211,19 @@ const TailorDetailsM = () => {
         {/* Tabs  End */}
         {/* Bio Start */}
         <div className="bg-white p-4 pb-1 mt-1 drop-shadow-lg  w-4/5  items-center m-auto rounded-lg text-center">
-          <h2 className="text-left font-semibold text-2xl">About the Tailor</h2>
+          <h2 className="font-semibold text-2xl text-center">About the Tailor</h2>
           <h3 className="break-all">{propsData.item.bio}</h3>
         </div>
         {/* Bio Ends */}
         {/* ADDRESS */}
         <div className="bg-white p-4 pb-1 mt-1 drop-shadow-lg  w-4/5  items-center m-auto rounded-lg text-center">
-          <h2 className="text-left font-semibold text-2xl">Address Details</h2>
-          <p className="text-left">
+          <h2 className="text-center font-semibold text-2xl">Address Details</h2>
+          <p className="text-center">
             {propsData.item.address} <br />
             {propsData.item.address2} <br />
           </p>
           {/* {propsData.item.contact} <br /> may create propblems */}
-          <p className="text-left">
+          <p className="text-center">
             {propsData.item.state} ,{propsData.item.country} ,
             {propsData.item.pincode} <br />
           </p>
@@ -242,21 +244,23 @@ const TailorDetailsM = () => {
         </div>
         {/* ReviewsEnd */}
         {/* Book AppointMent */}
-        <div className="flex justify-center align-middle items-center">
-          <Link to="/home/category" state={{ item: propsData.item }}>
-            <div className="text-center m-4 drop-shadow-lg">
-              <button className="drop-shadow-lg bg-[white] hover:bg-transparent text-black hover:text-white hover:border-2 hover:border-white font-semibold py-2 px-4 rounded-full">
+        <div className="flex flex-col justify-center align-middle items-center">
+
+          <div className="text-center m-4 drop-shadow-lg">
+            <Link to="/home/category" state={{ item: propsData.item }}>
+              <button className="drop-shadow-lg bg-[white] hover:bg-transparent text-black hover:text-white hover:border-2 hover:border-white font-semibold py-3 px-8 rounded-full">
                 Book Appointmet
               </button>
-            </div>
-          </Link>
+            </Link>
+          </div>
 
-          <div className="justify-right items-center p-2">
-            <button className="border-2 border-blue-700 bg-blue-700 hover:bg-transparent text-white font-semibold py-2 px-10 rounded-full">
+          <div className="items-center p-2">
+            <button className="border-2 border-blue-700 bg-blue-700 hover:bg-transparent text-white font-semibold py-3 px-10 rounded-full">
               ₹ {propsData.item.prizerange[0]} - ₹{" "}
               {propsData.item.prizerange[1]}
             </button>
           </div>
+
         </div>
 
         {/* Book AppointMent End*/}
