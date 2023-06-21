@@ -1,16 +1,11 @@
 import { React, useState } from "react";
-import Tabs from "../components/TailorDetails/Tabs";
+import { FaArrowLeft, FaHeart, FaShareAlt } from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
+import ProgressbarM from "../components/TailorDetails/ProgressM";
+import Progressbar from "../components/TailorDetails/Progressbar";
+import StarRate from "../components/TailorDetails/StarRate";
 import TailorSum from "../components/TailorDetails/TailorSum";
 import Tailorhead from "../components/TailorDetails/Tailorhead";
-import StarRate from "../components/TailorDetails/StarRate";
-import { FaArrowLeft, FaHeart, FaShareAlt } from "react-icons/fa";
-import Progressbar from "../components/TailorDetails/Progressbar";
-import yadav from "../assets/Yadav.png";
-import TabsM from "../components/TailorDetails/TabsM";
-import StarRateM from "../components/TailorDetails/StarRateM";
-import ProgressbarM from "../components/TailorDetails/ProgressM";
-import { Link, useLocation } from "react-router-dom";
-import { tailorCards } from "../constants/home";
 
 function TailorDetails() {
   const [isMobile, setIsMobile] = useState(false);
@@ -36,7 +31,7 @@ const TailorDetailsD = () => {
   const location = useLocation();
   const propsData = location.state;
   return (
-    <div className="w-screen h-[100%] min-h-screen cardGradient">
+    <div className="w-screen h-[100%] min-h-screen cardGradient font-serif">
       <div className="relative hidden lg:block h-fit rounded-lg p-2 w-full text-black m-auto overflow-hidden">
         {/* Gradient */}
         <div className="absolute opacity-70 circleGradient-blue object-cover w-[70%] h-[115%] -top-24 -right-[48rem] z-5 blur-xl"></div>
@@ -72,17 +67,17 @@ const TailorDetailsD = () => {
                 </Link>
                 {/* Back Button End */}
 
+                {/* Share BUTTON */}
+                <div className="float-right pl-4">
+                  <FaShareAlt className="w-12 h-10 p-2 rounded-full bg-[#b8b0b0] hover: border-2 hover:border-black cursor-pointer" />
+                </div>
+                {/* Share BUTTON */}
+
                 {/* Like button */}
                 <div className="relative hover:bg-slate-500 rounded-full float-right m-auto items-center justify-center">
-                  <FaHeart className="w-[2.3rem] h-[2.3rem] bg-[#b8b0b0] rounded-full p-2 hover: border-2 hover:border-black cursor-pointer" />
+                  <FaHeart className="w-[2.5rem] h-[2.3rem] bg-[#b8b0b0] rounded-full p-2 hover: border-2 hover:border-black cursor-pointer" />
                 </div>
                 {/* Like button */}
-
-                {/* Share BUTTON */}
-                <div className="float-right ">
-                  <FaShareAlt className="w-10 h-10 p-2 rounded-full bg-[#b8b0b0] hover: border-2 hover:border-black cursor-pointer" />
-                </div>
-                {/* Share BUTTON */}
               </div>
               <div>
                 {/* Name and price tag */}
@@ -98,14 +93,12 @@ const TailorDetailsD = () => {
                     <h1 className="text-gray-300">{propsData.item.bio}</h1>
                   </div>
                 </div>
-                <div className=" flex gap-4 p-4 pb-1 mt-1 drop-shadow-lg  w-full  rounded-lg ">
-                  <h2 className="text-left font-semibold text-xl text-white ">
+                <div className=" flex items-center align-middle gap-4 p-4 pb-1 mt-1 drop-shadow-lg  w-full rounded-lg ">
+                  <h2 className="text-left font-semibold text-xl text-white">
                     Address Details:
                   </h2>
-                  <p className="text-left text-gray-300 mb-1">
-                    {propsData.item.address}, {propsData.item.address2},
-                    {propsData.item.state} , {propsData.item.country} ,
-                    {propsData.item.pincode}
+                  <p className="text-left text-gray-300 text-base">
+                    {propsData.item.address}, {propsData.item.address2}, {propsData.item.state}, {propsData.item.country}, {propsData.item.pincode}
                   </p>
                   {/* {propsData.item.contact} <br /> may create propblems */}
                   {/* <p className="text-left text-gray-300">
@@ -118,10 +111,10 @@ const TailorDetailsD = () => {
               {/* Book AppointMent */}
 
               <div className="flex justify-between w-full items-center p-2 gap-4 mt-4">
-                <h1 className=" text-white text-xl">
+                <h1 className=" text-white text-lg">
                   Current Stitching Price:
                 </h1>
-                <button className="bg-gradient-to-t from-[#2964e1] via-[#6060ec] to-gray-400  hover:bg-gradient-to-b text-white font-semibold py-2 px-4 rounded-lg w-full">
+                <button className="border-2 border-blue-700 bg-blue-700 hover:bg-transparent text-white font-semibold py-2 px-10 rounded-xl">
                   ₹ {propsData.item.prizerange[0]} - ₹{" "}
                   {propsData.item.prizerange[1]}
                 </button>
@@ -135,7 +128,7 @@ const TailorDetailsD = () => {
                     {/* Overall rating */}
                     <StarRate />
                   </div>
-                  <div className="w-2/5 ">
+                  <div className="w-2/5">
                     <Progressbar />
                     <Progressbar />
                     <Progressbar />
@@ -149,7 +142,7 @@ const TailorDetailsD = () => {
                 className="w-2/5"
               >
                 <div className="text-center mt-6 drop-shadow-lg">
-                  <button className="drop-shadow-lg bg-[white] hover:bg-[gray] text-black font-semibold py-2 px-4 rounded-full">
+                  <button className="drop-shadow-lg bg-[white] hover:bg-transparent text-black hover:text-white hover:border-2 hover:border-white font-semibold py-2 px-4 rounded-full">
                     Book Appointmet
                   </button>
                 </div>
@@ -171,7 +164,7 @@ const TailorDetailsM = () => {
   const propsData = location.state;
   // console.log(propsData);
   return (
-    <div className="lg:hidden block cardGradient w-full h-full min-h-screen overflow-hidden">
+    <div className="lg:hidden block cardGradient w-full h-full min-h-screen overflow-hidden font-serif">
       {/* Back Button */}
       <Link to="/home">
         <div>
@@ -199,8 +192,8 @@ const TailorDetailsM = () => {
                   <h1>{propsData.item.name}</h1>
                 </div>
                 <div>
-                  <h3 className="text-[#636262] text-sm ">
-                    {propsData.item.city},{propsData.item.pincode}
+                  <h3 className="text-[#636262] text-sm">
+                    {propsData.item.city}, {propsData.item.pincode}
                   </h3>
                 </div>
               </div>
@@ -249,18 +242,18 @@ const TailorDetailsM = () => {
         </div>
         {/* ReviewsEnd */}
         {/* Book AppointMent */}
-        <div className="flex justify-center">
+        <div className="flex justify-center align-middle items-center">
           <Link to="/home/category" state={{ item: propsData.item }}>
             <div className="text-center m-4 drop-shadow-lg">
-              <button className="drop-shadow-lg bg-[white] hover:bg-[gray] text-black font-semibold py-2 px-4 rounded-md">
+              <button className="drop-shadow-lg bg-[white] hover:bg-transparent text-black hover:text-white hover:border-2 hover:border-white font-semibold py-2 px-4 rounded-full">
                 Book Appointmet
               </button>
             </div>
           </Link>
 
           <div className="justify-right items-center p-2">
-            <button className="bg-gradient-to-t from-[#2964e1] via-[#6060ec] to-gray-400  hover:bg-gradient-to-b text-white font-semibold py-2 px-4 rounded-md">
-              ₹ {propsData.item.prizerange[0]} <br /> - ₹{" "}
+            <button className="border-2 border-blue-700 bg-blue-700 hover:bg-transparent text-white font-semibold py-2 px-10 rounded-full">
+              ₹ {propsData.item.prizerange[0]} - ₹{" "}
               {propsData.item.prizerange[1]}
             </button>
           </div>
