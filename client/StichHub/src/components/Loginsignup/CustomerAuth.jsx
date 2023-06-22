@@ -299,7 +299,7 @@ const CustomerAuth = () => {
                   cookiePolicy="single_host_origin"
                 />
               </div>
-              <h1 className="text-center text-white text-md pt-6">
+              <h1 className="text-center text-white text-md">
                 {isregister ? "" : 
                 <a
                   className="cursor-pointer text-blue-400"
