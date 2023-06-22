@@ -211,7 +211,7 @@ const TailorDetailsM = () => {
         {/* Tabs  End */}
         {/* Bio Start */}
         <div className="bg-white p-4 pb-1 mt-1 drop-shadow-lg  w-4/5  items-center m-auto rounded-lg text-center">
-          <h2 className="font-semibold text-2xl text-center">About the Tailor</h2>
+          <h2 className="font-semibold text-3xl text-center">About the Tailor</h2>
           <h3 className="break-all">{propsData.item.bio}</h3>
         </div>
         {/* Bio Ends */}
@@ -246,13 +246,9 @@ const TailorDetailsM = () => {
         {/* Book AppointMent */}
         <div className="flex flex-col justify-center align-middle items-center">
 
-          <div className="text-center m-4 drop-shadow-lg">
-            <Link to="/home/category" state={{ item: propsData.item }}>
-              <button className="drop-shadow-lg bg-[white] hover:bg-transparent text-black hover:text-white hover:border-2 hover:border-white font-semibold py-3 px-8 rounded-full">
-                Book Appointmet
-              </button>
-            </Link>
-          </div>
+          <h1 className=" text-white text-lg pt-5">
+            Current Stitching Price:
+          </h1>
 
           <div className="items-center p-2">
             <button className="border-2 border-blue-700 bg-blue-700 hover:bg-transparent text-white font-semibold py-3 px-10 rounded-full">
@@ -261,6 +257,13 @@ const TailorDetailsM = () => {
             </button>
           </div>
 
+          <div className="text-center m-4 drop-shadow-lg">
+            <Link to="/home/category" state={{ item: propsData.item }}>
+              <button className="drop-shadow-lg bg-[white] hover:bg-transparent text-black hover:text-white hover:border-2 hover:border-white font-semibold py-3 px-8 rounded-full">
+                Book Appointmet
+              </button>
+            </Link>
+          </div>
         </div>
 
         {/* Book AppointMent End*/}
