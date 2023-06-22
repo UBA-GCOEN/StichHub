@@ -57,7 +57,6 @@ const initialForm = {
   types: [],
 };
 
-
 //Main Implementation from here
 const TailorProfileVerification = () => {
   const [country, setCountry] = useState("");
@@ -260,10 +259,10 @@ const TailorProfileVerification = () => {
             <h1 className="text-white text-3xl font-bold mb-5">
               Hi {user?.result.name},
             </h1>
-            <h1 className="select-none	 text-white text-5xl font-bold tracking-wider  lg:mr-[20%]	">
+            <h1 className="text-[1.5rem] select-none	 text-white sm:text-5xl font-bold tracking-wider  lg:mr-[20%]	">
               Complete these few steps for your verification
             </h1>
-            <div className="grid gird-col-3 text-white mt-10">
+            <div className="flex flex-wrap sm:grid sm:gird-col-3 text-white mt-10">
               <div className="flex col-start-1 col-end-2">
                 <label class="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
                   1
@@ -276,7 +275,7 @@ const TailorProfileVerification = () => {
                 <label class="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
                   2
                 </label>
-                <label className="text-white font font-semibold text-xl lg:text-2xl mt-3 ml-3">
+                <label className="mt-[24px] text-white font font-semibold text-xl lg:text-2xl ml-1 mr-[5px]">
                   Confirm Address
                 </label>
               </div>
