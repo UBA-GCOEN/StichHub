@@ -58,7 +58,7 @@ const NavBar = () => {
         ))}
       </ul>
       <Link to="/auth" aria-label="Auth">
-        <button className="hidden lg:block bg-white rounded-xl w-fit lg:px-5 py-2 shadow-xl drop-shadow-2xl mt-4 ml-14 text-black text-base font-semibold">
+        <button className="hidden lg:block bg-white hover:bg-transparent hover:text-white border hover:border-blue-700 hover:border-2 hover:transition-all duration-500 rounded-xl w-fit lg:px-5 py-2 shadow-xl drop-shadow-2xl mt-4 ml-14 text-black text-base font-semibold">
           Get Started
         </button>
       </Link>
