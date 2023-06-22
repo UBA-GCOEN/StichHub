@@ -1,8 +1,8 @@
 import React from "react";
-import image1 from "../../assets/CustomerLandingPage/Room - Girl Reading - Copy@3-1707x802 (2).png";
-import Tailor from "../../assets/CustomerLandingPage/Tailor.png";
-import Calculator from "../../assets/CustomerLandingPage/Calculator.png";
-import Enter from "../../assets/CustomerLandingPage/Enter.png";
+import image1 from "../../assets/CustomerLandingPage/Room - Girl Reading - Copy@3-1707x802 (2).webp";
+import Tailor from "../../assets/CustomerLandingPage/Tailor.webp";
+import Calculator from "../../assets/CustomerLandingPage/Calculator.webp";
+import Enter from "../../assets/CustomerLandingPage/Enter.webp";
 function WorriedM() {
   return (
     <div className="w-sreen h-screen">

@@ -56,7 +56,7 @@ const NewOrder = () => {
                   <div className="flex flex-row place-items-center justify-between">
                     <img
                       class="w-12 h-12 rounded-full mx-5 w-max"
-                      src="../src/assets/img/jonathan.png"
+                      src="../src/assets/img/jonathan.webp"
                       alt="Profile Picture"
                     />
                     <div className="m-2 mx-5 text-white">

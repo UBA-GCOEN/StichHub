@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import Select from "react-tailwindcss-select";
 import MultiRangeSlider, { ChangeResult } from "multi-range-slider-react";
-import imr from "../../assets/img/imr.png";
+import imr from "../../assets/img/imr.webp";
 import { FileUploader } from "react-drag-drop-files";
 import "react-dropzone-uploader/dist/styles.css";
 import Dropzone from "react-dropzone-uploader";

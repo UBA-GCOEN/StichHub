@@ -1,9 +1,9 @@
 import Cardi from "./Cardi";
 import React from "react";
-import highl from "../../assets/CustomerLandingPage/Icons/Highlight.png";
-import accu from "../../assets/CustomerLandingPage/Icons/Accuracy.png";
-import dura from "../../assets/CustomerLandingPage/Icons/Durable.png";
-import choi from "../../assets/CustomerLandingPage/Icons/Choose.png";
+import highl from "../../assets/CustomerLandingPage/Icons/Highlight.webp";
+import accu from "../../assets/CustomerLandingPage/Icons/Accuracy.webp";
+import dura from "../../assets/CustomerLandingPage/Icons/Durable.webp";
+import choi from "../../assets/CustomerLandingPage/Icons/Choose.webp";
 import Button from "./Button";
 import CardiM from "./CardiM";
 

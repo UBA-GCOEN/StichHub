@@ -1,11 +1,11 @@
 import React from "react";
 import Navbardark from "../components/Navbardark.jsx";
-import gr from "../assets/img/gr.png";
-import gr1 from "../assets/img/gr1.png";
-import gr3 from "../assets/img/gr3.png";
-import gr4 from "../assets/img/gr4.png";
-import g5 from "../assets/img/g5.png";
-import gr6 from "../assets/img/gr6.png";
+import gr from "../assets/img/gr.webp";
+import gr1 from "../assets/img/gr1.webp";
+import gr3 from "../assets/img/gr3.webp";
+import gr4 from "../assets/img/gr4.webp";
+import g5 from "../assets/img/g5.webp";
+import gr6 from "../assets/img/gr6.webp";
 import Footer from "../components/MainLandingPage/Footer.jsx";
 import GoToTop from "../components/GoToTop";
 

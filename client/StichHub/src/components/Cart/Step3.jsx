@@ -24,8 +24,8 @@ import {
   LockClosedIcon,
 } from "@heroicons/react/24/solid";
 
-import se from "../../assets/img/se.png";
-import img from "../../assets/img/img.png";
+import se from "../../assets/img/se.webp";
+import img from "../../assets/img/img.webp";
 
 //Payment Imports
 import { loadStripe } from "@stripe/stripe-js";

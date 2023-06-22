@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "../../assets/logo/Long - Logo Transparent (White).png";
 import shortlogo from "../../assets/logo/Short-Logo Transparent (Black).png";
-import tailorimg from "../../assets/loginsignup/tailorimg.png";
+import tailorimg from "../../assets/loginsignup/tailorimg.webp";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
@@ -128,7 +128,7 @@ const AuthTailor = () => {
         </div>
       ) : null}
       {/* Left Side (img)*/}
-      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.png')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10  rounded-2xl">
+      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.webp')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10  rounded-2xl">
         <img
           src={shortlogo}
           className="w-[5vw] absolute bottom-14 left-5"

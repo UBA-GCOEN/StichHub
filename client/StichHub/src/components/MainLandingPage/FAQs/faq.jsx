@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-// import  doubts from "./doubts.jpg";
-import doubts from "./faqIcon.png";
+// import  doubts from "./doubts.webp";
+import doubts from "./faqIcon.webp";
 import './faq.css'
 
 const AccordionItem = ({ title, content }) => {
