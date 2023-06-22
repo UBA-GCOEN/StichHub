@@ -145,7 +145,7 @@ const TailorDetailsD = () => {
               >
                 <div className="text-center mt-6 drop-shadow-lg">
                   <button className="drop-shadow-lg bg-[white] hover:bg-transparent text-black hover:text-white hover:border-2 hover:border-white font-semibold py-2 px-4 rounded-full">
-                    Book Appointmet
+                    Book Appointment
                   </button>
                 </div>
               </Link>
@@ -260,7 +260,7 @@ const TailorDetailsM = () => {
           <div className="text-center m-4 drop-shadow-lg">
             <Link to="/home/category" state={{ item: propsData.item }}>
               <button className="drop-shadow-lg bg-[white] hover:bg-transparent text-black hover:text-white hover:border-2 hover:border-white font-semibold py-3 px-8 rounded-full">
-                Book Appointmet
+                Book Appointment
               </button>
             </Link>
           </div>
