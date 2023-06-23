@@ -8,8 +8,8 @@ jobs:
   Linting:
 
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
+    permissions: write-all
+
     steps:
 
       - name: Checkout
