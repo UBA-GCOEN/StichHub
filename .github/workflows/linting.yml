@@ -2,9 +2,7 @@ name: Linting
 on:
   pull_request_target:
      types:
-       - opened
-      
-
+       - opened 
 jobs:
 
   Linting:
