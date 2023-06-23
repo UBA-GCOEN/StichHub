@@ -14,12 +14,11 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
-          token: ${{ env.GH_TOKEN }}
-
+          token: ${{ secrets.GH_TOKEN }}
 
       - name: Lint code with prettier
         uses: creyD/prettier_action@v4.3
         with:
           prettier_options: --write **/*.{js,md}
-          token: ${{ env.GH_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
 
