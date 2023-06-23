@@ -2,16 +2,14 @@ name: Linting
 on:
   pull_request_target:
      types:
-       - opened
-      
-
+       - opened 
 jobs:
 
   Linting:
 
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
+    permissions: write-all
+
     steps:
 
       - name: Checkout
