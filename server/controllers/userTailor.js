@@ -1,6 +1,7 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import * as dotenv from "dotenv";
+import sendWelcomeMail from "../services/mail.js";
 dotenv.config();
 
 import userTailorModel from "../models/userTailor.js";
@@ -62,8 +63,29 @@ export const signin = async (req, res) => {
  * Description : Tailor Registration
  */
 export const register = async (req, res) => {
-  const { name, email, password, confirmPassword, mobile } = req.body;
 
+  const { name, email, password, confirmPassword } = req.body;
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$%#^&*])(?=.*[0-9]).{8,}$/;
+  const emailDomains = [
+    "gmail.com",
+    "yahoo.com",
+    "hotmail.com",
+    "aol.com",
+    "outlook.com",
+];
+
+  if(name.length < 6){
+    return res.status(404).json({message: "Name must be atleast 6 characters long."})
+    }
+  
+    if(!passwordRegex.test(password)){
+      return res.status(404).json({message: "Password must be at least 8 characters long and include at least 1 uppercase letter, 1 lowercase letter, 1 symbol (@$%#^&*), and 1 number (0-9)"})
+    }
+
+    if (!emailDomains.some((v) => email.indexOf(v) >= 0)) {
+      return res.status(404).json({
+          message: "Please enter a valid email address",
+      });
   try {
     if (!name || !email || !password || !confirmPassword) {
       return res.status(500).json({
@@ -120,6 +142,10 @@ export const register = async (req, res) => {
       result,
       token,
     });
+    let userName = name.split(' ')[0];
+    await sendWelcomeMail(userName, email);
+
+    res.status(201).json({ result, token });
   } catch (error) {
     res.status(500).json({
       success: false,

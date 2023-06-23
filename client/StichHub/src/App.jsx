@@ -32,6 +32,7 @@ import Verify from "./components/TailorProfileVerification/Verify.jsx"
 import { isStyledComponent } from "styled-components";
 
 
+import ErrorPage from "./components/ErrorPage/404ErrorPage";
 
 function App() {
   const navigateTo = useNavigate();
@@ -240,8 +241,10 @@ function App() {
             path="/HomeOnlineVisit"
             element={<HomeOnlineVisit />}
           />
-<Route path="*" element={<div> Not Found or You do not have permission.</div>}/>
-
+          <Route
+            path="*"
+            element={<ErrorPage/>}
+          />
         </Routes>
       </HomeProvider>
     </GoogleOAuthProvider>
