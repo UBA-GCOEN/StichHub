@@ -96,7 +96,7 @@ export const register = async (req, res) => {
 
     // sending verification email after user creation
     if (result) {
-      const token = generateToken(result, SECRET, "300s");
+      const token = encodeURIComponent(generateToken(result, SECRET, "300s"));
       const url = `http://localhost:5173/verify-email/${token}`;
 
       const options = {
@@ -136,10 +136,11 @@ export const register = async (req, res) => {
 export const verifyEmail = async (req, res) => {
   try {
     const { token } = req.body;
+    console.log(token);
 
     // verify and decodes the token
     const decodedUser = await jwt.verify(token, SECRET);
-
+    console.log(decodedUser);
     // getting user using decoded data
     const tailorUser = await userTailorModel.findOne({ _id: decodedUser.id });
     // console.log(tailorUser);

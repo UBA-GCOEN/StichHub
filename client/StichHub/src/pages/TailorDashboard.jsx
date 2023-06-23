@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LeftView from "../components/TailorDashboard/main/LeftView";
 import TopDisplays from "../components/TailorDashboard/main/TopDisplays";
 import MainDisplay from "../components/TailorDashboard/main/MainDisplay";
@@ -17,10 +17,30 @@ const mobile_elements = [<MDashboard />, <Profile />, <MOngoing />];
 
 import Graphs from "../components/TailorDashboard/Graphs";
 import MobileOngoingOrders from "../components/TailorDashboard/mobile/Ongoing/MobileOngoingOrders";
+import { useNavigate } from "react-router-dom";
 
 const TailorDashboard = () => {
-  const [currentElementIndex, setCurrentElementIndex] = useState(0);
+  const navigateTo = useNavigate();
 
+  const [currentElementIndex, setCurrentElementIndex] = useState(0);
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem("tailorProfile"))
+    // null
+  );
+
+ 
+ 
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("tailorProfile")));
+  }, [localStorage]);
+
+  useEffect(() => {
+    if(!user){
+    // navigateTo("/auth/tailor")
+    navigateTo("/")
+    }
+  }, [user])
+  
   const handleNavigationLinkClick = (index) => {
     setCurrentElementIndex(index);
   };

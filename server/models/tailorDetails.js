@@ -63,8 +63,8 @@ const tailorListSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    priceRange: {
-      type: String,
+    prizerange: {
+      type: Array,
       required: true,
     },
     types: [

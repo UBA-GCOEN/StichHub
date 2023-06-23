@@ -82,10 +82,15 @@ const TailorProfileVerification = () => {
 
   useEffect(() => {
     const isFirstLogin = localStorage.getItem("tailorFirstLogin");
-
-    if (!isFirstLogin) navigateTo("/TailorDashboard");
-
-    if (!user) navigateTo("/auth/tailor");
+    // console.log(user.result.isVerified)
+   
+    // if (!user) navigateTo("/auth/tailor");
+    if (!user) navigateTo("/");
+    if (!isFirstLogin && user.result.isVerified === true){ navigateTo("/TailorDashboard");}
+    if(!isFirstLogin && user.result.isVerified === false) {
+      navigateTo("/verification")
+    }
+    
   }, []);
 
   const [checkedItems, setCheckedItems] = useState([]);
@@ -243,6 +248,7 @@ const TailorProfileVerification = () => {
       const res = await axios.post("/tailors/list", form);
       setIsLoading(false);
       localStorage.removeItem("tailorFirstLogin");
+
       navigateTo("/TailorDashboard");
     } catch (error) {
       console.log(error.response.data.message);
@@ -391,6 +397,10 @@ const TailorProfileVerification = () => {
     [dispatch]
   );
 
+  const emailVeificationMessage =() => {
+    
+    
+  }
   // final page step7
   const Step6 = () => (
     <div className="h-[100vh]">
@@ -402,7 +412,7 @@ const TailorProfileVerification = () => {
         src={Verified}
         className="opacity-20 right-0 bottom-[300px] w-[55%] h-[35%] lg:opacity-100 lg:right-24 absolute lg:w-[30%] lg:h-[60%] lg:hidden"
       />
-
+      {/* If user is verified  */}
       <div className="  text-whie ml-[15%] mt-[25%] lg:mt-[10%] font-poppins">
         <div className="mr-[15%] lg:mr-[30%]">
           <h1 className="text-[rgb(127,255,0)] text-4xl font-bold mb-3">
@@ -421,6 +431,8 @@ const TailorProfileVerification = () => {
           </p>
         </div>
       </div>
+
+      {/* if not render verification message */}
       <button
         className="bg-gray-300 ml-[15%] mt-[2%]  px-6 py-1.5 rounded-lg text-gray-700 hover:bg-gray-400 top-0"
         onClick={handleBack}
@@ -438,6 +450,10 @@ const TailorProfileVerification = () => {
       <ProgressBar progressPercentage={100} />
     </div>
   );
+
+
+
+  
 
   // Main Start from here
   return (
