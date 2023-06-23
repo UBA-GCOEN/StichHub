@@ -16,7 +16,6 @@ jobs:
           ref: ${{ github.head_ref }}
           token: ${{ env.GH_TOKEN }}
 
-
       - name: Lint code with prettier
         uses: creyD/prettier_action@v4.3
         with:
