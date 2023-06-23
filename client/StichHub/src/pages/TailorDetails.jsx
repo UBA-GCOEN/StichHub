@@ -11,6 +11,8 @@ import StarRateM from "../components/TailorDetails/StarRateM";
 import ProgressbarM from "../components/TailorDetails/ProgressM";
 import { Link, useLocation } from "react-router-dom";
 import { tailorCards } from "../constants/home";
+import india from "../assets/india.png";
+import profile from "../assets/man.jpg";
 
 function TailorDetails() {
   const [isMobile, setIsMobile] = useState(false);
@@ -36,61 +38,61 @@ const TailorDetailsD = () => {
   const location = useLocation();
   const propsData = location.state;
   return (
-    <div className="w-screen h-[100%] min-h-screen cardGradient">
-      <div className="relative hidden lg:block h-fit rounded-lg p-2 w-full text-black m-auto overflow-hidden">
-        {/* Gradient */}
-        <div className="absolute opacity-70 circleGradient-blue object-cover w-[70%] h-[115%] -top-24 -right-[48rem] z-5 blur-xl"></div>
+    <div className="w-screen h-[100%] min-h-screen cardGradient p-4 flex flex-col gap-2">
+      {/* <div className="relative hidden lg:block h-fit rounded-lg p-2 w-full text-black m-auto overflow-hidden"> */}
+      {/* Gradient */}
+      {/* <div className="absolute opacity-70 circleGradient-blue object-cover w-[70%] h-[115%] -top-24 -right-[48rem] z-5 blur-xl"></div> */}
 
-        {/* Gradient */}
+      {/* Gradient */}
 
-        {/* Gradient */}
-        <div className="absolute opacity-70 circleGradient-blue object-cover w-[70%] h-[115%] -bottom-[3rem] -left-[48rem] z-5 "></div>
+      {/* Gradient */}
+      {/* <div className="absolute opacity-70 circleGradient-blue object-cover w-[70%] h-[115%] -bottom-[3rem] -left-[48rem] z-5 "></div> */}
 
-        {/* Gradient */}
-        <div className=" w-full h-full flex justify-center mt-6 ">
+      {/* Gradient */}
+      {/* <div className=" w-full h-full flex justify-center mt-6 ">
           <div className="flex w-full h-full justify-center">
-            <div className="relative first-letter:w-fit min-h-fit drop-shadow-lg">
-              {/* Photo and book button */}
-              <div className="relative max-w-[38rem] top-[2rem] left-[1rem] w-[65%] h-[65%] max-h-[42rem]  blur-md -z-10  m-auto">
+            <div className="relative first-letter:w-fit min-h-fit drop-shadow-lg"> */}
+      {/* Photo and book button */}
+      {/* <div className="relative max-w-[38rem] top-[2rem] left-[1rem] w-[65%] h-[65%] max-h-[42rem]  blur-md -z-10  m-auto">
                 <TailorSum propsData={propsData} />
               </div>
               <div className="top-[13.03rem] left-[6.3rem] z-10 w-[60%] h-[60%] absolute  text-[black]  inline-block -translate-y-2/4 mx-auto my-0  ">
                 <TailorSum propsData={propsData} />
               </div>
-            </div>
+            </div> */}
 
-            <div className=" w-fit p-6 min-h-full rounded-lg drop-shadow-lg overflow-x-hidden bg-[#191F22]">
-              <div className="w-full h-10 p-2 mb-4 items-center">
-                {/* Back Button */}
-                <Link to="/home">
-                  <div className="float-left">
-                    {/* BACK BUTTON */}
-                    {/* <a href="./TailorList"> */}
-                    <FaArrowLeft className="w-10 h-10 bg-[#b8b0b0] rounded-full p-2 hover: border-2 hover:border-black" />
-                    {/* </a> */}
-                  </div>
-                </Link>
-                {/* Back Button End */}
+      {/* <div className=" w-fit p-6 min-h-full rounded-lg drop-shadow-lg overflow-x-hidden bg-[#191F22]">
+              <div className="w-full h-10 p-2 mb-4 items-center"> */}
+      {/* Back Button */}
+      {/* <Link to="/home">
+                  <div className="float-left"> */}
+      {/* BACK BUTTON */}
+      {/* <a href="./TailorList"> */}
+      {/* <FaArrowLeft className="w-10 h-10 bg-[#b8b0b0] rounded-full p-2 hover: border-2 hover:border-black" /> */}
+      {/* </a> */}
+      {/* </div>
+                </Link> */}
+      {/* Back Button End */}
 
-                {/* Like button */}
-                <div className="relative hover:bg-slate-500 rounded-full float-right m-auto items-center justify-center">
+      {/* Like button */}
+      {/* <div className="relative hover:bg-slate-500 rounded-full float-right m-auto items-center justify-center">
                   <FaHeart className="w-[2.3rem] h-[2.3rem] bg-[#b8b0b0] rounded-full p-2 hover: border-2 hover:border-black cursor-pointer" />
-                </div>
-                {/* Like button */}
+                </div> */}
+      {/* Like button */}
 
-                {/* Share BUTTON */}
-                <div className="float-right ">
+      {/* Share BUTTON */}
+      {/* <div className="float-right ">
                   <FaShareAlt className="w-10 h-10 p-2 rounded-full bg-[#b8b0b0] hover: border-2 hover:border-black cursor-pointer" />
-                </div>
-                {/* Share BUTTON */}
+                </div> */}
+      {/* Share BUTTON */}
+      {/* </div>
+              <div> */}
+      {/* Name and price tag */}
+      {/* <Tailorhead propsData={propsData} />
               </div>
-              <div>
-                {/* Name and price tag */}
-                <Tailorhead propsData={propsData} />
-              </div>
-              <div className=" drop-shadow-lg m-2 ">
-                {/*Bio and address*/}
-                <div className=" p-4 pb-1 mt-1 drop-shadow-lg  w-full  items-center  rounded-lg">
+              <div className=" drop-shadow-lg m-2 "> */}
+      {/*Bio and address*/}
+      {/* <div className=" p-4 pb-1 mt-1 drop-shadow-lg  w-full  items-center  rounded-lg">
                   <h2 className="text-center font-semibold text-3xl text-white mb-2">
                     About the Tailor
                   </h2>
@@ -106,56 +108,105 @@ const TailorDetailsD = () => {
                     {propsData.item.address}, {propsData.item.address2},
                     {propsData.item.state} , {propsData.item.country} ,
                     {propsData.item.pincode}
-                  </p>
-                  {/* {propsData.item.contact} <br /> may create propblems */}
-                  {/* <p className="text-left text-gray-300">
-                    {propsData.item.state} ,{propsData.item.country} ,
-                    {propsData.item.pincode} <br />
                   </p> */}
-                </div>
-              </div>
-
-              {/* Book AppointMent */}
-
-              <div className="flex justify-between w-full items-center p-2 gap-4 mt-4">
-                <h1 className=" text-white text-xl">
-                  Current Stitching Price:
-                </h1>
-                <button className="bg-gradient-to-t from-[#2964e1] via-[#6060ec] to-gray-400  hover:bg-gradient-to-b text-white font-semibold py-2 px-4 rounded-lg w-full">
-                  ₹ {propsData.item.prizerange[0]} - ₹{" "}
-                  {propsData.item.prizerange[1]}
-                </button>
-              </div>
-              <div className="mt-4">
-                <h1 className="text-2xl text-white text-center">
-                  Ratings & Reviews
-                </h1>
-                <div className="relative overflow-hidden flex justify-around mt-2 p-2 text-white ">
-                  <div className="justify-center text-center items-center">
-                    {/* Overall rating */}
-                    <StarRate />
+      <div className="rounde-lg  rounded shadow-3xl p-2">
+        <div className="w-full h-[20vh] bg-slate-500 rounded-md"></div>
+        <Link to="/home">
+                  <div className="absolute right-0 top-0 p-10">
+                    {/* BACK BUTTON */}
+                    {/* <a href="./TailorList"> */}
+                    <FaArrowLeft className="w-10 h-10 bg-[#b8b0b0] rounded-full p-2 hover: border-2 hover:border-black" />
+                    {/* </a> */}
                   </div>
-                  <div className="w-2/5 ">
-                    <Progressbar />
-                    <Progressbar />
-                    <Progressbar />
-                    <Progressbar />
-                  </div>
-                </div>
-              </div>
-              <Link
+                </Link>
+        <div className="">
+          {propsData?.item?.passport ? (          <img
+            src={propsData?.item?.passport}
+            alt=""
+            className="rounded-lg h-[18vh] shadow-3xl border-2 absolute top-[10vh] left-[4vw]"
+          />) :(          <img
+            src={profile}
+            alt=""
+            className="rounded-lg h-[18vh] shadow-3xl border-2 absolute top-[10vh] left-[4vw]"
+          />)}
+          <img
+            src={propsData?.item?.passport}
+            alt=""
+            className="rounded-lg h-[18vh] shadow-3xl border-2 absolute top-[10vh] left-[4vw]"
+          />
+        </div>
+        <div className="ml-[2.5vw] mt-[8vh]">
+          <h1 className=" text-2xl font-semibold text-white">{propsData?.item?.name}</h1>
+          <div className="flex gap-2  mt-2">
+            <img src={india} alt="" className="h-[3.5vh]" />
+            <p className="text-gray-400">
+              {propsData.item.state} ,{propsData.item.country}
+            </p>
+          </div>
+          {/* <div className="flex gap-2 items-center">
+      <h1 className="text-xl font-bold">&#183;</h1><h2 className="text-gray-200"> Professional tailor</h2>
+      </div> */}
+          <div className="flex gap-2 my-4">
+          <Link
                 to="/home/category"
                 state={{ item: propsData.item }}
-                className="w-2/5"
               >
-                <div className="text-center mt-6 drop-shadow-lg">
-                  <button className="drop-shadow-lg bg-[white] hover:bg-[gray] text-black font-semibold py-2 px-4 rounded-full">
-                    Book Appointmet
-                  </button>
-                </div>
-              </Link>
+            <button
+              className="shadow-3xl font-medium text-white  px-4 py-2 bg-[#222222] rounded-md hover:bg-blue-400 hover:text-black transition-transform"
+            >
+              Book
+            </button>
+            </Link>
+            <button
+              className="shadow-3xl font-medium text-white  px-4 py-2 bg-[#222222] rounded-md hover:bg-blue-400 hover:text-black transition-transform"
+              onClick={() => navigate("/login")}
+            >
+              Share Profile
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="rounde-lg  rounded shadow-3xl p-2">
+        <div className="ml-[2.5vw]">
+          <h1 className="text-3xl font-semibold text-white">About</h1>
+          {propsData.item.bio ? (
+            <p className="max-w-[60vw] text-gray-200 mt-5 font-medium">
+              {propsData.item.bio}
+            </p>
+          ) : (
+            <p className="max-w-[60vw] text-gray-200 mt-5 font-medium">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
+              suscipit tenetur laboriosam. Necessitatibus nisi fuga doloribus
+              quasi fugiat, cupiditate nostrum minus reprehenderit molestiae
+              earum ipsa dolor sapiente harum animi totam?
+            </p>
+          )}
 
-              {/* Book AppointMent End*/}
+          <div className="mt-5">
+            <h2 className="text-white font-semibold text-lg ">
+              Address : {propsData.item.address}, {propsData.item.address2},{" "}
+              {propsData.item.state} , {propsData.item.country} ,
+              {propsData.item.pincode}
+            </h2>
+            <h2 className="text-white font-semibold text-lg ">
+              Contact : {propsData.item.contact}
+            </h2>
+            <h2 className="text-white font-semibold text-lg ">
+              Price : ₹ {propsData.item.prizerange[0]} - ₹{" "}
+              {propsData.item.prizerange[1]}
+            </h2>
+            <div className="flex w-full  p-2 gap-4 mt-4"></div>
+            <div className="mt-4">
+              <h1 className="text-2xl text-white ">Ratings & Reviews</h1>
+              <div className="w-2/5 text-white flex flex-col gap-2">
+                <Progressbar />
+                <Progressbar />
+                <Progressbar />
+                <Progressbar />
+              </div>
+              <div className="mt-5">
+                <StarRate />
+              </div>
             </div>
           </div>
         </div>
