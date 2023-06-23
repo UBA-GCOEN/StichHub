@@ -1,11 +1,9 @@
 import { React, useState } from "react";
-import { FaArrowLeft, FaHeart, FaShareAlt } from "react-icons/fa";
+import { FaArrowLeft, FaHeart} from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import ProgressbarM from "../components/TailorDetails/ProgressM";
 import Progressbar from "../components/TailorDetails/Progressbar";
 import StarRate from "../components/TailorDetails/StarRate";
-import TailorSum from "../components/TailorDetails/TailorSum";
-import Tailorhead from "../components/TailorDetails/Tailorhead";
 import india from "../assets/india.png";
 import profile from "../assets/man.jpg";
 
