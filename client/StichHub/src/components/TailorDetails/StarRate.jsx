@@ -16,7 +16,7 @@ function StarRate() {
         <h1>{currentValue}/5.0</h1>
         <h3>Based on 420 reviews {/* Variable to be added */}</h3>
       </div>
-      <div className="flex ">
+      <div className="flex justify-center items-center gap-2">
         {stars.map((_, index) => {
           return (
             <FaStar
