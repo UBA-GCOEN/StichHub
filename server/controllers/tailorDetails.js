@@ -46,13 +46,13 @@ export const getSpecificTailor = async(req, res) => {
     
 export const verifyTailorDetails = async (req, res) => {
     const otp = Math.floor(1000 + Math.random() * 9000);
-    const accountSid = "ACe640f2abfcc1f467362a8a59b50ecf37";
-    const authToken = "816a7afd586d1a0399b239cbf5fd3abf";
+    const accountSid = process.env.TWILIOSID;
+    const authToken = process.env.TWILIOAUTH;
     const client = twilio(accountSid, authToken);
   try {
     client.messages
       .create({
-        from: '+15416487715',
+        from: process.env.TWILIOPHONE,
         to: `+91${req.body.detail}`,
         body: `Your phone verification otp for Stichhub is ${otp}`
       })
