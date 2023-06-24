@@ -57,9 +57,10 @@ Our related [blog post](https://medium.com/@sidd0203/stichhub-38d01da27f37) prov
    <tr>
       <td>
 
-[<img src="https://avatars.githubusercontent.com/u/77800620?s=200&u=9c3f4f58397091889e6d06a9ccf6e1ef8c7c6884&v=4" width="150px;" style="border-radius:10px;"/><br /><br /><sub><b><p align="center">Siddhant Patil</p></b></sub>](https://github.com/Siddhant-Patil0203)
+[<img src="https://avatars.githubusercontent.com/u/77800620?s=200&u=9c3f4f58397091889e6d06a9ccf6e1ef8c7c6884&v=4" width="150px;" style="border-radius:10px;"/>](https://github.com/Siddhant-Patil0203)
 ---
-<p align="center">( Project Lead )</p>
+<p align="center"><b>Siddhant Patil</b><br />( Project Lead )</p>
+<p align="center"><b></b></p>
 <div align="center">
    <a href="https://www.linkedin.com/in/sidd0203"><img src="https://img.icons8.com/color/60/000000/linkedin.png" alt="LinkedIn" width="30"/></a>
    <a href="https://www.instagram.com/sidd.0203"><img src="https://img.icons8.com/color/60/000000/instagram-new--v1.png" alt="Instagram" width="30px"/></a>
@@ -69,8 +70,9 @@ Our related [blog post](https://medium.com/@sidd0203/stichhub-38d01da27f37) prov
 </td>
       <td>
          
-[<img src="https://pbs.twimg.com/profile_images/1487298591236378625/-Zx8DMul_400x400.jpg" width="150px;" style="border-radius:10px;"/><br /><br /><sub><b><p align="center">Naresh Chandanbatve</p></b></sub>](https://github.com/Naresh-chandanbatve)
+[<img src="https://pbs.twimg.com/profile_images/1487298591236378625/-Zx8DMul_400x400.jpg" width="150px;" style="border-radius:10px;"/>](https://github.com/Naresh-chandanbatve)
 ---
+<b><p align="center">Naresh Chandanbatve</p></b>
 <div align="center">
    <a href="https://www.linkedin.com/in/naresh-chandanbatve"><img src="https://img.icons8.com/color/60/000000/linkedin.png" alt="LinkedIn" width="30px"/></a>
    <a href="https://www.instagram.com/naresh_chandanbatve"><img src="https://img.icons8.com/color/60/000000/instagram-new--v1.png" alt="Instagram" width="30px"/></a>
@@ -80,8 +82,9 @@ Our related [blog post](https://medium.com/@sidd0203/stichhub-38d01da27f37) prov
 </td>
       <td>
 
-[<img src="https://avatars.githubusercontent.com/u/66909545?v=4" width="150px;" style="border-radius:10px;"/><br /><br /><sub><b><p align="center">Vishal Kesharwani</p></b></sub>](https://github.com/vishal10kesharwani)
+[<img src="https://avatars.githubusercontent.com/u/66909545?v=4" width="150px;" style="border-radius:10px;"/>](https://github.com/vishal10kesharwani)
 ---
+<b><p align="center">Vishal Kesharwani</p></b>
 <div align="center">
    <a href="https://www.linkedin.com/in/vishal-kesharwani-1004vs"><img src="https://img.icons8.com/color/60/000000/linkedin.png" alt="LinkedIn" width="30px"/></a>
    <a href="https://www.instagram.com/dev.vishalvsk"><img src="https://img.icons8.com/color/60/000000/instagram-new--v1.png" alt="Instagram" width="30px"/></a>
@@ -90,8 +93,9 @@ Our related [blog post](https://medium.com/@sidd0203/stichhub-38d01da27f37) prov
 </td>
       <td>
 
-[<img src="https://media.licdn.com/dms/image/C4E03AQG23TOyYdzKGQ/profile-displayphoto-shrink_800_800/0/1630992132577?e=1690416000&v=beta&t=oh9nVzAaFqpFjIjiJhLmdjc6RqSUCHuruoUrgyhp_SU" width="150px;" style="border-radius:10px;"/><br /><br /><sub><b><p align="center">Harshal Lade</p></b></sub>](https://github.com/LadeHarshal)
+[<img src="https://media.licdn.com/dms/image/C4E03AQG23TOyYdzKGQ/profile-displayphoto-shrink_800_800/0/1630992132577?e=1690416000&v=beta&t=oh9nVzAaFqpFjIjiJhLmdjc6RqSUCHuruoUrgyhp_SU" width="150px;" style="border-radius:10px;"/>](https://github.com/LadeHarshal)
 ---
+<b><p align="center">Harshal Lade</p></b>
 <div align="center">
    <a href="https://www.linkedin.com/in/harshal-lade-08749a214"><img src="https://img.icons8.com/color/60/000000/linkedin.png" alt="LinkedIn" width="30px"/></a>
    <a href="https://www.instagram.com/harshallade2"><img src="https://img.icons8.com/color/60/000000/instagram-new--v1.png" alt="Instagram" width="30px"/></a>
@@ -101,8 +105,9 @@ Our related [blog post](https://medium.com/@sidd0203/stichhub-38d01da27f37) prov
 </td>
       <td>
 
-[<img src="https://media.licdn.com/dms/image/D5603AQE1P3SOmWd8gg/profile-displayphoto-shrink_800_800/0/1679335495027?e=1690416000&v=beta&t=m1ShB8DLAvmykJBxtCPhyYPQZa57yhHZKYcwQwdKUPs" width="150px;" style="border-radius:10px;"/><br /><br /><sub><b><p align="center">Saurabh Yadav</p></b></sub>](https://github.com/Saurabb-coder)
+[<img src="https://media.licdn.com/dms/image/D5603AQE1P3SOmWd8gg/profile-displayphoto-shrink_800_800/0/1679335495027?e=1690416000&v=beta&t=m1ShB8DLAvmykJBxtCPhyYPQZa57yhHZKYcwQwdKUPs" width="150px;" style="border-radius:10px;"/>](https://github.com/Saurabb-coder)
 ---
+<b><p align="center">Saurabh Yadav</p></b>
 <div align="center">
    <a href="https://www.linkedin.com/in/saurabh-yadav-469323208"><img src="https://img.icons8.com/color/60/000000/linkedin.png" alt="LinkedIn" width="30px"/></a>
    <a href="https://www.instagram.com/saurabh739"><img src="https://img.icons8.com/color/60/000000/instagram-new--v1.png" alt="Instagram" width="30px"/></a>
