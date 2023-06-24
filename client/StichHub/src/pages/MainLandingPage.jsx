@@ -9,6 +9,7 @@ import {
   Footer,
   FooterHomePage
 } from "../components/MainLandingPage";
+import FAQ from "../components/MainLandingPage/FAQs/faq"
 import { LandingPageDemo } from "../contexts/LandingPageDemo";
 import GoToTop from "../components/GoToTop";
 
@@ -22,6 +23,7 @@ const MainLandingPage = () => {
       </LandingPageDemo>
       <OurServices />
       <HowItWorks />
+      <FAQ/>
       <About />
       <ContactUs />
       <FooterHomePage />

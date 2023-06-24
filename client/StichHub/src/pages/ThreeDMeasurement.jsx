@@ -138,6 +138,10 @@ const SizeCalculator = () => {
   const [waistSize, setWaistSize] = useState(0);
   const [armLength, setArmLength] = useState(0);
   const [inseam, setInseam] = useState(0);
+  const [collarSize, setCollarSize] = useState(0);
+  const [cuffCircumference, setCuffCircumference] = useState(0);
+  const [seatSize, setSeatSize] = useState(0);
+
   const handleOptionChange = (e) => {
     setGender(e.target.value);
     console.log(gender);
@@ -299,21 +303,22 @@ const SizeCalculator = () => {
                   handleInput(e);
                 }}
                 onChange={(e) => setHeight(Number(e.target.value))}
-              /><br></br>
-              <div className="flex flex-row justify-between w-[80%] mb-4">
-              <input
-                type="number"
-                value={minValue}
-                className="font-bold"
-                min={18}
-                max={80}
-                step={1}
-                onInput={(e) => {
-                  handleInput(e);
-                }}
-                onChange={(e) => setHeight(Number(e.target.value))}
               />
-              <p>cm</p>
+              <br></br>
+              <div className="flex flex-row justify-between w-[80%] mb-4">
+                <input
+                  type="number"
+                  value={minValue}
+                  className="font-bold"
+                  min={18}
+                  max={80}
+                  step={1}
+                  onInput={(e) => {
+                    handleInput(e);
+                  }}
+                  onChange={(e) => setHeight(Number(e.target.value))}
+                />
+                <p>cm</p>
               </div>
             </label>
             <label className="mt-10 text-xl">
@@ -328,21 +333,22 @@ const SizeCalculator = () => {
                   handleInput1(e);
                 }}
                 onChange={(e) => setWeight(Number(e.target.value))}
-              /><br></br>
-              <div className="flex flex-row justify-between w-[80%] mb-4">
-              <input
-                type="number"
-                value={minValue2}
-                className="font-bold"
-                min={18}
-                max={80}
-                step={1}
-                onInput={(e) => {
-                  handleInput1(e);
-                }}
-                onChange={(e) => setWeight(Number(e.target.value))}
               />
-              <p>kg</p>
+              <br></br>
+              <div className="flex flex-row justify-between w-[80%] mb-4">
+                <input
+                  type="number"
+                  value={minValue2}
+                  className="font-bold"
+                  min={18}
+                  max={80}
+                  step={1}
+                  onInput={(e) => {
+                    handleInput1(e);
+                  }}
+                  onChange={(e) => setWeight(Number(e.target.value))}
+                />
+                <p>kg</p>
               </div>
             </label>
             <label className="mt-5 text-xl">
@@ -358,21 +364,22 @@ const SizeCalculator = () => {
                   handleInput2(e);
                 }}
                 onChange={(e) => setAge(Number(e.target.value))}
-              /><br></br>
-              <div className="flex flex-row justify-between w-[80%] mb-4">
-              <input
-                type="number"
-                value={minValue3}
-                className="font-bold"
-                min={18}
-                max={80}
-                step={1}
-                onInput={(e) => {
-                  handleInput2(e);
-                }}
-                onChange={(e) => setAge(Number(e.target.value))}
               />
-              <p> years </p>
+              <br></br>
+              <div className="flex flex-row justify-between w-[80%] mb-4">
+                <input
+                  type="number"
+                  value={minValue3}
+                  className="font-bold"
+                  min={18}
+                  max={80}
+                  step={1}
+                  onInput={(e) => {
+                    handleInput2(e);
+                  }}
+                  onChange={(e) => setAge(Number(e.target.value))}
+                />
+                <p> years </p>
               </div>
             </label>
             <label className="mt-10 text-xl">
@@ -389,21 +396,22 @@ const SizeCalculator = () => {
                   handleInput3(e);
                 }}
                 onChange={(e) => setShoeSize(Number(e.target.value))}
-              /><br></br>
-              <div className="flex flex-row justify-between w-[80%] mb-2">
-              <input
-                type="number"
-                value={minValue4}
-                className="font-bold"
-                min={18}
-                max={80}
-                step={1}
-                onInput={(e) => {
-                  handleInput3(e);
-                }}
-                onChange={(e) => setShoeSize(Number(e.target.value))}
               />
-              <p>US</p>
+              <br></br>
+              <div className="flex flex-row justify-between w-[80%] mb-2">
+                <input
+                  type="number"
+                  value={minValue4}
+                  className="font-bold"
+                  min={18}
+                  max={80}
+                  step={1}
+                  onInput={(e) => {
+                    handleInput3(e);
+                  }}
+                  onChange={(e) => setShoeSize(Number(e.target.value))}
+                />
+                <p>US</p>
               </div>
             </label>
           </div>
@@ -465,6 +473,9 @@ const SizeCalculator = () => {
           armLength={armLength}
           neckSize={neckSize}
           inseam={inseam}
+          collarSize={collarSize}
+          cuffCircumference={cuffCircumference}
+          seatSize={seatSize}
           handleSubmit={handleSubmit}
         />
       )}
@@ -474,6 +485,17 @@ const SizeCalculator = () => {
 
 const Result = (props) => {
   const [create1, setCreate1] = useState(false);
+  const [toggle_hide, setToggle_hide] = useState(true);
+  const toggle = () => {
+    const more1 = document.getElementById("more-1");
+    const more2 = document.getElementById("more-2");
+    const more3 = document.getElementById("more-3");
+    more1.classList.toggle("hidden");
+    more2.classList.toggle("hidden");
+    more3.classList.toggle("hidden");
+    if (toggle_hide == false) setToggle_hide(true);
+    else setToggle_hide(false);
+  };
 
   return (
     <div className="bg-primary">
@@ -521,12 +543,30 @@ const Result = (props) => {
             <div className="bg-white lg:py-2 text-center rounded-sm px-1">
               <p className="text-lg font-semibold">Inseam</p> {props.inseam} cm
             </div>
+            <div
+              id="more-1"
+              className="hidden bg-white lg:py-2 text-center rounded-sm px-1">
+              <p className="text-lg font-semibold">Collar Size</p>{" "}
+              {props.collarSize} cm
+            </div>
+            <div
+              id="more-2"
+              className="hidden bg-white lg:py-2 text-center rounded-sm px-1">
+              <p className="text-lg font-semibold">Cuff Circumference</p>{" "}
+              {props.cuffCircumference} cm
+            </div>
+            <div
+              id="more-3"
+              className="hidden bg-white lg:py-2 text-center rounded-sm px-1">
+              <p className="text-lg font-semibold">Seat Size</p>{" "}
+              {props.seatSize} cm
+            </div>
           </div>
-          <Link
-            to="/Mainpage"
+          <button
+            onClick={toggle}
             className="underline text-gray-400 hover:text-gray-200">
-            +6 More measurements
-          </Link>
+            {toggle_hide ? "+3 More measurements" : "Hide options"}
+          </button>
           <br />
 
           <button

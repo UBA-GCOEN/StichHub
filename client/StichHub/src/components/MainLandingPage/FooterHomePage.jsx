@@ -1,64 +1,48 @@
+
 import React from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
+import GitHubIcon from '@mui/icons-material/GitHub';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import MailIcon from '@mui/icons-material/Mail';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import InstagramIcon from '@mui/icons-material/Instagram';
+
 import logo from "../../assets/logo/Long - Logo Transparent (White).png"
 
 const Footer = () => {
   return (
-    <div className="bg-[#09051D]">
-      <footer className="pt-10 lg:pt-0 lg:mt-5 lg:ml-20 lg:mr-20 justify-center text-center md:text-left lg:text-left">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:p-20 lg:grid-cols-4 gap-4 ">
-          <div className="lg:pl-0 md:pl-10">
-            <a href="/">
-              <img src={logo} alt="logo" className="wobject-scale-down cursor-pointer w-[180px] mx-auto md:mx-0" />
-            </a>
-            <p className="text-xs font-normal leading-8 lg:text-sm ">Choose your style make your own trend. Select the one you want to get your clothes stitched from!</p>
-          </div>
-          <div className="px-10 ">
-            <h3 className="font-semibold text-lg py-2">Join Us</h3>
-            <div className="links text-sm">
-              <ul className="text-[#A8A8A8]">
-                <Link to="/auth">
-                  <li className="py-1 hover:text-[white] cursor-pointer">
-                    <a href="/">LogIn</a>
-                  </li>
-                </Link>
-                <Link to="/auth">
-                  <li className="py-1 hover:text-[white] cursor-pointer">
-                    <a href="/">Register</a>
-                  </li>
-                </Link>
-                
-              </ul>
-            </div>
-          </div>
-          <div className="px-10 ">
-            <h3 className="font-semibold text-lg py-2">Socials</h3>
-            <div className="socials text-sm">
-              <ul className="text-[#A8A8A8]">
-                <li className="py-1 hover:text-[white] cursor-pointer"><a href="https://github.com/UBA-GCOEN/StichHub">GitHub</a> </li>
-                <li className="py-1 hover:text-[white] cursor-pointer"><a href="">Twitter</a></li>
-                <li className="py-1 hover:text-[white] cursor-pointer"><a href="#contactus">Contact Us</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="px-10 ">
-            <h3 className="font-semibold text-lg py-2">Links</h3>
-            <div className="links text-sm">
-              <ul className="text-[#A8A8A8]">
-              <li className="py-1 hover:text-[white] cursor-pointer"><a href="/">Home</a></li>
-              <li className="py-1 hover:text-[white] cursor-pointer"><a href="#aboutus">About Us</a></li>
-              <li className="py-1 hover:text-[white] cursor-pointer"><a href="#ourServices">Our Services</a></li>
-              <li className="py-1 hover:text-[white] cursor-pointer"><a href="#howitworks">How it works?</a></li>
-              </ul>
-            </div>
-          </div>
+    <div className="bg-[#09051D] pt-7">
+      <div className="container mx-auto flex flex-col items-center justify-center">
+        <a href="/">
+          <img src={logo} alt="logo" className="w-48 cursor-pointer" />
+        </a>
+        <p className="text-white text-center mt-4 text-xl font-serif tracking-wide antialiased font-medium">
+          Choose your style, make your own trend. <br /> Select the one you want to get your clothes stitched from!
+        </p>
+        <div className="flex items-center mt-4">
+          <a href="#contactus" className="text-white  px-3 hover:text-gray-300 transition-colors duration-300 ease-in-out hover:scale-110">
+            <MailIcon className="text-white text-2xl  hover:text-lime-500" />
+          </a>
+          <a href="https://github.com/UBA-GCOEN/StichHub" className="text-white px-3  hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
+            <GitHubIcon className="text-white text-2xl  hover:text-gray-500" />
+          </a>
+          <a href="https://github.com/UBA-GCOEN/StichHub" className="text-white px-3    hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
+            <InstagramIcon className="text-white text-2xl  hover:text-[#E4405F]" />
+          </a>
+          <a href="https://github.com/UBA-GCOEN/StichHub" className="text-white px-3  hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
+            <LinkedInIcon className="text-white text-2xl  hover:text-[#0077b5]" />
+          </a>
+          <a href="#" className="text-white px-3   hover:text-gray-300 transition-colors duration-300 ease-in-out hover:scale-110">
+            <TwitterIcon className="text-white text-2xl  hover:text-sky-400" />
+          </a>
         </div>
-      <p className="text-sm mb-2 text-center pt-10 lg:pt-0">	&copy; Stichhub {new Date().getFullYear()}</p>
-
-      </footer>
+      </div>
+      {/* <hr */}
+      <p className="text-base bg-[#09051D] p-3 text-center text-white font-serif tracking-wide mt-2">&copy; StichHub {new Date().getFullYear()}</p>
     </div>
-      
+
   );
 };
 
 export default Footer;
+
