@@ -152,7 +152,7 @@ const TailorList = ({ filters }) => {
                       ? item.passport
                       : "https://img.icons8.com/?size=512&id=492ILERveW8G&format=png"
                   }
-                  className="mb-1 w-[60px] h-[60px] rounded-full"
+                  className="mb-1 w-[60px] h-[60px] rounded-full" alt={item.name}
                 />
                 <span className="font-semibold text-lg">{item.name}</span>
               </div>

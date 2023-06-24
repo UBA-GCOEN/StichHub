@@ -29,7 +29,7 @@ function GetList() {
         <div className="w-2/5">
           <img
             src={img}
-            className="h-90"
+            className="h-90" alt="a cartoon character pointing at a store"
           />
         </div>
       </div>

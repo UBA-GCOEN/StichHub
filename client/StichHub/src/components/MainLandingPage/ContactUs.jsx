@@ -40,7 +40,8 @@ const ContactUs = () => {
       <div className="relative z-[5] flex items-center justify-center">
         {/* left-Side */}
         <div id="leftside" className="lg:block hidden mb-[20px] bottom-[20p]">
-          <img src={ContactUsVector} className="" />
+          <img src={ContactUsVector} className="" alt="a cartoon character pointing at a large tablet with icons
+"/>
         </div>
 
         {/* Right-Side */}
@@ -60,7 +61,7 @@ const ContactUs = () => {
             <div id="yourName" className="">
               <img
                 src={AvatarIcon}
-                alt="N"
+                alt="a blue circle with a person in it"
                 id="icon"
                 className="absolute ml-[10px] mt-[6px] h-7"
               />
@@ -85,7 +86,8 @@ const ContactUs = () => {
             <div id="Email" className="">
               <img
                 src={EmailIcon}
-                alt="E"
+                alt="a blue envelope with a white paper inside
+                "
                 id="icon"
                 className="absolute ml-[10px] mt-[6px] h-7"
               />
@@ -110,7 +112,7 @@ const ContactUs = () => {
             <div id="Phone no." className="">
               <img
                 src={PhoneIcon}
-                alt="P"
+                alt="a blue telephone receiver on a black background"
                 id="icon"
                 className="absolute ml-[10px] mt-[6px] h-7"
               />
@@ -162,7 +164,7 @@ const ContactUs = () => {
           </form>
           <img
             src={SendVector}
-            alt="send"
+            alt="a blue paper airplane on a black background"
             className="hidden lg:block absolute right-[-120px] bottom-[1px]"
           />
         </div>
