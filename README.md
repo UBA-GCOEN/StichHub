@@ -1,6 +1,6 @@
-![Logo (Black BG)](https://user-images.githubusercontent.com/77800620/217613866-35741ca4-a2a2-4d19-a0ad-5315a5e5a02a.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/77800620/217613866-35741ca4-a2a2-4d19-a0ad-5315a5e5a02a.png" alt="Stichhub Logo" width="250px" height="250px" align="center"/> </p>
 
-<div >
+<div align="center">
    <img src="https://img.shields.io/github/repo-size/UBA-GCOEN/StichHub?style=for-the-badge" />
    <img src="https://img.shields.io/github/issues-raw/UBA-GCOEN/StichHub?style=for-the-badge" />
    <img src="https://img.shields.io/github/issues-closed-raw/UBA-GCOEN/StichHub?style=for-the-badge" />
@@ -51,67 +51,62 @@ Our related [blog post](https://medium.com/@sidd0203/stichhub-38d01da27f37) prov
 - Another Domain: **[uba-gcoen.com](https://www.uba-gcoen.com)**
 - Backend Domain: **[stichhub-backend.vercel.app](https://stichhub-backend.vercel.app)**
 
-## Feedback
-
-- [Ask a question or report an issue](https://github.com/UBA-GCOEN/StichHub/issues)
-- Request a [new feature](https://github.com/UBA-GCOEN/StichHub/issues)
-- [Upvote]() popular features
-- Connect with our [community]()
-- Follow [StichHub]() and let us know what you think!
-
 ## Project Admins
 
 <table>
    <tr>
       <td>
 
-[<img src="https://avatars.githubusercontent.com/u/77800620?s=200&u=9c3f4f58397091889e6d06a9ccf6e1ef8c7c6884&v=4" width="200px;"/><br /><sub><b>Siddhant Patil</b></sub>](https://github.com/Siddhant-Patil0203)
-<div >
-   <a href="https://www.linkedin.com/in/sidd0203"><img src="https://img.icons8.com/color/60/000000/linkedin.png" alt="LinkedIn" /></a>
-   <a href="https://www.instagram.com/sidd.0203"><img src="https://img.icons8.com/color/60/000000/instagram-new--v1.png" alt="Instagram" /></a>
-   <a href="https://twitter.com/Sidd0203"><img src="https://img.icons8.com/color/60/000000/twitter--v2.png" alt="Twitter" /></a>
+[<img src="https://avatars.githubusercontent.com/u/77800620?s=200&u=9c3f4f58397091889e6d06a9ccf6e1ef8c7c6884&v=4" width="150px;" style="border-radius:10px;"/><br /><br /><sub><b><p align="center">Siddhant Patil</p></b></sub>](https://github.com/Siddhant-Patil0203)
+---
+<p align="center">( Project Lead )</p>
+<div align="center">
+   <a href="https://www.linkedin.com/in/sidd0203"><img src="https://img.icons8.com/color/60/000000/linkedin.png" alt="LinkedIn" width="30"/></a>
+   <a href="https://www.instagram.com/sidd.0203"><img src="https://img.icons8.com/color/60/000000/instagram-new--v1.png" alt="Instagram" width="30px"/></a>
+   <a href="https://twitter.com/Sidd0203"><img src="https://img.icons8.com/color/60/000000/twitter--v2.png" alt="Twitter" width="30px"/></a>
+</div>
+
+</td>
+      <td>
+         
+[<img src="https://pbs.twimg.com/profile_images/1487298591236378625/-Zx8DMul_400x400.jpg" width="150px;" style="border-radius:10px;"/><br /><br /><sub><b><p align="center">Naresh Chandanbatve</p></b></sub>](https://github.com/Naresh-chandanbatve)
+---
+<div align="center">
+   <a href="https://www.linkedin.com/in/naresh-chandanbatve"><img src="https://img.icons8.com/color/60/000000/linkedin.png" alt="LinkedIn" width="30px"/></a>
+   <a href="https://www.instagram.com/naresh_chandanbatve"><img src="https://img.icons8.com/color/60/000000/instagram-new--v1.png" alt="Instagram" width="30px"/></a>
+   <a href="https://twitter.com/NareshChandanb1"><img src="https://img.icons8.com/color/60/000000/twitter--v2.png" alt="Twitter" width="30px"/></a>
 </div>
 
 </td>
       <td>
 
-[<img src="https://pbs.twimg.com/profile_images/1487298591236378625/-Zx8DMul_400x400.jpg" width="200px;"/><br /><sub><b>Naresh Chandanbatve</b></sub>](https://github.com/Naresh-chandanbatve)
-<div >
-   <a href="https://www.linkedin.com/in/naresh-chandanbatve"><img src="https://img.icons8.com/color/60/000000/linkedin.png" alt="LinkedIn" /></a>
-   <a href="https://www.instagram.com/naresh_chandanbatve"><img src="https://img.icons8.com/color/60/000000/instagram-new--v1.png" alt="Instagram" /></a>
-   <a href="https://twitter.com/NareshChandanb1"><img src="https://img.icons8.com/color/60/000000/twitter--v2.png" alt="Twitter" /></a>
+[<img src="https://avatars.githubusercontent.com/u/66909545?v=4" width="150px;" style="border-radius:10px;"/><br /><br /><sub><b><p align="center">Vishal Kesharwani</p></b></sub>](https://github.com/vishal10kesharwani)
+---
+<div align="center">
+   <a href="https://www.linkedin.com/in/vishal-kesharwani-1004vs"><img src="https://img.icons8.com/color/60/000000/linkedin.png" alt="LinkedIn" width="30px"/></a>
+   <a href="https://www.instagram.com/dev.vishalvsk"><img src="https://img.icons8.com/color/60/000000/instagram-new--v1.png" alt="Instagram" width="30px"/></a>
+   <a href="https://twitter.com/Vishal46255005"><img src="https://img.icons8.com/color/60/000000/twitter--v2.png" alt="Twitter" width="30px"/></a>
+</div>
+</td>
+      <td>
+
+[<img src="https://media.licdn.com/dms/image/C4E03AQG23TOyYdzKGQ/profile-displayphoto-shrink_800_800/0/1630992132577?e=1690416000&v=beta&t=oh9nVzAaFqpFjIjiJhLmdjc6RqSUCHuruoUrgyhp_SU" width="150px;" style="border-radius:10px;"/><br /><br /><sub><b><p align="center">Harshal Lade</p></b></sub>](https://github.com/LadeHarshal)
+---
+<div align="center">
+   <a href="https://www.linkedin.com/in/harshal-lade-08749a214"><img src="https://img.icons8.com/color/60/000000/linkedin.png" alt="LinkedIn" width="30px"/></a>
+   <a href="https://www.instagram.com/harshallade2"><img src="https://img.icons8.com/color/60/000000/instagram-new--v1.png" alt="Instagram" width="30px"/></a>
+   <a href="https://twitter.com/Sidd0203"><img src="https://img.icons8.com/color/60/000000/twitter--v2.png" alt="Twitter" width="30px"/></a>
 </div>
 
 </td>
       <td>
 
-[<img src="https://media.licdn.com/dms/image/C4E03AQG23TOyYdzKGQ/profile-displayphoto-shrink_800_800/0/1630992132577?e=1690416000&v=beta&t=oh9nVzAaFqpFjIjiJhLmdjc6RqSUCHuruoUrgyhp_SU" width="200px;"/><br /><sub><b>Harshal Lade</b></sub>](https://github.com/LadeHarshal)
-<div >
-   <a href="https://www.linkedin.com/in/harshal-lade-08749a214"><img src="https://img.icons8.com/color/60/000000/linkedin.png" alt="LinkedIn" /></a>
-   <a href="https://www.instagram.com/harshallade2"><img src="https://img.icons8.com/color/60/000000/instagram-new--v1.png" alt="Instagram" /></a>
-   <a href="https://twitter.com/Sidd0203"><img src="https://img.icons8.com/color/60/000000/twitter--v2.png" alt="Twitter" /></a>
-</div>
-
-</td>
-      </tr>
-   <tr>
-      <td>
-
-[<img src="https://media.licdn.com/dms/image/D5635AQFJ41qoGjjevg/profile-framedphoto-shrink_800_800/0/1649525051562?e=1685815200&v=beta&t=RpaVc8huoiBiMFa23SQAN2XfVAep10Lf8jMJbVzbLRA" width="200px;"/><br /><sub><b>Vishal Kesharwani</b></sub>](https://github.com/vishal10kesharwani)
-<div >
-   <a href="https://www.linkedin.com/in/vishal-kesharwani-1004vs"><img src="https://img.icons8.com/color/60/000000/linkedin.png" alt="LinkedIn" /></a>
-   <a href="https://www.instagram.com/dev.vishalvsk"><img src="https://img.icons8.com/color/60/000000/instagram-new--v1.png" alt="Instagram" /></a>
-   <a href="https://twitter.com/Vishal46255005"><img src="https://img.icons8.com/color/60/000000/twitter--v2.png" alt="Twitter" /></a>
-</div>
-
-</td>
-      <td>
-
-[<img src="https://media.licdn.com/dms/image/D5603AQE1P3SOmWd8gg/profile-displayphoto-shrink_800_800/0/1679335495027?e=1690416000&v=beta&t=m1ShB8DLAvmykJBxtCPhyYPQZa57yhHZKYcwQwdKUPs" width="200px;"/><br /><sub><b>Saurabh Yadav</b></sub>](https://github.com/Saurabb-coder)
-<div >
-   <a href="https://www.linkedin.com/in/saurabh-yadav-469323208"><img src="https://img.icons8.com/color/60/000000/linkedin.png" alt="LinkedIn" /></a>
-   <a href="https://www.instagram.com/saurabh739"><img src="https://img.icons8.com/color/60/000000/instagram-new--v1.png" alt="Instagram" /></a>
-   <a href="https://twitter.com/Sidd0203"><img src="https://img.icons8.com/color/60/000000/twitter--v2.png" alt="Twitter" /></a>
+[<img src="https://media.licdn.com/dms/image/D5603AQE1P3SOmWd8gg/profile-displayphoto-shrink_800_800/0/1679335495027?e=1690416000&v=beta&t=m1ShB8DLAvmykJBxtCPhyYPQZa57yhHZKYcwQwdKUPs" width="150px;" style="border-radius:10px;"/><br /><br /><sub><b><p align="center">Saurabh Yadav</p></b></sub>](https://github.com/Saurabb-coder)
+---
+<div align="center">
+   <a href="https://www.linkedin.com/in/saurabh-yadav-469323208"><img src="https://img.icons8.com/color/60/000000/linkedin.png" alt="LinkedIn" width="30px"/></a>
+   <a href="https://www.instagram.com/saurabh739"><img src="https://img.icons8.com/color/60/000000/instagram-new--v1.png" alt="Instagram" width="30px"/></a>
+   <a href="https://twitter.com/Sidd0203"><img src="https://img.icons8.com/color/60/000000/twitter--v2.png" alt="Twitter" width="30px"/></a>
 </div>
 
 </td>
@@ -129,6 +124,8 @@ This project is open-source and welcomes contributions of all kinds. Whether you
   - Improving UI/UX
   - Fixing bugs
   - Adding new features
+ 
+See [Contributing Guidelines](CONTRIBUTING.md) for more information on how to get involved and how to get compensated
 
 ## Setting up Local Development
 - **Docker Compose**
@@ -167,3 +164,25 @@ This project is open-source and welcomes contributions of all kinds. Whether you
 
 # SRS Document
 You can check the [SRS document](SRS.md) for more detailed information about the project.
+
+## Code of Conduct 
+You can check the [Code of Conduct](CODE_OF_CONDUCT.md) of this repository.
+
+## License
+This repository and site are available as open source under the terms of the [MIT License](LICENSE)
+
+## Feedback
+
+- [Ask a question or report an issue](https://github.com/UBA-GCOEN/StichHub/issues)
+- Request a [new feature]([https://github.com/UBA-GCOEN/StichHub/issues/](https://github.com/UBA-GCOEN/StichHub/issues/new?assignees=&labels=Feat%2CNeeds+Triage&projects=&template=featurerequest.yaml&title=Feat%3A)https://github.com/UBA-GCOEN/StichHub/issues/new?assignees=&labels=Feat%2CNeeds+Triage&projects=&template=featurerequest.yaml&title=Feat%3A)
+- Checkout [Discussions](https://github.com/UBA-GCOEN/StichHub/discussions) for doubts, ideas, Announcements, and more.
+- Follow [StichHub](https://www.instagram.com/stichhub_) and let us know what you think!
+
+---
+
+<h2 align="center"> Show some support❤️ by Adding a ⭐ to this Repository </h2>
+
+---
+
+[Go to top]()
+
