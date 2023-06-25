@@ -47,7 +47,7 @@ We bridge the physical gap between a tailor and the customers through our platfo
 
 We aim to ease the stitching business by providing the following features:
 
-- **Tailor of Choice**: Choose from a list of experienced tailors with whom you want to request your order.
+- **Tailor of Choice**: Choose from a list of experienced tailors with whom you want to request your order 
 - **3D Configurator**: Make changes to your desired design while simultaneously seeing how it looks overall through a 3D model of yourself.
 - **Online Measurements**: We provide an online facility that enables users to accurately provide measurements for their clothes.
 - **AR Tech**: Ever wondered if an ordered piece will turn out exactly the same as it looks? With our tech, you come one step closer to that. It enables you to know just how your piece is going to turn out.
@@ -56,7 +56,7 @@ We aim to ease the stitching business by providing the following features:
 
 Our related [blog post](https://medium.com/@sidd0203/stichhub-38d01da27f37) provides a comprehensive look at the project's implementation and in-depth insights.
 
-## Domains 🌐
+## 🌐 Domains 
 
 - Primary Domain: **[stichhub.vercel.app](https://stichhub.vercel.app)**
 - Another Domain: **[uba-gcoen.com](https://www.uba-gcoen.com)**
@@ -190,7 +190,7 @@ This repository and site are available as open source under the terms of the [MI
 ## Feedback 😐😀😍
 
 - [Ask a question or report an issue](https://github.com/UBA-GCOEN/StichHub/issues)
-- Request a [new feature]([https://github.com/UBA-GCOEN/StichHub/issues/](https://github.com/UBA-GCOEN/StichHub/issues/new?assignees=&labels=Feat%2CNeeds+Triage&projects=&template=featurerequest.yaml&title=Feat%3A)https://github.com/UBA-GCOEN/StichHub/issues/new?assignees=&labels=Feat%2CNeeds+Triage&projects=&template=featurerequest.yaml&title=Feat%3A)
+- Request a [new feature](https://github.com/UBA-GCOEN/StichHub/issues/new?assignees=&labels=Feat%2CNeeds+Triage&projects=&template=featurerequest.yaml&title=Feat%3A)
 - Checkout [Discussions](https://github.com/UBA-GCOEN/StichHub/discussions) for doubts, ideas, Announcements, and more.
 - Follow [StichHub](https://www.instagram.com/stichhub_) and let us know what you think!
 
@@ -199,6 +199,6 @@ This repository and site are available as open source under the terms of the [MI
 <h3 align="center"> Show some support❤️ by Adding a ⭐ to this Repository </h3>
 
 ---
-
+ 
 [Go to top]()
 
