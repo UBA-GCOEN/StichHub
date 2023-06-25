@@ -11,6 +11,10 @@
    <img src="https://img.shields.io/github/contributors/UBA-GCOEN/StichHub?style=for-the-badge" />
    <img src="https://img.shields.io/github/forks/UBA-GCOEN/StichHub?style=for-the-badge" />
    <img src="https://img.shields.io/github/last-commit/UBA-GCOEN/StichHub?style=for-the-badge" />
+   <br>
+   <img src="https://forthebadge.com/images/badges/open-source.svg" />
+   <img src="https://forthebadge.com/images/badges/built-by-developers.svg" />
+   <img src="https://forthebadge.com/images/badges/powered-by-coffee.svg" />
 </div>
 <br />
 
@@ -175,8 +179,17 @@ See [Contributing Guidelines](CONTRIBUTING.md) for more information on how to ge
     ```
   
 ## Our Valuable Contributors ✨❤️
+<p>
+  <img src="https://api.vaunt.dev/v1/github/entities/UBA-GCOEN/repositories/StichHub/contributors?format=svg&limit=65" width="550" />
+</p>
 
-[![Contributors](https://contrib.rocks/image?repo=UBA-GCOEN/StichHub)](https://github.com/UBA-GCOEN/StichHub/graphs/contributors)
+<details>
+   
+<summary>See All Contributors ▶️</summary>
+   
+   [![Contributors](https://contrib.rocks/image?repo=UBA-GCOEN/StichHub)](https://github.com/UBA-GCOEN/StichHub/graphs/contributors)
+   
+</details>
 
 ## 📃 SRS Document 
 You can check the [SRS document](SRS.md) for more detailed information about the project.
