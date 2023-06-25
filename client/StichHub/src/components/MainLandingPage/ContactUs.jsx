@@ -58,12 +58,12 @@ const ContactUs = () => {
 
           {/* Form */}
           <form id="form-Container" className="" action="https://formsubmit.co/uba.gcoen@gmail.com" method="POST">
-            <div id="yourName" className="">
+            <div id="yourName" className="py-2">
               <img
                 src={AvatarIcon}
                 alt="a blue circle with a person in it"
                 id="icon"
-                className="absolute ml-[10px] mt-[6px] h-7"
+                className="absolute ml-[10px] mt-[16px] h-7"
               />
               <input
                 autoComplete="on"
@@ -73,7 +73,7 @@ const ContactUs = () => {
                 id="name"
                 value={form.name}
                 onChange={handleChange}
-                className="mt-[10px] h-10 block w-full py-[16px] pl-[80px] bg-white border border-slate-300 rounded-2xl text-xl shadow-sm placeholder-slate-400 text-black focus:font-medium
+                className="mt-[10px] h-10 block w-full py-[16px] pl-[55px] bg-transparent border-2 rounded-md text-xl shadow-sm placeholder-slate-400 text-white focus:font-medium
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 invalid:border-pink-500 invalid:text-pink-600
@@ -83,13 +83,13 @@ const ContactUs = () => {
                 <AuthErrorMessage message={error.nameError} />
               ) : null}
             </div>
-            <div id="Email" className="">
+            <div id="Email" className="py-2">
               <img
                 src={EmailIcon}
                 alt="a blue envelope with a white paper inside
                 "
                 id="icon"
-                className="absolute ml-[10px] mt-[6px] h-7"
+                className="absolute ml-[10px] mt-[16px] h-7"
               />
               <input
                 autoComplete="on"
@@ -99,7 +99,7 @@ const ContactUs = () => {
                 id="email"
                 value={form.email}
                 onChange={handleChange}
-                className="mt-[10px] h-10 block w-full py-[16px] pl-[80px] bg-white border border-slate-300 rounded-2xl text-xl shadow-sm placeholder-slate-400 text-black focus:font-medium
+                className="mt-[10px] h-10 block w-full py-[16px] pl-[55px] bg-transparent border-2 rounded-md text-xl shadow-sm placeholder-slate-400 text-white focus:font-medium
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 invalid:border-pink-500 invalid:text-pink-600
@@ -109,12 +109,12 @@ const ContactUs = () => {
                 <AuthErrorMessage message={error.emailError} />
               ) : null}
             </div>
-            <div id="Phone no." className="">
+            <div id="Phone no." className="py-2">
               <img
                 src={PhoneIcon}
                 alt="a blue telephone receiver on a black background"
                 id="icon"
-                className="absolute ml-[10px] mt-[6px] h-7"
+                className="absolute ml-[10px] mt-[16px] h-7"
               />
               <input
                 type="tel"
@@ -123,7 +123,7 @@ const ContactUs = () => {
                 id="phoneno"
                 value={form.phoneno}
                 onChange={handleChange}
-                className="mt-[10px] h-10 block w-full py-[16px] pl-[80px] bg-white border border-slate-300 rounded-2xl text-xl shadow-sm placeholder-slate-400 text-black focus:font-medium
+                className="mt-[10px] h-10 block w-full py-[16px] pl-[55px] bg-transparent border-2 rounded-md text-xl shadow-sm placeholder-slate-400 text-white focus:font-medium
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 invalid:border-pink-500 invalid:text-pink-600
@@ -138,14 +138,14 @@ const ContactUs = () => {
               name="message"
               id="message"
               cols="30"
-              rows="4"
+              rows="10"
               value={form.message}
               onChange={handleChange}
-              className="mt-[10px] block w-full py-[16px] pl-[40px] bg-white border border-slate-300 rounded-2xl text-xl shadow-sm placeholder-slate-400 text-black focus:font-medium
-                focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-                disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
-                invalid:border-pink-500 invalid:text-pink-600
-                focus:invalid:border-pink-500 focus:invalid:ring-pink-500
+              className="mt-[20px] h-40 block w-full p-2 bg-transparent border-2 rounded-md text-xl shadow-sm placeholder-slate-400 text-white focus:font-medium
+              focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+              disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+              invalid:border-pink-500 invalid:text-pink-600
+              focus:invalid:border-pink-500 focus:invalid:ring-pink-500
                 resize-none"
             ></textarea>
                {error.message && error.messageError ? (
@@ -153,11 +153,9 @@ const ContactUs = () => {
                 ) : null}
             <button 
               type="submit"
-              className="relative inline-flex mt-[20px] w-full rounded-2xl items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900
-                group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none
-                focus:ring-blue-300 dark:focus:ring-blue-800"
+              className="bg-gradient-to-b from-cyan-500 to-blue-500 text-white mt-[25px] w-full flex items-center p-2 duration-300 hover:scale-110 rounded-md font-semibold"
               disabled={Object.values(error).includes(true)}>
-                  <span className="relative px-5 py-2.5 w-full rounded-2xl lg:text-2xl text-lg transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-2xl group-hover:bg-opacity-0">
+                  <span className="mx-auto">
                    Send
                  </span>
             </button>
