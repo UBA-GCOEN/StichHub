@@ -286,9 +286,9 @@ const AuthTailor = () => {
                 "
                   />
                         {(error.confirmPassword && error.confirmPasswordError)? <AuthErrorMessage message={error.confirmPasswordError}/>:null}
-                        <Captcha message={setTrackState} trackState={trackState}/>
                 </div>
               )}
+                        <Captcha message={setTrackState} trackState={trackState}/>
               <div className="flex justify-center">
               {isregister ? (<button
                   type="submit"
@@ -298,6 +298,8 @@ const AuthTailor = () => {
                 >Register</button>):(<button
                   type="submit"
                   className="mt-[15px] block w-[170px] py-2 bg-blue-500 text-white hover:bg-slate-200 hover:text-blue-600 hover:transition-all duration-500 hover:font-semibold rounded-xl font-regular text-xl"
+                  disabled={!trackState}
+                  style={{cursor:`${trackState ? "pointer": "not-allowed"}`}}
                 >Sign in</button>)}
               </div>
 
