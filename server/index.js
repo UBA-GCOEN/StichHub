@@ -9,6 +9,7 @@ import test from "./routes/test.js";
 import userTailorRouter from "./routes/userTailor.js";
 import userCustomerRouter from "./routes/userCustomer.js";
 import tailorsDetails from "./routes/tailorsDetails.js";
+import improveDatails from "./routes/Improve.js";
 import orders from "./routes/orders.js";
 import cart from "./routes/cart.js";
 import payment from "./routes/payment.js";
@@ -31,7 +32,9 @@ app.use("/tailors", tailorsDetails);
 app.use("/order", orders);
 app.use("/cart", cart);
 app.use("/payment", payment);
+app.use('/improve',improveDatails)
 app.use("/forgotpassword", forgotpassword);
+
 
 const CONNECTION_URL = process.env.MONGO_URL;
 const PORT = process.env.PORT || 5000;
@@ -42,3 +45,5 @@ mongoose
     app.listen(PORT, () => console.log(`Server running on PORT: ${PORT}`))
   )
   .catch((error) => console.log(error.message));
+
+  
