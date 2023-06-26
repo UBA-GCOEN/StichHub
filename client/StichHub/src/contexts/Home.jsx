@@ -34,9 +34,9 @@ const orderData = {
 export const HomeProvider = (props) => {
   const [orderDetails, setOrderDetails] = useState(orderData);
 const [tailorDetails , setTailorDetails] =useState({
-  
-  name: "Nitesh",
-  email : "nitesh1@gmail.com"
+  status : "",
+  message : "",
+  tailorUser : {}
 });
   return (
     <HomeContext.Provider

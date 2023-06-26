@@ -2,23 +2,39 @@ import React, { useContext, useEffect, useState } from 'react'
 import emailImage from "../../assets/img/n.png"
 import VerifiedEmail from "../../assets/img/verified.png"
 import axios from '../../axios.js';
-import { useParams } from 'react-router-dom';
-import { HomeProvider } from '../../contexts/Home';
+import { useNavigate, useParams } from 'react-router-dom';
+import { HomeProvider, useHCustomization } from '../../contexts/Home';
 const EmailVerification = () => {
-    // const {tailorDetails , setTailorDetails} = useContext(HomeProvider)
+  const navigateTo = useNavigate();
+    const {tailorDetails , setTailorDetails} = useHCustomization()
 
     const getMySelf = async () => {
-      // console.log(tailorDetails)
+     try {
       const res = await axios.get("/userTailor/getmyself");
-      console.log(res.data)
-
+      const data = res.data
+      // console.log(res.data.tailorUser)
+      setTailorDetails( data)
+     } catch (error) {
+      data = response.data;
+      setTailorDetails(data)
+     }    
     }
    
     useEffect(() => {
       
       getMySelf();
+      console.log(tailorDetails)
       
     },[])
+    useEffect(() => {
+      
+     
+      console.log(tailorDetails)
+      if(tailorDetails && tailorDetails.tailorUser.isVerified){
+        navigateTo("/TailorDashboard")
+      }
+      
+    },[tailorDetails])
 
    
     

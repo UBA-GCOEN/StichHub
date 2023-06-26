@@ -27,7 +27,7 @@ import OrderConfirmation from "./components/Home/OrderConfirmation";
 import PaymentSuccess from "./components/Cart/PaymentSuccess";
 import PaymentFailure from "./components/Cart/PaymentFailure";
 import EmailVerification from "./components/TailorProfileVerification/EmailVerification";
-import axios from "./axios.js";
+import axios from "./axios";
 import Verify from "./components/TailorProfileVerification/Verify.jsx"
 import { isStyledComponent } from "styled-components";
 
@@ -36,59 +36,46 @@ import ErrorPage from "./components/ErrorPage/404ErrorPage";
 
 function App() {
   const navigateTo = useNavigate();
-  //Imported from context
-  const [isTailorLoggedIn , setIsTailorLoggedIn] = useState({
-    success : "",
-    message : "",
-    tailorUser : {}
-  })
+  const {tailorDetails , setTailorDetails} = useHCustomization()
+ 
   const [userCustomer, setUserCustomer] = useState(
     JSON.parse(localStorage.getItem("profile"))
   );
   const [userTailor, setUserTailor] = useState(
     JSON.parse(localStorage.getItem("tailorProfile"))
-  );  
-  /**  
-   * fetching Tailor details  if he is logged in or his authorization token is valid 
-   * 
-   */
-  const fetchTailorDetails = async () => {
+  );
+ 
+  const getMySelf = async () => {
     try {
-      const fetchedTailorDetailsResponse = await axios.get("/userTailor/getmyself");
-    //getting only tailor details
-    console.log(fetchedTailorDetailsResponse)
-    setIsTailorLoggedIn(fetchedTailorDetailsResponse.data)
-    console.log(isTailorLoggedIn)
+     const res = await axios.get("/userTailor/getmyself");
+     const data = res.data
+     // console.log(res.data.tailorUser)
+     setTailorDetails( data)
     } catch (error) {
-      if(error){
-        setIsTailorLoggedIn({...isTailorLoggedIn , success : false})
-        
-      }
-    }  
-   
-  }
-
-  useEffect(() => {
-    console.log(isTailorLoggedIn)
-    if(isTailorLoggedIn.success === false){
-      localStorage.clear();
-      navigateTo("/")
+     data = error.response.data;
+     setTailorDetails({...tailorDetails , data})
+    console.log(error)
     }
-  }, [isTailorLoggedIn])
+     
 
+   }
   
-  
-  
-  useEffect(() => {
-    fetchTailorDetails();
+  useEffect( () => {
+    getMySelf();
+     console.log(tailorDetails)
     setUserCustomer(JSON.parse(localStorage.getItem("profile")));
     setUserTailor(JSON.parse(localStorage.getItem("tailorProfile")));
   
   }, []);
+  
+   
+  
+ 
+
 
   return (
     <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
-      <HomeProvider>
+      {/* <HomeProvider> */}
         <Routes>
         {/* <Route path = "/" element = {<MainLandingPage />} /> */}
           {/* Landing Page */}
@@ -246,7 +233,7 @@ function App() {
             element={<ErrorPage/>}
           />
         </Routes>
-      </HomeProvider>
+      {/* </HomeProvider> */}
     </GoogleOAuthProvider>
   );
 }
