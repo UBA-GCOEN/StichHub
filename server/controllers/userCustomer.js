@@ -2,9 +2,9 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import * as dotenv from "dotenv";
 import sendWelcomeMail from "../services/mail.js";
-dotenv.config();
-
+import CartList from "../models/cart.js";
 import userCustomerModel from "../models/userCustomer.js";
+dotenv.config();
 
 const SECRET = process.env.CUSTOMER_USER;
 
@@ -72,3 +72,16 @@ export const register = async (req, res) => {
         console.log(error);
     }
 };
+
+export const deleteAccount = async (req, res)=>{
+    try{
+      const user = await userCustomerModel.findOne({email: req.body.email});
+      console.log(user._id.toString())
+      await userCustomerModel.deleteOne({email: req.body.email});
+      await CartList.deleteOne({customerId: user._id.toString()});
+      res.status(200).json({result: true})
+    }catch(error){
+      console.log(error);
+      res.status(500).json({message: "Something went wrong"})
+    }
+  }

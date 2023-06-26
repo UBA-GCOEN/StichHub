@@ -2,9 +2,9 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import * as dotenv from "dotenv";
 import sendWelcomeMail from "../services/mail.js";
-dotenv.config();
-
+import OrderList from "../models/order.js";
 import userTailorModel from "../models/userTailor.js";
+dotenv.config();
 
 const SECRET = process.env.TAILOR_USER;
 
@@ -62,3 +62,15 @@ export const register = async (req, res) => {
     console.log(error);
   }
 };
+
+export const deleteAccount = async (req, res)=>{
+  try{
+    const user = await userTailorModel.findOne({email: req.body.email});
+    await userTailorModel.deleteOne({email: req.body.email});
+    await OrderList.deleteOne({tailorId: user._id.toString()})
+    res.status(200).json({result: true})
+  }catch(error){
+    console.log(error);
+    res.status(500).json({message: "Something went wrong"})
+  }
+}
