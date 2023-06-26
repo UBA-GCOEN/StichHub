@@ -64,9 +64,10 @@ export const register = async (req, res) => {
 };
 
 export const deleteAccount = async (req, res)=>{
+  const {email} = req.body;
   try{
-    const user = await userTailorModel.findOne({email: req.body.email});
-    await userTailorModel.deleteOne({email: req.body.email});
+    const user = await userTailorModel.findOne({email});
+    await userTailorModel.deleteOne({email});
     await OrderList.deleteOne({tailorId: user._id.toString()})
     res.status(200).json({result: true})
   }catch(error){

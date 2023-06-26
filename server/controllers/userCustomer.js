@@ -74,10 +74,10 @@ export const register = async (req, res) => {
 };
 
 export const deleteAccount = async (req, res)=>{
+    const {email} = req.body;
     try{
-      const user = await userCustomerModel.findOne({email: req.body.email});
-      console.log(user._id.toString())
-      await userCustomerModel.deleteOne({email: req.body.email});
+      const user = await userCustomerModel.findOne({email});
+      await userCustomerModel.deleteOne({email});
       await CartList.deleteOne({customerId: user._id.toString()});
       res.status(200).json({result: true})
     }catch(error){
