@@ -63,6 +63,7 @@
     "react-tailwindcss-select": "^1.8.5",
     "rsuite": "^5.28.3",
     "styled-components": "^5.3.11",
+    "swiper": "^9.4.1",
     "three": "^0.151.2",
     "tw-elements": "^1.0.0-beta2"
   },
