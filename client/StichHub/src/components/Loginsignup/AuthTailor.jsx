@@ -10,6 +10,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import validate from "../../common/validation";
 import AuthErrorMessage from "../AuthError";
+import Captcha from "./Captcha";
 
 const initialForm = {
   name: "",
@@ -23,6 +24,7 @@ const AuthTailor = () => {
   const [form, setForm] = useState(initialForm);
   const [error, setError] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [trackState, setTrackState] = useState(false)
   const navigateTo = useNavigate();
 
   const switchMode = () => {
@@ -284,15 +286,19 @@ const AuthTailor = () => {
                 "
                   />
                         {(error.confirmPassword && error.confirmPasswordError)? <AuthErrorMessage message={error.confirmPasswordError}/>:null}
+                        <Captcha message={setTrackState} trackState={trackState}/>
                 </div>
               )}
               <div className="flex justify-center">
-                <button
+              {isregister ? (<button
                   type="submit"
-                  className="mt-[15px] block w-[170px] py-2 bg-blue-500 text-white rounded-xl font-regular text-xl"
-                >
-                  {isregister ? "Register" : "Sign in"}
-                </button>
+                  className="mt-[15px] block w-[170px] py-2 bg-blue-500 text-white hover:bg-slate-200 hover:text-blue-600 hover:transition-all duration-500 hover:font-semibold rounded-xl font-regular text-xl"
+                  disabled={!trackState}
+                  style={{cursor:`${trackState ? "pointer": "not-allowed"}`}}
+                >Register</button>):(<button
+                  type="submit"
+                  className="mt-[15px] block w-[170px] py-2 bg-blue-500 text-white hover:bg-slate-200 hover:text-blue-600 hover:transition-all duration-500 hover:font-semibold rounded-xl font-regular text-xl"
+                >Sign in</button>)}
               </div>
 
               <h1 className="text-center text-white text-xl py-1">or</h1>

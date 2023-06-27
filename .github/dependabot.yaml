@@ -3,8 +3,8 @@ updates:
   - package-ecosystem: "npm"
     directory: "client/StichHub"
     schedule:
-      interval: "daily"
+      interval: "monthly"
   - package-ecosystem: "npm"
     directory: "server"
     schedule:
-      interval: "daily"
+      interval: "monthly"
