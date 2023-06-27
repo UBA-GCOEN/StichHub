@@ -13,6 +13,7 @@ import { Canvas } from "@react-three/fiber";
 import { useCustomization } from "../../contexts/LandingPageDemo";
 import { useSpring, animated } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
+import Chatbot from "../Chatbot";
 
 const Home = () => {
   const { demoButtons, demoButton, setDemoButton } = useCustomization();
@@ -159,6 +160,7 @@ const Home = () => {
 
       {/* BG-Gradients */}
       <div className="absolute circleGradient-peach w-[500px] h-[500px] top-[-100px] left-[-260px] z-0"></div>
+      <div className="absolute z-10"><Chatbot/></div>
     </div>
   );
 };
