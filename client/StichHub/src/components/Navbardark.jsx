@@ -1,7 +1,7 @@
+import jwt_decode from "jwt-decode";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import jwt_decode from "jwt-decode";
-import logo from "../assets/logo/Long - Logo Transparent (Black).png";
+import { logo } from "../constants/MainLandingPage";
 
 const Navbar = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
@@ -45,7 +45,7 @@ const Navbar = () => {
             name="search"
             id="search"
             placeholder="search what you want to stitch?"
-            className="border-2 w-[50vw]  rounded-xl border-indigo-500 py-2 px-3 border-solid"
+            className="border-2 w-[50vw] text-black rounded-xl border-indigo-500 py-2 px-3 border-solid"
           />
         </div>
 
@@ -73,9 +73,8 @@ const Navbar = () => {
 
               {/* User Menu */}
               <div
-                className={`${
-                  !toggle ? "hidden" : "flex"
-                } cardGradient w-[240px] absolute mx-[-80px] lg:mx-[-10px] py-2 min-w-[140px] top-14 rounded-xl z-[100]`}
+                className={`${!toggle ? "hidden" : "flex"
+                  } cardGradient w-[240px] absolute mx-[-80px] lg:mx-[-10px] py-2 min-w-[140px] top-14 rounded-xl z-[100]`}
               >
                 <div className="flex flex-col gap-2 mt-3">
                   <Link to="/Cart">
