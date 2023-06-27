@@ -2,7 +2,6 @@ import { useState } from "react";
 
 const FilterSection = ({ handleChange, clearFilter }) => {
   const [toggle, setToggle] = useState(false);
- 
 
   return (
     <div>
@@ -41,9 +40,9 @@ const FilterSection = ({ handleChange, clearFilter }) => {
                 <button
                   type="button"
                   class="focus:outline-none text-white bg-red-700 hover:bg-red-800 font-medium rounded-lg text-xs px-2 py-2 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 absolute right-0 top-1"
-                  onClick={()=>{
+                  onClick={() => {
                     clearFilter();
-                    setToggle(false)
+                    setToggle(false);
                   }}
                 >
                   Clear Filters
@@ -110,7 +109,7 @@ const FilterSection = ({ handleChange, clearFilter }) => {
                   <div className="my-2">
                     <div className="hover:bg-gray-700 rounded px-2 my-1">
                       <input
-                        type="checkbox"
+                        type="radio"
                         name="price"
                         value="under 1000"
                         id="under1000"
@@ -123,7 +122,7 @@ const FilterSection = ({ handleChange, clearFilter }) => {
                     </div>
                     <div className="hover:bg-gray-700 rounded px-2 my-1">
                       <input
-                        type="checkbox"
+                        type="radio"
                         name="price"
                         value="1000 - 5000"
                         id="1000-5000"
@@ -136,7 +135,7 @@ const FilterSection = ({ handleChange, clearFilter }) => {
                     </div>
                     <div className="hover:bg-gray-700 rounded px-2 my-1">
                       <input
-                        type="checkbox"
+                        type="radio"
                         name="price"
                         value="5000 - 15000"
                         id="5000-15000"
@@ -149,7 +148,7 @@ const FilterSection = ({ handleChange, clearFilter }) => {
                     </div>
                     <div className="hover:bg-gray-700 rounded px-2 my-1">
                       <input
-                        type="checkbox"
+                        type="radio"
                         name="price"
                         value="Above 15000"
                         id="Abovecheckbox"
@@ -167,7 +166,7 @@ const FilterSection = ({ handleChange, clearFilter }) => {
                   <div className="my-2">
                     <div className="hover:bg-gray-700 rounded px-2 my-1">
                       <input
-                        type="checkbox"
+                        type="radio"
                         name="rating"
                         value={5}
                         id="5star"
@@ -180,7 +179,7 @@ const FilterSection = ({ handleChange, clearFilter }) => {
                     </div>
                     <div className="hover:bg-gray-700 rounded px-2 my-1">
                       <input
-                        type="checkbox"
+                        type="radio"
                         name="rating"
                         value={4}
                         id="4star"
@@ -193,7 +192,7 @@ const FilterSection = ({ handleChange, clearFilter }) => {
                     </div>
                     <div className="hover:bg-gray-700 rounded px-2 my-1">
                       <input
-                        type="checkbox"
+                        type="radio"
                         name="rating"
                         value={3}
                         id="3star"
@@ -206,7 +205,7 @@ const FilterSection = ({ handleChange, clearFilter }) => {
                     </div>
                     <div className="hover:bg-gray-700 rounded px-2 my-1">
                       <input
-                        type="checkbox"
+                        type="radio"
                         name="rating"
                         value={2}
                         id="2star"
@@ -219,7 +218,7 @@ const FilterSection = ({ handleChange, clearFilter }) => {
                     </div>
                     <div className="hover:bg-gray-700 rounded px-2 my-1">
                       <input
-                        type="checkbox"
+                        type="radio"
                         name="rating"
                         value={1}
                         id="1star"
