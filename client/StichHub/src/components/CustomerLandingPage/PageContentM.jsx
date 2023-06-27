@@ -3,8 +3,15 @@ import MouseIcon from "@mui/icons-material/Mouse";
 import { demo3d } from "../../assets/MainLandingPage/Icons";
 import { DemoShirtIcon } from "../../assets/MainLandingPage/Icons";
 import { FaTshirt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
 
 function PageContentM() {
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    navigate("/");
+  };
   return (
     <div>
       <div className="relative justify-around w-screen h-screen">
@@ -54,7 +61,7 @@ function PageContentM() {
             </h1>
           </div>
           <div>
-            <button class="bg-[#e68600] hover:bg-[chocolate] text-black font-semibold p-1 rounded-full h-10 text-lg w-36">
+            <button class="bg-[#e68600] hover:bg-[chocolate] text-black font-semibold p-1 rounded-full h-10 text-lg w-36"onClick={handleButtonClick}>
               Start Stitching
             </button>
           </div>
