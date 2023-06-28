@@ -5,10 +5,45 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-
 <url>
   <loc>https://stichhub.vercel.app/</loc>
-  <lastmod>2023-05-28T01:21:51+00:00</lastmod>
+  <lastmod>2023-06-28T11:20:28+00:00</lastmod>
+</url>
+<url>
+  <loc>https://stichhub.vercel.app/#ourServices</loc>
+  <lastmod>2023-06-28T11:20:28+00:00</lastmod>
+</url>
+<url>
+  <loc>https://stichhub.vercel.app/#howitworks</loc>
+  <lastmod>2023-06-28T11:20:28+00:00</lastmod>
+</url>
+<url>
+  <loc>https://stichhub.vercel.app/#aboutus</loc>
+  <lastmod>2023-06-28T11:20:28+00:00</lastmod>
+</url>
+<url>
+  <loc>https://stichhub.vercel.app/#contactus</loc>
+  <lastmod>2023-06-28T11:20:28+00:00</lastmod>
+</url>
+<url>
+  <loc>https://stichhub.vercel.app/auth</loc>
+  <lastmod>2023-06-28T11:20:28+00:00</lastmod>
+</url>
+<url>
+  <loc>https://stichhub.vercel.app/auth/customer</loc>
+  <lastmod>2023-06-28T11:20:28+00:00</lastmod>
+</url>
+<url>
+  <loc>https://stichhub.vercel.app/auth/tailor</loc>
+  <lastmod>2023-06-28T11:20:28+00:00</lastmod>
+</url>
+<url>
+  <loc>https://stichhub.vercel.app/auth/tailor</loc>
+  <lastmod>2023-06-28T11:20:28+00:00</lastmod>
+</url>
+<url>
+  <loc>https://stichhub.vercel.app/auth/tailor</loc>
+  <lastmod>2023-06-28T11:20:28+00:00</lastmod>
 </url>
 
 
