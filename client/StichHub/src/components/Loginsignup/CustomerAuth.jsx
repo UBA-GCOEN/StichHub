@@ -245,10 +245,10 @@ const CustomerAuth = () => {
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
                 />
-                 {(error.password && error.passwordError)? <AuthErrorMessage message={error.passwordError}/>:null}
                 <div onClick={passwordToggle} className="absolute cursor-pointer flex items-center z-[5] mt-[-1.8rem] ml-[17rem]">
                 {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
                 </div>
+                 {(error.password && error.passwordError)? <AuthErrorMessage message={error.passwordError}/>:null}
 
               </div>
               {isregister && (
