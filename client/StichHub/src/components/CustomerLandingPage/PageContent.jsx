@@ -8,7 +8,7 @@ function PageContent() {
       <div className="relative flex justify-around w-screen h-screen ">
         {/* Div containing image of girl and background gradient */}
         <div className="relative w-2/5 p-4">
-          <img
+          <img loading="lazy"
             src={demo3d}
             className="relative z-[5] w-[300px] h-[571px]"
           />
@@ -19,21 +19,21 @@ function PageContent() {
         {/* Div containing buttons (From Main Page) */}
         <div className="absolute left-96 top-32">
           <div className="p-3 mt-2 rounded-lg bg-gray-800 flex flex-col justify-center hover:bg-black hover:cursor-pointer drop-shadow-2xl">
-            <img
+            <img loading="lazy"
               src={DemoShirtIcon}
               className="w-[50px] ml-3"
             />
             <p className="text-sm text-white mt-2">Short Sleeve</p>
           </div>
           <div className="p-3 mt-2 rounded-lg bg-gray-800 flex flex-col justify-center hover:bg-black hover:cursor-pointer drop-shadow-2xl">
-            <img
+            <img loading="lazy"
               src={DemoShirtIcon}
               className="w-[50px] ml-3"
             />
             <p className="text-sm text-white mt-2">Short Sleeve</p>
           </div>
           <div className="p-3 mt-2 rounded-lg bg-gray-800 flex flex-col justify-center hover:bg-black hover:cursor-pointer drop-shadow-2xl">
-            <img
+            <img loading="lazy"
               src={DemoShirtIcon}
               className="w-[50px] ml-3"
             />

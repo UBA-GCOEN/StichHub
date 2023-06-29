@@ -32,7 +32,7 @@ const Tailors = () => {
                 {item.step}
               </div>
 
-              <img
+              <img loading="lazy"
                 id="stepLogo"
                 src={item.img}
                 className="mx-[80px] my-[50px]
@@ -64,7 +64,7 @@ const Tailors = () => {
                   {item.step}
                 </div>
               </div>
-              <img
+              <img loading="lazy"
                 id="stepLogo"
                 src={item.img}
                 className="mx-[45px] lg:mx-[80px] lg:my-[50px]"

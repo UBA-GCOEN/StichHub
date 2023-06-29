@@ -78,7 +78,7 @@ const OrderConfirmation = () => {
                 <div className="py-6 px-4 sm:px-6 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:p-8">
                   <div className="sm:flex lg:col-span-5">
                     <div className="flex-shrink-0 w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden sm:aspect-none sm:w-40 sm:h-40">
-                      <img
+                      <img loading="lazy"
                         src="https://tailwindui.com/img/ecommerce-images/confirmation-page-04-product-02.jpg"
                         alt="Off-white t-shirt with circular dot illustration on the front of mountain ridges that fade."
                         className="object-center object-cover"

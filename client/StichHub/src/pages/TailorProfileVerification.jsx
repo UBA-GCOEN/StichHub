@@ -312,7 +312,7 @@ const TailorProfileVerification = () => {
               {/* image with list */}
               <div className="flex col-start-1 col-end-2 lg:col-start-2 lg:col-end-3">
                 <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
-                  <img
+                  <img loading="lazy"
                     src="https://img.icons8.com/external-bearicons-flat-bearicons/256/external-verified-reputation-bearicons-flat-bearicons.png"
                     className="w-[70%]"
                   ></img>
@@ -333,7 +333,7 @@ const TailorProfileVerification = () => {
           </div>
           {/* hero image */}
           <div className="hidden lg:block col-start-3 col-end-4">
-            <img src={New} className="w-50% ml-[-40%] mr-20" />
+            <img loading="lazy" src={New} className="w-50% ml-[-40%] mr-20" />
           </div>
         </div>
         {/* progress bar with 0% progress */}
@@ -405,11 +405,11 @@ const TailorProfileVerification = () => {
   // final page step7
   const Step6 = () => (
     <div className="h-[100vh]">
-      <img
+      <img loading="lazy"
         src={Verified}
         className="hidden lg:block right-24 absolute w-[30%] h-[60%] "
       />
-      <img
+      <img loading="lazy"
         src={Verified}
         className="opacity-20 right-0 bottom-[300px] w-[55%] h-[35%] lg:opacity-100 lg:right-24 absolute lg:w-[30%] lg:h-[60%] lg:hidden"
       />
@@ -665,7 +665,7 @@ const TailorProfileVerification = () => {
                   </div>
                 </div>
                 <div className="bottom-0 right-0 w-[40%] lg:right-0 lg:top-24 absolute col-start-4 col-end-5 opacity-20 lg:opacity-100 ">
-                  <img src={N} />
+                  <img loading="lazy" src={N} />
                 </div>
               </div>
 
@@ -696,10 +696,10 @@ const TailorProfileVerification = () => {
                 </h1>
               </div>
               <div className="lg:hidden bottom-0 right-0 w-[50%] lg:right-0 absolute opacity-20 lg:opacity-100">
-                <img src={V} />
+                <img loading="lazy" src={V} />
               </div>
               <div className="hidden lg:block  w-[35%] right-0 absolute lg:opacity-100">
-                <img src={V} />
+                <img loading="lazy" src={V} />
               </div>
 
               {/* address detail form */}
@@ -836,10 +836,10 @@ const TailorProfileVerification = () => {
                 </h1>
               </div>
               <div className="mt-[-5%] right-0  bottom-[300px] w-[60%] h-[30%] lg:right-20 absolute opacity-20 lg:opacity-100 lg:hidden">
-                <img src={Profileveri} />
+                <img loading="lazy" src={Profileveri} />
               </div>
               <div className="hidden lg:block left-[60%] absolute lg:opacity-100">
-                <img src={Profileveri} />
+                <img loading="lazy" src={Profileveri} />
               </div>
 
               {/* photo upload */}
@@ -854,7 +854,7 @@ const TailorProfileVerification = () => {
                     (.jpg,.png)
                   </label>
                   <div className="flex z-[5] relative">
-                    <img
+                    <img loading="lazy"
                       src={form.passport}
                       className="w-[100px] h-[100px] mt-5 rounded-lg border border-white"
                     ></img>
@@ -946,10 +946,10 @@ const TailorProfileVerification = () => {
                 </h1>
               </div>
               <div className="mt-[-5%] bottom-14 lg:gright-20 absolute opacity-20  lg:opacity-100 lg:hidden">
-                <img src={Speciality} />
+                <img loading="lazy" src={Speciality} />
               </div>
               <div className="hidden lg:block left-[60%] absolute opacity-20  lg:opacity-100">
-                <img src={Speciality} />
+                <img loading="lazy" src={Speciality} />
               </div>
 
               <div className="ml-[15%] w-[70%] lg:w-[50%] h-auto bg-white bg-opacity-10 rounded-xl p-[2%] grid grid-cols-1 gap-3 pl-[5%] pr-30 ">

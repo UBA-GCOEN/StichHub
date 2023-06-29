@@ -33,15 +33,15 @@ function Worried() {
       {/* Hexgonal div End */}
 
       <div className="flex justify-center items-center mt-8">
-        <img
+        <img loading="lazy"
           src={Handle}
           className="m-4 transition-all ease-in hover:scale-110 w-60 h-64"
         />
-        <img
+        <img loading="lazy"
           src={call}
           className="m-4 transition-all ease-in hover:scale-110 w-60 h-64"
         />
-        <img
+        <img loading="lazy"
           src={provide}
           className="m-4 transition-all ease-in hover:scale-110 w-60 h-64"
         />

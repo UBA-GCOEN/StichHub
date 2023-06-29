@@ -7,7 +7,7 @@ function Nav() {
   return (
     <div className="flex font-sans text-white justify-between justify-items-center h-24 sticky">
       <div className="w-44 h-14 m-2 p-2">
-        <img
+        <img loading="lazy"
           src=".\src\assets\logo\Long - Logo Transparent (White).png"
           alt="logo"
         />

@@ -129,7 +129,7 @@ const AuthTailor = () => {
       ) : null}
       {/* Left Side (img)*/}
       <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.png')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10  rounded-2xl">
-        <img
+        <img loading="lazy"
           src={shortlogo}
           className="w-[5vw] absolute bottom-14 left-5"
         ></img>
@@ -144,12 +144,12 @@ const AuthTailor = () => {
 
           <a href="/" className="flex justify-center mt-10">
  
-            <img src={logo} className="w-[240px]" />
+            <img loading="lazy" src={logo} className="w-[240px]" />
           </a>
           {/* title */}
           <div className="flex justify-center my-1">
             <div>
-              <img src={tailorimg} alt="" className="w-[60px] mr-5" />
+              <img loading="lazy" src={tailorimg} alt="" className="w-[60px] mr-5" />
             </div>
             <div className="mt-3 text-center">
               <span className="text-white text-3xl font-semibold">

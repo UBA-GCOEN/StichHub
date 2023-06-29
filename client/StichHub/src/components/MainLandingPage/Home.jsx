@@ -55,7 +55,7 @@ const Home = () => {
                 }`}
                 onClick={() => setDemoButton(item)}
               >
-                <img src={item.img} className={item.style} alt={item.alt}/>
+                <img loading="lazy" src={item.img} className={item.style} alt={item.alt}/>
                 <p className="hidden text-xs text-white mt-2">{item.text}</p>
               </div>
             ))}
@@ -99,25 +99,25 @@ const Home = () => {
             </p>
             <div className="flex">
               <div className="flex">
-                <img src={Configurator3d} className="pt-1 pb-1" />
+                <img loading="lazy" src={Configurator3d} className="pt-1 pb-1" />
                 <div className="ml-2 text-white text-xl text-left">
                   3D <br /> Configurator
                 </div>
               </div>
               <div className="flex ml-6">
-                <img src={OnlineMeasurement} className="pt-1 pb-1" />
+                <img loading="lazy" src={OnlineMeasurement} className="pt-1 pb-1" />
                 <div className="ml-2 text-white text-xl text-left">
                   Online <br /> Measurements
                 </div>
               </div>
               <div className="flex ml-6">
-                <img src={sweingmachine} className="pt-1 pb-1" />
+                <img loading="lazy" src={sweingmachine} className="pt-1 pb-1" />
                 <div className="ml-2 text-white text-xl text-left">
                   Variety <br /> of Tailors
                 </div>
               </div>
               <div className="flex ml-6">
-                <img src={HomeDelivery} className="pt-1 pb-1" />
+                <img loading="lazy" src={HomeDelivery} className="pt-1 pb-1" />
                 <div className="ml-2 text-white text-xl text-left">
                   Home <br /> Delivery
                 </div>
@@ -149,7 +149,7 @@ const Home = () => {
                 }`}
                 onClick={() => setDemoButton(item)}
               >
-                <img src={item.img} className={item.style} />
+                <img loading="lazy" src={item.img} className={item.style} />
                 <p className="text-sm text-white mt-2">{item.text}</p>
               </div>
             ))}

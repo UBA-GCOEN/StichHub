@@ -7,7 +7,7 @@ function GetListM() {
     <div className="h-screen text-center m-2 p-2">
       {/* Image Part */}
       <div className="w-full text-center justify-center">
-        <img
+        <img loading="lazy"
           src={img}
           className="h-90"
         />

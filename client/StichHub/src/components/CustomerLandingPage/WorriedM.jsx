@@ -21,7 +21,7 @@ function WorriedM() {
 
       <div className="justify-center items-center mt-8">
         <div className="bg-[#1E1837] rounded-[2.2rem] p-2 m-2 flex items-center justify-center">
-          <img
+          <img loading="lazy"
             src={Tailor}
             className="p-2 transition-all ease-in hover:scale-110 w-24 h-24"
           />
@@ -31,7 +31,7 @@ function WorriedM() {
         </div>
 
         <div className="bg-[#1E1837] rounded-[2.2rem] p-2 m-2 flex items-center justify-center">
-          <img
+          <img loading="lazy"
             src={Calculator}
             className="p-2 transition-all ease-in hover:scale-110 w-24 h-24"
           />
@@ -41,7 +41,7 @@ function WorriedM() {
         </div>
 
         <div className="bg-[#1E1837] rounded-[2.2rem] p-2 m-2 flex items-center justify-center">
-          <img
+          <img loading="lazy"
             src={Enter}
             className="p-2 transition-all ease-in hover:scale-110 w-24 h-24"
           />

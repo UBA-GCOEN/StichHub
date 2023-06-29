@@ -40,7 +40,7 @@ const ContactUs = () => {
       <div className="relative z-[5] flex items-center justify-center">
         {/* left-Side */}
         <div id="leftside" className="lg:block hidden mb-[20px] bottom-[20p]">
-          <img src={ContactUsVector} className="" />
+          <img loading="lazy" src={ContactUsVector} className="" />
         </div>
 
         {/* Right-Side */}
@@ -58,7 +58,7 @@ const ContactUs = () => {
           {/* Form */}
           <form id="form-Container" className="" action="https://formsubmit.co/uba.gcoen@gmail.com" method="POST">
             <div id="yourName" className="py-2">
-              <img
+              <img loading="lazy"
                 src={AvatarIcon}
                 alt="N"
                 id="icon"
@@ -83,7 +83,7 @@ const ContactUs = () => {
               ) : null}
             </div>
             <div id="Email" className="py-2">
-              <img
+              <img loading="lazy"
                 src={EmailIcon}
                 alt="E"
                 id="icon"
@@ -108,7 +108,7 @@ const ContactUs = () => {
               ) : null}
             </div>
             <div id="Phone no." className="py-2">
-              <img
+              <img loading="lazy"
                 src={PhoneIcon}
                 alt="P"
                 id="icon"
@@ -158,7 +158,7 @@ const ContactUs = () => {
                  </span>
             </button>
           </form>
-          <img
+          <img loading="lazy"
             src={SendVector}
             alt="send"
             className="hidden lg:block absolute right-[-120px] bottom-[1px]"

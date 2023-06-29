@@ -7,7 +7,7 @@ function Configurator() {
     <div className="flex relative h-screen items-center">
       <div className="w-2/5 ml-0">
         {/* Image of girl */}
-        <img src={girlimg} />
+        <img loading="lazy" src={girlimg} />
       </div>
 
       <div className="w-2/5 ml-10 text-center">

@@ -121,7 +121,7 @@ const Step1 = () => {
 
             <div className="flex col-start-1 col-end-2 lg:col-start-2 lg:col-end-3">
               <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
-                <img
+                <img loading="lazy"
                   src="https://img.icons8.com/external-bearicons-flat-bearicons/256/external-verified-reputation-bearicons-flat-bearicons.png"
                   className="w-[70%]"
                 ></img>
@@ -142,7 +142,7 @@ const Step1 = () => {
           </Routes>
         </div>
         <div className="hidden lg:block col-start-3 col-end-4">
-          <img src={New} className="w-50% ml-[-40%] mr-20" />
+          <img loading="lazy" src={New} className="w-50% ml-[-40%] mr-20" />
         </div>
       </div>
       <ProgressBar progressPercentage={0} />

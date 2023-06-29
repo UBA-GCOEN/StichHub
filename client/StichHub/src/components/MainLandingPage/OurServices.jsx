@@ -24,7 +24,7 @@ const OurServices = () => {
               id="customerCardContent"
               className="lg:w-[350px] lg:h-[360px] rounded-3xl mt-5 drop-shadow-md flex justify-center content-center flex-wrap lg:bg-black/40 transform transition duration-500 hover:scale-105"
             >
-              <img src={forcustomers} className="lg:w-[150px] w-[90px]" alt="customers" />
+              <img loading="lazy" src={forcustomers} className="lg:w-[150px] w-[90px]" alt="customers" />
               <p className="text-xs lg:text-base px-20 lg:px-10 py-5 lg:p-3">
                 You can choose your own style, see how it looks as well as choose from a choice of tailor whom you want to get your clothes stitched from.{" "}
               </p>
@@ -45,7 +45,7 @@ const OurServices = () => {
               id="tailerCardContent"
               className="lg:w-[350px] lg:h-[360px] rounded-3xl mt-5 drop-shadow-md flex justify-center content-center flex-wrap lg:bg-black/40 transform transition duration-500 hover:scale-105"
             >
-              <img src={fortailors} className="lg:h-[100px] h-[70px] m-6" alt="tailors" />
+              <img loading="lazy" src={fortailors} className="lg:h-[100px] h-[70px] m-6" alt="tailors" />
               <p className="text-xs lg:text-base px-20 lg:px-10 py-5 lg:p-3">
                 You can keep track of your orders, showcase your previous work as well as add your specialities to your profile to increase customer-base.{" "}
               </p>

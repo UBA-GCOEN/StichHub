@@ -27,7 +27,7 @@ function GetList() {
 
         {/* Image Part */}
         <div className="w-2/5">
-          <img
+          <img loading="lazy"
             src={img}
             className="h-90"
           />

@@ -12,7 +12,7 @@ const Step3 = () => {
         </h1>
       </div>
       <div className="bottom-0 right-0 w-[50%] lg:right-20 absolute opacity-20 lg:opacity-100">
-        <img src={V} />
+        <img loading="lazy" src={V} />
       </div>
 
       <div className="ml-[15%] w-[75%] lg:w-[50%] h-auto bg-white bg-opacity-10 rounded-xl p-[2%] grid grid-cols-1 gap-3 pl-[5%] pr-5 lg:pr-40">

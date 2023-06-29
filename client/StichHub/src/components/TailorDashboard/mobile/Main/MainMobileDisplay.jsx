@@ -316,7 +316,7 @@ const MainMobileDisplay = () => {
             <div>
               <div>
                 <div className="h-14 w-14 rounded-full bg-[#4286F4] p-2">
-                  <img className="h-full w-full" src={MensIcon}></img>
+                  <img loading="lazy" className="h-full w-full" src={MensIcon}></img>
                 </div>
               </div>
               <div className="text-sm text-white">Mens</div>
@@ -328,7 +328,7 @@ const MainMobileDisplay = () => {
             <div>
               <div>
                 <div className="h-14 w-14 rounded-full bg-[#4286F4] p-2">
-                  <img className="h-full w-full" src={WomensIcon}></img>
+                  <img loading="lazy" className="h-full w-full" src={WomensIcon}></img>
                 </div>
               </div>
               <div className="text-sm text-white">Womens</div>
@@ -340,7 +340,7 @@ const MainMobileDisplay = () => {
             <div>
               <div>
                 <div className="h-14 w-14 rounded-full bg-[#4286F4] p-2">
-                  <img className="h-full w-full" src={OthersIcon}></img>
+                  <img loading="lazy" className="h-full w-full" src={OthersIcon}></img>
                 </div>
               </div>
               <div className="text-sm text-white">Others</div>
@@ -352,7 +352,7 @@ const MainMobileDisplay = () => {
             <div>
               <div>
                 <div className="h-14 w-14 rounded-full bg-[#4286F4] p-2">
-                  <img className="h-full w-full" src={AlteredIcon}></img>
+                  <img loading="lazy" className="h-full w-full" src={AlteredIcon}></img>
                 </div>
               </div>
               <div className="text-sm text-white">Altered</div>
@@ -364,7 +364,7 @@ const MainMobileDisplay = () => {
             <div>
               <div>
                 <div className="h-14 w-14 rounded-full bg-[#4286F4] p-2">
-                  <img className="h-full w-full" src={CustomIcon}></img>
+                  <img loading="lazy" className="h-full w-full" src={CustomIcon}></img>
                 </div>
               </div>
               <div className="text-sm text-white">Custom</div>

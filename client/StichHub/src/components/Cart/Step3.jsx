@@ -96,7 +96,7 @@ const Step3 = () => {
         id="body"
         className="grid lg:grid-cols-2  lg:pl-[10%] md:grid-cols-1 gap-4 justify-center "
       >
-        <img
+        <img loading="lazy"
           src={se}
           className=" hidden lg:block flex absolute lg:left-0 mt-20 w-[30%] sm:w-[40]% sm:right-0"
         />
@@ -376,7 +376,7 @@ const Step3 = () => {
             <h4 className="pt-4 pl-8 pb-4 font-bold md:items-center">
               <span>Order Information</span>
             </h4>
-            <img
+            <img loading="lazy"
               src={img}
               className="m-10 mt-0 mb-[5px] object-fill w-[73%] h-[180px] rounded-[10px] border border-solid border-[#cecece]"
             />

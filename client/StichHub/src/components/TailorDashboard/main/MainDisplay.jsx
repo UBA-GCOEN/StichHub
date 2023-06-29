@@ -119,7 +119,7 @@ const MainDisplay = () => {
                                     </div>
 
                                     <div class="flex justify-self-start items-center space-x-4">
-                                      <img
+                                      <img loading="lazy"
                                         class="w-10 h-10 rounded-full"
                                         src="./src/assets/img/jonathan.png"
                                         alt=""
@@ -145,7 +145,7 @@ const MainDisplay = () => {
                                     </div>
 
                                     <div className="grid grid-flow-col grid-cols-[10%_90%]">
-                                      <img
+                                      <img loading="lazy"
                                         className="grid place-items-center h-8 w-8"
                                         src="https://img.icons8.com/sf-regular-filled/48/undefined/clothes.png"
                                       />
@@ -243,7 +243,7 @@ const MainDisplay = () => {
                                       }
                                     >
                                       ACCEPT
-                                      <img
+                                      <img loading="lazy"
                                         className="h-5 w-5"
                                         src="https://img.icons8.com/ios-filled/50/C3B9B9/needle.png"
                                       />
@@ -327,7 +327,7 @@ const HJ = (props) => {
             id="button"
             className="mb-1 mt-[5%] flex bg-white text-black w-fit p-2 rounded-full"
           >
-            <img src={View} className="mr-3 ml-1 w-[15px]" />
+            <img loading="lazy" src={View} className="mr-3 ml-1 w-[15px]" />
             <span className="text-sm font-semibold cursor-pointer">
               See in your room
             </span>
@@ -351,7 +351,7 @@ const HJ = (props) => {
             </div>
 
             <div class="flex justify-self-start items-center space-x-4">
-              <img
+              <img loading="lazy"
                 class="w-7 h-7 rounded-full"
                 src="./src/assets/img/jonathan.png"
                 alt=""
@@ -374,7 +374,7 @@ const HJ = (props) => {
             <div className="text-xs text-left font-bold">Order Information</div>
 
             <div className="grid grid-flow-col grid-cols-[10%_90%]">
-              <img
+              <img loading="lazy"
                 className="grid place-items-center h-6 w-6"
                 src="https://img.icons8.com/sf-regular-filled/48/undefined/clothes.png"
               />
@@ -439,7 +439,7 @@ const HJ = (props) => {
               class="text-white w-fit h-fit bg-[#030084] hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-full  text-xs px-16 py-1 text-center inline-flex items-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 mr-2 mb-2"
             >
               STITCH
-              <img
+              <img loading="lazy"
                 className="h-5 w-5"
                 src="https://img.icons8.com/ios-filled/50/C3B9B9/needle.png"
               />

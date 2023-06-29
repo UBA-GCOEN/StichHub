@@ -57,7 +57,7 @@ const NavBar = () => {
     <div className="flex justify-between p-2 bg-primary  w-full">
       <div className="flex mt-2 h-fit w-40 ">
         <div className="mx-5">
-          <img src={logo}  className=""/>
+          <img loading="lazy" src={logo}  className=""/>
         </div>
         {/* <div className="mx-5">Search</div> */}
       </div>
@@ -74,7 +74,7 @@ const NavBar = () => {
            
             <div onClick={handleOpen} className="rounded-full w-9">
               {user?.result.picture ? (
-                <img
+                <img loading="lazy"
                   src={user?.result.picture}
                   className="rounded-full bg-indigo-200"
                 />

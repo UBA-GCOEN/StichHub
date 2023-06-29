@@ -22,7 +22,7 @@ const OngoingOrdersOpen = () => {
               id="button"
               className="mb-1 mt-[5%] flex bg-white text-black w-fit p-2 rounded-full"
             >
-              <img src={View} className="mr-3 ml-1 w-[15px]" />
+              <img loading="lazy" src={View} className="mr-3 ml-1 w-[15px]" />
               <span className="text-xs font-semibold cursor-pointer">
                 See in your room
               </span>
@@ -36,7 +36,7 @@ const OngoingOrdersOpen = () => {
           <div className="flex flex-row justify-between">
             <div className="flex flex-row justify-between">
               <div className="rounded-full bg-white h-10 w-10">
-                <img
+                <img loading="lazy"
                   className="  "
                   src="https://img.icons8.com/sf-regular-filled/48/undefined/clothes.png"
                 />
@@ -109,7 +109,7 @@ const OngoingOrdersOpen = () => {
           {/* fourth part */}
           <div className="flex flex-row justify-between">
             <div class="flex justify-self-start items-center space-x-4">
-              <img
+              <img loading="lazy"
                 class="w-9 h-9 rounded-full"
                 src="./src/assets/img/jonathan.png"
                 alt=""
@@ -135,7 +135,7 @@ const OngoingOrdersOpen = () => {
             >
               <div className=" flex flex-row justify-self-center">
                 MARK AS COMPLETED
-                <img
+                <img loading="lazy"
                   className="h-5 w-5"
                   src="https://img.icons8.com/ios-filled/50/C3B9B9/needle.png"
                 />

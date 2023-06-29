@@ -83,7 +83,7 @@ const Step1 = () => {
       <div class="mx-auto max-w-5xl justify-center px-1 lg:px-6 md:flex md:space-x-6 xl:px-0">
         <div class="rounded-lg md:w-3/3">
           <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-            <img src={imr} className="h-[30%]" />
+            <img loading="lazy" src={imr} className="h-[30%]" />
             <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
               <div class="mt-5 sm:mt-0">
                 <h2 class="text-lg font-bold text-gray-900">
@@ -188,7 +188,7 @@ const Step1 = () => {
         </div>
       </div>
       {/* image */}
-      <img src={im} className="hidden lg:block w-[20%] ml-[600px] absolute" />
+      <img loading="lazy" src={im} className="hidden lg:block w-[20%] ml-[600px] absolute" />
       {/* Additional Services block */}
       <div className=" m-5 lg:m-10 font-bold">
         Additional Services
@@ -246,7 +246,7 @@ const Step1 = () => {
           <div class="rounded-lg md:h-1/3">
             <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
               <input name="check" type="radio" />
-              <img
+              <img loading="lazy"
                 src="https://cdn.iconscout.com/icon/free/png-256/fedex-1-282177.png"
                 className=" lg:w-[17%] sm:w-[17%]"
               />
@@ -271,7 +271,7 @@ const Step1 = () => {
           <div class="rounded-lg md:h-1/3">
             <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
               <input name="check" type="radio" />
-              <img
+              <img loading="lazy"
                 src="https://cdn-icons-png.flaticon.com/512/726/726455.png"
                 className=" lg:w-[10%] sm:w-[10%]"
               />
@@ -291,8 +291,8 @@ const Step1 = () => {
           </div>
         </div>
       </div>
-      <img src={el} className="h-[30%] absolute float-right right-0 " />
-      <img src={el2} className="h-[30%] absolute float-left left-0 " />
+      <img loading="lazy" src={el} className="h-[30%] absolute float-right right-0 " />
+      <img loading="lazy" src={el2} className="h-[30%] absolute float-left left-0 " />
     </div>
   );
 };

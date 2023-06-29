@@ -35,7 +35,7 @@ const NavBar = () => {
     >
       <div className="">
         <a href="#">
-          <img
+          <img loading="lazy"
             src={logo}
             alt="StichHub"
             className=" w-[180px] mr-[100px] mt-2"
@@ -63,7 +63,7 @@ const NavBar = () => {
         </button>
       </Link>
       <div className="lg:hidden flex flex-1 justify-end items-center">
-        <img
+        <img loading="lazy"
           src={toggle ? close : menu}
           alt="menu"
           className="w-[28px] h-[28px] object-contain"

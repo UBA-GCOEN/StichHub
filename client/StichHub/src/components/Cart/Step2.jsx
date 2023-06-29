@@ -192,7 +192,7 @@ const Step2 = () => {
           <h4 className="pt-4 pl-8 pb-4 font-bold md:items-center">
             <span>Order Information</span>
           </h4>
-          <img
+          <img loading="lazy"
             src={img}
             className="m-10 mt-0 mb-[5px] object-fill w-[73%] h-[180px] rounded-[10px] border border-solid border-[#cecece]"
           />
@@ -234,11 +234,11 @@ const Step2 = () => {
           </div>
         </div>
       </div>
-      <img
+      <img loading="lazy"
         src={img}
         className="hidden left-[-6%] absolute h-auto top-[100%] lg:block"
       />
-      <img
+      <img loading="lazy"
         src={ime}
         alt="logo"
         className="hidden lg:block absolute top-[95%] h-[35%] right-[10%]  "
