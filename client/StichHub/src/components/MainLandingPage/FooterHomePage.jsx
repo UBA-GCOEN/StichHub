@@ -20,19 +20,19 @@ const Footer = () => {
           Choose your style, make your own trend. <br /> Select the one you want to get your clothes stitched from!
         </p>
         <div className="flex items-center mt-4">
-          <a href="#contactus" className="text-white  px-3 hover:text-gray-300 transition-colors duration-300 ease-in-out hover:scale-110">
+          <a href="mailto:stichhub.office@gmail.com" className="text-white  px-3 hover:text-gray-300 transition-colors duration-300 ease-in-out hover:scale-110">
             <MailIcon className="text-white text-2xl  hover:text-lime-500" />
           </a>
           <a href="https://github.com/UBA-GCOEN/StichHub" className="text-white px-3  hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
             <GitHubIcon className="text-white text-2xl  hover:text-gray-500" />
           </a>
-          <a href="https://github.com/UBA-GCOEN/StichHub" className="text-white px-3    hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
+          <a href="https://www.instagram.com/stichhub_/" className="text-white px-3    hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
             <InstagramIcon className="text-white text-2xl  hover:text-[#E4405F]" />
           </a>
-          <a href="https://github.com/UBA-GCOEN/StichHub" className="text-white px-3  hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
+          <a href="https://www.linkedin.com/in/sidd0203/" className="text-white px-3  hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
             <LinkedInIcon className="text-white text-2xl  hover:text-[#0077b5]" />
           </a>
-          <a href="#" className="text-white px-3   hover:text-gray-300 transition-colors duration-300 ease-in-out hover:scale-110">
+          <a href="https://twitter.com/StichHub_" className="text-white px-3   hover:text-gray-300 transition-colors duration-300 ease-in-out hover:scale-110">
             <TwitterIcon className="text-white text-2xl  hover:text-sky-400" />
           </a>
         </div>
