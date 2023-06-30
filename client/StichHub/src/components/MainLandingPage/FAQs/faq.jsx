@@ -20,7 +20,7 @@ const AccordionItem = ({ title, content }) => {
                 <span className="icon" aria-hidden="true"></span>
             </button>
             <div className="accordion-content">
-                <p>{content}</p>
+                <p style={{textAlign:"left"}}>{content}</p>
             </div>
         </div>
     );
