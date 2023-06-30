@@ -8,7 +8,7 @@ const OurServices = () => {
       <div className="relative z-[5]">
         {/* Title */}
         <div id="title" className="relative flex justify-normal lg:ml-0 ml-6">
-          <span className="text-left lg:text-left lg:text-6xl  font-semibold">
+          <span style={{paddingLeft:"3.5rem"}} className="text-left lg:text-left lg:text-6xl  font-semibold">
             OUR <br /> SERVICES
           </span>
         </div>
