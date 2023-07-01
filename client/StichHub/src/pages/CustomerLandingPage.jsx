@@ -70,7 +70,7 @@ const CustomerLandingPageM = () => {
       {/* Top head div containing logo and sidemenu */}
       <div className="w-full justify-between flex p-4 z-[2]">
         <div className="w-3/6">
-          <img src={logo} />
+          <img src={logo} alt="logo with text that says StichHub stitch your way"/>
         </div>
         <div>
           <FaListUl color="cyan" />

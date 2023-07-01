@@ -12,7 +12,7 @@ const Preview = ({ meta }) => {
   const { name, percent, status, previewUrl } = meta;
   return (
     <div className="preview-box">
-      <img src={previewUrl} /> <span className="name">{name}</span> -{" "}
+      <img src={previewUrl} alt={name}/> <span className="name">{name}</span> -{" "}
       <span className="status">{status}</span>
       {status !== "done" && (
         <span className="percent">&nbsp;({Math.round(percent)}%)</span>
@@ -177,7 +177,7 @@ export const Tabs = ({ color, tailorDetails } ) => {
                     <div className="flex mb-5 justify-center lg:justify-start">
                       <img
                         src={file?file:tailorDetails.passport}
-                        className="border border-black w-[100px] h-[100px] shadow-md mt-5 rounded-lg "
+                        className="border border-black w-[100px] h-[100px] shadow-md mt-5 rounded-lg " alt="profile picture"
                       ></img>
                     </div>
                     <label>
@@ -491,7 +491,7 @@ export const Tabs = ({ color, tailorDetails } ) => {
                           </div>
                         </div>
                         <img
-                          alt=""
+                          alt="colorful fabric shirts neatly arranged on clothes hangers"
                           className="object-fill w-full aspect-square group-hover:scale-110 transition duration-300 ease-in-out"
                           src="https://thumbs.dreamstime.com/b/clothes-hanger-filled-colorful-fabric-shirts-shop-men-s-shirts-shirt-hangers-fashion-store-shopping-182786345.jpg"
                         />
@@ -510,7 +510,7 @@ export const Tabs = ({ color, tailorDetails } ) => {
                           </div>
                         </div>
                         <img
-                          alt=""
+                          alt="colorful fabric shirts neatly arranged on clothes hangers"
                           className="object-fill w-full aspect-square group-hover:scale-110 transition duration-300 ease-in-out"
                           src="https://thumbs.dreamstime.com/b/clothes-hanger-filled-colorful-fabric-shirts-shop-men-s-shirts-shirt-hangers-fashion-store-shopping-182786345.jpg"
                         />
