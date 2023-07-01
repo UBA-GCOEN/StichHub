@@ -109,15 +109,15 @@ const TailorProfileVerification = () => {
   const handleFormChange = (event) => {
     const { name, value } = event.target;
     setForm({ ...form, [name]: value });
-      setFormError((prev) => {
-        let getError;
+    setFormError((prev) => {
+      let getError;
         if(event.target.classList.contains("noempty")){
-         getError = validate.notEmpty(name, value);
+        getError = validate.notEmpty(name, value);
         }else{
-          getError = validate[name](value);
-        }
-        return { ...prev, ...getError };
-      });
+        getError = validate[name](value);
+      }
+      return { ...prev, ...getError };
+    });
   };
 
   const handleImageChange = (event) => {
@@ -125,16 +125,16 @@ const TailorProfileVerification = () => {
           const errorMessage = validate.files(event.target.name, event.target.files.length);
           return {...prev, ...errorMessage}
         })
-      const file = event.target.files[0];
-      const reader = new FileReader();
-  
-      reader.onload = function (upload) {
-        const uploadedImage = upload.target.result;
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function (upload) {
+      const uploadedImage = upload.target.result;
         setForm((prev)=>{
           return {...prev, [event.target.name]: uploadedImage}
         })
     }
-   
+
     reader.readAsDataURL(file);
   };
 
@@ -150,15 +150,15 @@ const TailorProfileVerification = () => {
       case 2:
         return formError.contact ? false : true;
         break;
-        case 3:
+      case 3:
           const isError = formError.country || formError.address || formError.address2 || formError.city ||formError.state ||formError.pincode; 
         return  isError? false : true;
         break;
-        case 4:
+      case 4:
           const docError = formError.passport || formError.aadhar || formError.proffesionalDoc; 
         return  docError? false : true;
         break;
-        case 5:
+      case 5:
           const error = formError.bio || (form.types.length === 0) || (form.prizerange.length < 2 && form.prizerange.length>2 ) ; 
         return  error? false : true;
         break;
@@ -246,6 +246,26 @@ const TailorProfileVerification = () => {
         )}
       </div>
     );
+  };
+
+  // Edits PriceRange
+  const setPriceRange = (e, type) => {
+    const num = parseInt(e.target.textContent.slice(1));
+    if (type === "min") {
+      if (num < maxValue && num >= 100) {
+        set_minValue(num);
+      } else {
+        alert("Enter Valid Range");
+        e.target.textContent = `₹${minValue}`;
+      }
+    } else {
+      if (num > minValue && num <= 10000) {
+        set_maxValue(num);
+      } else {
+        alert("Enter Valid Range");
+        e.target.textContent = `₹${maxValue}`
+      }
+    }
   };
 
   const handleSubmit = async () => {
@@ -721,7 +741,7 @@ const TailorProfileVerification = () => {
                               <AuthErrorMessage
                                 message={formError.countryError}
                               />
-                            ) : null}
+                    ) : null}
                   </div>
 
                   <div className="mb-2">
@@ -1063,12 +1083,22 @@ const TailorProfileVerification = () => {
                     style={{ display: "flex", justifyContent: "center" }}
                   >
                     <div className="font-semibold" style={{ margin: "10px" }}>
-                      Your Selected Range:
+                      Your Selected Range: (Editable)
                     </div>
-                    <div className="font-bold" style={{ margin: "10px" }}>
+                    <div
+                      className="font-bold"
+                      style={{ margin: "10px" }}
+                      contentEditable={true}
+                      onBlur={(e) => setPriceRange(e, "min")}
+                    >
                       ₹{minValue}
                     </div>
-                    <div className="font-bold" style={{ margin: "10px" }}>
+                    <div
+                      contentEditable={true}
+                      className="font-bold"
+                      style={{ margin: "10px" }}
+                      onBlur={(e) => setPriceRange(e, "max")}
+                    >
                       ₹{maxValue}
                     </div>
                   </div>
