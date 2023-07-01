@@ -122,7 +122,7 @@ const MainDisplay = () => {
                                       <img
                                         class="w-10 h-10 rounded-full"
                                         src="./src/assets/img/jonathan.png"
-                                        alt=""
+                                        alt="jonathan"
                                       />
                                       <div class="font-medium dark:text-black">
                                         <div className="text-left text-lg">
@@ -147,7 +147,7 @@ const MainDisplay = () => {
                                     <div className="grid grid-flow-col grid-cols-[10%_90%]">
                                       <img
                                         className="grid place-items-center h-8 w-8"
-                                        src="https://img.icons8.com/sf-regular-filled/48/undefined/clothes.png"
+                                        src="https://img.icons8.com/sf-regular-filled/48/undefined/clothes.png" alt="black and white icon of shirt"
                                       />
                                       <div className="grid text-sm text-left place-items-center justify-items-start">
                                         {request.orderData.clothDetails.sleeve}{" "}
@@ -245,7 +245,7 @@ const MainDisplay = () => {
                                       ACCEPT
                                       <img
                                         className="h-5 w-5"
-                                        src="https://img.icons8.com/ios-filled/50/C3B9B9/needle.png"
+                                        src="https://img.icons8.com/ios-filled/50/C3B9B9/needle.png" alt="illustration of a silver needle with a pointed tip"
                                       />
                                     </button>
                                   </div>
@@ -327,7 +327,7 @@ const HJ = (props) => {
             id="button"
             className="mb-1 mt-[5%] flex bg-white text-black w-fit p-2 rounded-full"
           >
-            <img src={View} className="mr-3 ml-1 w-[15px]" />
+            <img src={View} className="mr-3 ml-1 w-[15px]" alt="icon of cube in 3d view"/>
             <span className="text-sm font-semibold cursor-pointer">
               See in your room
             </span>
@@ -354,7 +354,7 @@ const HJ = (props) => {
               <img
                 class="w-7 h-7 rounded-full"
                 src="./src/assets/img/jonathan.png"
-                alt=""
+                alt="jonathan"
               />
               <div class="font-medium dark:text-black">
                 <div className="text-left text-sm">
@@ -376,7 +376,7 @@ const HJ = (props) => {
             <div className="grid grid-flow-col grid-cols-[10%_90%]">
               <img
                 className="grid place-items-center h-6 w-6"
-                src="https://img.icons8.com/sf-regular-filled/48/undefined/clothes.png"
+                src="black and white icon of shirt"
               />
               <div className="grid text-xs text-left place-items-center justify-items-start">
                 {props.request.orderData.clothDetails.sleeve}{" "}
@@ -441,7 +441,7 @@ const HJ = (props) => {
               STITCH
               <img
                 className="h-5 w-5"
-                src="https://img.icons8.com/ios-filled/50/C3B9B9/needle.png"
+                src="https://img.icons8.com/ios-filled/50/C3B9B9/needle.png" alt="illustration of a silver needle with a pointed tip"
               />
             </button>
           </div>
