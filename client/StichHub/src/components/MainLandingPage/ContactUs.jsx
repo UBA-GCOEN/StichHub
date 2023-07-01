@@ -144,12 +144,12 @@ const ContactUs = () => {
           {/* Form */}
           <form id="form-Container" className="" action="https://formsubmit.co/uba.gcoen@gmail.com" method="POST" onSubmit={handleSubmit}>
             <div id="fields">
-              <div id="yourName" className="">
+              <div id="yourName" className="py-2">
                 <img
                   src={AvatarIcon}
                   alt="N"
                   id="icon"
-                  className="absolute ml-[10px] mt-[12px] h-7"
+                  className="absolute ml-[10px] mt-[16px] h-7"
                 />
                 <input
                   pattern="[A-Za-z ]+"  // Only alphabets and spaces are allowed
@@ -161,7 +161,7 @@ const ContactUs = () => {
                   id="name"
                   value={form.name}
                   onChange={handleChange}
-                  className="mt-[30px] block w-full py-[16px] pl-[80px] bg-white border border-slate-300 rounded-2xl text-xl shadow-sm placeholder-slate-400 text-black focus:font-medium
+                  className="mt-[30px] block w-full py-[16px] pl-[55px] bg-transparent border-2 rounded-md text-xl shadow-sm placeholder-slate-400 text-black focus:font-medium
 
          
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
@@ -172,13 +172,14 @@ const ContactUs = () => {
                   {error.name && error.nameError ? (
                 <AuthErrorMessage message={error.nameError} />
               ) : null}
+
               </div>
-              <div id="Email" className="">
+              <div id="Email" className="py-2">
                 <img
                   src={EmailIcon}
                   alt="E"
                   id="icon"
-                  className="absolute ml-[10px] mt-[12px] h-7"
+                  className="absolute ml-[10px] mt-[16px] h-7"
                 />
                 <input
                   required
@@ -190,7 +191,8 @@ const ContactUs = () => {
                   id="email"
                   value={form.email}
                   onChange={handleChange}
-                  className="mt-[30px] block w-full py-[16px] pl-[80px] bg-white border border-slate-300 rounded-2xl text-xl shadow-sm placeholder-slate-400 text-black focus:font-medium
+                  className="mt-[30px] block w-full py-[16px] pl-[55px] bg-transparent border-2 rounded-md text-xl shadow-sm placeholder-slate-400 text-black focus:font-medium
+
 
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
@@ -201,13 +203,14 @@ const ContactUs = () => {
                 {error.email && error.emailError ? (
                 <AuthErrorMessage message={error.emailError} />
               ) : null}
+
               </div>
-              <div id="Phone no." className="">
+              <div id="Phone no." className="py-2">
                 <img
                   src={PhoneIcon}
                   alt="P"
                   id="icon"
-                  className="absolute ml-[10px] mt-[12px] h-7"
+                  className="absolute ml-[10px] mt-[16px] h-7"
                 />
                 <input
                   required
@@ -218,7 +221,8 @@ const ContactUs = () => {
                   id="phoneno"
                   value={form.phoneno}
                   onChange={handleChange}
-                  className="mt-[30px] block w-full py-[16px] pl-[80px] bg-white border border-slate-300 rounded-2xl text-xl shadow-sm placeholder-slate-400 text-black focus:font-medium
+                  className="mt-[30px] block w-full py-[16px] pl-[55px] bg-transparent border-2 rounded-md text-xl shadow-sm placeholder-slate-400 text-black focus:font-medium
+
 
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
@@ -229,6 +233,7 @@ const ContactUs = () => {
                 {error.phoneno && error.phonenoError ? (
                 <AuthErrorMessage message={error.phonenoError} />
               ) : null}
+
               </div>
               <textarea
                 required
@@ -236,15 +241,16 @@ const ContactUs = () => {
                 name="message"
                 id="message"
                 cols="30"
-                rows="6"
+                rows="10"
                 value={form.message}
                 onChange={handleChange}
-                className="mt-[30px] block w-full py-[16px] pl-[40px] bg-white border border-slate-300 rounded-2xl text-xl shadow-sm placeholder-slate-400 text-black focus:font-medium
+                className="mt-[30px] block w-full py-[16px] pl-[55px] bg-transparent border-2 rounded-md text-xl shadow-sm placeholder-slate-400 text-black focus:font-medium
 
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 invalid:border-pink-500 invalid:text-pink-600
                 focus:invalid:border-pink-500 focus:invalid:ring-pink-500
+
                 resize-none"
 
 
@@ -252,6 +258,7 @@ const ContactUs = () => {
               {error.message && error.messageError ? (
                   <AuthErrorMessage message={error.messageError} />
                 ) : null}
+
             </div>
             <div className="container">
               <button
@@ -268,7 +275,7 @@ const ContactUs = () => {
               </button>
             </div>
 
-      // Following code created conflict with above in pr #256 saved to prevent code .
+      // Following code created conflict with above in pr #256 saved to prevent code loss.
 //             ></textarea>
 //                {error.message && error.messageError ? (
 //                   <AuthErrorMessage message={error.messageError} />
@@ -285,6 +292,15 @@ const ContactUs = () => {
 //             </button>
 
 
+// Following code created conflict with above in pr #393 saved to prevent code loss.
+//             <button 
+//               type="submit"
+//               className="bg-gradient-to-b from-cyan-500 to-blue-500 text-white mt-[25px] w-full flex items-center p-2 duration-300 hover:scale-110 rounded-md font-semibold"
+//               disabled={Object.values(error).includes(true)}>
+//                   <span className="mx-auto">
+//                    Send
+//                  </span>
+//             </button>
 
           </form>
           <img
