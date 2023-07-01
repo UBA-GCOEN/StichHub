@@ -138,12 +138,12 @@ const CustomerAuth = () => {
         <div className="relative z-[5]">
           {/* logo */}
           <a href="/" className="flex justify-center mt-6">
-            <img src={logo} className="w-[240px]" />
+            <img src={logo} className="w-[240px]" alt="logo with text that says StichHub stitch your way" />
           </a>
           {/* title */}
           <div className="flex justify-center my-1">
             <div>
-              <img src={customerimg} alt="" className="w-[50px] mr-5" />
+              <img src={customerimg} alt="a person with red hair and a bag" className="w-[50px] mr-5" />
             </div>
             <div className="mt-3 text-center">
               <span className="text-white text-3xl font-semibold">
@@ -337,7 +337,7 @@ const CustomerAuth = () => {
       <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.png')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10 rounded-l-3xl">
         <img
           src={shortlogo}
-          className="w-[5vw] absolute bottom-14 right-5"
+          className="w-[5vw] absolute bottom-14 right-5" alt="a black and blue letters S and H"
         ></img>
       </div>
     </div>
