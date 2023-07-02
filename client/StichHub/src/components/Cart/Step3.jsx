@@ -98,7 +98,8 @@ const Step3 = () => {
       >
         <img
           src={se}
-          className=" hidden lg:block flex absolute lg:left-0 mt-20 w-[30%] sm:w-[40]% sm:right-0"
+          className=" hidden lg:block flex absolute lg:left-0 mt-20 w-[30%] sm:w-[40]% sm:right-0" alt="a cartoon character holding a glowing shield
+          "
         />
         <div class="block max-w-lg rounded-lg bg-white p-6 ">
           {/* payment form */}
@@ -378,7 +379,7 @@ const Step3 = () => {
             </h4>
             <img
               src={img}
-              className="m-10 mt-0 mb-[5px] object-fill w-[73%] h-[180px] rounded-[10px] border border-solid border-[#cecece]"
+              className="m-10 mt-0 mb-[5px] object-fill w-[73%] h-[180px] rounded-[10px] border border-solid border-[#cecece]" alt="a cartoon character riding a yellow scooter"
             />
 
             <div className="m-10 mt-5">
