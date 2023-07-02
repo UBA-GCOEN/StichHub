@@ -35,7 +35,7 @@ function PageContentM() {
           <div className="relative flex w-screen p-4 text-center justify-center m-auto">
             <img
               src={demo3d}
-              className="relative z-[5] w-36 h-80"
+              className="relative z-[5] w-36 h-80" alt="a cartoon of a person"
             />
             <div className="absolute float-left w-44 h-72 top-12 left-18 modelGradient z-[0]" />
           </div>

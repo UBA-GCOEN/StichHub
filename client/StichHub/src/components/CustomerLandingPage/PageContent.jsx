@@ -22,7 +22,7 @@ import { useNavigate } from "react-router-dom";
         <div className="relative w-2/5 p-4">
           <img
             src={demo3d}
-            className="relative z-[5] w-[300px] h-[571px]"
+            className="relative z-[5] w-[300px] h-[571px]" alt="a cartoon of a person"
           />
           <div className="absolute float-left w-[330px] h-[571px] top-12 left-3 modelGradient z-[0]" />
         </div>
@@ -33,20 +33,20 @@ import { useNavigate } from "react-router-dom";
           <div className="p-3 mt-2 rounded-lg bg-gray-800 flex flex-col justify-center hover:bg-black hover:cursor-pointer drop-shadow-2xl">
             <img
               src={DemoShirtIcon}
+              className="w-[50px] ml-3" alt="a blue shirt with black background"
+            />
+            <p className="text-sm text-white mt-2">Short Sleeve</p>
+          </div>
+          <div className="p-3 mt-2 rounded-lg bg-gray-800 flex flex-col justify-center hover:bg-black hover:cursor-pointer drop-shadow-2xl">
+            <img
+              src={DemoShirtIcon} alt="a blue shirt with black background"
               className="w-[50px] ml-3"
             />
             <p className="text-sm text-white mt-2">Short Sleeve</p>
           </div>
           <div className="p-3 mt-2 rounded-lg bg-gray-800 flex flex-col justify-center hover:bg-black hover:cursor-pointer drop-shadow-2xl">
             <img
-              src={DemoShirtIcon}
-              className="w-[50px] ml-3"
-            />
-            <p className="text-sm text-white mt-2">Short Sleeve</p>
-          </div>
-          <div className="p-3 mt-2 rounded-lg bg-gray-800 flex flex-col justify-center hover:bg-black hover:cursor-pointer drop-shadow-2xl">
-            <img
-              src={DemoShirtIcon}
+              src={DemoShirtIcon} alt="a blue shirt with black background"
               className="w-[50px] ml-3"
             />
             <p className="text-sm text-white mt-2">Short Sleeve</p>
