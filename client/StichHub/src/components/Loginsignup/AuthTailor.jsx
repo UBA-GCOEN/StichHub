@@ -109,6 +109,7 @@ const AuthTailor = () => {
     else
       setPasswordType("password");
   };
+  const margin = isregister? "-mt-3": "";
 
   return (
     <div className="bg-gray-800 h-[105vh] flex justify-between overflow-hidden">
@@ -312,7 +313,7 @@ const AuthTailor = () => {
                   cookiePolicy="single_host_origin"
                 />
               </div>
-              <h1 className="text-center text-white text-md -mt-3">
+              <h1 className={"text-center text-white text-md "+margin}>
               {isregister ? "" : 
                 <a
                   className="cursor-pointer text-blue-400"
