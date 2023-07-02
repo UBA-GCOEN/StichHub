@@ -83,7 +83,7 @@ const Step1 = () => {
       <div class="mx-auto max-w-5xl justify-center px-1 lg:px-6 md:flex md:space-x-6 xl:px-0">
         <div class="rounded-lg md:w-3/3">
           <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-            <img src={imr} className="h-[30%]" />
+            <img src={imr} className="h-[30%]" alt="a person wearing a black and brown shirt"/>
             <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
               <div class="mt-5 sm:mt-0">
                 <h2 class="text-lg font-bold text-gray-900">
@@ -188,7 +188,7 @@ const Step1 = () => {
         </div>
       </div>
       {/* image */}
-      <img src={im} className="hidden lg:block w-[20%] ml-[600px] absolute" />
+      <img src={im} className="hidden lg:block w-[20%] ml-[600px] absolute" alt="a cellphone with a credit card and gift boxes"/>
       {/* Additional Services block */}
       <div className=" m-5 lg:m-10 font-bold">
         Additional Services
@@ -248,7 +248,7 @@ const Step1 = () => {
               <input name="check" type="radio" />
               <img
                 src="https://cdn.iconscout.com/icon/free/png-256/fedex-1-282177.png"
-                className=" lg:w-[17%] sm:w-[17%]"
+                className=" lg:w-[17%] sm:w-[17%]" alt="a company logo with text fedex"
               />
               <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                 <div class="mt-5 sm:mt-0">
@@ -273,7 +273,7 @@ const Step1 = () => {
               <input name="check" type="radio" />
               <img
                 src="https://cdn-icons-png.flaticon.com/512/726/726455.png"
-                className=" lg:w-[10%] sm:w-[10%]"
+                className=" lg:w-[10%] sm:w-[10%]" alt="A red and white shopping cart icon symbolizing online shopping or e-commerce"
               />
               <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                 <div class="mt-5 sm:mt-0">
@@ -291,8 +291,8 @@ const Step1 = () => {
           </div>
         </div>
       </div>
-      <img src={el} className="h-[30%] absolute float-right right-0 " />
-      <img src={el2} className="h-[30%] absolute float-left left-0 " />
+      <img src={el} className="h-[30%] absolute float-right right-0 " alt="a black and purple background"/>
+      <img src={el2} className="h-[30%] absolute float-left left-0 " alt="a black and blue gradient" />
     </div>
   );
 };
