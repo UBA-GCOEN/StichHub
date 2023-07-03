@@ -8,7 +8,7 @@ const FilterSection = ({ handleChange, clearFilter }) => {
       {/* Top Display */}
       <div className="flex justify-between mx-5 my-4">
         {/* Clothes Category */}
-        <div>Results:</div>
+        <div></div>
         {/* Filters */}
         <div>
           {toggle ? (
