@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.6",
+    "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.10.6",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
@@ -61,6 +61,7 @@
     "react-scroll": "^1.8.9",
     "react-slick": "^0.29.0",
     "react-tailwindcss-select": "^1.8.5",
+    "react-typed": "^1.2.0",
     "rsuite": "^5.28.3",
     "styled-components": "^5.3.11",
     "swiper": "^9.4.1",
