@@ -11,7 +11,7 @@ function StarRate() {
 
   return (
     <div>
-      <div className="justify-center items-center text-center">
+      <div className="text-white">
         <h1 className="text-lg font-semibold">Reviews</h1>
         <h1>{currentValue}/5.0</h1>
         <h3>Based on 420 reviews {/* Variable to be added */}</h3>
