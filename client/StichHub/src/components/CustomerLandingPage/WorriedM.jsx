@@ -1,11 +1,10 @@
 import React from "react";
-import image1 from "../../assets/CustomerLandingPage/Room - Girl Reading - Copy@3-1707x802 (2).png";
-import Tailor from "../../assets/CustomerLandingPage/Tailor.png";
 import Calculator from "../../assets/CustomerLandingPage/Calculator.png";
 import Enter from "../../assets/CustomerLandingPage/Enter.png";
+import Tailor from "../../assets/CustomerLandingPage/Tailor.png";
 function WorriedM() {
   return (
-    <div className="w-sreen h-screen">
+    <div className="w-sreen h-screen pt-40 md:pt-0">
       {/* Section for models in spline (Now using oonly img)*/}
       <div className="text-center">
         <div className="w-full font-medium text-5xl">
