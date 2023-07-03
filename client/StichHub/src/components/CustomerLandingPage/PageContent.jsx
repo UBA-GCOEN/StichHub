@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
     const navigate = useNavigate();
 
     const handleButtonClick = () => {
-      navigate("/");
+      navigate("/home");
     };
 
   return (
