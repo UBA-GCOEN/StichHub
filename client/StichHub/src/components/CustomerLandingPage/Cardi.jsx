@@ -10,7 +10,7 @@ function Cardi(props) {
           <img
             className="p-2 rounded-xl w-4/5 "
             src={props.adrs}
-            alt=""
+            alt={props.head+" "+props.tail}
           />
         </div>
         <div className="text-white text-center">

@@ -70,7 +70,7 @@ const ForgotPassword = () => {
         <div className="relative z-[5]">
           {/* logo */}
           <a href="/" className="flex justify-center mt-6">
-            <img src={logo} className="w-[240px]" />
+            <img src={logo} className="w-[240px]" alt="logo with text that says StichHub stitch your way" />
           </a>
           {/* title */}
           <div className="flex justify-center my-1">
@@ -153,7 +153,7 @@ const ForgotPassword = () => {
       <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.webp')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10 rounded-l-3xl">
         <img
           src={shortlogo}
-          className="w-[5vw] absolute bottom-14 right-5"
+          className="w-[5vw] absolute bottom-14 right-5"  alt="a black and blue letters S and H"
         ></img>
       </div>
     </div>

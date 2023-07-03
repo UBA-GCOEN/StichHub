@@ -37,7 +37,7 @@ const NavBar = () => {
         <a href="#">
           <img
             src={logo}
-            alt="StichHub"
+            alt="logo with text that says StichHub stitch your way"
             className=" w-[180px] mr-[100px] mt-2"
           />
         </a>
@@ -65,7 +65,7 @@ const NavBar = () => {
       <div className="lg:hidden flex flex-1 justify-end items-center">
         <img
           src={toggle ? close : menu}
-          alt="menu"
+          alt={toggle ? "close button" : "hamburger menu"}
           className="w-[28px] h-[28px] object-contain"
           onClick={() => setToggle(!toggle)}
         />

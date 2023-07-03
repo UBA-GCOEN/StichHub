@@ -109,15 +109,15 @@ const TailorProfileVerification = () => {
   const handleFormChange = (event) => {
     const { name, value } = event.target;
     setForm({ ...form, [name]: value });
-      setFormError((prev) => {
-        let getError;
+    setFormError((prev) => {
+      let getError;
         if(event.target.classList.contains("noempty")){
-         getError = validate.notEmpty(name, value);
+        getError = validate.notEmpty(name, value);
         }else{
-          getError = validate[name](value);
-        }
-        return { ...prev, ...getError };
-      });
+        getError = validate[name](value);
+      }
+      return { ...prev, ...getError };
+    });
   };
 
   const handleImageChange = (event) => {
@@ -125,16 +125,16 @@ const TailorProfileVerification = () => {
           const errorMessage = validate.files(event.target.name, event.target.files.length);
           return {...prev, ...errorMessage}
         })
-      const file = event.target.files[0];
-      const reader = new FileReader();
-  
-      reader.onload = function (upload) {
-        const uploadedImage = upload.target.result;
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function (upload) {
+      const uploadedImage = upload.target.result;
         setForm((prev)=>{
           return {...prev, [event.target.name]: uploadedImage}
         })
     }
-   
+
     reader.readAsDataURL(file);
   };
 
@@ -150,15 +150,15 @@ const TailorProfileVerification = () => {
       case 2:
         return formError.contact ? false : true;
         break;
-        case 3:
+      case 3:
           const isError = formError.country || formError.address || formError.address2 || formError.city ||formError.state ||formError.pincode; 
         return  isError? false : true;
         break;
-        case 4:
+      case 4:
           const docError = formError.passport || formError.aadhar || formError.proffesionalDoc; 
         return  docError? false : true;
         break;
-        case 5:
+      case 5:
           const error = formError.bio || (form.types.length === 0) || (form.prizerange.length < 2 && form.prizerange.length>2 ) ; 
         return  error? false : true;
         break;
@@ -248,6 +248,26 @@ const TailorProfileVerification = () => {
     );
   };
 
+  // Edits PriceRange
+  const setPriceRange = (e, type) => {
+    const num = parseInt(e.target.textContent.slice(1));
+    if (type === "min") {
+      if (num < maxValue && num >= 100) {
+        set_minValue(num);
+      } else {
+        alert("Enter Valid Range");
+        e.target.textContent = `₹${minValue}`;
+      }
+    } else {
+      if (num > minValue && num <= 10000) {
+        set_maxValue(num);
+      } else {
+        alert("Enter Valid Range");
+        e.target.textContent = `₹${maxValue}`
+      }
+    }
+  };
+
   const handleSubmit = async () => {
     setIsLoading(true);
     try {
@@ -314,7 +334,7 @@ const TailorProfileVerification = () => {
                 <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
                   <img
                     src="https://img.icons8.com/external-bearicons-flat-bearicons/256/external-verified-reputation-bearicons-flat-bearicons.png"
-                    className="w-[70%]"
+                    className="w-[70%]" alt="a green checkmark, representing a verified reputation"
                   ></img>
                 </label>
                 <label className="text-white font font-semibold text-xl lg:text-2xl m-3 mt-7 ">
@@ -333,7 +353,7 @@ const TailorProfileVerification = () => {
           </div>
           {/* hero image */}
           <div className="hidden lg:block col-start-3 col-end-4">
-            <img src={New} className="w-50% ml-[-40%] mr-20" />
+            <img src={New} className="w-50% ml-[-40%] mr-20" alt="a blue shield with pink tick and a lock"/>
           </div>
         </div>
         {/* progress bar with 0% progress */}
@@ -407,11 +427,11 @@ const TailorProfileVerification = () => {
     <div className="h-[100vh]">
       <img
         src={Verified}
-        className="hidden lg:block right-24 absolute w-[30%] h-[60%] "
+        className="hidden lg:block right-24 absolute w-[30%] h-[60%] " alt="a person jumping in a box"
       />
       <img
         src={Verified}
-        className="opacity-20 right-0 bottom-[300px] w-[55%] h-[35%] lg:opacity-100 lg:right-24 absolute lg:w-[30%] lg:h-[60%] lg:hidden"
+        className="opacity-20 right-0 bottom-[300px] w-[55%] h-[35%] lg:opacity-100 lg:right-24 absolute lg:w-[30%] lg:h-[60%] lg:hidden" alt="a person jumping in a box"
       />
 
       <div className="  text-whie ml-[15%] mt-[25%] lg:mt-[10%] font-poppins">
@@ -665,7 +685,7 @@ const TailorProfileVerification = () => {
                   </div>
                 </div>
                 <div className="bottom-0 right-0 w-[40%] lg:right-0 lg:top-24 absolute col-start-4 col-end-5 opacity-20 lg:opacity-100 ">
-                  <img src={N} />
+                  <img src={N} alt="a cartoon hand holding a phone"/>
                 </div>
               </div>
 
@@ -696,10 +716,10 @@ const TailorProfileVerification = () => {
                 </h1>
               </div>
               <div className="lg:hidden bottom-0 right-0 w-[50%] lg:right-0 absolute opacity-20 lg:opacity-100">
-                <img src={V} />
+                <img src={V} alt="a cartoon character standing next to a red location pin"/>
               </div>
               <div className="hidden lg:block  w-[35%] right-0 absolute lg:opacity-100">
-                <img src={V} />
+                <img src={V} alt="a cartoon character standing next to a red location pin"/>
               </div>
 
               {/* address detail form */}
@@ -721,7 +741,7 @@ const TailorProfileVerification = () => {
                               <AuthErrorMessage
                                 message={formError.countryError}
                               />
-                            ) : null}
+                    ) : null}
                   </div>
 
                   <div className="mb-2">
@@ -836,10 +856,10 @@ const TailorProfileVerification = () => {
                 </h1>
               </div>
               <div className="mt-[-5%] right-0  bottom-[300px] w-[60%] h-[30%] lg:right-20 absolute opacity-20 lg:opacity-100 lg:hidden">
-                <img src={Profileveri} />
+                <img src={Profileveri} alt="a cartoon of a person"/>
               </div>
               <div className="hidden lg:block left-[60%] absolute lg:opacity-100">
-                <img src={Profileveri} />
+                <img src={Profileveri} alt="a cartoon of a person"/>
               </div>
 
               {/* photo upload */}
@@ -856,7 +876,7 @@ const TailorProfileVerification = () => {
                   <div className="flex z-[5] relative">
                     <img
                       src={form.passport}
-                      className="w-[100px] h-[100px] mt-5 rounded-lg border border-white"
+                      className="w-[100px] h-[100px] mt-5 rounded-lg border border-white" alt="Passport Size Photo"
                     ></img>
                     <input
                       className=" rounded-xl mt-5 flex ml-[] pl-5"
@@ -946,10 +966,10 @@ const TailorProfileVerification = () => {
                 </h1>
               </div>
               <div className="mt-[-5%] bottom-14 lg:gright-20 absolute opacity-20  lg:opacity-100 lg:hidden">
-                <img src={Speciality} />
+                <img src={Speciality} alt="a illustration of a dress"/>
               </div>
               <div className="hidden lg:block left-[60%] absolute opacity-20  lg:opacity-100">
-                <img src={Speciality} />
+                <img src={Speciality} alt="a illustration of a dress"/>
               </div>
 
               <div className="ml-[15%] w-[70%] lg:w-[50%] h-auto bg-white bg-opacity-10 rounded-xl p-[2%] grid grid-cols-1 gap-3 pl-[5%] pr-30 ">
@@ -1063,12 +1083,22 @@ const TailorProfileVerification = () => {
                     style={{ display: "flex", justifyContent: "center" }}
                   >
                     <div className="font-semibold" style={{ margin: "10px" }}>
-                      Your Selected Range:
+                      Your Selected Range: (Editable)
                     </div>
-                    <div className="font-bold" style={{ margin: "10px" }}>
+                    <div
+                      className="font-bold"
+                      style={{ margin: "10px" }}
+                      contentEditable={true}
+                      onBlur={(e) => setPriceRange(e, "min")}
+                    >
                       ₹{minValue}
                     </div>
-                    <div className="font-bold" style={{ margin: "10px" }}>
+                    <div
+                      contentEditable={true}
+                      className="font-bold"
+                      style={{ margin: "10px" }}
+                      onBlur={(e) => setPriceRange(e, "max")}
+                    >
                       ₹{maxValue}
                     </div>
                   </div>
