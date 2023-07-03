@@ -10,7 +10,7 @@ function PageContentM() {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    navigate("/");
+    navigate("/home");
   };
   return (
     <div>
