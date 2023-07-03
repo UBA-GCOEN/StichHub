@@ -2,7 +2,19 @@ import React from "react";
 import MouseIcon from "@mui/icons-material/Mouse";
 import { demo3d } from "../../assets/MainLandingPage/Icons";
 import { DemoShirtIcon } from "../../assets/MainLandingPage/Icons";
-function PageContent() {
+import { useNavigate } from "react-router-dom";
+
+
+
+
+
+  function PageContent({ history }) {
+    const navigate = useNavigate();
+
+    const handleButtonClick = () => {
+      navigate("/home");
+    };
+
   return (
     <div>
       <div className="relative flex justify-around w-screen h-screen ">
@@ -57,8 +69,8 @@ function PageContent() {
               </span>
             </h1>
           </div>
-          <div>
-            <button class="bg-[#e68600] hover:bg-[chocolate] text-black font-semibold p-1 rounded-full h-10 text-lg w-36">
+          <div>  
+            <button class="bg-[#e68600] hover:bg-[chocolate] text-black font-semibold p-1 rounded-full h-10 text-lg w-36 "onClick={handleButtonClick} >
               Start Stitching
             </button>
           </div>
