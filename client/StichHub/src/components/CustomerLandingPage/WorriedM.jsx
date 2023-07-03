@@ -22,7 +22,7 @@ function WorriedM() {
         <div className="bg-[#1E1837] rounded-[2.2rem] p-2 m-2 flex items-center justify-center">
           <img
             src={Tailor}
-            className="p-2 transition-all ease-in hover:scale-110 w-24 h-24"
+            className="p-2 transition-all ease-in hover:scale-110 w-24 h-24" alt="a person with a sewing machine"
           />
           <h1 className=" text-white text-xl text-center">
             Call tailor Home to get Measurements
@@ -32,7 +32,7 @@ function WorriedM() {
         <div className="bg-[#1E1837] rounded-[2.2rem] p-2 m-2 flex items-center justify-center">
           <img
             src={Calculator}
-            className="p-2 transition-all ease-in hover:scale-110 w-24 h-24"
+            className="p-2 transition-all ease-in hover:scale-110 w-24 h-24" alt="a calculator and a note"
           />
           <h1 className=" text-white text-xl text-center">
             Calculate Measurements with our Technology
@@ -42,7 +42,7 @@ function WorriedM() {
         <div className="bg-[#1E1837] rounded-[2.2rem] p-2 m-2 flex items-center justify-center">
           <img
             src={Enter}
-            className="p-2 transition-all ease-in hover:scale-110 w-24 h-24"
+            className="p-2 transition-all ease-in hover:scale-110 w-24 h-24" alt="a yellow enter button"
           />
           <h1 className=" text-white text-xl text-center">
             Enter Measurements by Self

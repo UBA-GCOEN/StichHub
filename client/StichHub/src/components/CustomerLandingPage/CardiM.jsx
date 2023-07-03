@@ -10,7 +10,7 @@ function CardiM(props) {
           <img
             className="p-1 rounded-xl w-4/5 "
             src={props.adrs}
-            alt=""
+            alt={props.head+" "+props.tail}
           />
         </div>
         <div className="text-white text-center px-2">
