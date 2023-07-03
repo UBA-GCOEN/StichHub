@@ -66,7 +66,7 @@ export default function Navbardark() {
             <img
               className="h-8 w-auto"
               src={Logo}
-              alt=""
+              alt="logo with text that says StichHub stitch your way"
             />
           </a>
         </div>
@@ -362,7 +362,7 @@ export default function Navbardark() {
                 <img
                   className="h-8 w-auto"
                   src={Logo}
-                  alt=""
+                  alt="logo with text that says StichHub stitch your way"
                 />
               </a>
               <button

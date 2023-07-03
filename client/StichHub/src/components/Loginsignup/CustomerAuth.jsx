@@ -11,6 +11,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import validate from "../../common/validation";
 import AuthErrorMessage from "../AuthError";
+import Captcha from "./Captcha";
 
 const initialForm = {
   name: "",
@@ -25,6 +26,7 @@ const CustomerAuth = () => {
   const [error, setError] = useState({});
   const navigateTo = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const [trackState, setTrackState] = useState(false)
 
   const switchMode = () => {
     setForm(initialForm);
@@ -136,12 +138,12 @@ const CustomerAuth = () => {
         <div className="relative z-[5]">
           {/* logo */}
           <a href="/" className="flex justify-center mt-6">
-            <img src={logo} className="w-[240px]" />
+            <img src={logo} className="w-[240px]" alt="logo with text that says StichHub stitch your way" />
           </a>
           {/* title */}
           <div className="flex justify-center my-1">
             <div>
-              <img src={customerimg} alt="" className="w-[50px] mr-5" />
+              <img src={customerimg} alt="a person with red hair and a bag" className="w-[50px] mr-5" />
             </div>
             <div className="mt-3 text-center">
               <span className="text-white text-3xl font-semibold">
@@ -243,10 +245,10 @@ const CustomerAuth = () => {
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
                 />
-                 {(error.password && error.passwordError)? <AuthErrorMessage message={error.passwordError}/>:null}
                 <div onClick={passwordToggle} className="absolute cursor-pointer flex items-center z-[5] mt-[-1.8rem] ml-[17rem]">
                 {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
                 </div>
+                 {(error.password && error.passwordError)? <AuthErrorMessage message={error.passwordError}/>:null}
 
               </div>
               {isregister && (
@@ -281,13 +283,19 @@ const CustomerAuth = () => {
                    {(error.confirmPassword && error.confirmPasswordError)? <AuthErrorMessage message={"Password does not match"}/>:null}
                 </div>
               )}
+                   <Captcha message={setTrackState} trackState={trackState}/>
               <div className="flex justify-center">
-                <button
+              {isregister ? (<button
                   type="submit"
                   className="mt-[15px] block w-[170px] py-2 bg-blue-500 text-white hover:bg-slate-200 hover:text-blue-600 hover:transition-all duration-500 hover:font-semibold rounded-xl font-regular text-xl"
-                >
-                  {isregister ? "Register" : "Sign in"}
-                </button>
+                  disabled={!trackState}
+                  style={{cursor:`${trackState ? "pointer": "not-allowed"}`}}
+                >Register</button>):(<button
+                  type="submit"
+                  className="mt-[15px] block w-[170px] py-2 bg-blue-500 text-white hover:bg-slate-200 hover:text-blue-600 hover:transition-all duration-500 hover:font-semibold rounded-xl font-regular text-xl"
+                  disabled={!trackState}
+                  style={{cursor:`${trackState ? "pointer": "not-allowed"}`}}
+                >Sign in</button>)}
               </div>
 
               <h1 className="text-center text-white text-xl py-2">or</h1>
@@ -299,7 +307,7 @@ const CustomerAuth = () => {
                   cookiePolicy="single_host_origin"
                 />
               </div>
-              <h1 className="text-center text-white text-md pt-6">
+              <h1 className="text-center text-white text-md">
                 {isregister ? "" : 
                 <a
                   className="cursor-pointer text-blue-400"
@@ -331,7 +339,7 @@ const CustomerAuth = () => {
       <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.png')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10 rounded-l-3xl">
         <img
           src={shortlogo}
-          className="w-[5vw] absolute bottom-14 right-5"
+          className="w-[5vw] absolute bottom-14 right-5" alt="a black and blue letters S and H"
         ></img>
       </div>
     </div>
