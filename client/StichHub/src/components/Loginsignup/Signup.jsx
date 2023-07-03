@@ -24,7 +24,7 @@ const Signup = () => {
             <Link to="/auth/customer">
               <button className="w-[160px] h-[160px] bg-[#00456D] relative text-3xl text-white shadow-lg rounded-3xl">
                 <div className="flex justify-center">
-                  <img src={Cus} className="w-[70px]" />
+                  <img src={Cus} className="w-[70px]" alt="a green logo with circles and a person in the center"/>
                 </div>
                 <p className="text-lg text-center ">
                   I am a <br />
@@ -37,7 +37,7 @@ const Signup = () => {
             <Link to="/auth/tailor">
             <button className="w-[160px] h-[160px] bg-white relative text-3xl text-Black shadow-xl rounded-3xl">
               <div className="flex justify-center">
-                <img src={Tail} className="m-2 w-[57px]" />
+                <img src={Tail} className="m-2 w-[57px]" alt="a blue line drawing of a person"/>
               </div>
               <p className="text-lg text-center text-black">
                 I am a <br />
