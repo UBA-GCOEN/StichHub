@@ -9,7 +9,7 @@ function GetListM() {
       <div className="w-full text-center justify-center">
         <img
           src={img}
-          className="h-90"
+          className="h-90" alt="a cartoon character pointing at a store"
         />
       </div>
       <div className="flex">
