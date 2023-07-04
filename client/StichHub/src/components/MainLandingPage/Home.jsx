@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import Typed from 'react-typed';
 import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
 import {
@@ -15,6 +16,7 @@ import { useSpring, animated } from "@react-spring/web";
 import { useDrag } from "@use-gesture/react";
 
 const Home = () => {
+
   const { demoButtons, demoButton, setDemoButton } = useCustomization();
 
   const [{ x, y }, api] = useSpring(() => ({ x: 0, y: 0 }));
@@ -66,9 +68,17 @@ const Home = () => {
         <div className="lg:w-[50%] mt-5 lg:mt-[60px] relative z-[5] ">
           {/* Heading */}
           <div className="text-center z-[5] lg:text-left lg:text-8xl text-gray-100 font-semibold">
-            <span>
+            {/*<span>
               STITCH <br /> YOUR WAY{" "}
-            </span>
+              </span>*/}
+            <Typed 
+              strings={[
+                "STITCH YOUR WAY"
+              ]}
+              typeSpeed={150}
+              backSpeed={100}
+              loop
+            />
           </div>
 
           {/* Text */}
