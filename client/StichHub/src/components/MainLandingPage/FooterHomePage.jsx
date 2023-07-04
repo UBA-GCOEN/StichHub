@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import MailIcon from '@mui/icons-material/Mail';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
 import logo from "../../assets/logo/Long - Logo Transparent (White).png"
@@ -26,14 +26,14 @@ const Footer = () => {
           <a href="https://github.com/UBA-GCOEN/StichHub" className="text-white px-3  hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
             <GitHubIcon className="text-white text-2xl  hover:text-gray-500" />
           </a>
-          <a href="https://www.instagram.com/stichhub_/" className="text-white px-3    hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
-            <InstagramIcon className="text-white text-2xl  hover:text-[#E4405F]" />
-          </a>
-          <a href="https://www.linkedin.com/in/sidd0203/" className="text-white px-3  hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
-            <LinkedInIcon className="text-white text-2xl  hover:text-[#0077b5]" />
+          <a href="https://www.youtube.com/channel/UCjkwYo58eYv6ZGqu4IQiU0w" className="text-white px-3  hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
+            <YouTubeIcon className="text-white text-2xl  hover:text-[#0077b5]" />
           </a>
           <a href="https://twitter.com/StichHub_" className="text-white px-3   hover:text-gray-300 transition-colors duration-300 ease-in-out hover:scale-110">
             <TwitterIcon className="text-white text-2xl  hover:text-sky-400" />
+          </a>
+          <a href="https://www.instagram.com/stichhub_/" className="text-white px-3    hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
+            <InstagramIcon className="text-white text-2xl  hover:text-[#E4405F]" />
           </a>
         </div>
       </div>
