@@ -219,7 +219,7 @@ const TailorProfileVerification = () => {
   };
 
   const verifyPhoneOtp = ()=>{
-    if(otpInfo.otp == otpInfo.inputOtp){
+    if(otpInfo.otp == otpInfo.inputOtp.slice(-4)){
        setOtpInfo((prev)=>{
         return {...prev, verified: true}
        })
@@ -394,7 +394,6 @@ const TailorProfileVerification = () => {
   function handleChange(e) {
     setFile(URL.createObjectURL(e.target.files[0]));
     setForm({ ...form, passport: file });
-    // console.log(form);
   }
 
   const [file2, setFile2] = useState("");
@@ -689,7 +688,7 @@ const TailorProfileVerification = () => {
                               id="third"
                               maxlength="1"
                               onChange={(e)=>setOtpInfo((prev)=>{
-                                return {...prev, inputOtp: prev.inputOtp+e.target.value}
+                                return {...prev, inputOtp: prev.inputOtp + e.target.value}
                              })}
                             />
                             <input
