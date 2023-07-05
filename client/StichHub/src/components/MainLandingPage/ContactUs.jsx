@@ -4,6 +4,7 @@ import {
   EmailIcon,
   AvatarIcon,
   PhoneIcon,
+  describe,
   SendVector,
 } from "../../assets/MainLandingPage/Icons";
 import validate from "../../common/validation";
@@ -133,7 +134,10 @@ const ContactUs = () => {
                 <AuthErrorMessage message={error.phonenoError} />
               ) : null}
             </div>
+            <div>
+              <img src={describe} className="absolute ml-[10px] mt-[16px] h-7" />
             <textarea
+              style={{paddingLeft:"3.35rem"}}
               placeholder="Describe your issue here"
               name="message"
               id="message"
@@ -148,6 +152,7 @@ const ContactUs = () => {
               focus:invalid:border-pink-500 focus:invalid:ring-pink-500
                 resize-none"
             ></textarea>
+            </div>
                {error.message && error.messageError ? (
                   <AuthErrorMessage message={error.messageError} />
                 ) : null}
