@@ -160,7 +160,7 @@ const TailorDetailsM = () => {
           {/* Photo */}
           <div className="bg-white p-4 pb-1 mt-1 drop-shadow-lg  w-4/5  items-center m-auto rounded-lg">
             <div className="drop-shadow-lg flex w-fit h-fit items-center justify-center text-center mx-auto">
-              <img loading="lazy" src={propsData.item.passport} className="rounded-xl" />
+              <img src={propsData.item.passport} className="rounded-xl" alt={propsData.item.name} loading="lazy"/>
             </div>
             {/* Photo End */}
 

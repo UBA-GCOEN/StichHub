@@ -6,7 +6,7 @@ import "react-phone-number-input/style.css";
 import N from "../assets/img/n.png";
 import Profileveri from "../assets/img/profileverify.png";
 import Speciality from "../assets/img/speciality.png";
-import {useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Verified from "../assets/img/verified.png";
 import V from "../assets/img/v.png";
 import MultiRangeSlider from "multi-range-slider-react";
@@ -73,6 +73,12 @@ const TailorProfileVerification = () => {
   const [maxValue, set_maxValue] = useState(5000);
   const [isLoading, setIsLoading] = useState(false);
   const [formError, setFormError] = useState(validate.verificationInitialValue);
+  const [otpInfo, setOtpInfo] = useState({
+    otp: "",
+    inputOtp: "",
+    verified: false
+  });
+  
   const handleInput = (e) => {
     set_minValue(e.minValue);
     set_maxValue(e.maxValue);
@@ -109,15 +115,15 @@ const TailorProfileVerification = () => {
   const handleFormChange = (event) => {
     const { name, value } = event.target;
     setForm({ ...form, [name]: value });
-      setFormError((prev) => {
-        let getError;
+    setFormError((prev) => {
+      let getError;
         if(event.target.classList.contains("noempty")){
-         getError = validate.notEmpty(name, value);
+        getError = validate.notEmpty(name, value);
         }else{
-          getError = validate[name](value);
-        }
-        return { ...prev, ...getError };
-      });
+        getError = validate[name](value);
+      }
+      return { ...prev, ...getError };
+    });
   };
 
   const handleImageChange = (event) => {
@@ -125,16 +131,16 @@ const TailorProfileVerification = () => {
           const errorMessage = validate.files(event.target.name, event.target.files.length);
           return {...prev, ...errorMessage}
         })
-      const file = event.target.files[0];
-      const reader = new FileReader();
-  
-      reader.onload = function (upload) {
-        const uploadedImage = upload.target.result;
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function (upload) {
+      const uploadedImage = upload.target.result;
         setForm((prev)=>{
           return {...prev, [event.target.name]: uploadedImage}
         })
     }
-   
+
     reader.readAsDataURL(file);
   };
 
@@ -150,15 +156,15 @@ const TailorProfileVerification = () => {
       case 2:
         return formError.contact ? false : true;
         break;
-        case 3:
+      case 3:
           const isError = formError.country || formError.address || formError.address2 || formError.city ||formError.state ||formError.pincode; 
         return  isError? false : true;
         break;
-        case 4:
+      case 4:
           const docError = formError.passport || formError.aadhar || formError.proffesionalDoc; 
         return  docError? false : true;
         break;
-        case 5:
+      case 5:
           const error = formError.bio || (form.types.length === 0) || (form.prizerange.length < 2 && form.prizerange.length>2 ) ; 
         return  error? false : true;
         break;
@@ -193,14 +199,34 @@ const TailorProfileVerification = () => {
     // 👇️ or simply set it to true
     // setIsShown(true);
   };
-  const handleClick1 = (event) => {
-    // 👇️ toggle shown state
-    setIsShown1((current) => !current);
-
-    // 👇️ or simply set it to true
-    // setIsShown(true);
+  const handlePhoneOtp = async (event) => {
+    if (formError.contact) {
+      alert("Enter Valid phone number");
+    } else {
+      try {
+        await axios.post("/tailors/verifydetails", {
+          detail: form.contact,
+        }).then((res)=>{
+          setOtpInfo((prev)=>{
+            return {...prev, otp: res.data.userotp}
+          })
+          setIsShown1(current=> !current)
+        })
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
 
+  const verifyPhoneOtp = ()=>{
+    if(otpInfo.otp == otpInfo.inputOtp.slice(-4)){
+       setOtpInfo((prev)=>{
+        return {...prev, verified: true}
+       })
+    }else{
+      alert("Incorrect Otp")
+    }
+  }
   //progressbar function code
   const ProgressBar = ({ progressPercentage }) => {
     return (
@@ -246,6 +272,26 @@ const TailorProfileVerification = () => {
         )}
       </div>
     );
+  };
+
+  // Edits PriceRange
+  const setPriceRange = (e, type) => {
+    const num = parseInt(e.target.textContent.slice(1));
+    if (type === "min") {
+      if (num < maxValue && num >= 100) {
+        set_minValue(num);
+      } else {
+        alert("Enter Valid Range");
+        e.target.textContent = `₹${minValue}`;
+      }
+    } else {
+      if (num > minValue && num <= 10000) {
+        set_maxValue(num);
+      } else {
+        alert("Enter Valid Range");
+        e.target.textContent = `₹${maxValue}`
+      }
+    }
   };
 
   const handleSubmit = async () => {
@@ -314,7 +360,7 @@ const TailorProfileVerification = () => {
                 <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
                   <img loading="lazy"
                     src="https://img.icons8.com/external-bearicons-flat-bearicons/256/external-verified-reputation-bearicons-flat-bearicons.png"
-                    className="w-[70%]"
+                    className="w-[70%]" alt="a green checkmark, representing a verified reputation"
                   ></img>
                 </label>
                 <label className="text-white font font-semibold text-xl lg:text-2xl m-3 mt-7 ">
@@ -333,7 +379,7 @@ const TailorProfileVerification = () => {
           </div>
           {/* hero image */}
           <div className="hidden lg:block col-start-3 col-end-4">
-            <img loading="lazy" src={New} className="w-50% ml-[-40%] mr-20" />
+            <img src={New} className="w-50% ml-[-40%] mr-20" alt="a blue shield with pink tick and a lock" loading="lazy"/>
           </div>
         </div>
         {/* progress bar with 0% progress */}
@@ -348,7 +394,6 @@ const TailorProfileVerification = () => {
   function handleChange(e) {
     setFile(URL.createObjectURL(e.target.files[0]));
     setForm({ ...form, passport: file });
-    // console.log(form);
   }
 
   const [file2, setFile2] = useState("");
@@ -407,11 +452,11 @@ const TailorProfileVerification = () => {
     <div className="h-[100vh]">
       <img loading="lazy"
         src={Verified}
-        className="hidden lg:block right-24 absolute w-[30%] h-[60%] "
+        className="hidden lg:block right-24 absolute w-[30%] h-[60%] " alt="a person jumping in a box"
       />
       <img loading="lazy"
         src={Verified}
-        className="opacity-20 right-0 bottom-[300px] w-[55%] h-[35%] lg:opacity-100 lg:right-24 absolute lg:w-[30%] lg:h-[60%] lg:hidden"
+        className="opacity-20 right-0 bottom-[300px] w-[55%] h-[35%] lg:opacity-100 lg:right-24 absolute lg:w-[30%] lg:h-[60%] lg:hidden" alt="a person jumping in a box"
       />
 
       <div className="  text-whie ml-[15%] mt-[25%] lg:mt-[10%] font-poppins">
@@ -595,8 +640,9 @@ const TailorProfileVerification = () => {
                             ) : null}
                           </div>
                           <button
-                            className="hidden mt-1 px-6 py-1.5 rounded-lg text-white bg-[#3E00FF] hover:bg-blue-600 top-0"
-                            onClick={handleClick1}
+                            type="button"
+                            className="mt-1 px-6 py-1.5 rounded-lg text-white bg-[#3E00FF] hover:bg-blue-600 top-0"
+                            onClick={handlePhoneOtp}
                           >
                             Get OTP
                           </button>
@@ -623,24 +669,36 @@ const TailorProfileVerification = () => {
                               type="text"
                               id="first"
                               maxlength="1"
+                             onChange={(e)=>setOtpInfo((prev)=>{
+                                return {...prev, inputOtp: prev.inputOtp+e.target.value}
+                             })}
                             />
                             <input
                               class="mr-2 border h-10 w-10 text-center form-control rounded"
                               type="text"
                               id="second"
                               maxlength="1"
+                              onChange={(e)=>setOtpInfo((prev)=>{
+                                return {...prev, inputOtp: prev.inputOtp+e.target.value}
+                             })}
                             />
                             <input
                               class="mr-2 border h-10 w-10 text-center form-control rounded"
                               type="text"
                               id="third"
                               maxlength="1"
+                              onChange={(e)=>setOtpInfo((prev)=>{
+                                return {...prev, inputOtp: prev.inputOtp + e.target.value}
+                             })}
                             />
                             <input
                               class="mr-2 border h-10 w-10 text-center form-control rounded"
                               type="text"
                               id="fourth"
                               maxlength="1"
+                              onChange={(e)=>setOtpInfo((prev)=>{
+                                return {...prev, inputOtp: prev.inputOtp+e.target.value}
+                             })}
                             />
                           </div>
                           <p className="text-white mb-2">
@@ -648,24 +706,25 @@ const TailorProfileVerification = () => {
                             <a
                               href="#"
                               className="underline text-blue-400 hover:text-blue-900"
-                            >
+                            onClick={handlePhoneOtp}>
                               {" "}
-                              Click Here
+                              Resend Code
                             </a>{" "}
                           </p>
-                          <button
+                          <button typ="button"
                             className="   px-6 py-1.5 rounded-lg text-white bg-[#137C00] hover:bg-green-500 top-0"
-                            onClick={handleClick1}
+                            onClick={verifyPhoneOtp}
                           >
                             Verify
                           </button>
+                          {otpInfo.verified && <p className="text-green-500">Phone Number Verified</p>}
                         </div>
                       )}
                     </div>
                   </div>
                 </div>
                 <div className="bottom-0 right-0 w-[40%] lg:right-0 lg:top-24 absolute col-start-4 col-end-5 opacity-20 lg:opacity-100 ">
-                  <img loading="lazy" src={N} />
+                  <img src={N} alt="a cartoon hand holding a phone"/>
                 </div>
               </div>
 
@@ -676,11 +735,11 @@ const TailorProfileVerification = () => {
                 Previous
               </button>
               <button
-                className="relative z-[100] px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
+                className="relative z-[100] px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0 disabled:cursor-not-allowed"
                 onClick={() => {
                   handleNext();
                 }}
-              >
+              disabled={(otpInfo.verified)? false: true}>
                 Proceed
               </button>
               <ProgressBar progressPercentage={20}></ProgressBar>
@@ -696,10 +755,10 @@ const TailorProfileVerification = () => {
                 </h1>
               </div>
               <div className="lg:hidden bottom-0 right-0 w-[50%] lg:right-0 absolute opacity-20 lg:opacity-100">
-                <img loading="lazy" src={V} />
+                <img src={V} alt="a cartoon character standing next to a red location pin" loading="lazy"/>
               </div>
               <div className="hidden lg:block  w-[35%] right-0 absolute lg:opacity-100">
-                <img loading="lazy" src={V} />
+                <img src={V} loading="lazy" alt="a cartoon character standing next to a red location pin"/>
               </div>
 
               {/* address detail form */}
@@ -721,7 +780,7 @@ const TailorProfileVerification = () => {
                               <AuthErrorMessage
                                 message={formError.countryError}
                               />
-                            ) : null}
+                    ) : null}
                   </div>
 
                   <div className="mb-2">
@@ -836,10 +895,10 @@ const TailorProfileVerification = () => {
                 </h1>
               </div>
               <div className="mt-[-5%] right-0  bottom-[300px] w-[60%] h-[30%] lg:right-20 absolute opacity-20 lg:opacity-100 lg:hidden">
-                <img loading="lazy" src={Profileveri} />
+                <img src={Profileveri} alt="a cartoon of a person" loading="lazy" />
               </div>
               <div className="hidden lg:block left-[60%] absolute lg:opacity-100">
-                <img loading="lazy" src={Profileveri} />
+                <img src={Profileveri} alt="a cartoon of a person"/>
               </div>
 
               {/* photo upload */}
@@ -856,7 +915,7 @@ const TailorProfileVerification = () => {
                   <div className="flex z-[5] relative">
                     <img loading="lazy"
                       src={form.passport}
-                      className="w-[100px] h-[100px] mt-5 rounded-lg border border-white"
+                      className="w-[100px] h-[100px] mt-5 rounded-lg border border-white" alt="Passport Size Photo"
                     ></img>
                     <input
                       className=" rounded-xl mt-5 flex ml-[] pl-5"
@@ -946,10 +1005,10 @@ const TailorProfileVerification = () => {
                 </h1>
               </div>
               <div className="mt-[-5%] bottom-14 lg:gright-20 absolute opacity-20  lg:opacity-100 lg:hidden">
-                <img loading="lazy" src={Speciality} />
+                <img src={Speciality} alt="a illustration of a dress" loading="lazy"/>
               </div>
               <div className="hidden lg:block left-[60%] absolute opacity-20  lg:opacity-100">
-                <img loading="lazy" src={Speciality} />
+                <img src={Speciality} alt="a illustration of a dress" loading="lazy"/>
               </div>
 
               <div className="ml-[15%] w-[70%] lg:w-[50%] h-auto bg-white bg-opacity-10 rounded-xl p-[2%] grid grid-cols-1 gap-3 pl-[5%] pr-30 ">
@@ -1063,12 +1122,22 @@ const TailorProfileVerification = () => {
                     style={{ display: "flex", justifyContent: "center" }}
                   >
                     <div className="font-semibold" style={{ margin: "10px" }}>
-                      Your Selected Range:
+                      Your Selected Range: (Editable)
                     </div>
-                    <div className="font-bold" style={{ margin: "10px" }}>
+                    <div
+                      className="font-bold"
+                      style={{ margin: "10px" }}
+                      contentEditable={true}
+                      onBlur={(e) => setPriceRange(e, "min")}
+                    >
                       ₹{minValue}
                     </div>
-                    <div className="font-bold" style={{ margin: "10px" }}>
+                    <div
+                      contentEditable={true}
+                      className="font-bold"
+                      style={{ margin: "10px" }}
+                      onBlur={(e) => setPriceRange(e, "max")}
+                    >
                       ₹{maxValue}
                     </div>
                   </div>

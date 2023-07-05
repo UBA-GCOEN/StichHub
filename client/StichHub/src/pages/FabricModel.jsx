@@ -34,7 +34,7 @@ const FabricModelD = () => {
       <div className="flex absolute top-[-210px]">
         {" "}
         {/* currently position fixed through pixels , to be fixed */}
-        <img loading="lazy" src={decor} />
+        <img src={decor} alt="a colorful swirly object with a black background" loading="lazy"/>
       </div>
       <div className="absolute rounded-xl border-white border-2 w-[85%] h-[85%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] ">
         {" "}
@@ -60,7 +60,7 @@ const FabricModelD = () => {
             <div>
               <div className="relative border-2 border-cyan-300 h-max w-52 rounded-2xl p-4 m-2 text-center justify-center items-center ">
                 <div className="mx-auto w-32 h-32">
-                  <img loading="lazy" src={truck} />
+                  <img src={truck} alt="a blue line art of a truck with a box on the back" loading="lazy"/>
                 </div>
                 <div>
                   <h2 className="text-3xl font-semibold m-2 p-2">
@@ -103,7 +103,7 @@ const FabricModelM = () => {
       {/* Top head div containing logo and sidemenu */}
       <div className="w-full justify-between flex p-4 z-[2]">
         <div className="w-2/6">
-          <img loading="lazy" src={logo} />
+          <img src={logo} alt="logo with text that says StichHub stitch your way" loading="lazy"/>
         </div>
         <div>
           <SideMenu />

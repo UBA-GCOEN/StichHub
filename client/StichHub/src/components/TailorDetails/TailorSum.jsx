@@ -6,7 +6,7 @@ function TailorSum(propsData) {
         <div className="drop-shadow-lg flex w-full h-full m-auto">
           <img loading="lazy"
             className="rounded-lg object-cover mt-2"
-            src={propsData.propsData.item.passport}
+            src={propsData.propsData.item.passport} alt="photo of tailor item"
           />
         </div>
       </div>

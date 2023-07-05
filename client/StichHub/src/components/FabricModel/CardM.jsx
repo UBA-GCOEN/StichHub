@@ -6,7 +6,7 @@ function CardM(prop) {
     <div className=" w-5/6 bg-primary rounded-r-full items-center justify-center my-4">
       <div className="flex items-center justify-center">
         <div className="p-2 m-2">
-          <img loading="lazy" src={prop.icon} />
+          <img src={prop.icon} alt={props.head+" "+props.tail} loading="lazy"/>
         </div>
         <div className="p-2 m-2">
           <h1 className="text-xl font-semibold text-center">{prop.head}</h1>

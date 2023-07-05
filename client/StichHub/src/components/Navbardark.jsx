@@ -35,7 +35,7 @@ const Navbar = () => {
         {/* Logo */}
         <div className="flex mt-2">
           <a href="/" className="ml-5">
-            <img loading="lazy" src={logo} alt="stichHub" className="w-[120px] sm:w-[140px]" />
+            <img loading="lazy" src={logo} alt="logo with text that says StichHub stitch your way" className="w-[120px] sm:w-[140px]" />
           </a>
         </div>
 

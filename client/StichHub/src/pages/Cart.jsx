@@ -537,7 +537,7 @@ const Cart = () => {
                 {/* image */}
                 <img loading="lazy"
                   src={im}
-                  className="hidden lg:block w-[20%] ml-[600px] absolute"
+                  className="hidden lg:block w-[20%] ml-[600px] absolute" alt="a cellphone with a credit card and gift boxes"
                 />
                 {/* Additional Services block */}
                 <div className=" m-5 lg:m-10 font-bold">
@@ -614,7 +614,7 @@ const Cart = () => {
                         />
                         <img loading="lazy"
                           src="https://cdn.iconscout.com/icon/free/png-256/fedex-1-282177.png"
-                          className=" lg:w-[17%] sm:w-[17%]"
+                          className=" lg:w-[17%] sm:w-[17%]" alt="a company logo with text fedex"
                         />
                         <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                           <div className="mt-5 sm:mt-0">
@@ -648,7 +648,7 @@ const Cart = () => {
                         />
                         <img loading="lazy"
                           src="https://cdn-icons-png.flaticon.com/512/726/726455.png"
-                          className=" lg:w-[10%] sm:w-[10%]"
+                          className=" lg:w-[10%] sm:w-[10%]" alt="a red and yellow truck"
                         />
                         <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                           <div className="mt-5 sm:mt-0">
@@ -686,11 +686,11 @@ const Cart = () => {
                 </div>
                 <img loading="lazy"
                   src={el}
-                  className="h-[30%] absolute float-right right-0 "
+                  className="h-[30%] absolute float-right right-0 " alt="a black and purple background"
                 />
                 <img loading="lazy"
                   src={el2}
-                  className="h-[30%] absolute float-left left-0 "
+                  className="h-[30%] absolute float-left left-0 " alt="a black and blue gradient"
                 />
               </div>
             </>
@@ -926,11 +926,11 @@ const Cart = () => {
                 </div>
                 <img loading="lazy"
                   src={img}
-                  className="hidden left-[-6%] absolute h-auto top-[100%] lg:block"
+                  className="hidden left-[-6%] absolute h-auto top-[100%] lg:block" alt="a cartoon character riding a yellow scooter"
                 />
                 <img loading="lazy"
                   src={ime}
-                  alt="logo"
+                  alt="a cartoon character riding a yellow scooter"
                   className="hidden lg:block absolute top-[95%] h-[35%] right-[10%]  "
                 />
               </div>
@@ -944,7 +944,7 @@ const Cart = () => {
                 >
                   <img loading="lazy"
                     src={se}
-                    className=" hidden lg:block flex absolute lg:left-0  mt-20 w-[30%] sm:w-[40]% sm:right-0"
+                    className=" hidden lg:block flex absolute lg:left-0  mt-20 w-[30%] sm:w-[40]% sm:right-0" alt="a cartoon character holding a glowing shield"
                   />
                   <div className="block max-w-lg rounded-lg bg-white p-6 ">
                     {/* payment form */}

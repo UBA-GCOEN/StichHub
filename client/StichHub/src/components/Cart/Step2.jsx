@@ -194,7 +194,7 @@ const Step2 = () => {
           </h4>
           <img loading="lazy"
             src={img}
-            className="m-10 mt-0 mb-[5px] object-fill w-[73%] h-[180px] rounded-[10px] border border-solid border-[#cecece]"
+            className="m-10 mt-0 mb-[5px] object-fill w-[73%] h-[180px] rounded-[10px] border border-solid border-[#cecece]" alt="a cartoon character riding a yellow scooter"
           />
 
           <div className="m-10 mt-5">
@@ -236,11 +236,11 @@ const Step2 = () => {
       </div>
       <img loading="lazy"
         src={img}
-        className="hidden left-[-6%] absolute h-auto top-[100%] lg:block"
+        className="hidden left-[-6%] absolute h-auto top-[100%] lg:block" alt="a cartoon character riding a yellow scooter"
       />
       <img loading="lazy"
         src={ime}
-        alt="logo"
+        alt="a person holding a box and a person standing next to a scooter"
         className="hidden lg:block absolute top-[95%] h-[35%] right-[10%]  "
       />
     </div>

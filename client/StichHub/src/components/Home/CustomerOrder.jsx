@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import axios from "../../axios.js";
 import { Player } from "@lottiefiles/react-lottie-player";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "../../axios.js";
 import Navbar from "./Navbar.jsx";
 
-import Footer from "../MainLandingPage/Footer.jsx";
-import OrderConfirmation from "./OrderConfirmation.jsx";
 
 const CustomerOrder = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
@@ -71,10 +69,10 @@ const CustomerOrder = () => {
       <div className="max-w-2xl mx-auto pt-16 sm:py-24 sm:px-6 lg:max-w-2xl lg:px-8">
         <div className="px-4 space-y-2 sm:px-0 sm:flex sm:items-baseline sm:justify-between sm:space-y-0">
           <div className=" sm:items-baseline sm:space-x-4">
-            <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-xl">
+            <h1 className="text-2xl font-extrabold tracking-tight text-white sm:text-xl pb-2 md:pl-4">
               Your Recent Order Acceptance Status
             </h1>
-            <p className="text-gray-500 ml-0 text-left ">
+            <p className="text-gray-400">
               if your order acceptance status is not changing, then please try
               to{" "}
               <button className="text-red-500 hover:text-red-800 hover:underline ">

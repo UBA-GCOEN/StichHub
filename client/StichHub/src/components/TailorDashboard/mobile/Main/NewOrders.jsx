@@ -57,7 +57,7 @@ const NewOrder = () => {
                     <img loading="lazy"
                       class="w-12 h-12 rounded-full mx-5 w-max"
                       src="../src/assets/img/jonathan.png"
-                      alt="Profile Picture"
+                      alt="Profile Picture of jonathan"
                     />
                     <div className="m-2 mx-5 text-white">
                       <h2 class="text-sm font-base text-center w-max">
@@ -131,7 +131,7 @@ const NewOrder = () => {
                       ACCEPT
                       <img loading="lazy"
                         className="h-4 w-4 my-1.5 mx-1"
-                        src="https://img.icons8.com/ios-filled/50/C3B9B9/needle.png"
+                        src="https://img.icons8.com/ios-filled/50/C3B9B9/needle.png" alt="illustration of a silver needle with a pointed tip"
                       />
                     </button>
                   </div>

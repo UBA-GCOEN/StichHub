@@ -33,7 +33,7 @@ const Step4 = () => {
           <div className="flex">
             <img loading="lazy"
               src={file}
-              className="w-[100px] h-[100px] mt-5 rounded-lg border border-white"
+              className="w-[100px] h-[100px] mt-5 rounded-lg border border-white" alt="passport size photo"
             ></img>
             <input
               className="rounded-xl mt-5 flex ml-[] pl-5"

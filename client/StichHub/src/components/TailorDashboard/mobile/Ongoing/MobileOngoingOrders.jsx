@@ -59,13 +59,13 @@ const MobileOngoingOrders = () => {
                         <div className="relative  h-full bg-auto w-[33%] mt-[-2px] ml-[-2px]  bg-no-repeat">
                           <img loading="lazy"
                             src={url}
-                            className="bg-center rounded-l-2xl bg-cover  h-[112%]"
+                            className="bg-center rounded-l-2xl bg-cover  h-[112%]" alt="a person wearing a black suit"
                           ></img>
                           <div
                             id="button"
                             className="flex absolute top-[60%] left-[-15%] z-50 scale-[0.55]   bg-white text-black w-max p-2 rounded-full"
                           >
-                            <img loading="lazy" src={View} className="mr-3 ml-1 w-[15px]" />
+                            <img src={View} className="mr-3 ml-1 w-[15px]" alt="icon of 3d cube" loading="lazy"/>
                             <span className="text-sm font-semibold cursor-pointer">
                               See in your room
                             </span>
@@ -79,7 +79,7 @@ const MobileOngoingOrders = () => {
                             <img loading="lazy"
                               class="w-7 h-7 rounded-full"
                               src="./src/assets/img/jonathan.png"
-                              alt=""
+                              alt="profile photo of jonathan"
                             />
                             <div class="font-medium dark:text-black ">
                               <div className="text-left text-white text-xs w-max">
@@ -97,7 +97,7 @@ const MobileOngoingOrders = () => {
                             <div className="bg-white w-fit h-fit rounded-full">
                               <img loading="lazy"
                                 className="grid place-items-center h-8 w-8"
-                                src="https://img.icons8.com/sf-regular-filled/48/undefined/clothes.png"
+                                src="https://img.icons8.com/sf-regular-filled/48/undefined/clothes.png" alt="icon of white shirt"
                               />{" "}
                             </div>
                             <div className="grid text-slate-300 w-full text-xs text-left place-items-center justify-items-start">
@@ -170,7 +170,7 @@ const MobileOngoingOrders = () => {
                             Stitch
                             <img loading="lazy"
                               className="h-4 w-4 ml-2"
-                              src="https://img.icons8.com/ios-filled/50/C3B9B9/needle.png"
+                              src="https://img.icons8.com/ios-filled/50/C3B9B9/needle.png" alt="illustration of a silver needle with a pointed tip"
                             />
                           </button>
                         </div>

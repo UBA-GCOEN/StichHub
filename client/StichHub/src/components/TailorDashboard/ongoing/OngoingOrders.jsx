@@ -18,7 +18,7 @@ const OngoingOrders = () => {
                 id="button"
                 className="mb-1 mt-[5%] flex bg-white text-black w-fit p-2 rounded-full"
               >
-                <img loading="lazy" src={View} className="mr-3 ml-1 w-[15px]" />
+                <img src={View} className="mr-3 ml-1 w-[15px]" alt="icon of 3d cube" loading="lazy"/>
                 <span className="text-xs font-semibold cursor-pointer">
                   See in your room
                 </span>
@@ -45,7 +45,7 @@ const OngoingOrders = () => {
                   <img loading="lazy"
                     class="w-9 h-9 rounded-full"
                     src="./src/assets/img/jonathan.png"
-                    alt=""
+                    alt="profile photo of jonathan"
                   />
                   <div class="font-medium dark:text-black">
                     <div className="text-left text-slate-300 text-base">
@@ -72,7 +72,7 @@ const OngoingOrders = () => {
                 <div className="grid grid-flow-col grid-cols-[10%_90%]">
                   <img loading="lazy"
                     className="grid place-items-center h-8 w-8"
-                    src="https://img.icons8.com/sf-regular-filled/48/undefined/clothes.png"
+                    src="https://img.icons8.com/sf-regular-filled/48/undefined/clothes.png" alt="icons of white shirt"
                   />
                   <div className="grid text-sm text-left text-slate-300 place-items-center justify-items-start">
                     Free Style Checked Blue Cotton Jacket with Inner
@@ -126,7 +126,7 @@ const OngoingOrders = () => {
                   CONTINUE TO STITCH
                   <img loading="lazy"
                     className="h-5 w-5"
-                    src="https://img.icons8.com/ios-filled/50/C3B9B9/needle.png"
+                    src="https://img.icons8.com/ios-filled/50/C3B9B9/needle.png" alt="illustration of a silver needle with a pointed tip"
                   />
                 </div>
               </button>

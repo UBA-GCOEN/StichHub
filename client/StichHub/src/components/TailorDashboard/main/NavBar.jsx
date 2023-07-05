@@ -57,7 +57,7 @@ const NavBar = () => {
     <div className="flex justify-between p-2 bg-primary  w-full">
       <div className="flex mt-2 h-fit w-40 ">
         <div className="mx-5">
-          <img loading="lazy" src={logo}  className=""/>
+          <img src={logo}  className="" alt="logo with text that says StichHub stitch your way" loading="lazy"/>
         </div>
         {/* <div className="mx-5">Search</div> */}
       </div>
@@ -76,7 +76,7 @@ const NavBar = () => {
               {user?.result.picture ? (
                 <img loading="lazy"
                   src={user?.result.picture}
-                  className="rounded-full bg-indigo-200"
+                  className="rounded-full bg-indigo-200" alt={user?.result.name}
                 />
               ) : (
                 <div className="w-9 bg-indigo-600 rounded-full h-9 text-white text-center text-2xl">

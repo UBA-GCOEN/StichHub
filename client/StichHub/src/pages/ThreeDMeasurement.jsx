@@ -513,7 +513,7 @@ const Result = (props) => {
           <button className="bg-yellow-400 text-black font-bold mt-3 w-[15%] lg:w-[4%] rounded-md items-self-center">
             <img loading="lazy"
               className=""
-              src="https://images.squarespace-cdn.com/content/v1/5c38d342e2ccd16874962329/1555870468349-36N6I1DQ4711MNPG0ZQ0/blog+bw+trans.png"
+              src="https://images.squarespace-cdn.com/content/v1/5c38d342e2ccd16874962329/1555870468349-36N6I1DQ4711MNPG0ZQ0/blog+bw+trans.png" alt="a black and white pencil"
             />
           </button>
           <h3 className="text-xl font-bold text-gray-300 mt-4">
@@ -730,7 +730,7 @@ const Manual = (props) => {
                 </p>
                 <img loading="lazy"
                   src="https://images.tailorstore.com/YToyOntzOjU6IndpZHRoIjtzOjQ6IjIwMDAiO3M6NjoiaGVpZ2h0IjtzOjA6IiI7fQ%3D%3D/images/cms/ts-measurements-guide-waist.jpg"
-                  alt="Waist Measurement"
+                  alt="An illustration showing a person measuring their waist"
                   className="mt-4"
                 />
               </div>
@@ -756,7 +756,7 @@ const Manual = (props) => {
                 </p>
                 <img loading="lazy"
                   src="https://images.tailorstore.com/YToyOntzOjU6IndpZHRoIjtzOjQ6IjIwMDAiO3M6NjoiaGVpZ2h0IjtzOjA6IiI7fQ%3D%3D/images/cms/ts-measurements-guide-inseam-pants.jpg"
-                  alt="Inseam Measurement"
+                  alt="Illustration measuring the inseam of pants"
                   className="mt-4"
                 />
               </div>
@@ -772,17 +772,17 @@ const Manual = (props) => {
                 </p>
                 <img loading="lazy"
                   src="https://images.tailorstore.com/YToyOntzOjU6IndpZHRoIjtzOjQ6IjIwMDAiO3M6NjoiaGVpZ2h0IjtzOjA6IiI7fQ%3D%3D/images/cms/ts-measurements-guide-shirtlength.jpg"
-                  alt="Inseam Measurement"
+                  alt="A visual guide demonstrating how to measure shirt length."
                   className="mt-4"
                 />
                 <img loading="lazy"
                   src="https://images.tailorstore.com/YToyOntzOjU6IndpZHRoIjtzOjQ6IjIwMDAiO3M6NjoiaGVpZ2h0IjtzOjA6IiI7fQ%3D%3D/images/cms/ts-measurements-guide-shoulder.jpg"
-                  alt="Inseam Measurement"
+                  alt="A person measuring the shoulder width using a tape measure"
                   className="mt-4"
                 />
                 <img loading="lazy"
                   src="https://images.tailorstore.com/YToyOntzOjU6IndpZHRoIjtzOjQ6IjIwMDAiO3M6NjoiaGVpZ2h0IjtzOjA6IiI7fQ%3D%3D/images/cms/ts-measurements-guide-wrist.jpg"
-                  alt="Inseam Measurement"
+                  alt="An image of a person's wrist being measured with a measuring tape."
                   className="mt-4"
                 />
               </div>

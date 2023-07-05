@@ -35,15 +35,15 @@ function Worried() {
       <div className="flex justify-center items-center mt-8">
         <img loading="lazy"
           src={Handle}
-          className="m-4 transition-all ease-in hover:scale-110 w-60 h-64"
+          className="m-4 transition-all ease-in hover:scale-110 w-60 h-64" alt="a cartoon character next to a robot"
         />
         <img loading="lazy"
           src={call}
-          className="m-4 transition-all ease-in hover:scale-110 w-60 h-64"
+          className="m-4 transition-all ease-in hover:scale-110 w-60 h-64" alt="a cartoon of a person standing in front of a door"
         />
         <img loading="lazy"
           src={provide}
-          className="m-4 transition-all ease-in hover:scale-110 w-60 h-64"
+          className="m-4 transition-all ease-in hover:scale-110 w-60 h-64" alt="a person sitting at a table with a laptop"
         />
       </div>
     </div>
