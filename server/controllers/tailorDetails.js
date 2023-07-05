@@ -61,7 +61,7 @@ export const verifyTailorDetails = async (req, res) => {
               Thank you for using StichHub.
 
               Best regards,
-              StitchHub Team`
+              StichHub Team`
       })
       .then(() => res.status(200).json({userotp: otp}))
   } catch (error) {
