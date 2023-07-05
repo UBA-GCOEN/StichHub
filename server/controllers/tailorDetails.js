@@ -54,14 +54,7 @@ export const verifyTailorDetails = async (req, res) => {
       .create({
         from: process.env.TWILIOPHONE,
         to: `+91${req.body.detail}`,
-        body: `Dear user,
-
-              This is an OTP message from StitchHub. Please use the following code to complete your authentication process: ${otp}.
-
-              Thank you for using StichHub.
-
-              Best regards,
-              StichHub Team`
+        body: `Your OTP verification code for StichHub is ${otp}`
       })
       .then(() => res.status(200).json({userotp: otp}))
   } catch (error) {
