@@ -29,6 +29,7 @@ import tailor from "./tailor.webp"
 import delivery from "./delivery.webp"
 import menu from "./menu.svg"
 import close from "./close.svg"
+import describe from "./describe.png"
 
 export {
   demo3d,
@@ -61,5 +62,6 @@ export {
   SleevlessShirt,
   ModernDress,
   menu,
-  close
+  close,
+  describe
 };
