@@ -2,6 +2,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 import express from 'express';
 import mongoose from 'mongoose';
+import twilio from "twilio";
 
 const router = express.Router();
 
@@ -41,7 +42,24 @@ export const getSpecificTailor = async(req, res) => {
     } catch(error) {
         res.status(400).json({message: error.message});
     }
+};
     
-}
+export const verifyTailorDetails = async (req, res) => {
+    const otp = Math.floor(1000 + Math.random() * 9000);
+    const accountSid = process.env.TWILIOSID;
+    const authToken = process.env.TWILIOAUTH;
+    const client = twilio(accountSid, authToken);
+  try {
+    client.messages
+      .create({
+        from: process.env.TWILIOPHONE,
+        to: `+91${req.body.detail}`,
+        body: `Your OTP verification code for StichHub is ${otp}`
+      })
+      .then(() => res.status(200).json({userotp: otp}))
+  } catch (error) {
+    res.status(400).json({ error: error });
+  }
+};
 
 export default router;

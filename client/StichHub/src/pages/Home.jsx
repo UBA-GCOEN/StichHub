@@ -34,7 +34,7 @@ const Home = () => {
   return (
     <div className="">
       <Navbar />
-      <Features />[]
+      <Features />
       <FilterSection handleChange={handleChange} clearFilter={clearFilter}/>
       <TailorList filters={filter} />
     </div>

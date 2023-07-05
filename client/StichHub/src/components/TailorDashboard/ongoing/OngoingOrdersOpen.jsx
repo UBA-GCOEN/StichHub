@@ -22,7 +22,7 @@ const OngoingOrdersOpen = () => {
               id="button"
               className="mb-1 mt-[5%] flex bg-white text-black w-fit p-2 rounded-full"
             >
-              <img src={View} className="mr-3 ml-1 w-[15px]" />
+              <img src={View} className="mr-3 ml-1 w-[15px]" alt="icon of 3d cube"/>
               <span className="text-xs font-semibold cursor-pointer">
                 See in your room
               </span>
@@ -38,7 +38,7 @@ const OngoingOrdersOpen = () => {
               <div className="rounded-full bg-white h-10 w-10">
                 <img
                   className="  "
-                  src="https://img.icons8.com/sf-regular-filled/48/undefined/clothes.png"
+                  src="https://img.icons8.com/sf-regular-filled/48/undefined/clothes.png" alt="icons of white shirt"
                 />
               </div>
 
@@ -112,7 +112,7 @@ const OngoingOrdersOpen = () => {
               <img
                 class="w-9 h-9 rounded-full"
                 src="./src/assets/img/jonathan.png"
-                alt=""
+                alt="profile photo of jonathan"
               />
               <div class="font-medium dark:text-black">
                 <div className="text-left text-slate-300 text-base">
@@ -137,7 +137,7 @@ const OngoingOrdersOpen = () => {
                 MARK AS COMPLETED
                 <img
                   className="h-5 w-5"
-                  src="https://img.icons8.com/ios-filled/50/C3B9B9/needle.png"
+                  src="https://img.icons8.com/ios-filled/50/C3B9B9/needle.png" alt="illustration of a silver needle with a pointed tip"
                 />
               </div>
             </button>
