@@ -13,7 +13,7 @@ const OngoingOrdersOpen = () => {
       <div className="text-white text-2xl text-left">Ongoing Orders</div>
       <div className="m-7">
         {/* top */}
-        <div className="bg-[url('./src/assets/TailorDashboard/ongoingtop-2.png')] w-[102%] ml-[-15px] bg-cover bg-no-repeat p-16">
+        <div className="bg-[url('./src/assets/TailorDashboard/ongoingtop-2.webp')] w-[102%] ml-[-15px] bg-cover bg-no-repeat p-16">
           <button className="justify-start ml-0 w-fit">
             <ArrowLeftCircleIcon className="w-10 h-10 fill-white "></ArrowLeftCircleIcon>
           </button>
@@ -111,8 +111,9 @@ const OngoingOrdersOpen = () => {
             <div class="flex justify-self-start items-center space-x-4">
               <img
                 class="w-9 h-9 rounded-full"
-                src="./src/assets/img/jonathan.png"
+                src="./src/assets/img/jonathan.webp"
                 alt="profile photo of jonathan"
+
               />
               <div class="font-medium dark:text-black">
                 <div className="text-left text-slate-300 text-base">

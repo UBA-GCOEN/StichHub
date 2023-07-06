@@ -1,9 +1,9 @@
-import icon from "../../assets/img/profileverify.png";
-import vk from "../../assets/vk.jpg";
-import sp from "../../assets/sp.jpg";
-import nc from "../../assets/nc.jpg";
-import sy from "../../assets/sy.jpg";
-import hl from "../../assets/hl.jpg";
+import icon from "../../assets/img/profileverify.webp";
+import vk from "../../assets/vk.webp";
+import sp from "../../assets/sp.webp";
+import nc from "../../assets/nc.webp";
+import sy from "../../assets/sy.webp";
+import hl from "../../assets/hl.webp";
 
 const items = [
     {
