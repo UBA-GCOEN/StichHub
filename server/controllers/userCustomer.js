@@ -74,7 +74,7 @@ export const register = async (req, res) => {
 };
 
 const isValidEmail = async (email)=>{
-   const emailRegex =/^\w+([\.-]?\w+)*@(gmail\.com|yahoo\.com|hotmail\.com|aol\.com|outlook\.com)$/;
+    const emailRegex = /^[^\s@]+@(?:gmail|yahoo|hotmail|aol|outlook)\.com$/;
   const isValid = (emailRegex.test(email))?  true :  false;
   return isValid;
 }
