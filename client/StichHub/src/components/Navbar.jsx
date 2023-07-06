@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import React from 'react';
-import Logo from '../assets/logo.png'
+import Logo from '../assets/logo.webp'
 const pages = ['Home','Our Services','How it works','About','Contact Us'];
 const settings = ['Profile', 'Account', 'Dashboard'];
 const setting1 = ['Profile', 'Account', 'Dashboard','logout'];

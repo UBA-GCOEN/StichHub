@@ -1,12 +1,12 @@
 import React from "react";
-import regbg from "../../assets/registrationbg.png";
-import Cus from "../../assets/CustomerImg.png";
-import Tail from "../../assets/Tailorimg.png";
+import regbg from "../../assets/registrationbg.webp";
+import Cus from "../../assets/CustomerImg.webp";
+import Tail from "../../assets/Tailorimg.webp";
 import { Link } from "react-router-dom";
 
 const Signup = () => {
   return (
-    <div className="sm:bg-[url('../src/assets/registrationbg.png')] bg-contain bg-center bg-no-repeat bg-[#BADDF1] w-[100vw] h-[100vh] overflow-hidden">
+    <div className="sm:bg-[url('../src/assets/registrationbg.webp')] bg-contain bg-center bg-no-repeat bg-[#BADDF1] w-[100vw] h-[100vh] overflow-hidden">
       <div className="flex justify-center content-center flex-wrap">
         <div className="p-5 text-center sm:mt-[20vh] sm:ml-14">
           {/* Title text */}

@@ -1,8 +1,9 @@
 import React from "react";
-import accu from "../../assets/CustomerLandingPage/Icons/Accuracy.png";
-import choi from "../../assets/CustomerLandingPage/Icons/Choose.png";
-import dura from "../../assets/CustomerLandingPage/Icons/Durable.png";
-import highl from "../../assets/CustomerLandingPage/Icons/Highlight.png";
+import highl from "../../assets/CustomerLandingPage/Icons/Highlight.webp";
+import accu from "../../assets/CustomerLandingPage/Icons/Accuracy.webp";
+import dura from "../../assets/CustomerLandingPage/Icons/Durable.webp";
+import choi from "../../assets/CustomerLandingPage/Icons/Choose.webp";
+
 import Button from "./Button";
 import CardiM from "./CardiM";
 

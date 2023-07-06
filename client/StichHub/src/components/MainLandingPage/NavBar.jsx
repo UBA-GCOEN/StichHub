@@ -45,6 +45,7 @@ const NavBar = () => {
       <ul className="list-none lg:flex hidden justify-center items-center cursor-pointer">
         {navbar.map((nav, index) => (
           <li
+            style={{transition:".4s ease"}}
             key={nav.title}
             className={`font-poppins font-normal cursor-pointer hover:text-[#3094d3] hover:scale-125 text-[16px]  ${index === navbar.length - 1 ? "mr-0" : "mr-10"
               }`}
