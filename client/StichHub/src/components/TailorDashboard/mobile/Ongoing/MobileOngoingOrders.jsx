@@ -3,7 +3,7 @@ import { View } from "../../../../assets/3dConfigurator/configurator-icons";
 import { ClockIcon, PhoneIcon } from "@heroicons/react/24/solid";
 import axios from "../../../../axios";
 
-import url from "../../../../assets/img/Ongoingtop.png";
+import url from "../../../../assets/img/Ongoingtop.webp";
 
 const MobileOngoingOrders = () => {
   const [OrderList, setOrderList] = useState([]);
@@ -78,8 +78,10 @@ const MobileOngoingOrders = () => {
                           <div class="flex justify-self-start items-center space-x-4 mt-1">
                             <img
                               class="w-7 h-7 rounded-full"
-                              src="./src/assets/img/jonathan.png"
+
+                              src="./src/assets/img/jonathan.webp"
                               alt="profile photo of jonathan"
+
                             />
                             <div class="font-medium dark:text-black ">
                               <div className="text-left text-white text-xs w-max">

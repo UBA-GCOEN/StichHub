@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import captchaBg from "../../assets/img/captcha_Bg.jpg"
+import captchaBg from "../../assets/img/captcha_Bg.webp"
 import CachedIcon from '@mui/icons-material/Cached';
 
 const Captcha = ({message,trackState}) => {

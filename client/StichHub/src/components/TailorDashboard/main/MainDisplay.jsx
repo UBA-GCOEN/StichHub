@@ -121,7 +121,8 @@ const MainDisplay = () => {
                                     <div class="flex justify-self-start items-center space-x-4">
                                       <img
                                         class="w-10 h-10 rounded-full"
-                                        src="./src/assets/img/jonathan.png"
+
+                                        src="./src/assets/img/jonathan.webp"
                                         alt="jonathan"
                                       />
                                       <div class="font-medium dark:text-black">
@@ -321,7 +322,7 @@ export default MainDisplay;
 const HJ = (props) => {
   return (
     <div className="bg-white col-span-1 inline-block min-w-2 col-span-1 shadow-blue-200  h-[300px] w-[400px] m-7  mt-0 rounded-2xl">
-      <div className="bg-[url('./assets/img/Ongoingtop.png')] h-[25%] w-[103%] ml-[-5px] bg-cover bg-no-repeat">
+      <div className="bg-[url('./assets/img/Ongoingtop.webp')] h-[25%] w-[103%] ml-[-5px] bg-cover bg-no-repeat">
         <div className="flex  justify-center">
           <div
             id="button"
@@ -353,8 +354,10 @@ const HJ = (props) => {
             <div class="flex justify-self-start items-center space-x-4">
               <img
                 class="w-7 h-7 rounded-full"
-                src="./src/assets/img/jonathan.png"
+
+                src="./src/assets/img/jonathan.webp"
                 alt="jonathan"
+
               />
               <div class="font-medium dark:text-black">
                 <div className="text-left text-sm">
