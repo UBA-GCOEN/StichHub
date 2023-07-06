@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../../assets/img/img.png";
+import img from "../../assets/img/img.webp";
 
 //main definition
 const Step4 = () => (
@@ -93,7 +93,7 @@ const Step4 = () => (
           </h4>
           <img
             src={img}
-            className="m-10 mt-0 mb-[5px] object-fill w-[73%] h-[180px] rounded-[10px] border border-solid border-[#cecece]"
+            className="m-10 mt-0 mb-[5px] object-fill w-[73%] h-[180px] rounded-[10px] border border-solid border-[#cecece]" alt="a cartoon character riding a yellow scooter"
           />
 
           <div className="m-10 mt-5">

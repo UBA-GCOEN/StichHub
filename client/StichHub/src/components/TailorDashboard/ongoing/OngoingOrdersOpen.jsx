@@ -13,7 +13,7 @@ const OngoingOrdersOpen = () => {
       <div className="text-white text-2xl text-left">Ongoing Orders</div>
       <div className="m-7">
         {/* top */}
-        <div className="bg-[url('./src/assets/TailorDashboard/ongoingtop-2.png')] w-[102%] ml-[-15px] bg-cover bg-no-repeat p-16">
+        <div className="bg-[url('./src/assets/TailorDashboard/ongoingtop-2.webp')] w-[102%] ml-[-15px] bg-cover bg-no-repeat p-16">
           <button className="justify-start ml-0 w-fit">
             <ArrowLeftCircleIcon className="w-10 h-10 fill-white "></ArrowLeftCircleIcon>
           </button>
@@ -22,7 +22,7 @@ const OngoingOrdersOpen = () => {
               id="button"
               className="mb-1 mt-[5%] flex bg-white text-black w-fit p-2 rounded-full"
             >
-              <img src={View} className="mr-3 ml-1 w-[15px]" />
+              <img src={View} className="mr-3 ml-1 w-[15px]" alt="icon of 3d cube"/>
               <span className="text-xs font-semibold cursor-pointer">
                 See in your room
               </span>
@@ -38,7 +38,7 @@ const OngoingOrdersOpen = () => {
               <div className="rounded-full bg-white h-10 w-10">
                 <img
                   className="  "
-                  src="https://img.icons8.com/sf-regular-filled/48/undefined/clothes.png"
+                  src="https://img.icons8.com/sf-regular-filled/48/undefined/clothes.png" alt="icons of white shirt"
                 />
               </div>
 
@@ -111,8 +111,9 @@ const OngoingOrdersOpen = () => {
             <div class="flex justify-self-start items-center space-x-4">
               <img
                 class="w-9 h-9 rounded-full"
-                src="./src/assets/img/jonathan.png"
-                alt=""
+                src="./src/assets/img/jonathan.webp"
+                alt="profile photo of jonathan"
+
               />
               <div class="font-medium dark:text-black">
                 <div className="text-left text-slate-300 text-base">
@@ -137,7 +138,7 @@ const OngoingOrdersOpen = () => {
                 MARK AS COMPLETED
                 <img
                   className="h-5 w-5"
-                  src="https://img.icons8.com/ios-filled/50/C3B9B9/needle.png"
+                  src="https://img.icons8.com/ios-filled/50/C3B9B9/needle.png" alt="illustration of a silver needle with a pointed tip"
                 />
               </div>
             </button>

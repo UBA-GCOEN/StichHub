@@ -26,7 +26,15 @@
    <a href="https://www.youtube.com/@StichHub_YT" target="_blank"><img src="https://img.shields.io/badge/YouTube-FF0000?&style=for-the-badge&logo=Youtube" /></a>
    <a href="https://www.instagram.com/stichhub_" target="_blank"><img src="https://img.shields.io/badge/Instagram-E6E6FA?&style=for-the-badge&logo=Instagram" /></a>
    <a href="https://twitter.com/StichHub_" target="_blank"><img src="https://img.shields.io/badge/Twitter-00acee?&style=for-the-badge&logo=Twitter&logoColor=white" /></a>
-   <a href="#" target="_blank"><img src="https://img.shields.io/badge/Discord-36393e?&style=for-the-badge&logo=Discord" /></a>
+</div>
+
+<div align="center">
+   <h2>Join the Community</h2>
+</div>
+
+<div align="center">
+   <a href="https://github.com/UBA-GCOEN/StichHub/discussions" target="_blank"><img src="https://img.shields.io/badge/Discussions Forum-000000?&style=for-the-badge&logo=github" /></a>
+   <a href="https://discord.gg/hmSyTrNAeq" target="_blank"><img src="https://img.shields.io/badge/Discord-36393e?&style=for-the-badge&logo=Discord" /></a>
 </div>
 
 <br>

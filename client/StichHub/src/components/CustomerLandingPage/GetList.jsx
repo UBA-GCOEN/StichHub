@@ -1,8 +1,15 @@
 import React from "react";
 import Button from "./Button";
-import img from "../../assets/CustomerLandingPage/Group 1000001620.png";
+import img from "../../assets/CustomerLandingPage/Group 1000001620.webp";
+import { useNavigate } from "react-router-dom";
 
-function GetList() {
+
+function GetList({text}) {
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    navigate("/configurator" );
+  };
   return (
     <div className="relative h-screen text-center m-2 p-2">
       {/* Gradient */}
@@ -20,17 +27,24 @@ function GetList() {
             of places where you can alter your clothes or if your piece was
             ordered by our site get it altered for free.
           </h3>
-          <div className="m-2 p-2">
-            <Button text="Get List" />
-          </div>
+          <button
+            className="bg-[#e68600] hover:bg-[chocolate] text-black font-semibold p-1 rounded-full h-10 text-lg w-36"
+            onClick={handleButtonClick}
+          >
+            {text = "Get List"}
+          </button>
         </div>
 
         {/* Image Part */}
         <div className="w-2/5">
+
+          <img src={img} className="h-90" />
+
           <img
             src={img}
-            className="h-90"
+            className="h-90" alt="a cartoon character pointing at a store"
           />
+
         </div>
       </div>
     </div>

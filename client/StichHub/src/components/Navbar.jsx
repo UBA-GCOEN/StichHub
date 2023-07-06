@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import React from 'react';
-import Logo from '../assets/logo.png'
+import Logo from '../assets/logo.webp'
 const pages = ['Home','Our Services','How it works','About','Contact Us'];
 const settings = ['Profile', 'Account', 'Dashboard'];
 const setting1 = ['Profile', 'Account', 'Dashboard','logout'];
@@ -46,7 +46,7 @@ export default function Navbar() {
     <div className="flex lg:flex-1">
       <a href="/" className="-m-1.5 p-1.5">
         <span className="sr-only">Stichhub</span>
-        <img className="h-8 w-auto" src={Logo} alt=""/>
+        <img className="h-8 w-auto" src={Logo} alt="a text which says StichHub stitch your way"/>
       </a>
       
     </div>
@@ -183,7 +183,7 @@ export default function Navbar() {
       <div className="flex items-center justify-between">
         <a href="#" className="-m-1.5 p-1.5">
           <span className="sr-only">Stichhub</span>
-          <img className="h-8 w-auto" src={Logo} alt="" />
+          <img className="h-8 w-auto" src={Logo} alt="a text which says StichHub stitch your way" />
         </a>
         <button type="button" className="-m-2.5 rounded-md p-2.5 text-gray-700" onClick={handleClick2}>
           <span className="sr-only">Close menu</span>
