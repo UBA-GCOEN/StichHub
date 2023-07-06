@@ -92,7 +92,7 @@ const AuthTailor = () => {
     try {
       navigateTo("/TailorProfileVerification");
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 

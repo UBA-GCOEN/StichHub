@@ -256,16 +256,14 @@ const Cart = () => {
     try {
       const res = await axios.get("/cart/list");
       setCartList(res.data);
-      console.log(res.data);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 
   useEffect(() => {
     getCartList();
   }, [2]);
-  console.log(cartList);
 
   //Start of Cart Page from here
   const [qty, setqty] = useState(0);
@@ -311,11 +309,9 @@ const Cart = () => {
   // Function to handle radio button change
   const handleRadioChange = (event) => {
     setSelectedValue(event.target.value);
-    console.log(selectedValue);
   };
   const handleRadioChange1 = (event) => {
     setSelectedValue1(event.target.value);
-    console.log(selectedValue1);
   };
 
   const [form, setForm] = useState(initialForm);
@@ -326,10 +322,8 @@ const Cart = () => {
     setForm({ ...form, service: selectedValue });
     setForm({ ...form, delivery: selectedValue1 });
 
-    // console.log(form);
   };
 
-  // console.log(form);
   const location = useLocation();
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
 
@@ -350,10 +344,9 @@ const Cart = () => {
     };
     try {
       const res = await axios.post(`/payment`, paymentData);
-      console.log(res.data);
       window.location.href = res.data.paymentLink;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 

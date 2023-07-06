@@ -23,7 +23,7 @@ const MainDisplay = () => {
       setOrderList(res.data);
       // setIsLoading(false);
     } catch (err) {
-      console.log(err);
+      console.error(err);
       // setIsLoading(false);
     }
   };
@@ -43,10 +43,9 @@ const MainDisplay = () => {
         { status: newStatus }
       );
 
-      console.log(res);
       setOrderStatus("hidden");
     } catch (error) {
-      console.log(error.message);
+      console.error(error.message);
     }
   };
 

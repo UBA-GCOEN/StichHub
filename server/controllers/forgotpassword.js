@@ -17,6 +17,6 @@ export const forgotpassword = async (req, res) => {
         res.status(200).json({ result: oldUser});
     } catch (error) {
         res.status(500).json({ message: "Something went wrong" });
-        console.log(error);
+        console.error(error);
     }
 };

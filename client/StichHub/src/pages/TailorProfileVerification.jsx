@@ -213,7 +213,7 @@ const TailorProfileVerification = () => {
           setIsShown1(current=> !current)
         })
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
   };
@@ -302,7 +302,7 @@ const TailorProfileVerification = () => {
       localStorage.removeItem("tailorFirstLogin");
       navigateTo("/TailorDashboard");
     } catch (error) {
-      console.log(error.response.data.message);
+      console.error(error.response.data.message);
       setIsLoading(false);
     }
   };

@@ -10,7 +10,6 @@ import profile from "../assets/man.jpg";
 function TailorDetails() {
   const [isMobile, setIsMobile] = useState(false);
 
-  // console.log(propsData);
 
   // check screen size and set state variable
   window.addEventListener("resize", () => {
@@ -141,7 +140,6 @@ export default TailorDetails;
 const TailorDetailsM = () => {
   const location = useLocation();
   const propsData = location.state;
-  // console.log(propsData);
   return (
     <div className="lg:hidden block cardGradient w-full h-full min-h-screen overflow-hidden pb-10">
       {/* Back Button */}

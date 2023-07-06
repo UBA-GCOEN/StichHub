@@ -144,7 +144,6 @@ const SizeCalculator = () => {
 
   const handleOptionChange = (e) => {
     setGender(e.target.value);
-    console.log(gender);
   };
 
   const handleCalculate = () => {
@@ -152,7 +151,6 @@ const SizeCalculator = () => {
     const shoeSizeCm = shoeSize * 2.54;
     const heightm = height / 100;
     const bmi = (weight / (height * height)) * 10000;
-    console.log(bmi);
     const bmis = [20, 22.5, 25, 27.5, 30, 32.5, 35, 37.5, 40];
     const neckm = [14.8, 15.5, 16.1, 16.7, 17.2, 17.6, 18.0, 18.5, 18.9];
     const neckf = [13.0, 13.5, 13.9, 14.3, 14.8, 15.2, 15.6, 15.9, 16.3];
@@ -175,7 +173,6 @@ const SizeCalculator = () => {
     const inseam = [];
 
     const heightFeet = Math.floor(height / 30.48);
-    console.log(heightFeet);
     const heightInches = Math.round((height % 30.48) / 2.54);
     // Find index of closest height in heightmf array
     const heightIndex = heightmf.findIndex((height) => height >= heightFeet);
@@ -185,7 +182,6 @@ const SizeCalculator = () => {
     const armsValue = Arms[heightIndex]; // Note: Arms array is currently empty in your provided code
     const chestValue = chest[heightIndex];
     const inseamValue = inseam[heightIndex];
-    console.log(waistValue, shouldersValue, armsValue, chestValue, inseamValue);
 
     if (gender === "male") {
       // Calculate sizes for males
@@ -274,7 +270,6 @@ const SizeCalculator = () => {
       },
     });
 
-    // console.log(orderDetails);
 
     navigateTo("/OrderDetails");
   };
@@ -621,10 +616,8 @@ const Manual = (props) => {
     setForm({ ...form, armLength: props.armLength });
     setForm({ ...form, inseam: props.inseam });
 
-    // console.log(form);
   };
 
-  console.log(form);
   const { orderDetails, setOrderDetails } = useHCustomization();
 
   const [isShown, setIsShown] = useState(false);
@@ -668,7 +661,6 @@ const Manual = (props) => {
       },
     });
 
-    // console.log(orderDetails);
 
     navigateTo("/OrderDetails");
   };

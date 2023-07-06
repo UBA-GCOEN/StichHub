@@ -14,9 +14,7 @@ const FabricCard = (prop) => {
   }, []);
 
   const handleSubmit = () => {
-    console.log(fabric);
     setOrderDetails({ ...orderDetails, fabricMode: fabric });
-    console.log(orderDetails);
     navigateTo("/OrderDetails");
   };
 

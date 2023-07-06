@@ -22,9 +22,8 @@ const Step1 = () => {
     try {
       const res = await axios.get("/cart/list");
       setCartList(res.data);
-      console.log(res.data);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 

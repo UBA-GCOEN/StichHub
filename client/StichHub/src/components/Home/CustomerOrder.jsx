@@ -20,7 +20,6 @@ const CustomerOrder = () => {
     try {
       const res = await axios.get(`order/request/customer`);
       setOrders(res.data);
-      console.log(res.data);
     } catch (error) {
       console.error(error.message);
     }
@@ -29,7 +28,6 @@ const CustomerOrder = () => {
   const handleSubmit = async (e, order, tailorId, orderId) => {
     setIsLoading(true);
     try {
-      console.log(order);
       await axios.post(`/cart/${orderId}/${tailorId}`, order);
       setIsLoading(false);
       navigateTo("/Cart");
