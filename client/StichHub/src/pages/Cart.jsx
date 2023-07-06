@@ -7,10 +7,6 @@ import Step3 from "../components/Cart/Step3";
 import Step4 from "../components/Cart/Step4";
 import AuthErrorMessage from "../components/AuthError"
 import validate from "../common/validation"
-import imr from "../assets/img/imr.png";
-import el from "../assets/img/el.png";
-import el2 from "../assets/img/el2.png";
-import im from "../assets/img/im.png";
 import imr from "../assets/img/imr.webp";
 import el from "../assets/img/el.webp";
 import el2 from "../assets/img/el2.webp";
