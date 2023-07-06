@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ProgressBar from "./ProgressBar";
-import New from "../../assets/img/new.png";
+import New from "../../assets/img/new.webp";
 import Step2 from "./Step2";
 import { Routes, Route, useNavigate } from "react-router-dom";
 

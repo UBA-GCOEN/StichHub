@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import imr from "../../assets/img/imr.png";
-import el from "../../assets/img/el.png";
-import el2 from "../../assets/img/el2.png";
-import im from "../../assets/img/im.png";
+import imr from "../../assets/img/imr.webp";
+import el from "../../assets/img/el.webp";
+import el2 from "../../assets/img/el2.webp";
+import im from "../../assets/img/im.webp";
 import axios from "axios";
 
 //main definition

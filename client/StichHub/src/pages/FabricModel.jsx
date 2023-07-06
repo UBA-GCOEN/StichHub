@@ -1,9 +1,9 @@
 import { React, useState } from "react";
 import Navbardark from "../components/Navbardark";
 import FabricCard from "../components/FabricModel/FabricCard";
-import truck from "../assets/CustomerLandingPage/Icons/truck.png";
-import fabric from "../assets/CustomerLandingPage/Icons/fabric.png";
-import decor from "../assets/decor.png";
+import truck from "../assets/CustomerLandingPage/Icons/truck.webp";
+import fabric from "../assets/CustomerLandingPage/Icons/fabric.webp";
+import decor from "../assets/decor.webp";
 import logo from "../assets/logo/Long - Logo Transparent (White).png";
 import SideMenu from "../components/FabricModel/SideMenu";
 import CardM from "../components/FabricModel/CardM";

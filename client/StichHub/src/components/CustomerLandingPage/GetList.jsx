@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "./Button";
-import img from "../../assets/CustomerLandingPage/Group 1000001620.png";
+import img from "../../assets/CustomerLandingPage/Group 1000001620.webp";
 import { useNavigate } from "react-router-dom";
 
 

@@ -1,8 +1,8 @@
 import React from "react";
-import image1 from "../../assets/CustomerLandingPage/Room - Girl Reading - Copy@3-1707x802 (2).png";
-import call from "../../assets/CustomerLandingPage/Call.png";
-import provide from "../../assets/CustomerLandingPage/provide.png";
-import Handle from "../../assets/CustomerLandingPage/handle.png";
+import image1 from "../../assets/CustomerLandingPage/Room - Girl Reading - Copy@3-1707x802 (2).webp";
+import call from "../../assets/CustomerLandingPage/Call.webp";
+import provide from "../../assets/CustomerLandingPage/provide.webp";
+import Handle from "../../assets/CustomerLandingPage/handle.webp";
 function Worried() {
   return (
     <div className="w-sreen h-screen">

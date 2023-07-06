@@ -1,5 +1,5 @@
 import React from "react";
-import girlimg from "../../assets/CustomerLandingPage/Girl with clothes.png";
+import girlimg from "../../assets/CustomerLandingPage/Girl with clothes.webp";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 

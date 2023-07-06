@@ -2,7 +2,7 @@ import React, { useState } from "react";
 //used for phone no. country code selector
 import "react-phone-number-input/style.css";
 import Phoneinput from "react-phone-number-input";
-import ime from "../../assets/img/ime.png";
+import ime from "../../assets/img/ime.webp";
 
 //used for Country selector field
 import {
@@ -11,7 +11,7 @@ import {
   CountryRegionData,
 } from "react-country-region-selector";
 import { Country, State, City } from "country-state-city";
-import img from "../../assets/img/img.png";
+import img from "../../assets/img/img.webp";
 
 // main definition
 const Step2 = () => {
