@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "../../assets/logo/Long - Logo Transparent (White).png";
 import shortlogo from "../../assets/logo/Short-Logo Transparent (Black).png";
-import tailorimg from "../../assets/loginsignup/tailorimg.png";
+import tailorimg from "../../assets/loginsignup/tailorimg.webp";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
@@ -109,6 +109,7 @@ const AuthTailor = () => {
     else
       setPasswordType("password");
   };
+  const margin = isregister? "-mt-3": "";
 
   return (
     <div className="bg-gray-800 h-[105vh] flex justify-between overflow-hidden">
@@ -128,10 +129,10 @@ const AuthTailor = () => {
         </div>
       ) : null}
       {/* Left Side (img)*/}
-      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.png')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10  rounded-2xl">
+      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.webp')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10  rounded-2xl">
         <img
           src={shortlogo}
-          className="w-[5vw] absolute bottom-14 left-5"
+          className="w-[5vw] absolute bottom-14 left-5" alt="a white and blue letters S and H on a black background"
         ></img>
       </div>
 
@@ -144,12 +145,12 @@ const AuthTailor = () => {
 
           <a href="/" className="flex justify-center mt-10">
  
-            <img src={logo} className="w-[240px]" />
+            <img src={logo} className="w-[240px]" alt="logo with text that says StichHub stitch your way" />
           </a>
           {/* title */}
           <div className="flex justify-center my-1">
             <div>
-              <img src={tailorimg} alt="" className="w-[60px] mr-5" />
+              <img src={tailorimg} alt="a person with a mustache and a sewing machine" className="w-[60px] mr-5" />
             </div>
             <div className="mt-3 text-center">
               <span className="text-white text-3xl font-semibold">
@@ -251,10 +252,10 @@ const AuthTailor = () => {
                   disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
                 />
-                   {(error.password && error.passwordError)? <AuthErrorMessage message={error.passwordError}/>:null}
                 <div onClick={passwordToggle} className="absolute cursor-pointer flex items-center z-[5] mt-[-1.8rem] ml-[17rem]">
                 {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
                 </div>
+                {(error.password && error.passwordError)? <AuthErrorMessage message={error.passwordError}/>:null}
               </div>
               {isregister && (
                 <div>
@@ -286,9 +287,9 @@ const AuthTailor = () => {
                 "
                   />
                         {(error.confirmPassword && error.confirmPasswordError)? <AuthErrorMessage message={error.confirmPasswordError}/>:null}
-                        <Captcha message={setTrackState} trackState={trackState}/>
                 </div>
               )}
+                        <Captcha message={setTrackState} trackState={trackState}/>
               <div className="flex justify-center">
               {isregister ? (<button
                   type="submit"
@@ -298,6 +299,8 @@ const AuthTailor = () => {
                 >Register</button>):(<button
                   type="submit"
                   className="mt-[15px] block w-[170px] py-2 bg-blue-500 text-white hover:bg-slate-200 hover:text-blue-600 hover:transition-all duration-500 hover:font-semibold rounded-xl font-regular text-xl"
+                  disabled={!trackState}
+                  style={{cursor:`${trackState ? "pointer": "not-allowed"}`}}
                 >Sign in</button>)}
               </div>
 
@@ -310,7 +313,7 @@ const AuthTailor = () => {
                   cookiePolicy="single_host_origin"
                 />
               </div>
-              <h1 className="text-center text-white text-md pt-6">
+              <h1 className={"text-center text-white text-md "+margin}>
               {isregister ? "" : 
                 <a
                   className="cursor-pointer text-blue-400"

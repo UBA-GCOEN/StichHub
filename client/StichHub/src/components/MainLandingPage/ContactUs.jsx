@@ -4,6 +4,7 @@ import {
   EmailIcon,
   AvatarIcon,
   PhoneIcon,
+  describe,
   SendVector,
 } from "../../assets/MainLandingPage/Icons";
 import validate from "../../common/validation";
@@ -40,7 +41,8 @@ const ContactUs = () => {
       <div className="relative z-[5] flex items-center justify-center">
         {/* left-Side */}
         <div id="leftside" className="lg:block hidden mb-[20px] bottom-[20p]">
-          <img src={ContactUsVector} className="" />
+          <img src={ContactUsVector} className="" alt="a cartoon character pointing at a large tablet with icons
+"/>
         </div>
 
         {/* Right-Side */}
@@ -60,7 +62,7 @@ const ContactUs = () => {
             <div id="yourName" className="py-2">
               <img
                 src={AvatarIcon}
-                alt="N"
+                alt="a blue circle with a person in it"
                 id="icon"
                 className="absolute ml-[10px] mt-[16px] h-7"
               />
@@ -85,7 +87,8 @@ const ContactUs = () => {
             <div id="Email" className="py-2">
               <img
                 src={EmailIcon}
-                alt="E"
+                alt="a blue envelope with a white paper inside
+                "
                 id="icon"
                 className="absolute ml-[10px] mt-[16px] h-7"
               />
@@ -110,7 +113,7 @@ const ContactUs = () => {
             <div id="Phone no." className="py-2">
               <img
                 src={PhoneIcon}
-                alt="P"
+                alt="a blue telephone receiver on a black background"
                 id="icon"
                 className="absolute ml-[10px] mt-[16px] h-7"
               />
@@ -131,7 +134,10 @@ const ContactUs = () => {
                 <AuthErrorMessage message={error.phonenoError} />
               ) : null}
             </div>
+            <div>
+              <img src={describe} className="absolute ml-[10px] mt-[16px] h-7" />
             <textarea
+              style={{paddingLeft:"3.35rem"}}
               placeholder="Describe your issue here"
               name="message"
               id="message"
@@ -146,6 +152,7 @@ const ContactUs = () => {
               focus:invalid:border-pink-500 focus:invalid:ring-pink-500
                 resize-none"
             ></textarea>
+            </div>
                {error.message && error.messageError ? (
                   <AuthErrorMessage message={error.messageError} />
                 ) : null}
@@ -160,7 +167,7 @@ const ContactUs = () => {
           </form>
           <img
             src={SendVector}
-            alt="send"
+            alt="a blue paper airplane on a black background"
             className="hidden lg:block absolute right-[-120px] bottom-[1px]"
           />
         </div>

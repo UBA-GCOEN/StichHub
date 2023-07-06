@@ -1,11 +1,12 @@
 import React from "react";
-import image1 from "../../assets/CustomerLandingPage/Room - Girl Reading - Copy@3-1707x802 (2).png";
-import Tailor from "../../assets/CustomerLandingPage/Tailor.png";
-import Calculator from "../../assets/CustomerLandingPage/Calculator.png";
-import Enter from "../../assets/CustomerLandingPage/Enter.png";
+import image1 from "../../assets/CustomerLandingPage/Room - Girl Reading - Copy@3-1707x802 (2).webp";
+import Tailor from "../../assets/CustomerLandingPage/Tailor.webp";
+import Calculator from "../../assets/CustomerLandingPage/Calculator.webp";
+import Enter from "../../assets/CustomerLandingPage/Enter.webp";
+
 function WorriedM() {
   return (
-    <div className="w-sreen h-screen">
+    <div className="w-sreen h-screen pt-40 md:pt-0">
       {/* Section for models in spline (Now using oonly img)*/}
       <div className="text-center">
         <div className="w-full font-medium text-5xl">
@@ -23,7 +24,7 @@ function WorriedM() {
         <div className="bg-[#1E1837] rounded-[2.2rem] p-2 m-2 flex items-center justify-center">
           <img
             src={Tailor}
-            className="p-2 transition-all ease-in hover:scale-110 w-24 h-24"
+            className="p-2 transition-all ease-in hover:scale-110 w-24 h-24" alt="a person with a sewing machine"
           />
           <h1 className=" text-white text-xl text-center">
             Call tailor Home to get Measurements
@@ -33,7 +34,7 @@ function WorriedM() {
         <div className="bg-[#1E1837] rounded-[2.2rem] p-2 m-2 flex items-center justify-center">
           <img
             src={Calculator}
-            className="p-2 transition-all ease-in hover:scale-110 w-24 h-24"
+            className="p-2 transition-all ease-in hover:scale-110 w-24 h-24" alt="a calculator and a note"
           />
           <h1 className=" text-white text-xl text-center">
             Calculate Measurements with our Technology
@@ -43,7 +44,7 @@ function WorriedM() {
         <div className="bg-[#1E1837] rounded-[2.2rem] p-2 m-2 flex items-center justify-center">
           <img
             src={Enter}
-            className="p-2 transition-all ease-in hover:scale-110 w-24 h-24"
+            className="p-2 transition-all ease-in hover:scale-110 w-24 h-24" alt="a yellow enter button"
           />
           <h1 className=" text-white text-xl text-center">
             Enter Measurements by Self

@@ -12,13 +12,13 @@ const OngoingOrders = () => {
         {/* first */}
         <div className="relative w-[40%] m-5">
           {/* top */}
-          <div className="bg-[url('./src/assets/TailorDashboard/ongoingtop-2.png')] bg-cover bg-no-repeat p-20">
+          <div className="bg-[url('./src/assets/TailorDashboard/ongoingtop-2.webp')] bg-cover bg-no-repeat p-20">
             <div className="flex  justify-center">
               <div
                 id="button"
                 className="mb-1 mt-[5%] flex bg-white text-black w-fit p-2 rounded-full"
               >
-                <img src={View} className="mr-3 ml-1 w-[15px]" />
+                <img src={View} className="mr-3 ml-1 w-[15px]" alt="icon of 3d cube"/>
                 <span className="text-xs font-semibold cursor-pointer">
                   See in your room
                 </span>
@@ -44,8 +44,10 @@ const OngoingOrders = () => {
                 <div class="flex justify-self-start items-center space-x-4">
                   <img
                     class="w-9 h-9 rounded-full"
-                    src="./src/assets/img/jonathan.png"
-                    alt=""
+
+                    src="./src/assets/img/jonathan.webp"
+                    alt="profile photo of jonathan"
+
                   />
                   <div class="font-medium dark:text-black">
                     <div className="text-left text-slate-300 text-base">
@@ -72,7 +74,7 @@ const OngoingOrders = () => {
                 <div className="grid grid-flow-col grid-cols-[10%_90%]">
                   <img
                     className="grid place-items-center h-8 w-8"
-                    src="https://img.icons8.com/sf-regular-filled/48/undefined/clothes.png"
+                    src="https://img.icons8.com/sf-regular-filled/48/undefined/clothes.png" alt="icons of white shirt"
                   />
                   <div className="grid text-sm text-left text-slate-300 place-items-center justify-items-start">
                     Free Style Checked Blue Cotton Jacket with Inner
@@ -126,7 +128,7 @@ const OngoingOrders = () => {
                   CONTINUE TO STITCH
                   <img
                     className="h-5 w-5"
-                    src="https://img.icons8.com/ios-filled/50/C3B9B9/needle.png"
+                    src="https://img.icons8.com/ios-filled/50/C3B9B9/needle.png" alt="illustration of a silver needle with a pointed tip"
                   />
                 </div>
               </button>

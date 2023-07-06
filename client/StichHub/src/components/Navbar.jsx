@@ -5,6 +5,7 @@ const pages = ["Home", "Our Services", "How it works", "About", "Contact Us"];
 const settings = ["Profile", "Account", "Dashboard"];
 const setting1 = ["Profile", "Account", "Dashboard", "logout"];
 
+
 export default function Navbar() {
   const [navbar, setNavbar] = useState(false);
   const [isShown, setIsShown] = useState(false);
@@ -283,7 +284,6 @@ export default function Navbar() {
               </div>
             )}
           </div>
-
           <a
             href="#"
             className="text-2sm font-semibold leading-6 text-gray-900"

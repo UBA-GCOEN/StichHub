@@ -36,12 +36,13 @@ const NavBar = () => {
     >
       <div className="">
         <a href="#">
-          <img src={logo} alt="StichHub" className=" w-[180px]" />
+          <img src={logo} alt="logo with text that says StichHub stitch your way" className=" w-[180px]" />
         </a>
       </div>
       <ul className="list-none lg:flex hidden justify-center items-center cursor-pointer">
         {navbar.map((nav, index) => (
           <li
+            style={{transition:".4s ease"}}
             key={nav.title}
             className={`font-poppins font-normal cursor-pointer hover:text-[#3094d3] hover:scale-125 text-[16px]  ${
               index === navbar.length - 1 ? "mr-0" : "mr-10"
@@ -63,7 +64,7 @@ const NavBar = () => {
       <div className="lg:hidden flex flex-1 justify-end items-center">
         <img
           src={toggle ? close : menu}
-          alt="menu"
+          alt={toggle ? "close button" : "hamburger menu"}
           className="w-[28px] h-[28px] object-contain"
           onClick={() => setToggle(!toggle)}
         />
