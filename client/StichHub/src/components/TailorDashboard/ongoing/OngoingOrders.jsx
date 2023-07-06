@@ -12,7 +12,7 @@ const OngoingOrders = () => {
         {/* first */}
         <div className="relative w-[40%] m-5">
           {/* top */}
-          <div className="bg-[url('./src/assets/TailorDashboard/ongoingtop-2.png')] bg-cover bg-no-repeat p-20">
+          <div className="bg-[url('./src/assets/TailorDashboard/ongoingtop-2.webp')] bg-cover bg-no-repeat p-20">
             <div className="flex  justify-center">
               <div
                 id="button"
@@ -44,8 +44,10 @@ const OngoingOrders = () => {
                 <div class="flex justify-self-start items-center space-x-4">
                   <img
                     class="w-9 h-9 rounded-full"
-                    src="./src/assets/img/jonathan.png"
+
+                    src="./src/assets/img/jonathan.webp"
                     alt="profile photo of jonathan"
+
                   />
                   <div class="font-medium dark:text-black">
                     <div className="text-left text-slate-300 text-base">

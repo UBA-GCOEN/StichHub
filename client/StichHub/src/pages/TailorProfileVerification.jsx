@@ -1,14 +1,14 @@
 import React from "react";
 import Navbardark from "../components/Navbardark";
 import { useState, useEffect, useCallback } from "react";
-import New from "../assets/img/new.png";
+import New from "../assets/img/new.webp";
 import "react-phone-number-input/style.css";
-import N from "../assets/img/n.png";
-import Profileveri from "../assets/img/profileverify.png";
-import Speciality from "../assets/img/speciality.png";
+import N from "../assets/img/n.webp";
+import Profileveri from "../assets/img/profileverify.webp";
+import Speciality from "../assets/img/speciality.webp";
 import {useLocation, useNavigate } from "react-router-dom";
-import Verified from "../assets/img/verified.png";
-import V from "../assets/img/v.png";
+import Verified from "../assets/img/verified.webp";
+import V from "../assets/img/v.webp";
 import MultiRangeSlider from "multi-range-slider-react";
 import axios from "../axios.js";
 import { Player } from "@lottiefiles/react-lottie-player";
@@ -73,6 +73,12 @@ const TailorProfileVerification = () => {
   const [maxValue, set_maxValue] = useState(5000);
   const [isLoading, setIsLoading] = useState(false);
   const [formError, setFormError] = useState(validate.verificationInitialValue);
+  const [otpInfo, setOtpInfo] = useState({
+    otp: "",
+    inputOtp: "",
+    verified: false
+  });
+  
   const handleInput = (e) => {
     set_minValue(e.minValue);
     set_maxValue(e.maxValue);
@@ -193,14 +199,34 @@ const TailorProfileVerification = () => {
     // 👇️ or simply set it to true
     // setIsShown(true);
   };
-  const handleClick1 = (event) => {
-    // 👇️ toggle shown state
-    setIsShown1((current) => !current);
-
-    // 👇️ or simply set it to true
-    // setIsShown(true);
+  const handlePhoneOtp = async (event) => {
+    if (formError.contact) {
+      alert("Enter Valid phone number");
+    } else {
+      try {
+        await axios.post("/tailors/verifydetails", {
+          detail: form.contact,
+        }).then((res)=>{
+          setOtpInfo((prev)=>{
+            return {...prev, otp: res.data.userotp}
+          })
+          setIsShown1(current=> !current)
+        })
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
 
+  const verifyPhoneOtp = ()=>{
+    if(otpInfo.otp == otpInfo.inputOtp.slice(-4)){
+       setOtpInfo((prev)=>{
+        return {...prev, verified: true}
+       })
+    }else{
+      alert("Incorrect Otp")
+    }
+  }
   //progressbar function code
   const ProgressBar = ({ progressPercentage }) => {
     return (
@@ -368,7 +394,6 @@ const TailorProfileVerification = () => {
   function handleChange(e) {
     setFile(URL.createObjectURL(e.target.files[0]));
     setForm({ ...form, passport: file });
-    // console.log(form);
   }
 
   const [file2, setFile2] = useState("");
@@ -615,8 +640,9 @@ const TailorProfileVerification = () => {
                             ) : null}
                           </div>
                           <button
-                            className="hidden mt-1 px-6 py-1.5 rounded-lg text-white bg-[#3E00FF] hover:bg-blue-600 top-0"
-                            onClick={handleClick1}
+                            type="button"
+                            className="mt-1 px-6 py-1.5 rounded-lg text-white bg-[#3E00FF] hover:bg-blue-600 top-0"
+                            onClick={handlePhoneOtp}
                           >
                             Get OTP
                           </button>
@@ -643,24 +669,36 @@ const TailorProfileVerification = () => {
                               type="text"
                               id="first"
                               maxlength="1"
+                             onChange={(e)=>setOtpInfo((prev)=>{
+                                return {...prev, inputOtp: prev.inputOtp+e.target.value}
+                             })}
                             />
                             <input
                               class="mr-2 border h-10 w-10 text-center form-control rounded"
                               type="text"
                               id="second"
                               maxlength="1"
+                              onChange={(e)=>setOtpInfo((prev)=>{
+                                return {...prev, inputOtp: prev.inputOtp+e.target.value}
+                             })}
                             />
                             <input
                               class="mr-2 border h-10 w-10 text-center form-control rounded"
                               type="text"
                               id="third"
                               maxlength="1"
+                              onChange={(e)=>setOtpInfo((prev)=>{
+                                return {...prev, inputOtp: prev.inputOtp + e.target.value}
+                             })}
                             />
                             <input
                               class="mr-2 border h-10 w-10 text-center form-control rounded"
                               type="text"
                               id="fourth"
                               maxlength="1"
+                              onChange={(e)=>setOtpInfo((prev)=>{
+                                return {...prev, inputOtp: prev.inputOtp+e.target.value}
+                             })}
                             />
                           </div>
                           <p className="text-white mb-2">
@@ -668,17 +706,18 @@ const TailorProfileVerification = () => {
                             <a
                               href="#"
                               className="underline text-blue-400 hover:text-blue-900"
-                            >
+                            onClick={handlePhoneOtp}>
                               {" "}
-                              Click Here
+                              Resend Code
                             </a>{" "}
                           </p>
-                          <button
+                          <button typ="button"
                             className="   px-6 py-1.5 rounded-lg text-white bg-[#137C00] hover:bg-green-500 top-0"
-                            onClick={handleClick1}
+                            onClick={verifyPhoneOtp}
                           >
                             Verify
                           </button>
+                          {otpInfo.verified && <p className="text-green-500">Phone Number Verified</p>}
                         </div>
                       )}
                     </div>
@@ -696,11 +735,11 @@ const TailorProfileVerification = () => {
                 Previous
               </button>
               <button
-                className="relative z-[100] px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0"
+                className="relative z-[100] px-6 py-1.5 rounded-lg text-white bg-blue-500 hover:bg-blue-600 top-0 disabled:cursor-not-allowed"
                 onClick={() => {
                   handleNext();
                 }}
-              >
+              disabled={(otpInfo.verified)? false: true}>
                 Proceed
               </button>
               <ProgressBar progressPercentage={20}></ProgressBar>

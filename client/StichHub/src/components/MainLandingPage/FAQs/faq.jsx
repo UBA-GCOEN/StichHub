@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-// import  doubts from "./doubts.jpg";
-import doubts from "./faqIcon.png";
+// import  doubts from "./doubts.webp";
+import doubts from "./faqIcon.webp";
 import './faq.css'
 
 const AccordionItem = ({ title, content }) => {
@@ -20,7 +20,7 @@ const AccordionItem = ({ title, content }) => {
                 <span className="icon" aria-hidden="true"></span>
             </button>
             <div className="accordion-content">
-                <p>{content}</p>
+                <p style={{textAlign:"left"}}>{content}</p>
             </div>
         </div>
     );
