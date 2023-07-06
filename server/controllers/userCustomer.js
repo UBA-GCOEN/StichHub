@@ -73,8 +73,18 @@ export const register = async (req, res) => {
     }
 };
 
+const isValidEmail = async (email)=>{
+   const emailRegex =/^\w+([\.-]?\w+)*@(gmail\.com|yahoo\.com|hotmail\.com|aol\.com|outlook\.com)$/;
+  const isValid = (emailRegex.test(email))?  true :  false;
+  return isValid;
+}
+
 export const deleteAccount = async (req, res)=>{
     const {email} = req.body;
+
+    if(!isValidEmail(email)){
+        return res.status(400).json({ error: 'Invalid email' });
+    }
     try{
       const user = await userCustomerModel.findOne({email});
       await userCustomerModel.deleteOne({email});
