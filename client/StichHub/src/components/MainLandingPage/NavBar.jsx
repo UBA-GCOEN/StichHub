@@ -30,16 +30,13 @@ const NavBar = () => {
 
   return (
     <nav
-      className={`bg ${isScrolled ? "bg-inherit" : "bg-transparent"
-        } w-[100vw] flex lg:pt-6 justify-center fixed z-[100] pt-3 px-4 lg:p-4`}
+      className={`bg ${
+        isScrolled ? "bg-inherit" : "bg-transparent"
+      } w-[100vw] flex justify-around items-center fixed z-[100] pt-3 px-4 lg:py-6 lg:px-14`}
     >
       <div className="">
         <a href="#">
-          <img loading="lazy"
-            src={logo}
-            alt="logo with text that says StichHub stitch your way"
-            className=" w-[180px] mr-[100px] mt-2"
-          />
+          <img src={logo} alt="logo with text that says StichHub stitch your way" className=" w-[180px]" loading="lazy"/>
         </a>
       </div>
       <ul className="list-none lg:flex hidden justify-center items-center cursor-pointer">
@@ -47,8 +44,9 @@ const NavBar = () => {
           <li
             style={{transition:".4s ease"}}
             key={nav.title}
-            className={`font-poppins font-normal cursor-pointer hover:text-[#3094d3] hover:scale-125 text-[16px]  ${index === navbar.length - 1 ? "mr-0" : "mr-10"
-              }`}
+            className={`font-poppins font-normal cursor-pointer hover:text-[#3094d3] hover:scale-125 text-[16px]  ${
+              index === navbar.length - 1 ? "mr-0" : "mr-10"
+            }`}
             onClick={() => {
               setActive(nav.title);
               scrollToSection(nav.id);
@@ -59,7 +57,7 @@ const NavBar = () => {
         ))}
       </ul>
       <Link to="/auth" aria-label="Auth">
-        <button className="hidden lg:block bg-white hover:bg-transparent hover:text-white border hover:border-blue-700 hover:border-2 hover:transition-all duration-500 rounded-xl w-fit lg:px-5 py-2 shadow-xl drop-shadow-2xl mt-4 ml-14 text-black text-base font-semibold">
+        <button className="hidden lg:block bg-white hover:bg-transparent hover:text-white border hover:border-blue-700 hover:border-2 hover:transition-all duration-500 rounded-xl w-fit lg:px-6 py-2 shadow-xl drop-shadow-2xl text-black text-base font-semibold">
           Get Started
         </button>
       </Link>
@@ -72,15 +70,17 @@ const NavBar = () => {
         />
 
         <div
-          className={`${!toggle ? "hidden" : "flex"
-            } p-6 bg-black/100 absolute top-20 right-0 mx-4 my-2 min-w-[140px] w-[200px] rounded-xl `}
+          className={`${
+            !toggle ? "hidden" : "flex"
+          } p-6 bg-black/100 absolute top-20 right-0 mx-4 my-2 min-w-[140px] w-[200px] rounded-xl `}
         >
           <ul className="list-none flex justify-end items-start flex-1 flex-col">
             {navbar.map((nav, index) => (
               <li
                 key={nav.id}
-                className={`font-poppins font-medium cursor-pointer text-[16px] ${index === navbar.length - 1 ? "mb-0" : "mb-4"
-                  } 
+                className={`font-poppins font-medium cursor-pointer text-[16px] ${
+                  index === navbar.length - 1 ? "mb-0" : "mb-4"
+                }
                 ${active === nav.title ? "text-white" : "text-gray-500"}
                 }`}
                 onClick={() => {
