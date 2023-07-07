@@ -4,6 +4,7 @@ import * as dotenv from "dotenv";
 import sendWelcomeMail from "../services/mail.js";
 import CartList from "../models/cart.js";
 import userCustomerModel from "../models/userCustomer.js";
+import emailValidator from "email-validator"
 dotenv.config();
 
 const SECRET = process.env.CUSTOMER_USER;
@@ -73,16 +74,10 @@ export const register = async (req, res) => {
     }
 };
 
-const isValidEmail = async (email)=>{
-    const emailRegex = /^[^\s@]+@(?:gmail|yahoo|hotmail|aol|outlook)\.com$/;
-  const isValid = (emailRegex.test(email))?  true :  false;
-  return isValid;
-}
-
 export const deleteAccount = async (req, res)=>{
     const {email} = req.body;
 
-    if(!isValidEmail(email)){
+    if(!emailValidator.validate(email)){
         return res.status(400).json({ error: 'Invalid email' });
     }
     try{
