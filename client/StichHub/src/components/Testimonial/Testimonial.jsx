@@ -36,8 +36,6 @@ const Testimonial = () => {
           delay: 3000,
           disableOnInteraction: false,
         }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
       >
         {items.map((item, index) => {
           return (

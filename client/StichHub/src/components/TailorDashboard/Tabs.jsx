@@ -28,7 +28,6 @@ const Drag = () => {
       xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
           const result = JSON.parse(xhr.response);
-          console.log(result);
         }
       };
     }

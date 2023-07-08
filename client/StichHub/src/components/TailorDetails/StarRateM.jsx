@@ -11,7 +11,6 @@ function StarRateM(propsData) {
   //   propsData.propsData.item.rating
   // ); // To modify rating value in future
 
-  console.log(propsData.propsData);
   return (
     <div>
       <div className="justify-center items-center text-center">

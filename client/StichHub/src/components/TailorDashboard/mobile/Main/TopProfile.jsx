@@ -34,9 +34,8 @@ const TopProfile = (props) => {
   //   try {
   //     const res = await axios.get("/tailors/selected");
   //     setTailorDetails(res.data);
-  //     console.log(res.data);
   //   } catch (error) {
-  //     console.log(error.message);
+  //     console.error(error.message);
   //   }
   // }
 

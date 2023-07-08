@@ -15,7 +15,7 @@ const NewOrder = () => {
       setOrderList(res.data);
       // setIsLoading(false);
     } catch (err) {
-      console.log(err);
+      console.error(err);
       // setIsLoading(false);
     }
   };
@@ -35,10 +35,9 @@ const NewOrder = () => {
         { status: newStatus }
       );
 
-      console.log(res);
       setOrderStatus("hidden");
     } catch (error) {
-      console.log(error.message);
+      console.error(error.message);
     }
   };
   return (

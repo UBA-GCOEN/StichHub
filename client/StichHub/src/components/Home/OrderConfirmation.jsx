@@ -12,10 +12,9 @@ const OrderConfirmation = () => {
   const handleSubmit = async () => {
     try {
       const res = await axios.post("/order/request", orderDetails);
-      // console.log(res);
       navigateTo("/Orders");
     } catch (error) {
-      console.log(error.message);
+      console.error(error.message);
     }
   };
 

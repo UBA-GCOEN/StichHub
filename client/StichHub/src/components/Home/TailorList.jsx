@@ -23,7 +23,7 @@ const TailorList = ({ filters }) => {
       setFilterList(res.data)
       setIsLoading(false);
     } catch (err) {
-      console.log(err);
+      console.error(err);
       setIsLoading(false);
     }
   };
@@ -37,7 +37,6 @@ const TailorList = ({ filters }) => {
     const filterCategoryList = filterCategory(tailorList);
     const filterPriceList = filterPrice(filterCategoryList);
     const filterStarList = filterStar(filterPriceList);
-    console.log(filterStarList)
     setFilterList(filterStarList);
   }, [tailorList, filters]);
 

@@ -74,18 +74,16 @@ const Step3 = () => {
       const paymentData = { items:[{name: "Russian", price: "6000"}], email: 'sidd@test' };
       const res = await axios.post("/payment", paymentData);
 
-      // console.log(res.data);
-
       const result = await stripe.redirectToCheckout({
         sessionId: res.data.id,
       });
 
       if (result.error) {
-        console.log(result.error.message);
+        console.error(result.error.message);
       }
 
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 

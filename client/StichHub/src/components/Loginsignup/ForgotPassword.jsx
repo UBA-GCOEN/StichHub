@@ -28,10 +28,8 @@ const ForgotPassword = () => {
     setIsLoading(true);
     
     try {
-      console.log("@switchModetry");
       const  data = {email, "model" : userType}
       const res = await axios.post("/forgotpassword", data)
-      console.log(res);
       if(res.status===200){
           alert("email verified");
         }  
