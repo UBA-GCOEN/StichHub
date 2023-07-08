@@ -33,7 +33,7 @@ function PageContentM() {
           </div>
           {/* Div containing image of girl and background gradient */}
           <div className="relative flex w-screen p-4 text-center justify-center m-auto">
-            <img
+            <img loading="lazy"
               src={demo3d}
               className="relative z-[5] w-36 h-80" alt="a cartoon of a person"
             />

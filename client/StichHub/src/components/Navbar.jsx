@@ -43,6 +43,7 @@ export default function Navbar() {
   };
   return (
     <div className="bg-black ">
+
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
@@ -50,7 +51,7 @@ export default function Navbar() {
         <div className="flex lg:flex-1">
           <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Stichhub</span>
-            <img className="h-8 w-auto" src={Logo} alt="" />
+            <img className="h-8 w-auto" src={Logo} alt="" loading="lazy"/>
           </a>
         </div>
         <a
@@ -59,7 +60,6 @@ export default function Navbar() {
         >
           Home
         </a>
-
         <div className="flex lg:hidden">
           <button
             type="button"
@@ -216,7 +216,6 @@ export default function Navbar() {
                       <p className="mt-1 text-gray-600"></p>
                     </div>
                   </div>
-
                   <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
                     <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                       <svg
@@ -319,7 +318,7 @@ export default function Navbar() {
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Stichhub</span>
-                <img className="h-8 w-auto" src={Logo} alt="" />
+                <img className="h-8 w-auto" src={Logo} alt="" loading="lazy"/>
               </a>
               <button
                 type="button"
