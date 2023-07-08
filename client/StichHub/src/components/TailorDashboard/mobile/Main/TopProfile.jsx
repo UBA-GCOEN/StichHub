@@ -103,7 +103,7 @@ const TopProfile = (props) => {
       <div className="h-fit w-fit ml-[30%]">
         <div className="grid justify-items-end rounded-full mt-auto h-[70px] w-[70px] bg-cover bg-center">
         <div className="rounded-full h-[15px] w-[15px] bg-green-500"></div>
-          <img src={image} className="grid justify-items-end rounded-full mt-auto h-[70px] w-[70px] bg-cover bg-center" alt="blue profile photo of a person"/>
+          <img src={image} className="grid justify-items-end rounded-full mt-auto h-[70px] w-[70px] bg-cover bg-center" alt="blue profile photo of a person" loading="lazy"/>
           
         </div>
       </div>

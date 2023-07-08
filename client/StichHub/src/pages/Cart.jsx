@@ -410,7 +410,7 @@ const Cart = () => {
                         {items.orders.map((order, indexOrder) => {
                           return (
                             <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-                              {/* <img src={imr} className="h-[30%]" /> */}
+                              {/* <img loading="lazy" src={imr} className="h-[30%]" /> */}
                               <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                                 <div className="mt-5 sm:mt-0">
                                   <h2 className="text-lg font-bold text-gray-900">
@@ -528,7 +528,7 @@ const Cart = () => {
                   </div>
                 </div>
                 {/* image */}
-                <img
+                <img loading="lazy"
                   src={im}
                   className="hidden lg:block w-[20%] ml-[600px] absolute" alt="a cellphone with a credit card and gift boxes"
                 />
@@ -605,7 +605,7 @@ const Cart = () => {
                           value={99}
                           onChange={handleChangeFinal}
                         />
-                        <img
+                        <img loading="lazy"
                           src="https://cdn.iconscout.com/icon/free/png-256/fedex-1-282177.png"
                           className=" lg:w-[17%] sm:w-[17%]" alt="a company logo with text fedex"
                         />
@@ -639,7 +639,7 @@ const Cart = () => {
                           value={79}
                           onChange={handleChangeFinal}
                         />
-                        <img
+                        <img loading="lazy"
                           src="https://cdn-icons-png.flaticon.com/512/726/726455.png"
                           className=" lg:w-[10%] sm:w-[10%]" alt="a red and yellow truck"
                         />
@@ -677,11 +677,11 @@ const Cart = () => {
                     Next
                   </button>
                 </div>
-                <img
+                <img loading="lazy"
                   src={el}
                   className="h-[30%] absolute float-right right-0 " alt="a black and purple background"
                 />
-                <img
+                <img loading="lazy"
                   src={el2}
                   className="h-[30%] absolute float-left left-0 " alt="a black and blue gradient"
                 />
@@ -917,11 +917,11 @@ const Cart = () => {
                     </div>
                   </div>
                 </div>
-                <img
+                <img loading="lazy"
                   src={img}
                   className="hidden left-[-6%] absolute h-auto top-[100%] lg:block" alt="a cartoon character riding a yellow scooter"
                 />
-                <img
+                <img loading="lazy"
                   src={ime}
                   alt="a cartoon character riding a yellow scooter"
                   className="hidden lg:block absolute top-[95%] h-[35%] right-[10%]  "
@@ -935,7 +935,7 @@ const Cart = () => {
                   id="body"
                   className=" text-center lg:pl-[10%] md:grid-cols-1 gap-4 justify-center "
                 >
-                  <img
+                  <img loading="lazy"
                     src={se}
                     className=" hidden lg:block flex absolute lg:left-0  mt-20 w-[30%] sm:w-[40]% sm:right-0" alt="a cartoon character holding a glowing shield"
                   />

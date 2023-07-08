@@ -22,7 +22,7 @@ const FabricCard = (prop) => {
     <div>
       <div className="relative border-2 border-cyan-300 h-max w-52 rounded-2xl p-4 m-2 text-center justify-center items-center ">
         <div className="mx-auto w-32 h-32">
-          <img src={prop.adrs} alt={props.head+" "+props.tail}/>
+          <img src={prop.adrs} alt={props.head+" "+props.tail} loading="lazy"/>
         </div>
         <div>
           <h2 className="text-3xl font-semibold m-2 p-2">{prop.head}</h2>
