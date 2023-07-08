@@ -2,33 +2,15 @@ import {React, useState} from "react";
 import { Navbar, FilterSection, TailorList, Features, CustomerOrder } from "../components/Home/index.js";
 
 const Home = () => {
-  const [filter, setFilter] = useState({category: false, price: [], rating:[]});
+  const [filter, setFilter] = useState({category: false, price: false, rating:false});
   const clearFilter = () => {
-    setFilter({category: false, price: [], rating:[]})
+    setFilter({category: false, price: false, rating:false})
   };
   const handleChange = (e)=>{
     const {name, value} = e.target;
-    if(name !== "category"){
-      if(e.target.checked){
-        setFilter((prev)=>{
-          return {
-            ...prev,
-            [name]: [...filter[name], value] 
-          }
-        })
-      }else{
-        setFilter((prev)=>{
-          return {
-            ...prev,
-            [name]: filter[name].filter((item)=>item!==value)
-          }
-        })
-      }
-    }else{
       setFilter((prev)=>{
-        return {...prev, category: value}
-      })
-    }
+        return {...prev, [name]: value}
+      }) 
   }
 
   return (

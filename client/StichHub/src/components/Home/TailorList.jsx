@@ -57,25 +57,26 @@ const TailorList = ({ filters }) => {
   }
 // Filter for findin max and min price
   const filterMinMaxRange = () => {
-    const numArray = [];
-    filters.price.map((value) => {
-      const word = value.split(" ");
-      word.forEach((num) => {
-        if (!isNaN(parseInt(num)) && !numArray.includes(parseInt(num))) {
-          numArray.push(parseInt(num));
-        }
-      });
-    });
-    return [Math.min(...numArray), Math.max(...numArray)];
+    const minMax = filters.price.split(" - ");
+    console.log(minMax)
+    let min = parseInt(minMax[0]);
+    let max = parseInt(minMax[1])
+    if(isNaN(min)){
+      if(minMax[0] === "max"){
+        min = 0;
+      }else{
+        min = max;
+        max = null;
+      }
+    }
+    console.log([min, max])
+    return [min, max];
   };
 
   // Filter for checking whether tailor range is in the selected range or not
   const isInRange = (tailor) => {
     let minMaxVal = filterMinMaxRange();
-    minMaxVal[0] === 1000 && minMaxVal[1] === 1000
-      ? (minMaxVal = [0, 1000])
-      : null;
-    minMaxVal[0] === 15000 && minMaxVal[1] === 15000
+    minMaxVal[0] === 15000 && minMaxVal[1] === null
       ? (minMaxVal = [15000, Infinity])
       : null;
     if (
@@ -89,7 +90,7 @@ const TailorList = ({ filters }) => {
   // Filter for price
   const filterPrice = (list) => {
     let pricelist;
-    if (filters.price.length !== 0) {
+    if (filters.price) {
       pricelist = list.filter(function (tailor) {
         if (tailor.prizerange.length !== 0) {
           const inRange = isInRange(tailor);
@@ -103,10 +104,10 @@ const TailorList = ({ filters }) => {
   // Filter for Ratings
   const filterStar = (list) => {
     let starlist;
-    if (filters.rating.length !== 0) {
-      let stateRatings = filters.rating.map((val) => parseInt(val));
+    if (filters.rating) {
+      let stateRatings = parseInt(filters.rating)
       starlist = list.filter(function (tailor) {
-        if (stateRatings.includes(parseInt(tailor.rating))) {
+        if (parseInt(tailor.rating) >= stateRatings) {
           return tailor;
         }
       });
