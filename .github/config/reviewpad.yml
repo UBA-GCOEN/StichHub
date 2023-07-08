@@ -11,6 +11,23 @@ labels:
     description: "Pull request with more than 30 changed lines"
     color: "8a2138"
 
+rules:
+  - name: check-for-file-name
+    description: Checks for the correct author
+    spec: $hasFileName($sprintf("data/%v.json", [$author()]))
+
+  - name: modifies-only-one-file
+    spec: $fileCount() == 1
+
+  - name: check-for-profile-addition
+    spec: $rule("check-for-file-name") && $rule("modifies-only-one-file")
+
+  - name: check-for-linked-issues
+    spec: $hasLinkedIssues() == false
+
+  - name: check-for-status-block
+    spec: $rule("check-for-profile-addition") == false && $rule("check-for-linked-issues")
+
 workflows:
   - name: label-pull-request-with-size
     always-run: true
@@ -38,4 +55,48 @@ workflows:
       - rule: $pullRequestCountBy($author(), "all") == 10
         extra-actions:
           - $addLabel("kudos")
-          - $info("Kudos for your 10th pull request! You are awesome💖")
+          - $info("Kudos for your 10th pull request! You are awesome")
+
+  - name: waiting-for-reviewers
+    always-run: true
+    if:
+      - rule: $reviewers() == []
+        extra-actions:
+          - '$info("A maintainer will review your pull request soon!")'
+          - '$addLabel("waiting-for-reviewers")'
+
+  - name: add-label-for-chore-profile-addition
+    always-run: true
+    if:
+      - rule: $hasFilePattern("data/**")
+    then:
+      - '$addLabel("✍ chore: profile")'
+
+  - name: chore-profile-addition
+    description: Automates profile addition
+    always-run: true
+    if:
+      - rule: check-for-profile-addition
+    then:
+      - '$addLabel("LGTM")'
+
+  - name: add-label-for-tests
+    always-run: true
+    if:
+      - rule: $hasFilePattern("tests/**")
+    then:
+      - '$addLabel("tests")'
+
+  - name: add-label-for-storybook
+    always-run: true
+    if:
+      - rule: $hasFilePattern("stories/**")
+    then:
+      - '$addLabel("storybook")'
+
+  # - name: label-pull-request-with-block-status
+  #   always-run: true
+  #   if:
+  #     - rule: check-for-status-block
+  #   then:
+  #     - '$addLabel("🚧 status: blocked")'
