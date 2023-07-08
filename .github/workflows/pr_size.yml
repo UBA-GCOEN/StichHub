@@ -19,5 +19,4 @@ jobs:
       - name: Reviewpad
         uses: reviewpad/action@v3.x
         with:
-          # Uncomment next line to use your own configuration file 💪
           file: .github/config/reviewpad.yml
