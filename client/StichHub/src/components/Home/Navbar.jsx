@@ -37,7 +37,7 @@ const Navbar = () => {
         {/* Logo */}
         <div className="flex mt-2">
           <a href="/" className="ml-5">
-            <img src={logo} alt="logo with text that says StichHub stitch your way" className="w-[120px] sm:w-[140px]" />
+            <img src={logo} alt="logo with text that says StichHub stitch your way" className="w-[120px] sm:w-[140px]" loading="lazy"/>
           </a>
         </div>
 
@@ -64,7 +64,7 @@ const Navbar = () => {
                 className="rounded-full w-9 cursor-pointer"
                 onClick={() => setToggle(!toggle)}>
                 {user?.result.picture ? (
-                  <img src={user?.result.picture} className="rounded-full" alt={user?.result.name || 'user image'} />
+                  <img src={user?.result.picture} className="rounded-full" alt={user?.result.name || 'user image'} loading="lazy"/>
                 ) : (
                   <div className="w-9 bg-indigo-600 rounded-full h-9 text-white text-center text-2xl">
                     {user?.result.name.charAt(0)}

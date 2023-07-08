@@ -511,7 +511,7 @@ const Result = (props) => {
           />
           <br />
           <button className="bg-yellow-400 text-black font-bold mt-3 w-[15%] lg:w-[4%] rounded-md items-self-center">
-            <img
+            <img loading="lazy"
               className=""
               src="https://images.squarespace-cdn.com/content/v1/5c38d342e2ccd16874962329/1555870468349-36N6I1DQ4711MNPG0ZQ0/blog+bw+trans.png" alt="a black and white pencil"
             />
@@ -717,7 +717,7 @@ const Manual = (props) => {
                   too tight, and record the measurement in inches or
                   centimeters.
                 </p>
-                <img src="" alt="Bust Measurement" className="mt-4" />
+                <img loading="lazy" src="" alt="Bust Measurement" className="mt-4" />
               </div>
               <div>
                 <h2 className="text-lg font-medium mb-2">
@@ -728,7 +728,7 @@ const Manual = (props) => {
                   your torso between your ribs and your hips. Keep the measuring
                   tape snug but not too tight, and record the measurement.
                 </p>
-                <img
+                <img loading="lazy"
                   src="https://images.tailorstore.com/YToyOntzOjU6IndpZHRoIjtzOjQ6IjIwMDAiO3M6NjoiaGVpZ2h0IjtzOjA6IiI7fQ%3D%3D/images/cms/ts-measurements-guide-waist.jpg"
                   alt="An illustration showing a person measuring their waist"
                   className="mt-4"
@@ -743,7 +743,7 @@ const Manual = (props) => {
                   your buttocks. Keep the measuring tape parallel to the floor,
                   and record the measurement.
                 </p>
-                <img src="" alt="Hips Measurement" className="mt-4" />
+                <img loading="lazy" src="" alt="Hips Measurement" className="mt-4" />
               </div>
               <div>
                 <h2 className="text-lg font-medium mb-2">
@@ -754,7 +754,7 @@ const Manual = (props) => {
                   bone. Stand straight and keep your feet together, and record
                   the measurement.
                 </p>
-                <img
+                <img loading="lazy"
                   src="https://images.tailorstore.com/YToyOntzOjU6IndpZHRoIjtzOjQ6IjIwMDAiO3M6NjoiaGVpZ2h0IjtzOjA6IiI7fQ%3D%3D/images/cms/ts-measurements-guide-inseam-pants.jpg"
                   alt="Illustration measuring the inseam of pants"
                   className="mt-4"
@@ -770,17 +770,17 @@ const Manual = (props) => {
                   Follow the pattern or instructions you're using and record the
                   measurements accordingly.
                 </p>
-                <img
+                <img loading="lazy"
                   src="https://images.tailorstore.com/YToyOntzOjU6IndpZHRoIjtzOjQ6IjIwMDAiO3M6NjoiaGVpZ2h0IjtzOjA6IiI7fQ%3D%3D/images/cms/ts-measurements-guide-shirtlength.jpg"
                   alt="A visual guide demonstrating how to measure shirt length."
                   className="mt-4"
                 />
-                <img
+                <img loading="lazy"
                   src="https://images.tailorstore.com/YToyOntzOjU6IndpZHRoIjtzOjQ6IjIwMDAiO3M6NjoiaGVpZ2h0IjtzOjA6IiI7fQ%3D%3D/images/cms/ts-measurements-guide-shoulder.jpg"
                   alt="A person measuring the shoulder width using a tape measure"
                   className="mt-4"
                 />
-                <img
+                <img loading="lazy"
                   src="https://images.tailorstore.com/YToyOntzOjU6IndpZHRoIjtzOjQ6IjIwMDAiO3M6NjoiaGVpZ2h0IjtzOjA6IiI7fQ%3D%3D/images/cms/ts-measurements-guide-wrist.jpg"
                   alt="An image of a person's wrist being measured with a measuring tape."
                   className="mt-4"

@@ -7,7 +7,7 @@ function CardiM(props) {
         <div className="flex w-20 h-20 items-center justify-center text-center m-auto leading-tight ">
           {/* Icon for the feature */}
 
-          <img
+          <img loading="lazy"
             className="p-1 rounded-xl w-4/5 "
             src={props.adrs}
             alt={props.head+" "+props.tail}

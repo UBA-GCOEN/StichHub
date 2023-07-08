@@ -18,7 +18,7 @@ const OngoingOrders = () => {
                 id="button"
                 className="mb-1 mt-[5%] flex bg-white text-black w-fit p-2 rounded-full"
               >
-                <img src={View} className="mr-3 ml-1 w-[15px]" alt="icon of 3d cube"/>
+                <img src={View} className="mr-3 ml-1 w-[15px]" alt="icon of 3d cube" loading="lazy"/>
                 <span className="text-xs font-semibold cursor-pointer">
                   See in your room
                 </span>
@@ -42,7 +42,7 @@ const OngoingOrders = () => {
                 </div>
 
                 <div class="flex justify-self-start items-center space-x-4">
-                  <img
+                  <img loading="lazy"
                     class="w-9 h-9 rounded-full"
 
                     src="./src/assets/img/jonathan.webp"
@@ -72,7 +72,7 @@ const OngoingOrders = () => {
                 </div>
 
                 <div className="grid grid-flow-col grid-cols-[10%_90%]">
-                  <img
+                  <img loading="lazy"
                     className="grid place-items-center h-8 w-8"
                     src="https://img.icons8.com/sf-regular-filled/48/undefined/clothes.png" alt="icons of white shirt"
                   />
@@ -126,7 +126,7 @@ const OngoingOrders = () => {
               >
                 <div className=" flex flex-row justify-self-center">
                   CONTINUE TO STITCH
-                  <img
+                  <img loading="lazy"
                     className="h-5 w-5"
                     src="https://img.icons8.com/ios-filled/50/C3B9B9/needle.png" alt="illustration of a silver needle with a pointed tip"
                   />

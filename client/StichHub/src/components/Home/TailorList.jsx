@@ -146,7 +146,7 @@ const TailorList = ({ filters }) => {
             {/* Top Display */}
             <div className="flex justify-between">
               <div>
-                <img
+                <img loading="lazy"
                   src={
                     item.passport.length
                       ? item.passport
