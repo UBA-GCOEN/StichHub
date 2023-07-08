@@ -38,4 +38,4 @@ workflows:
       - rule: $pullRequestCountBy($author(), "all") == 10
         extra-actions:
           - $addLabel("kudos")
-          - $info("Kudos for your 10th pull request! You are awesome")
+          - $info("Kudos for your 10th pull request! You are awesome💖")
