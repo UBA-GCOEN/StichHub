@@ -18,8 +18,8 @@ jobs:
           script: |
             const issue = context.issue;
             const checkboxes = context.payload.issue.body.match(/- \[x\] ([^\n]+)/g);
-            const hasGSSOCContributor = checkboxes.some(c => c.includes("I'm a GSSOC'23 contributor"));
-            const wantsToWorkOnIssue = checkboxes.some(c => c.includes("I want to work on this issue"));
+            const hasGSSOCContributor = checkboxes.includes(c => c.includes("I'm a GSSOC'23 contributor"));
+            const wantsToWorkOnIssue = checkboxes.includes(c => c.includes("I want to work on this issue"));
 
             console.log(`Has GSSOC Contributor: ${hasGSSOCContributor}`);
             console.log(`Wants to work on issue: ${wantsToWorkOnIssue}`);
