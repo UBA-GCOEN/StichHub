@@ -16,7 +16,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const issue = context.issue;
+            const issue = context.payload.issue;
+            const body = issue.body ? issue.body.toLowerCase() : '';
             const checkboxes = context.payload.issue.body.match(/- \[x\] ([^\n]+)/g);
             const hasGSSOCContributor = checkboxes.includes(c => c.includes("I'm a GSSOC'23 contributor"));
             const wantsToWorkOnIssue = checkboxes.includes(c => c.includes("I want to work on this issue"));
