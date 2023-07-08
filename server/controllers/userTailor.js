@@ -30,7 +30,7 @@ export const signin = async (req, res) => {
     res.status(200).json({ result: oldUser, token });
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" });
-    console.log(error);
+    console.error(error);
   }
 };
 
@@ -60,7 +60,7 @@ export const register = async (req, res) => {
     res.status(201).json({ result, token });
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" });
-    console.log(error);
+    console.error(error);
   }
 };
 

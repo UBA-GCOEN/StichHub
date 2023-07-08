@@ -11,7 +11,6 @@ const Transporter = nodemailer.createTransport({
 });
 
 const sendWelcomeMail = async (name, email) => {
-  // console.log(name, email, SOURCE_EMAIL);
   let info = await Transporter.sendMail({
     from: SOURCE_EMAIL,
     to: email,
@@ -32,7 +31,6 @@ const sendWelcomeMail = async (name, email) => {
       Best regards,<br/>
       The StichHub Team<br/>`,
   });
-  // console.log(info);
 };
 
 export default sendWelcomeMail;
