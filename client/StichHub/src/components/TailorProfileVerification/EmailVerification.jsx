@@ -23,13 +23,15 @@ const EmailVerification = () => {
     useEffect(() => {
       
       getMySelf();
-      console.log(tailorDetails)
+      // console.log(tailorDetails)
       
     },[])
     useEffect(() => {
       
-     
-      console.log(tailorDetails)
+     if(!tailorDetails){
+      return ;
+     }
+      // console.log(tailorDetails)
       if(tailorDetails && tailorDetails.tailorUser.isVerified){
         navigateTo("/TailorDashboard")
       }

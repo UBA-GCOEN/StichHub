@@ -30,7 +30,7 @@ const sendEmail = async (options) => {
     }
   });
 
-  console.log(mailInfo);
+  // console.log(mailInfo);
 };
 
 export default sendEmail;

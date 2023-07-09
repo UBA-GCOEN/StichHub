@@ -32,7 +32,7 @@ const AuthTailor = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSumbmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
@@ -54,8 +54,11 @@ const AuthTailor = () => {
           navigateTo("/TailorDashboard")
         }
     } catch (error) {
-      setError(error.response.data.message);
-      setIsLoading(false);
+      if(error){
+
+        setError(error.response.data.message);
+        setIsLoading(false);
+      }
     }
   };
 
@@ -139,7 +142,7 @@ const AuthTailor = () => {
 
           {/* form */}
           <div className="flex justify-center">
-            <form onSubmit={handleSumbmit}>
+            <form onSubmit={ handleSubmit}>
               {isregister && (
                 <div>
                   <svg
@@ -271,6 +274,7 @@ const AuthTailor = () => {
                   {isregister ? "Register" : "Sign in"}
                 </button>
               </div>
+          
 
               <h1 className="text-center text-white text-xl py-1">or</h1>
 

@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import base64url from "base64url";
 import * as dotenv from "dotenv";
 dotenv.config();
 

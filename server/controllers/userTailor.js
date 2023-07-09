@@ -30,7 +30,9 @@ export const signin = async (req, res) => {
 
     if (!oldUser.isVerified) {
       const token = generateToken(oldUser, SECRET, "300s");
-      const url = `http://localhost:5173/verify-email/${token}`;
+
+      // const url = `http://localhost:5173/verify-email/${token}`;
+      const url = `http://localhost:5173/verify-email?token=${token}`;
 
       const options = {
         name: oldUser.name,
@@ -54,7 +56,7 @@ export const signin = async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" });
-    console.log(error);
+    // console.log(error);
   }
 };
 
@@ -64,103 +66,102 @@ export const signin = async (req, res) => {
  */
 export const register = async (req, res) => {
   const { name, email, password, confirmPassword } = req.body;
-  const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$%#^&*])(?=.*[0-9]).{8,}$/;
-  const emailDomains = [
-    "gmail.com",
-    "yahoo.com",
-    "hotmail.com",
-    "aol.com",
-    "outlook.com",
-  ];
+  // const passwordRegex =
+  //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$%#^&*])(?=.*[0-9]).{8,}$/;
+  // const emailDomains = [
+  //   "gmail.com",
+  //   "yahoo.com",
+  //   "hotmail.com",
+  //   "aol.com",
+  //   "outlook.com",
+  // ];
 
-  if (name.length < 6) {
-    return res
-      .status(404)
-      .json({ message: "Name must be atleast 6 characters long." });
-  }
+  // if (name.length < 6) {
+  //   return res
+  //     .status(404)
+  //     .json({ message: "Name must be atleast 6 characters long." });
+  // }
 
-  if (!passwordRegex.test(password)) {
-    return res.status(404).json({
-      message:
-        "Password must be at least 8 characters long and include at least 1 uppercase letter, 1 lowercase letter, 1 symbol (@$%#^&*), and 1 number (0-9)",
-    });
-  }
+  // if (!passwordRegex.test(password)) {
+  //   return res.status(404).json({
+  //     message:
+  //       "Password must be at least 8 characters long and include at least 1 uppercase letter, 1 lowercase letter, 1 symbol (@$%#^&*), and 1 number (0-9)",
+  //   });
+  // }
 
-  if (!emailDomains.some((v) => email.indexOf(v) >= 0)) {
-    return res.status(404).json({
-      message: "Please enter a valid email address",
-    });
-    try {
-      if (!name || !email || !password || !confirmPassword) {
-        return res.status(500).json({
-          success: false,
-          message: "Please Fill all the Details.",
-        });
-      }
-      const oldUser = await userTailorModel.findOne({ email });
-
-      if (oldUser)
-        return res.status(404).json({
-          success: false,
-          message: "User already exist",
-        });
-
-      if (password !== confirmPassword)
-        return res.status(404).json({
-          success: false,
-          message: "Password doesn't Match",
-        });
-
-      const hashedPassword = await bcrypt.hash(password, 12);
-
-      const result = await userTailorModel.create({
-        name,
-        email,
-        password: hashedPassword,
-        mobile,
-      });
-
-      // sending verification email after user creation
-      if (result) {
-        const token = encodeURIComponent(generateToken(result, SECRET, "300s"));
-        const url = `http://localhost:5173/verify-email/${token}`;
-
-        const options = {
-          name: result.name,
-          email: result.email,
-          subject: "Verify Email",
-          message_Content:
-            "<p> Hi " +
-            result.name +
-            ",<br /> Please verify your Tailor StichHub Account by clicking on the verification link. This Verification link is valid for 5:00 minutes <br /> <a href =" +
-            url +
-            " >Verify</a></p> ",
-        };
-        await sendEmail(options);
-      }
-      const token = generateToken(result, SECRET);
-
-      res.status(201).json({
-        success: true,
-        message:
-          "Tailor User Registered Successfully.Please Verify your Email.",
-        result,
-        token,
-      });
-      let userName = name.split(" ")[0];
-      await sendWelcomeMail(userName, email);
-
-      res.status(201).json({ result, token });
-    } catch (error) {
-      res.status(500).json({
+  // if (!emailDomains.some((v) => email.indexOf(v) >= 0)) {
+  //   return res.status(404).json({
+  //     message: "Please enter a valid email address",
+  //   });
+  try {
+    if (!name || !email || !password || !confirmPassword) {
+      return res.status(404).json({
         success: false,
-        message: "Something went wrong",
+        message: "Please Fill all the Details.",
       });
-      console.log(error);
     }
+    const oldUser = await userTailorModel.findOne({ email });
+
+    if (oldUser)
+      return res.status(404).json({
+        success: false,
+        message: "User already exist",
+      });
+
+    if (password !== confirmPassword)
+      return res.status(404).json({
+        success: false,
+        message: "Password doesn't Match",
+      });
+
+    const hashedPassword = await bcrypt.hash(password, 12);
+
+    const result = await userTailorModel.create({
+      name,
+      email,
+      password: hashedPassword,
+      // mobile,
+    });
+
+    // sending verification email after user creation
+    if (result) {
+      const token = generateToken(result, SECRET, "300s");
+      const url = `http://localhost:5173/verify-email?token=${token}`;
+
+      const options = {
+        name: result.name,
+        email: result.email,
+        subject: "Verify Email",
+        message_Content:
+          "<p> Hi " +
+          result.name +
+          ",<br /> Please verify your Tailor StichHub Account by clicking on the verification link. This Verification link is valid for 5:00 minutes <br /> <a href =" +
+          url +
+          " >Verify</a></p> ",
+      };
+      await sendEmail(options);
+    }
+    const token = generateToken(result, SECRET);
+
+    res.status(201).json({
+      success: true,
+      message: "Tailor User Registered Successfully.Please Verify your Email.",
+      result,
+      token,
+    });
+    // let userName = name.split(" ")[0];
+    // await sendWelcomeMail(userName, email);
+
+    // res.status(201).json({ result, token });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Something went wrong",
+    });
+    // console.log(error);
   }
 };
+// };
 /**
  * Route : /userTailor/verify
  * Description : Verify email using token sent to mail
@@ -172,7 +173,7 @@ export const verifyEmail = async (req, res) => {
 
     // verify and decodes the token
     const decodedUser = await jwt.verify(token, SECRET);
-    console.log(decodedUser);
+    // console.log(decodedUser);
     // getting user using decoded data
     const tailorUser = await userTailorModel.findOne({ _id: decodedUser.id });
     // console.log(tailorUser);
@@ -221,7 +222,7 @@ export const resendVerificationLink = async (req, res) => {
     }
 
     const token = generateToken(tailorUser, SECRET, "300s");
-    const url = `http://localhost:5173/verify-email/${token}`;
+    const url = `http://localhost:5173/verify-email?token=${token}`;
 
     const options = {
       name: tailorUser.name,

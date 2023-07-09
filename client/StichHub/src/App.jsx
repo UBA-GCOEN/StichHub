@@ -52,16 +52,22 @@ function App() {
      // console.log(res.data.tailorUser)
      setTailorDetails( data)
     } catch (error) {
-     data = error.response.data;
-     setTailorDetails({...tailorDetails , data})
-    console.log(error)
+    //  data = error.response.data;
+    //  setTailorDetails({...tailorDetails , data})
+    // console.log(error)
+    alert("Unauthorize")
+    localStorage.clear();
+    navigateTo("/")
     }
      
 
    }
   
   useEffect( () => {
-    getMySelf();
+    if(userTailor){
+
+      getMySelf();
+    }
      console.log(tailorDetails)
     setUserCustomer(JSON.parse(localStorage.getItem("profile")));
     setUserTailor(JSON.parse(localStorage.getItem("tailorProfile")));
@@ -141,7 +147,8 @@ function App() {
           {/* <Route path = "/verifyemail/:token" element = {<EmailVerifying />} />
           <Route exact path="/email/verification" element = {<EmailVerification />} /> */}
           <Route path="/verification" element={<EmailVerification  />} />
-          <Route path="/verify-email/:token" element={<Verify />} />
+          {/* <Route path="/verify-email/:token" element={<Verify />} /> */}
+          <Route path="/verify-email" element={<Verify />} />
           {/* Customer Side */}
           <Route
             path="/home"

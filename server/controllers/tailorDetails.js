@@ -55,7 +55,6 @@ export const getTailorList = async (req, res) => {
   }
 };
 
-
 /**
  * MEthod : PUT
  * Route : tailors/update/profile
@@ -64,16 +63,16 @@ export const getTailorList = async (req, res) => {
 export const updateTailorProfile = async (req, res) => {
   try {
     const newDetails = req.body;
-    console.log(newDetails);
+    // console.log(newDetails);
     const previousDetails = await TailorList.findOne({ creator: req.userId });
-    console.log(previousDetails);
+    // console.log(previousDetails);
     const updatedData = await TailorList.findByIdAndUpdate(
       previousDetails._id,
       newDetails,
       { new: true }
     );
 
-    console.log(updatedData);
+    // console.log(updatedData);
 
     res.status(200).json({
       success: true,
@@ -88,16 +87,14 @@ export const updateTailorProfile = async (req, res) => {
   }
 };
 
-export const getSpecificTailor = async(req, res) => {
-    const userId = req.userId;
-    try {
-        const tailor = await TailorList.findOne({creator: userId});
-        res.status(200).json(tailor);
-    } catch(error) {
-        res.status(400).json({message: error.message});
-    }
-    
-}
-
+export const getSpecificTailor = async (req, res) => {
+  const userId = req.userId;
+  try {
+    const tailor = await TailorList.findOne({ creator: userId });
+    res.status(200).json(tailor);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
 
 export default router;
