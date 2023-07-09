@@ -37,13 +37,11 @@ function GetList({text}) {
 
         {/* Image Part */}
         <div className="w-2/5">
-
-          <img src={img} className="h-90" />
-
-          <img
-            src={img}
-            className="h-90" alt="a cartoon character pointing at a store"
-          />
+        <img src={img} className="h-90" loading="lazy"/>
+        <img
+          src={img}
+          className="h-90" alt="a cartoon character pointing at a store" loading="lazy"
+        />
 
         </div>
       </div>

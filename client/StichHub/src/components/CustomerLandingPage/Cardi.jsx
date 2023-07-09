@@ -7,7 +7,7 @@ function Cardi(props) {
         <div className="flex w-20 h-20 items-center justify-center text-center mx-auto">
           {/* Icon for the feature */}
 
-          <img
+          <img loading="lazy"
             className="p-2 rounded-xl w-4/5 "
             src={props.adrs}
             alt={props.head+" "+props.tail}

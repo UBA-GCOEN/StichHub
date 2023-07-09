@@ -12,7 +12,6 @@ export const addOrder = async (req, res) => {
   try {
     const isTailor = await OrderList.find({ tailorId: order.tailorId });
 
-    // console.log(isTailor);
 
     if (isTailor.length > 0) {
       await OrderList.updateOne(
@@ -43,7 +42,7 @@ export const addOrder = async (req, res) => {
     }
   } catch (error) {
     res.status(409).json({ error: error.message });
-    console.log(error);
+    console.error(error);
   }
 };
 

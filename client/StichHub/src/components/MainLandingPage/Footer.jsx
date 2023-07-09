@@ -45,7 +45,7 @@ const Footer = () => {
           <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
               <a href="/" class="flex items-center">
-          <img src={logo} alt="logo with text that says StichHub stitch your way" className="w-48 cursor-pointer" />
+          <img src={logo} alt="logo with text that says StichHub stitch your way" className="w-48 cursor-pointer" loading="lazy"/>
               </a>
               <span class="self-center text-sm whitespace-nowrap text-semibold text-white dark:text-white mr-7">
                 We Bridges the gap between tailors and <br />
