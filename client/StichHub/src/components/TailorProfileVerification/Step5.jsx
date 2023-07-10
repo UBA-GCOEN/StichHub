@@ -58,7 +58,7 @@ const Step5 = () => {
         </h1>
       </div>
       <div className="mt-[-5%] bottom-14 lg:gright-20 absolute opacity-20  lg:opacity-100">
-        <img src={Speciality} />
+        <img loading="lazy" src={Speciality} />
       </div>
 
       <div className="ml-[15%] w-[70%] lg:w-[50%] h-auto bg-white bg-opacity-10 rounded-xl p-[2%] grid grid-cols-1 gap-3 pl-[5%] pr-30 ">

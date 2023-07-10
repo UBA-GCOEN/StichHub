@@ -4,7 +4,6 @@ dotenv.config();
 
 const SECRET = process.env.CUSTOMER_USER;
 
-// console.log(SECRET);
 
 const authCustomer = async (req, res, next) => {
   try {
@@ -23,7 +22,7 @@ const authCustomer = async (req, res, next) => {
 
     next();
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 

@@ -1,15 +1,15 @@
 import React from "react";
 import Button from "./Button";
-import img from "../../assets/CustomerLandingPage/Group 1000001620.png";
+import img from "../../assets/CustomerLandingPage/Group 1000001620.webp";
 
 function GetListM() {
   return (
     <div className="h-screen text-center m-2 p-2">
       {/* Image Part */}
       <div className="w-full text-center justify-center">
-        <img
+        <img loading="lazy"
           src={img}
-          className="h-90"
+          className="h-90" alt="a cartoon character pointing at a store"
         />
       </div>
       <div className="flex">

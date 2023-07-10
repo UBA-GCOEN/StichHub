@@ -9,11 +9,11 @@ const user = {
 const Step6 = () => {
   return (
 <div>
-      <img
+      <img loading="lazy"
         src={Verified}
         className="hidden lg:block right-24 absolute w-[30%] h-[60%] "
       />
-      <img
+      <img loading="lazy"
         src={Verified}
         className="opacity-20 right-0 bottom-[300px] w-[55%] h-[35%] lg:opacity-100 lg:right-24 absolute lg:w-[30%] lg:h-[60%] lg:hidden"
       />

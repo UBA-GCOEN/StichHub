@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import axios from "../../axios.js";
 import { Player } from "@lottiefiles/react-lottie-player";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "../../axios.js";
 import Navbar from "./Navbar.jsx";
 
-import Footer from "../MainLandingPage/Footer.jsx";
-import OrderConfirmation from "./OrderConfirmation.jsx";
 
 const CustomerOrder = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
@@ -22,7 +20,6 @@ const CustomerOrder = () => {
     try {
       const res = await axios.get(`order/request/customer`);
       setOrders(res.data);
-      console.log(res.data);
     } catch (error) {
       console.error(error.message);
     }
@@ -31,7 +28,6 @@ const CustomerOrder = () => {
   const handleSubmit = async (e, order, tailorId, orderId) => {
     setIsLoading(true);
     try {
-      console.log(order);
       await axios.post(`/cart/${orderId}/${tailorId}`, order);
       setIsLoading(false);
       navigateTo("/Cart");
@@ -71,10 +67,10 @@ const CustomerOrder = () => {
       <div className="max-w-2xl mx-auto pt-16 sm:py-24 sm:px-6 lg:max-w-2xl lg:px-8">
         <div className="px-4 space-y-2 sm:px-0 sm:flex sm:items-baseline sm:justify-between sm:space-y-0">
           <div className=" sm:items-baseline sm:space-x-4">
-            <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-xl">
+            <h1 className="text-2xl font-extrabold tracking-tight text-white sm:text-xl pb-2 md:pl-4">
               Your Recent Order Acceptance Status
             </h1>
-            <p className="text-gray-500 ml-0 text-left ">
+            <p className="text-gray-400">
               if your order acceptance status is not changing, then please try
               to{" "}
               <button className="text-red-500 hover:text-red-800 hover:underline ">
@@ -95,7 +91,7 @@ const CustomerOrder = () => {
                         <div className="py-6 px-4 sm:px-6 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:p-8">
                           <div className="sm:flex lg:col-span-12">
                             <div className="flex-shrink-0 w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden sm:aspect-none sm:w-40 sm:h-40">
-                              <img
+                              <img loading="lazy"
                                 src="https://tailwindui.com/img/ecommerce-images/confirmation-page-04-product-02.jpg"
                                 alt="Off-white t-shirt with circular dot illustration on the front of mountain ridges that fade."
                                 className="object-center object-cover"

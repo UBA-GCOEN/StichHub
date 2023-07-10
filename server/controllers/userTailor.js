@@ -56,7 +56,8 @@ export const signin = async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" });
-    // console.log(error);
+
+    console.error(error);
   }
 };
 
@@ -65,6 +66,7 @@ export const signin = async (req, res) => {
  * Description : Tailor Registration
  */
 export const register = async (req, res) => {
+
   const { name, email, password, confirmPassword } = req.body;
   // const passwordRegex =
   //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$%#^&*])(?=.*[0-9]).{8,}$/;
@@ -88,6 +90,7 @@ export const register = async (req, res) => {
   //       "Password must be at least 8 characters long and include at least 1 uppercase letter, 1 lowercase letter, 1 symbol (@$%#^&*), and 1 number (0-9)",
   //   });
   // }
+
 
   // if (!emailDomains.some((v) => email.indexOf(v) >= 0)) {
   //   return res.status(404).json({
@@ -268,5 +271,6 @@ export const getMySelf = async (req, res) => {
       success: false,
       error: error.message,
     });
+
   }
 };

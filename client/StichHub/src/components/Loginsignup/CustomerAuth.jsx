@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import logo from "../../assets/logo/Long - Logo Transparent (White).png";
 import shortlogo from "../../assets/logo/Short-Logo Transparent (Black).png";
-import customerimg from "../../assets/loginsignup/customerimg.png";
-import tailorimg from "../../assets/loginsignup/tailorimg.png";
+import customerimg from "../../assets/loginsignup/customerimg.webp";
+import tailorimg from "../../assets/loginsignup/tailorimg.webp";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import axios from "../../axios.js";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import validate from "../../common/validation";
+import AuthErrorMessage from "../AuthError";
+import Captcha from "./Captcha";
 
 const initialForm = {
   name: "",
@@ -20,9 +23,10 @@ const initialForm = {
 const CustomerAuth = () => {
   const [isregister, setIsRegister] = useState(true);
   const [form, setForm] = useState(initialForm);
-  const [error, setError] = useState("");
+  const [error, setError] = useState({});
   const navigateTo = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const [trackState, setTrackState] = useState(false)
 
   const switchMode = () => {
     setForm(initialForm);
@@ -31,11 +35,37 @@ const CustomerAuth = () => {
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    if(e.target.name !== "confirmPassword"){
+      const validationMessage = validate[e.target.name](e.target.value);
+      setError((prev)=>{
+        return {...prev, ...validationMessage}
+      })
+    }else{
+       if(form.password !== e.target.value){
+         setError((prev)=>{
+          return {...prev, confirmPassword: true, confirmPasswordError: "Password does not match"}
+         })
+       }else{
+        setError((prev)=>{
+          return {...prev, confirmPassword: false, confirmPasswordError: false}
+         })
+       }
+    }
   };
 
   const handleSumbmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
+    let submitable = true;
+
+    Object.values(error).forEach(e=>{
+      if(e){
+        submitable = false;
+        return ;
+      }
+    })
+    
+   if(submitable){
+     setIsLoading(true);
 
     try {
       const res = isregister
@@ -49,8 +79,10 @@ const CustomerAuth = () => {
       setIsLoading(false);
       navigateTo("/home");
     } catch (error) {
-      setError(error.response.data.message);
+      alert(error.response.data.message);
       setIsLoading(false);
+    }}else{
+       alert("Please enter valid values");
     }
   };
 
@@ -66,7 +98,7 @@ const CustomerAuth = () => {
     try {
       navigateTo("/home");
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -106,23 +138,18 @@ const CustomerAuth = () => {
         <div className="relative z-[5]">
           {/* logo */}
           <a href="/" className="flex justify-center mt-6">
-            <img src={logo} className="w-[240px]" />
+            <img src={logo} className="w-[240px]" alt="logo with text that says StichHub stitch your way" loading="lazy"/>
           </a>
           {/* title */}
           <div className="flex justify-center my-1">
             <div>
-              <img src={customerimg} alt="" className="w-[50px] mr-5" />
+              <img src={customerimg} alt="a person with red hair and a bag" className="w-[50px] mr-5" loading="lazy"/>
             </div>
             <div className="mt-3 text-center">
               <span className="text-white text-3xl font-semibold">
                 Customer {isregister ? "Register" : "Sign in"}
               </span>
             </div>
-          </div>
-
-          {/* Auth Error */}
-          <div className="flex justify-center">
-            <p className="text-red-500 m-2 text-center">{error}</p>
           </div>
 
           {/* form */}
@@ -156,6 +183,7 @@ const CustomerAuth = () => {
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
                   />
+                  {(error.name && error.nameError)? <AuthErrorMessage message={error.nameError}/>:null}
                 </div>
               )}
               <div>
@@ -187,6 +215,7 @@ const CustomerAuth = () => {
                 invalid:border-pink-500 invalid:text-pink-600
                 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
                 />
+                 {(error.email && error.emailError)? <AuthErrorMessage message={error.emailError}/>:null}
               </div>
               <div>
                 <svg
@@ -219,6 +248,7 @@ const CustomerAuth = () => {
                 <div onClick={passwordToggle} className="absolute cursor-pointer flex items-center z-[5] mt-[-1.8rem] ml-[17rem]">
                 {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
                 </div>
+                 {(error.password && error.passwordError)? <AuthErrorMessage message={error.passwordError}/>:null}
 
               </div>
               {isregister && (
@@ -250,15 +280,22 @@ const CustomerAuth = () => {
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
                   />
+                   {(error.confirmPassword && error.confirmPasswordError)? <AuthErrorMessage message={"Password does not match"}/>:null}
                 </div>
               )}
+                   <Captcha message={setTrackState} trackState={trackState}/>
               <div className="flex justify-center">
-                <button
+              {isregister ? (<button
                   type="submit"
-                  className="mt-[15px] block w-[170px] py-2 bg-blue-500 text-white rounded-xl font-regular text-xl"
-                >
-                  {isregister ? "Register" : "Sign in"}
-                </button>
+                  className="mt-[15px] block w-[170px] py-2 bg-blue-500 text-white hover:bg-slate-200 hover:text-blue-600 hover:transition-all duration-500 hover:font-semibold rounded-xl font-regular text-xl"
+                  disabled={!trackState}
+                  style={{cursor:`${trackState ? "pointer": "not-allowed"}`}}
+                >Register</button>):(<button
+                  type="submit"
+                  className="mt-[15px] block w-[170px] py-2 bg-blue-500 text-white hover:bg-slate-200 hover:text-blue-600 hover:transition-all duration-500 hover:font-semibold rounded-xl font-regular text-xl"
+                  disabled={!trackState}
+                  style={{cursor:`${trackState ? "pointer": "not-allowed"}`}}
+                >Sign in</button>)}
               </div>
 
               <h1 className="text-center text-white text-xl py-2">or</h1>
@@ -270,7 +307,17 @@ const CustomerAuth = () => {
                   cookiePolicy="single_host_origin"
                 />
               </div>
-              <h1 className="text-center text-white text-md pt-6">
+              <h1 className="text-center text-white text-md">
+                {isregister ? "" : 
+                <a
+                  className="cursor-pointer text-blue-400"
+                  onClick={()=>{
+                    navigateTo("/forgotpassword/customer");
+                  }}
+                >
+                  Forgot Password?
+                </a>}<br/>
+                
                 {isregister ? "Already a user?" : "Don't have an account?"}
                 <a
                   className="cursor-pointer text-blue-400"
@@ -289,10 +336,10 @@ const CustomerAuth = () => {
       </div>
 
       {/* Right Side (img)*/}
-      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.png')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10 rounded-l-3xl">
-        <img
+      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.webp')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10 rounded-l-3xl">
+        <img loading="lazy"
           src={shortlogo}
-          className="w-[5vw] absolute bottom-14 right-5"
+          className="w-[5vw] absolute bottom-14 right-5" alt="a black and blue letters S and H"
         ></img>
       </div>
     </div>

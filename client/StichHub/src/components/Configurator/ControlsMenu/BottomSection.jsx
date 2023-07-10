@@ -25,7 +25,6 @@ const BottomSection = () => {
 
   //Order Details
   useEffect(() => {
-    // console.log(sleeveType);
     setOrderDetails({
       ...orderDetails,
       clothDetails: {
@@ -51,7 +50,6 @@ const BottomSection = () => {
         fabric: selected.name,
       },
     });
-     console.log(orderDetails);
 
     navigateTo("/measurement");
   };

@@ -63,10 +63,10 @@ export default function Navbardark() {
             className="-m-1.5 p-1.5"
           >
             <span className="sr-only">Stichhub</span>
-            <img
+            <img loading="lazy"
               className="h-8 w-auto"
               src={Logo}
-              alt=""
+              alt="logo with text that says StichHub stitch your way"
             />
           </a>
         </div>
@@ -359,10 +359,10 @@ export default function Navbardark() {
                 className="-m-1.5 p-1.5"
               >
                 <span className="sr-only">Stichhub</span>
-                <img
+                <img loading="lazy"
                   className="h-8 w-auto"
                   src={Logo}
-                  alt=""
+                  alt="logo with text that says StichHub stitch your way"
                 />
               </a>
               <button

@@ -18,6 +18,7 @@ const navbar = [
   {title: "Home", id:""},
   {title: "Our Services", id:"ourServices"},
   {title: "How it Works?", id:"howitworks"},
+  {title: "Testimonial", id:"testimonial"},
   {title: "About us", id:"aboutus"},
   {title: "Contact us", id:"contactus"}
 ];

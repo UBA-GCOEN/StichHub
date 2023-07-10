@@ -25,7 +25,7 @@ const TitleSection = () => {
             <div className="relative mt-1">
               <Listbox.Button className="relative w-fit cursor-pointer rounded-lg bg-white py-[5px] pl-3 pr-10 text-left shadow-md border-2 border-indigo-500 focus-visible:border-indigo-500 sm:text-sm z-[5]">
                 <span className="flex truncate">
-                  Fabric : <img src="" className="px-[9px] border-2 rounded-md border-gray-400 mx-[5px]" />{" "}
+                  Fabric : <img loading="lazy" src="" className="px-[9px] border-2 rounded-md border-gray-400 mx-[5px]" />{" "}
                   <b> {selected.name}</b>
                 </span>
                 <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">

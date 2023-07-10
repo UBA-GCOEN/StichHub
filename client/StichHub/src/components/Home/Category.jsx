@@ -22,12 +22,10 @@ const Category = () => {
 
   const handleSubmit = () => {
     setOrderDetails({ ...orderDetails, category: selectedLabel });
-    console.log(orderDetails);
 
     navigateTo("/configurator", { state: { selectedLabel: selectedLabel } });
   };
 
-  // console.log(porpsData);
 
   return (
     <div className="bg-[#BADDF1] w-[100vw] h-[100vh] flex justify-center flex-wrap content-center">

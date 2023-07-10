@@ -1,0 +1,56 @@
+name: "🎨 Style Changing Request"
+description: "Request a change in the project's styling"
+title: "[STYLE CHANGE]"
+labels: [Feat, Needs Triage]
+body:
+  - type: checkboxes
+    attributes:
+      label: "Is there an existing issue raised for this?"
+      description: "Please search to see if an issue already exists for the bug you encountered."
+      options:
+        - label: "I have searched the existing issues"
+          required: true
+
+  - type: textarea
+    attributes:
+      label: "Description:"
+      description: "Provide a clear and concise description of the style change you are requesting."
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "Reason for Change:"
+      description: "Explain the reasons behind the requested style change, such as usability, branding, or user experience."
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "Current Styling:"
+      description: "Describe the current styling that needs to be changed."
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "Proposed Styling:"
+      description: "Describe the desired styling or changes you would like to see."
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "Screenshots or Design Mockups (optional):"
+      description: "If available, include relevant screenshots or design mockups illustrating the requested style changes."
+    validations:
+      required: false
+
+  - type: checkboxes
+    attributes:
+      label: "Tick the appropriate boxes as per your choice"
+      options:
+        - label: "I agree to follow this project's Code of Conduct"
+          required: true
+        - label: "I'm a GSSOC'23 contributor"
+        - label: "I want to work on this issue"

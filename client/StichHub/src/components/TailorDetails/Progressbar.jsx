@@ -1,9 +1,10 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
+
 function Progressbar() {
   return (
-    <div className="w-full justify-center text-center items-center">
-      <div className="flex justify-center items-center content-center">
+    <div className="w-full text-center">
+      <div className="flex w-full justify-center items-center align-middle gap-1">
         <h2>5</h2> {/*Star Level*/}
         <FaStar color="#ebeb35" />
         <div className="w-full bg-gray-200 rounded-full h-2 dark:bg-gray-700 justify-center items-center">
