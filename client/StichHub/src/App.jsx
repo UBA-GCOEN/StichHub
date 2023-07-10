@@ -84,15 +84,8 @@ function App() {
 
   return (
     <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
-// <<<<<<< TailorRegistrationProcess
-//       {/* <HomeProvider> */}
-//         <Routes>
-//         {/* <Route path = "/" element = {<MainLandingPage />} /> */}
-//           {/* Landing Page */}
-//           {userCustomer ? (
-// =======
       <Suspense fallback={<div className="flex justify-center items-center h-screen"><img src="https://raw.githubusercontent.com/Siddhant-Patil0203/StichHub/51fedb577d2bc6a21dde6b73f5307534b70316f5/client/StichHub/public/loading_animation.svg" alt="loading..." loading="lazy"/></div>}>
-//         <HomeProvider>
+{/*          <HomeProvider> */}
           <Routes>
             {/* Landing Page */}
             {userCustomer ? (
