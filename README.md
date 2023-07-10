@@ -144,6 +144,10 @@ Our related [blog post](https://medium.com/@sidd0203/stichhub-38d01da27f37) prov
 # Contributing 👨‍💻👩‍💻
 This project is open-source and welcomes contributions of all kinds. Whether you're an experienced developer or just starting your journey, your input and ideas are invaluable. Join us in shaping the future of this project and let's create something amazing together!
 
+### Join the discord server to resolve any trouble while contributing and to ask any other doubts below 
+<a href="https://discord.gg/hmSyTrNAeq" target="_blank"><img src="https://img.shields.io/badge/Discord-36393e?&style=for-the-badge&logo=Discord" /></a>
+</div>
+
 - To contribute, first set up the project on your local machine.
 - Test the different features of the app to identify any bugs or issues.
 - You can contribute in many ways, such as:

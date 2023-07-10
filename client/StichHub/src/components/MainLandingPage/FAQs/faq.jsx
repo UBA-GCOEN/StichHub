@@ -35,7 +35,7 @@ const faq = () => {
             <div className="relative z-[5] flex justify-evenly">
                 {/* left-Side */}
                 <div id="leftside" className="lg:block hidden mb-[20px] bottom-[20p]">
-                    <img src={doubts} alt="a cartoon of a child thinking" />
+                    <img src={doubts} alt="a cartoon of a child thinking" loading="lazy" />
                     <p className="text-left text-xl w-[500px]"></p>
                 </div>
 
