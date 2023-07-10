@@ -14,7 +14,7 @@ const Footer = () => {
     <div className="bg-[#09051D] pt-7">
       <div className="container mx-auto flex flex-col items-center justify-center">
         <a href="/">
-          <img src={logo} alt="logo with text that says StichHub stitch your way" className="w-48 cursor-pointer" />
+          <img src={logo} alt="logo with text that says StichHub stitch your way" className="w-48 cursor-pointer" loading="lazy"/>
         </a>
         <p className="text-white text-center mt-4 text-xl font-serif tracking-wide antialiased font-medium">
           Choose your style, make your own trend. <br /> Select the one you want to get your clothes stitched from!
