@@ -26,7 +26,8 @@ import { useHCustomization } from "../contexts/Home";
 const TailorDashboard = () => {
   const navigateTo = useNavigate();
    // global state--> to check the user logged in or not
- const { tailorDetails , setTailorDetails} = useHCustomization();
+ // const { tailorDetails , setTailorDetails} = useHCustomization();
+    const [tailorDetails, setTailorDetails] = useState(null);
   const [currentElementIndex, setCurrentElementIndex] = useState(0);
 
   const [user, setUser] = useState(
@@ -72,7 +73,7 @@ const TailorDashboard = () => {
   }, [localStorage]);
 
   const [isLoading, setIsLoading] = useState(false);
-  const [tailorDetails, setTailorDetails] = useState(null);
+
 
 
   // GET /tailors/specific to get the tailor details
