@@ -213,7 +213,7 @@ const TailorProfileVerification = () => {
           setIsShown1(current=> !current)
         })
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
   };
@@ -302,7 +302,7 @@ const TailorProfileVerification = () => {
       localStorage.removeItem("tailorFirstLogin");
       navigateTo("/TailorDashboard");
     } catch (error) {
-      console.log(error.response.data.message);
+      console.error(error.response.data.message);
       setIsLoading(false);
     }
   };
@@ -358,7 +358,7 @@ const TailorProfileVerification = () => {
               {/* image with list */}
               <div className="flex col-start-1 col-end-2 lg:col-start-2 lg:col-end-3">
                 <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
-                  <img
+                  <img loading="lazy"
                     src="https://img.icons8.com/external-bearicons-flat-bearicons/256/external-verified-reputation-bearicons-flat-bearicons.png"
                     className="w-[70%]" alt="a green checkmark, representing a verified reputation"
                   ></img>
@@ -379,7 +379,7 @@ const TailorProfileVerification = () => {
           </div>
           {/* hero image */}
           <div className="hidden lg:block col-start-3 col-end-4">
-            <img src={New} className="w-50% ml-[-40%] mr-20" alt="a blue shield with pink tick and a lock"/>
+            <img src={New} className="w-50% ml-[-40%] mr-20" alt="a blue shield with pink tick and a lock" loading="lazy"/>
           </div>
         </div>
         {/* progress bar with 0% progress */}
@@ -450,11 +450,11 @@ const TailorProfileVerification = () => {
   // final page step7
   const Step6 = () => (
     <div className="h-[100vh]">
-      <img
+      <img loading="lazy"
         src={Verified}
         className="hidden lg:block right-24 absolute w-[30%] h-[60%] " alt="a person jumping in a box"
       />
-      <img
+      <img loading="lazy"
         src={Verified}
         className="opacity-20 right-0 bottom-[300px] w-[55%] h-[35%] lg:opacity-100 lg:right-24 absolute lg:w-[30%] lg:h-[60%] lg:hidden" alt="a person jumping in a box"
       />
@@ -755,10 +755,10 @@ const TailorProfileVerification = () => {
                 </h1>
               </div>
               <div className="lg:hidden bottom-0 right-0 w-[50%] lg:right-0 absolute opacity-20 lg:opacity-100">
-                <img src={V} alt="a cartoon character standing next to a red location pin"/>
+                <img src={V} alt="a cartoon character standing next to a red location pin" loading="lazy"/>
               </div>
               <div className="hidden lg:block  w-[35%] right-0 absolute lg:opacity-100">
-                <img src={V} alt="a cartoon character standing next to a red location pin"/>
+                <img src={V} loading="lazy" alt="a cartoon character standing next to a red location pin"/>
               </div>
 
               {/* address detail form */}
@@ -895,7 +895,7 @@ const TailorProfileVerification = () => {
                 </h1>
               </div>
               <div className="mt-[-5%] right-0  bottom-[300px] w-[60%] h-[30%] lg:right-20 absolute opacity-20 lg:opacity-100 lg:hidden">
-                <img src={Profileveri} alt="a cartoon of a person"/>
+                <img src={Profileveri} alt="a cartoon of a person" loading="lazy" />
               </div>
               <div className="hidden lg:block left-[60%] absolute lg:opacity-100">
                 <img src={Profileveri} alt="a cartoon of a person"/>
@@ -913,7 +913,7 @@ const TailorProfileVerification = () => {
                     (.jpg,.png)
                   </label>
                   <div className="flex z-[5] relative">
-                    <img
+                    <img loading="lazy"
                       src={form.passport}
                       className="w-[100px] h-[100px] mt-5 rounded-lg border border-white" alt="Passport Size Photo"
                     ></img>
@@ -1005,10 +1005,10 @@ const TailorProfileVerification = () => {
                 </h1>
               </div>
               <div className="mt-[-5%] bottom-14 lg:gright-20 absolute opacity-20  lg:opacity-100 lg:hidden">
-                <img src={Speciality} alt="a illustration of a dress"/>
+                <img src={Speciality} alt="a illustration of a dress" loading="lazy"/>
               </div>
               <div className="hidden lg:block left-[60%] absolute opacity-20  lg:opacity-100">
-                <img src={Speciality} alt="a illustration of a dress"/>
+                <img src={Speciality} alt="a illustration of a dress" loading="lazy"/>
               </div>
 
               <div className="ml-[15%] w-[70%] lg:w-[50%] h-auto bg-white bg-opacity-10 rounded-xl p-[2%] grid grid-cols-1 gap-3 pl-[5%] pr-30 ">

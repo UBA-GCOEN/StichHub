@@ -189,7 +189,7 @@ const Step2 = () => {
           </div>
         </div>
         <div className="bottom-0 right-0 w-[40%] lg:right-0 absolute col-start-4 col-end-5 opacity-20">
-          <img src={N} />
+          <img loading="lazy" src={N} />
         </div>
       </div>
 

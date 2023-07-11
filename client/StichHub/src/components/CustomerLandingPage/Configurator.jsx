@@ -13,7 +13,7 @@ function Configurator() {
     <div className="flex relative h-screen items-center">
       <div className="w-2/5 ml-0">
         {/* Image of girl */}
-        <img src={girlimg} alt="a cartoon of a person holding a row of shirts"/>
+        <img src={girlimg} alt="a cartoon of a person holding a row of shirts" loading="lazy"/>
       </div>
 
       <div className="w-2/5 ml-10 text-center">

@@ -55,7 +55,7 @@ const Home = () => {
                 }`}
                 onClick={() => setDemoButton(item)}
               >
-                <img src={item.img} className={item.style} alt={item.alt}/>
+                <img loading="lazy" src={item.img} className={item.style} alt={item.alt}/>
                 <p className="hidden text-xs text-white mt-2">{item.text}</p>
               </div>
             ))}
@@ -99,25 +99,25 @@ const Home = () => {
             </p>
             <div className="flex">
               <div className="flex">
-                <img src={Configurator3d} className="pt-1 pb-1" alt="a person standing" />
+                <img src={Configurator3d} className="pt-1 pb-1" alt="a person standing" loading="lazy"/>
                 <div className="ml-2 text-white text-xl text-left">
                   3D <br /> Configurator
                 </div>
               </div>
               <div className="flex ml-6">
-                <img src={OnlineMeasurement} className="pt-1 pb-1" alt="a yellow measuring tape on a black background"/>
+                <img src={OnlineMeasurement} className="pt-1 pb-1" alt="a yellow measuring tape on a black background" loading="lazy"/>
                 <div className="ml-2 text-white text-xl text-left">
                   Online <br /> Measurements
                 </div>
               </div>
               <div className="flex ml-6">
-                <img src={sweingmachine} className="pt-1 pb-1" alt="a blue sewing machine with a pink handle"/>
+                <img src={sweingmachine} className="pt-1 pb-1" alt="a blue sewing machine with a pink handle" loading="lazy"/>
                 <div className="ml-2 text-white text-xl text-left">
                   Variety <br /> of Tailors
                 </div>
               </div>
               <div className="flex ml-6">
-                <img src={HomeDelivery} className="pt-1 pb-1" alt="a blue truck with wheels"/>
+                <img src={HomeDelivery} className="pt-1 pb-1" alt="a blue truck with wheels" loading="lazy"/>
                 <div className="ml-2 text-white text-xl text-left">
                   Home <br /> Delivery
                 </div>
@@ -149,7 +149,7 @@ const Home = () => {
                 }`}
                 onClick={() => setDemoButton(item)}
               >
-                <img src={item.img} className={item.style} alt={item.text}/>
+                <img src={item.img} className={item.style} alt={item.text} loading="lazy"/>
                 <p className="text-sm text-white mt-2">{item.text}</p>
               </div>
             ))}
