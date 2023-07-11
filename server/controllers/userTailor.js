@@ -142,6 +142,7 @@ export const register = async (req, res) => {
           url +
           " >Verify</a></p> ",
       };
+      console.log(options)
       await sendEmail(options);
     }
     const token = generateToken(result, SECRET);
