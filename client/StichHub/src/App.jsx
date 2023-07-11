@@ -102,7 +102,8 @@ function App() {
                   !userTailor ? (
                     <MainLandingPage />
                   ) : (
-                    <Navigate to="/TailorProfileVerification" />
+                   // <Navigate to="/TailorProfileVerification" />
+                  <Navigate to= "/TailorDashboard" />
                   )
                 }
               />
@@ -123,7 +124,8 @@ function App() {
                   !userTailor ? (
                     <LoginSignUp />
                   ) : (
-                    <Navigate to="/TailorProfileVerification" />
+                    // <Navigate to="/TailorProfileVerification" />
+                  <Navigate to= "/TailorDashboard" />
                   )
                 }
               />
@@ -145,46 +147,18 @@ function App() {
               }
             />
 
-            {/* Customer Side */}
-            <Route
-              path="/home"
-              element={<Home />}
-            />
-            <Route
-              path="/auth"
-              element={
-                !userTailor ? (
-                  <LoginSignUp />
-                ) : (
-                  // <Navigate to="/TailorProfileVerification" />
-                  <Navigate to= "/TailorDashboard" />
-                )
-              }
-            />
-          )}
-          <Route
-            path="/auth/customer"
-            element={!userCustomer ? <CustomerAuth /> : <Navigate to="/home" />}
-          />
-          <Route
-            path="/auth/tailor"
-            element={
-              !userTailor ? (
-                <AuthTailor />
-              ) : (
-                // <Navigate to="/TailorProfileVerification" />
-                // alert("hello 3")
-                <Navigate to= "/TailorDashboard" />
-              )
-            }
-          />
           {/* Email Verication */}
           {/* <Route path = "/verifyemail/:token" element = {<EmailVerifying />} />
           <Route exact path="/email/verification" element = {<EmailVerification />} /> */}
           <Route path="/verification" element={<EmailVerification  />} />
           {/* <Route path="/verify-email/:token" element={<Verify />} /> */}
           <Route path="/verify-email" element={<Verify />} />
+            
           {/* Customer Side */}
+            <Route
+              path="/home"
+              element={<Home />}
+            />
            <Route
               path="/TailorDetails"
               element={<TailorDetails />}
