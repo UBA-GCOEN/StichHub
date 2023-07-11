@@ -37,6 +37,10 @@ export const signin = async (req, res) => {
 export const register = async (req, res) => {
   const { name, email, password } = req.body;
 
+  if(!email){
+    return res.status(400).json({ error: 'Invalid email' });
+}
+
   try {
     const oldUserTailor = await userTailorModel.findOne({ email });
     const oldUserCustomer = await userCustomer.findOne({ email });
