@@ -4,7 +4,7 @@ const SMPT_HOST = process.env.SMPT_HOST;
 const SMPT_PORT = process.env.SMPT_PORT;
 const SMPT_SERVICES = process.env.SMPT_SERVICES;
 const SMPT_MAIL = process.env.SOURCE_EMAIL;
-const SMPT_PASSWORD = process.env.SOURCE_PASSWORD;
+const SMPT_PASSWORD = process.env.SMTP_PASSWORD;
 
 const sendEmail = async (options) => {
   const transporter = nodemailer.createTransport({
