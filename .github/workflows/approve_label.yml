@@ -1,5 +1,8 @@
 name: Label when approved
-on: pull_request_review
+on:
+  pull_request_review:
+    types:
+      - submitted
 
 permissions:
   pull-requests: write
