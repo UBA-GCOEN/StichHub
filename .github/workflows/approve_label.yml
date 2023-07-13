@@ -3,6 +3,10 @@ on: pull_request_review
 
 permissions:
   pull-requests: write
+  
+env:
+  ACCESS_TOKEN_MASTER: ${{ secrets.ACCESS_TOKEN_MASTER }}  
+ 
 
 jobs:
   label-when-approved:
@@ -23,7 +27,7 @@ jobs:
         if: steps.check-approval.outputs.isApproved == 'true'
         uses: actions/github-script@v5
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ env.ACCESS_TOKEN_MASTER }}
           script: |
             const prNumber = context.payload.pull_request.number;
             const labelToAdd = "🎉STATUS : approved";
