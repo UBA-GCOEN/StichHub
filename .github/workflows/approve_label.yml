@@ -7,7 +7,6 @@ on:
 permissions:
   pull-requests: write
 
-
 jobs:
   label-when-approved:
     name: "Label when approved"
