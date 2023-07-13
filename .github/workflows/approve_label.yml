@@ -5,11 +5,7 @@ on:
       - submitted
 
 permissions:
-  pull-requests: write
-  
-env:
-  ACCESS_TOKEN_MASTER: ${{ env.ACCESS_TOKEN_MASTER }}  
- 
+  pull-requests: write 
  
 jobs:
   label-when-approved:
