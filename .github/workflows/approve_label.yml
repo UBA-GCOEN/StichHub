@@ -5,7 +5,7 @@ permissions:
   pull-requests: write
   
 env:
-  ACCESS_TOKEN_MASTER: ${{ secrets.ACCESS_TOKEN_MASTER }}  
+  ACCESS_TOKEN_MASTER: ${{ env.ACCESS_TOKEN_MASTER }}  
  
 
 jobs:
