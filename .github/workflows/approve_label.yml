@@ -1,6 +1,9 @@
 name: Label when approved
 on: pull_request_review
 
+permissions:
+  pull-requests: write
+
 jobs:
 
   label-when-approved:
