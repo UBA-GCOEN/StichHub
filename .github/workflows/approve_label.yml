@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Label when approved by commiters
         uses: TobKed/label-when-approved-action@v1.2
-        id: label-when-approved
+        id: label-when-approved-by-collaborator
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           label: '🎉STATUS : approved'
