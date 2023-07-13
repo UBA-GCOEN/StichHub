@@ -26,7 +26,7 @@ jobs:
         if: steps.check-approval.outputs.isApproved == 'true'
         uses: actions/github-script@v5
         with:
-          github-token: ${{ env.ACCESS_TOKEN_MASTER }}
+          github-token: ${{ secrets.ACCESS_TOKEN }}
           script: |
             const prNumber = context.payload.pull_request.number;
             const labelToAdd = "🎉STATUS : approved";
