@@ -5,7 +5,6 @@ permissions:
   pull-requests: write
 
 jobs:
-
   label-when-approved:
     name: "Label when approved"
     runs-on: ubuntu-latest
