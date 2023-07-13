@@ -7,7 +7,6 @@ permissions:
 env:
   ACCESS_TOKEN_MASTER: ${{ env.ACCESS_TOKEN_MASTER }}  
  
-
 jobs:
   label-when-approved:
     name: "Label when approved"
@@ -27,7 +26,7 @@ jobs:
         if: steps.check-approval.outputs.isApproved == 'true'
         uses: actions/github-script@v5
         with:
-          github-token: ${{ env.ACCESS_TOKEN_MASTER }}
+          github-token: ${{ secrets.ACCESS_TOKEN }}
           script: |
             const prNumber = context.payload.pull_request.number;
             const labelToAdd = "🎉STATUS : approved";
