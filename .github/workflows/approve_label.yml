@@ -17,7 +17,7 @@ jobs:
         uses: TobKed/label-when-approved-action@v1.2
         id: label-when-approved-by-collaborator
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
           label: '🎉STATUS : approved'
           remove_label_when_approval_missing: 'true'
           comment: 'PR is approved by collaborator'
