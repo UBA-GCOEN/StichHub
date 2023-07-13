@@ -1,26 +1,50 @@
 name: Label when approved
-on:
-  pull_request_review:
-    types:
-      - submitted
+on: pull_request_review
 
 permissions:
   pull-requests: write
-
+  
+env:
+  ACCESS_TOKEN_MASTER: ${{ secrets.ACCESS_TOKEN_MASTER }}  
+ 
 
 jobs:
   label-when-approved:
     name: "Label when approved"
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: Check if PR is approved
+        id: check-approval
+        run: |
+          isApproved=$(echo "${{ github.event.review.state }}" | awk '{print tolower($0)}')
+          if [[ $isApproved == "approved" ]]; then
+            echo "::set-output name=isApproved::true"
+          else
+            echo "::set-output name=isApproved::false"
+          fi
 
-      - name: Label when approved by commiters
-        uses: TobKed/label-when-approved-action@v1.2
+      - name: Label PR when approved
+        if: steps.check-approval.outputs.isApproved == 'true'
+        uses: actions/github-script@v5
         with:
-          token: ${{ secrets.ACCESS_TOKEN_MASTER }}
-          label: '🎉STATUS: approved'
-          require_committers_approval: 'false'
-          comment: 'PR is approved by collaborator'
-          pullRequestNumber: ${{ github.event.pull_request.number }}
+          github-token: ${{ env.ACCESS_TOKEN_MASTER }}
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            const labelToAdd = "🎉STATUS : approved";
+
+            const { data: labels } = await github.issues.listLabelsOnIssue({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+            });
+
+            const labelExists = labels.some(label => label.name === labelToAdd);
+
+            if (!labelExists) {
+              await github.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                labels: [labelToAdd],
+              });
+            }
