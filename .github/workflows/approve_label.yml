@@ -19,7 +19,7 @@ jobs:
       - name: Label when approved by commiters
         uses: TobKed/label-when-approved-action@v1.2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.ACCESS_TOKEN_MASTER }}
           label: '🎉STATUS: approved'
           require_committers_approval: 'false'
           comment: 'PR is approved by collaborator'
