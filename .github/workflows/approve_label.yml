@@ -1,0 +1,20 @@
+name: Label when approved
+on: pull_request_review
+
+jobs:
+
+  label-when-approved:
+    name: "Label when approved"
+    runs-on: ubuntu-latest
+    outputs:
+      isApprovedByCommiters: ${{ steps.label-when-approved-by-commiters.outputs.isApproved }}
+      isApprovedByAnyone: ${{ steps.label-when-approved-by-anyone.outputs.isApproved }}
+    steps:
+      - name: Label when approved by commiters
+        uses: TobKed/label-when-approved-action@v1.2
+        id: label-when-approved
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          label: '🎉STATUS : approved'
+          remove_label_when_approval_missing: 'true'
+          comment: 'PR is approved by collaborator'
