@@ -1,11 +1,15 @@
 name: Label when approved
-on: pull_request_review
+on:
+  pull_request_review:
+    types:
+      - submitted
 
 permissions:
   pull-requests: write
   
 env:
   ACCESS_TOKEN_MASTER: ${{ env.ACCESS_TOKEN_MASTER }}  
+ 
  
 jobs:
   label-when-approved:
