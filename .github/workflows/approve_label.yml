@@ -7,6 +7,7 @@ permissions:
 env:
   ACCESS_TOKEN_MASTER: ${{ env.ACCESS_TOKEN_MASTER }}  
  
+ 
 jobs:
   label-when-approved:
     name: "Label when approved"
