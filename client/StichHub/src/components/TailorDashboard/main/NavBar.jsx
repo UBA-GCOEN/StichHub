@@ -2,7 +2,7 @@ import jwt_decode from "jwt-decode";
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../../assets/logo/Long - Logo Transparent (White).png";
-import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/solid";
+import DeleteConfirmation from "../../DeleteAccount";
 
 const NavBar = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
@@ -10,6 +10,7 @@ const NavBar = () => {
   const navigateTo = useNavigate();
 
   const [isOpen, setIsOpen] = useState(false);
+  const [isDelete, setIsDelete] = useState(false);
 
   function handleOpen() {
     setIsOpen(!isOpen);
@@ -53,6 +54,11 @@ const NavBar = () => {
     setUser(null);
   };
 
+  const onDeleteClick = ()=>{
+    setIsOpen(!isOpen)
+    setIsDelete(!isDelete)
+  }
+
   return (
     <div className="flex justify-between p-2 bg-primary  w-full">
       <div className="flex mt-2 h-fit w-40 ">
@@ -72,7 +78,7 @@ const NavBar = () => {
             </span>
 
            
-            <div onClick={handleOpen} className="rounded-full w-9">
+            <div onClick={handleOpen} className="rounded-full w-9 cursor-pointer">
               {user?.result.picture ? (
                 <img loading="lazy"
                   src={user?.result.picture}
@@ -87,18 +93,26 @@ const NavBar = () => {
 
 
             {isOpen && (
-
-              <div onClick={logout}  className="z-50 absolute flex flex-row justify-between top-[8%] p-2 right-5 bg-white h-fit w-[100px] rounded-xl ">
-               <ArrowLeftOnRectangleIcon className="grid h-6 w-6 items-center"/>
-               Log Out
+              <div
+                className={`${
+                  !isOpen ? "hidden" : "flex"
+                } cardGradient w-[240px] absolute mx-[-80px] lg:mx-[-10px] py-2 min-w-[140px] top-14 rounded-xl z-[100]`}>
+                <div className="flex flex-col gap-2 mt-3">
+                  <button
+                    className="bg-red-500 text-white py-1 px-3 rounded-lg ml-6 mt-9 mb-3"
+                    onClick={logout}>
+                    Log Out
+                  </button>
+                  <button
+                    className="bg-red-500 text-white py-1 px-3 rounded-lg ml-6 mb-3"
+                    onClick={onDeleteClick}
+                    >
+                    Delete Account
+                  </button>
+                </div>
               </div>
-              // <button
-              //   className="bg-red-500 text-white py-1 px-3 rounded-lg ml-6 mt-1"
-              //   }
-              // >
-              //   Log Out
-              // </button>
             )}
+             {isDelete && <DeleteConfirmation user={user} accountType={"tailor"} setIsDelete={setIsDelete}/> }
             </div>
           
         ) : (
