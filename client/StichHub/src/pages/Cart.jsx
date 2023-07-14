@@ -5,6 +5,8 @@ import Step1 from "../components/Cart/Step1";
 import Step2 from "../components/Cart/Step2";
 import Step3 from "../components/Cart/Step3";
 import Step4 from "../components/Cart/Step4";
+import AuthErrorMessage from "../components/AuthError"
+import validate from "../common/validation"
 import imr from "../assets/img/imr.webp";
 import el from "../assets/img/el.webp";
 import el2 from "../assets/img/el2.webp";
@@ -218,8 +220,23 @@ const Cart = () => {
 
   //for handling Next step page button function
   const handleNext = () => {
-    setStep(step + 1);
-    setActiveStep(activeStep + 1);
+    let proceedable = true;
+    if(step === 2 ){
+      Object.values(error).forEach((err)=>{
+        if(err !== false){
+          proceedable = false;
+          return;
+        }
+      })
+    }
+
+    if(proceedable){
+      setStep(step + 1);
+      setActiveStep(activeStep + 1);
+    }else{
+      alert("Please fill all fields with valid data")
+    }
+   
   };
 
   //for handling Previous step page button function
@@ -286,7 +303,7 @@ const Cart = () => {
   const [cardExpires, setCardExpires] = React.useState("");
 
   const initialForm = {
-    contact: "+91 ",
+    contact: "",
     country: "",
     state: "",
     service: "",
@@ -315,8 +332,19 @@ const Cart = () => {
   };
 
   const [form, setForm] = useState(initialForm);
+  const [error, setError]  = useState(validate.cartFormInitial);
   const handleChangeFinal = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+   (name != "notes")? setError((prev) => {
+      let getError;
+        if(e.target.classList.contains("noempty")){
+        getError = validate.notEmpty(name, value);
+        }else{
+        getError = validate[name](value);
+      }
+      return { ...prev, ...getError };
+    }): null;
   };
   const stepFormSubmit = () => {
     setForm({ ...form, service: selectedValue });
@@ -714,6 +742,7 @@ const Cart = () => {
                               required
                             />
                           </label>
+                          {error.firstname && error.firstnameError && <AuthErrorMessage message={error.firstnameError}/>}
                         </div>
                       </div>
                       <div xs={6}>
@@ -732,6 +761,7 @@ const Cart = () => {
                             />
                             <br />
                           </label>
+                          {error.lastname && error.lastnameError && <AuthErrorMessage message={error.lastnameError}/>}
                         </div>
                       </div>
                       {/* phoneno country selector hooks used here */}
@@ -746,6 +776,7 @@ const Cart = () => {
                           value={form.contact}
                           onChange={handleChangeFinal}
                         />
+                        {error.contact && error.contactError && <AuthErrorMessage message={error.contactError}/>}
                       </div>
                       <div className="mb-2">
                         <label>
@@ -760,6 +791,7 @@ const Cart = () => {
                             required
                           />
                         </label>
+                        {error.email && error.emailError && <AuthErrorMessage message={error.emailError}/>}
                       </div>
                     </div>
                     {/* Delivery details form */}
@@ -782,6 +814,7 @@ const Cart = () => {
                           placeholder="Country"
                           required
                         />{" "}
+                         {error.country && error.countryError && <AuthErrorMessage message={error.countryError}/>}
                       </div>
 
                       <label>
@@ -792,18 +825,20 @@ const Cart = () => {
                           type="address"
                           onChange={handleChangeFinal}
                           value={form.address}
-                          className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                          className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] noempty"
                           placeholder="House number and street name"
                           required
                         />{" "}
+                         {error.address && error.addressError && <AuthErrorMessage message={error.addressError}/>}
                         <input
                           name="address2"
                           type="text"
                           onChange={handleChangeFinal}
                           value={form.address2}
-                          className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                          className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] noempty"
                           placeholder="Appartment, suite, landmark, etc. (optional)"
                         />{" "}
+                          {error.address2 && error.address2Error && <AuthErrorMessage message={error.address2Error}/>}
                       </label>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
@@ -817,11 +852,12 @@ const Cart = () => {
                               type="city"
                               onChange={handleChangeFinal}
                               value={form.city}
-                              className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                              className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] noempty"
                               placeholder=""
                               required
                             />{" "}
                           </label>
+                          {error.city && error.cityError && <AuthErrorMessage message={error.cityError}/>}
                         </div>
                       </div>
                       <div xs={7}>
@@ -834,11 +870,12 @@ const Cart = () => {
                               type="state"
                               onChange={handleChangeFinal}
                               value={form.state}
-                              className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                              className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] noempty"
                               placeholder=""
                               required
                             />{" "}
                           </label>
+                          {error.state && error.stateError && <AuthErrorMessage message={error.stateError}/>}
                         </div>
                       </div>
                     </div>
@@ -855,6 +892,7 @@ const Cart = () => {
                           placeholder=""
                           required
                         />{" "}
+                                {error.pincode && error.pincodeError && <AuthErrorMessage message={error.pincodeError}/>}
                       </label>
                     </div>
 
