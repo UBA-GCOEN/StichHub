@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   NavBar,
   About,
@@ -14,7 +14,11 @@ import Testimonial from "../components/Testimonial/Testimonial";
 import { LandingPageDemo } from "../contexts/LandingPageDemo";
 import GoToTop from "../components/GoToTop";
 
+
+  
 const MainLandingPage = () => {
+ 
+  
   return (
     <div className="text-center text-white overflow-hidden text-3xl bg-primary">
       <GoToTop />

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "../axios";
+
 import LeftView from "../components/TailorDashboard/main/LeftView";
 import TopDisplays from "../components/TailorDashboard/main/TopDisplays";
 import MainDisplay from "../components/TailorDashboard/main/MainDisplay";
@@ -19,11 +20,60 @@ const mobile_elements = [<MDashboard />, <Profile />, <MOngoing />];
 
 import Graphs from "../components/TailorDashboard/Graphs";
 import MobileOngoingOrders from "../components/TailorDashboard/mobile/Ongoing/MobileOngoingOrders";
+import { useNavigate } from "react-router-dom";
+import { useHCustomization } from "../contexts/Home";
 
 const TailorDashboard = () => {
+  const navigateTo = useNavigate();
+   // global state--> to check the user logged in or not
+ // const { tailorDetails , setTailorDetails} = useHCustomization();
+    const [tailorDetails, setTailorDetails] = useState(null);
   const [currentElementIndex, setCurrentElementIndex] = useState(0);
+
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem("tailorProfile"))
+    // null
+  );
+  // const getMySelf = async () => {
+  //   try {
+  //    const res = await axios.get("/userTailor/getmyself");
+  //    const data = res.data
+  //    // console.log(res.data.tailorUser)
+  //    setTailorDetails({...tailorDetails, data})
+  //   } catch (error) {
+
+  //   //  data = error.response.data;
+  //    setTailorDetails(false)
+   
+  //   }    
+  //  }
+  
+  //  useEffect(() => {
+     
+  //    getMySelf();
+  //    console.log(tailorDetails)
+     
+  //  },[])
+ 
+ useEffect(()=> {
+    console.log(tailorDetails)
+    // show loading untill the tailorDetails fetched from context wait for 10 sec if not found logged out the user
+    setTimeout(()=>{
+      if(!tailorDetails){
+        // navigateTo("/TailorDashboard")
+        alert("Details not found. Logged out ...")
+        // localStorage.clear();
+        // navigateTo("/")
+      }
+    }, 10000)
+   
+ },[tailorDetails])
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("tailorProfile")));
+  }, [localStorage]);
+
   const [isLoading, setIsLoading] = useState(false);
-  const [tailorDetails, setTailorDetails] = useState(null);
+
 
 
   // GET /tailors/specific to get the tailor details
@@ -46,6 +96,13 @@ const TailorDashboard = () => {
 
   
 
+  useEffect(() => {
+    if(!user){
+    // navigateTo("/auth/tailor")
+    navigateTo("/")
+    }
+  }, [user])
+  
   const handleNavigationLinkClick = (index) => {
     setCurrentElementIndex(index);
   };

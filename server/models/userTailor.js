@@ -1,10 +1,23 @@
 import mongoose from "mongoose";
 
 const userTailorSchema = mongoose.Schema({
-    name: {type: String, required: true},
-    email: {type: String, required: true},
-    password: {type: String, required: true},
-    id: {type: String },
-})
+  id: { type: String },
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  password: { type: String, required: true },
+  // adding additional field to improve registration process.
+  mobile: {
+    type: Number,
+    // required: true,
+  },
+  role: {
+    type: String,
+    default: "tailor",
+  },
+  isVerified: {
+    type: Boolean,
+    default: false,
+  },
+});
 
 export default mongoose.model("TailorUsers", userTailorSchema);
