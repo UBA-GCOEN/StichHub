@@ -13,6 +13,8 @@ import orders from "./routes/orders.js";
 import cart from "./routes/cart.js";
 import payment from "./routes/payment.js";
 import { forgotpassword } from './controllers/forgotpassword.js';
+import improveDatails from "./routes/refine.js";
+
 
 
 const app = express();
@@ -32,6 +34,7 @@ app.use("/order", orders);
 app.use("/cart", cart);
 app.use("/payment", payment);
 app.use("/forgotpassword", forgotpassword);
+app.use('/improve',improveDatails)
 
 const CONNECTION_URL = process.env.MONGO_URL;
 const PORT = process.env.PORT || 5000;
