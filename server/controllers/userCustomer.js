@@ -49,7 +49,7 @@ export const register = async (req, res) => {
     }
 
     try {
-        const oldUserCustomer = await userCustomerModel.findOne({ email });
+        const oldUserCustomer = await userCustomerModel.findOne({ $eq: email });
         const oldUserTailor = await userTailor.findOne({email});
 
         if (oldUserCustomer)
