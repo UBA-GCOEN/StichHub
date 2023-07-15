@@ -50,7 +50,7 @@ export const register = async (req, res) => {
 
     try {
         const oldUserCustomer = await userCustomerModel.findOne({ $eq: email });
-        const oldUserTailor = await userTailor.findOne({email});
+        const oldUserTailor = await userTailor.findOne({ $eq: email});
 
         if (oldUserCustomer)
             return res.status(404).json({ message: "User already exist" });
