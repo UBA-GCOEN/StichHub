@@ -5,6 +5,7 @@ import sendWelcomeMail from "../services/mail.js";
 dotenv.config();
 
 import userTailorModel from "../models/userTailor.js";
+import userCustomer from "../models/userCustomer.js";
 
 const SECRET = process.env.TAILOR_USER;
 
@@ -36,10 +37,17 @@ export const signin = async (req, res) => {
 export const register = async (req, res) => {
   const { name, email, password } = req.body;
 
-  try {
-    const oldUser = await userTailorModel.findOne({ email });
+  if(!email){
+    return res.status(400).json({ error: 'Invalid email' });
+}
 
-    if (oldUser) return res.status(404).json({ message: "User already exist" });
+  try {
+    const oldUserTailor = await userTailorModel.findOne({ email });
+    const oldUserCustomer = await userCustomer.findOne({ email });
+
+
+    if (oldUserTailor) return res.status(404).json({ message: "User already exist" });
+    if (oldUserCustomer) return res.status(404).json({ message: "A customer account exist with same email. Please use another Email." });
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
