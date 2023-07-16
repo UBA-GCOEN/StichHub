@@ -2,10 +2,11 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import * as dotenv from "dotenv";
 import sendWelcomeMail from "../services/mail.js";
-dotenv.config();
-
+import CartList from "../models/cart.js";
 import userCustomerModel from "../models/userCustomer.js";
+import emailValidator from "email-validator"
 import userTailor from "../models/userTailor.js";
+dotenv.config();
 
 const SECRET = process.env.CUSTOMER_USER;
 
@@ -81,3 +82,20 @@ export const register = async (req, res) => {
         console.error(error);
     }
 };
+
+export const deleteAccount = async (req, res)=>{
+    const {email} = req.body;
+
+    if(!emailValidator.validate(email)){
+        return res.status(400).json({ error: 'Invalid email' });
+    }
+    try{
+      const user = await userCustomerModel.findOne({email});
+      await userCustomerModel.deleteOne({email});
+      await CartList.deleteOne({customerId: user._id.toString()});
+      res.status(200).json({result: true})
+    }catch(error){
+      console.log(error);
+      res.status(500).json({message: "Something went wrong"})
+    }
+  }
