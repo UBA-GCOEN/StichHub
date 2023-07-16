@@ -1,7 +1,7 @@
 {
   "name": "stichhub",
   "private": true,
-  "proxy": "https://stichhub-backend-l6dekd8zl-stichhub.vercel.app/",
+  "proxy": "https://stichhub-backend.vercel.app",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
