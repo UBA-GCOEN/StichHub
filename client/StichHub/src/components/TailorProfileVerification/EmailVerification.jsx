@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
-import emailImage from "../../assets/img/n.png"
-import VerifiedEmail from "../../assets/img/verified.png"
+import emailImage from "../../assets/img/n.webp"
+import VerifiedEmail from "../../assets/img/verified.webp"
 import axios from '../../axios.js';
 import { useNavigate, useParams } from 'react-router-dom';
 import { HomeProvider, useHCustomization } from '../../contexts/Home';

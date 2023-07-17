@@ -72,8 +72,8 @@ const TailorDashboard = () => {
     setUser(JSON.parse(localStorage.getItem("tailorProfile")));
   }, [localStorage]);
 
-//   need to be check later - coming from main 
-//   const [isLoading, setIsLoading] = useState(false);
+//   need to be check later as per need beccause this state [tailorDetails, setTailorDetails] is also defined in the context  - coming from main by someone
+  const [isLoading, setIsLoading] = useState(false);
 //   const [tailorDetails, setTailorDetails] = useState(null);
 
 

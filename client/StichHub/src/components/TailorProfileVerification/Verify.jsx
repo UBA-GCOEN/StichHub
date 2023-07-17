@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react'
-import emailImage from "../../assets/img/n.png"
-import VerifiedEmail from "../../assets/img/verified.png"
+import emailImage from "../../assets/img/n.webp"
+import VerifiedEmail from "../../assets/img/verified.webp"
 import axios from '../../axios.js';
 import { useParams, useLocation, useNavigate } from 'react-router-dom';
 const Verify = () => {

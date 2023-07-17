@@ -1,5 +1,5 @@
 
-import { useState, useEffect,  useContext,Suspense, lazy } from "react";
+import  { useState, useEffect,  useContext,Suspense, lazy } from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 
 import {
@@ -22,28 +22,22 @@ import {
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Category, CustomerOrder } from "./components/Home";
 import { HomeProvider, useHCustomization } from "./contexts/Home";
-
-import OrderConfirmation from "./components/Home/OrderConfirmation";
-import PaymentSuccess from "./components/Cart/PaymentSuccess";
-import PaymentFailure from "./components/Cart/PaymentFailure";
-import EmailVerification from "./components/TailorProfileVerification/EmailVerification";
 import axios from "./axios";
-import Verify from "./components/TailorProfileVerification/Verify.jsx"
 import { isStyledComponent } from "styled-components";
 
 
-import ErrorPage from "./components/ErrorPage/404ErrorPage";
 
-// I will check it later- It gives a lot of problem - coming from the main 
-// const CustomerAuth=lazy(()=>import("./components/Loginsignup/CustomerAuth"))
-// const AuthTailor=lazy(()=>import("./components/Loginsignup/AuthTailor"))
-// const ForgotPassword=lazy(()=>import("./components/Loginsignup/ForgotPassword"))
-// const NewTailor=lazy(()=>import("./components/TailorDashboard/NewTailor"))
-// const Profile=lazy(()=>import("./components/TailorDashboard/Profile"))
-// const OrderConfirmation=lazy(()=>import("./components/Home/OrderConfirmation"))
-// const PaymentSuccess=lazy(()=>import("./components/Cart/PaymentSuccess"))
-// const PaymentFailure=lazy(()=>import("./components/Cart/PaymentFailure"))
-// const ErrorPage=lazy(()=>import("./components/ErrorPage/404ErrorPage"))
+const EmailVerification = lazy(()=>import("./components/TailorProfileVerification/EmailVerification"))
+const Verify = lazy(()=>import( "./components/TailorProfileVerification/Verify.jsx"))
+const CustomerAuth=lazy(()=>import("./components/Loginsignup/CustomerAuth"))
+const AuthTailor=lazy(()=>import("./components/Loginsignup/AuthTailor"))
+const ForgotPassword=lazy(()=>import("./components/Loginsignup/ForgotPassword"))
+const NewTailor=lazy(()=>import("./components/TailorDashboard/NewTailor"))
+const Profile=lazy(()=>import("./components/TailorDashboard/Profile"))
+const OrderConfirmation=lazy(()=>import("./components/Home/OrderConfirmation"))
+const PaymentSuccess=lazy(()=>import("./components/Cart/PaymentSuccess"))
+const PaymentFailure=lazy(()=>import("./components/Cart/PaymentFailure"))
+const ErrorPage=lazy(()=>import("./components/ErrorPage/404ErrorPage"))
 
 
 function App() {
@@ -94,7 +88,7 @@ function App() {
   return (
     <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
       <Suspense fallback={<div className="flex justify-center items-center h-screen"><img src="https://raw.githubusercontent.com/Siddhant-Patil0203/StichHub/51fedb577d2bc6a21dde6b73f5307534b70316f5/client/StichHub/public/loading_animation.svg" alt="loading..." loading="lazy"/></div>}>
-//         <HomeProvider>
+{/* //         <HomeProvider> */}
           <Routes>
             {/* Landing Page */}
             {userCustomer ? (
