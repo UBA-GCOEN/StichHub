@@ -272,14 +272,12 @@ export const resendVerificationLink = async (req, res) => {
         url +
         " >Verify</a></p> ",
     };
-  var resu = await sendEmail(options);
 
     res.status(201).json({
       success: true,
       message: `An Email is sent to your Email ${tailorUser.email}. Please Verify your Email.`,
       verification_link: url,
       token,
-      options,
     });
   } catch (error) {
     res.status(400).json({
