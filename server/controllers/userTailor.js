@@ -2,11 +2,16 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import * as dotenv from "dotenv";
 import sendWelcomeMail from "../services/mail.js";
-dotenv.config();
-
+import OrderList from "../models/order.js";
 import userTailorModel from "../models/userTailor.js";
+
 import generateToken from "../middlewares/generateToken.js";
 import sendEmail from "../middlewares/sendEmail.js";
+
+import emailValidator from "email-validator";
+import userCustomer from "../models/userCustomer.js";
+dotenv.config();
+
 
 const SECRET = process.env.TAILOR_USER;
 
@@ -56,7 +61,9 @@ export const signin = async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" });
-    // console.log(error);
+
+    console.error(error);
+
   }
 };
 
@@ -65,6 +72,7 @@ export const signin = async (req, res) => {
  * Description : Tailor Registration
  */
 export const register = async (req, res) => {
+
   const { name, email, password, confirmPassword } = req.body;
   // const passwordRegex =
   //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$%#^&*])(?=.*[0-9]).{8,}$/;
@@ -88,12 +96,39 @@ export const register = async (req, res) => {
   //       "Password must be at least 8 characters long and include at least 1 uppercase letter, 1 lowercase letter, 1 symbol (@$%#^&*), and 1 number (0-9)",
   //   });
   // }
-
   // if (!emailDomains.some((v) => email.indexOf(v) >= 0)) {
   //   return res.status(404).json({
   //     message: "Please enter a valid email address",
   //   });
   try {
+
+    const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$%#^&*])(?=.*[0-9]).{8,}$/;
+  const emailDomains = [
+    "gmail.com",
+    "yahoo.com",
+    "hotmail.com",
+    "aol.com",
+    "outlook.com",
+  ];
+
+  if (name.length < 6) {
+    return res
+      .status(404)
+      .json({ message: "Name must be atleast 6 characters long." });
+  }
+
+  if (!passwordRegex.test(password)) {
+    return res.status(404).json({
+      message:
+        "Password must be at least 8 characters long and include at least 1 uppercase letter, 1 lowercase letter, 1 symbol (@$%#^&*), and 1 number (0-9)",
+    });
+  }
+
+  if (!emailDomains.some((v) => email.indexOf(v) >= 0)) {
+    return res.status(404).json({
+      message: "Please enter a valid email address",
+    })};
     if (!name || !email || !password || !confirmPassword) {
       return res.status(404).json({
         success: false,
@@ -113,6 +148,7 @@ export const register = async (req, res) => {
         success: false,
         message: "Password doesn't Match",
       });
+
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
@@ -196,6 +232,7 @@ export const verifyEmail = async (req, res) => {
       verifiedTailorUser,
     });
   } catch (error) {
+
     res.status(403).json({
       success: false,
       message: "Invalid Verification Link",
@@ -268,5 +305,23 @@ export const getMySelf = async (req, res) => {
       success: false,
       error: error.message,
     });
+
+
   }
 };
+
+export const deleteAccount = async (req, res)=>{
+  const {email} = req.body;
+  if(!emailValidator.validate(email)){
+    return res.status(400).json({ error: 'Invalid email' });
+}
+  try{
+    const user = await userTailorModel.findOne({email});
+    await userTailorModel.deleteOne({email});
+    await OrderList.deleteOne({tailorId: user._id.toString()})
+    res.status(200).json({result: true})
+  }catch(error){
+    console.log(error);
+    res.status(500).json({message: "Something went wrong"})
+  }
+}

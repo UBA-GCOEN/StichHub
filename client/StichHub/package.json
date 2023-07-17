@@ -1,7 +1,9 @@
 {
   "name": "stichhub",
   "private": true,
-  "proxy": "http://localhost:5000",
+
+  "proxy": "https://stichhub-backend.vercel.app",
+
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -21,10 +23,10 @@
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@material-tailwind/react": "^1.4.2",
     "@mui/icons-material": "^5.11.11",
-    "@mui/material": "^5.11.14",
+    "@mui/material": "^5.13.4",
     "@react-oauth/google": "^0.9.0",
     "@react-spring/web": "^9.7.1",
-    "@react-three/drei": "^9.70.0",
+    "@react-three/drei": "^9.74.8",
     "@react-three/fiber": "^8.12.0",
     "@react-three/gltfjsx": "^4.3.4",
     "@react-three/xr": "^5.4.1",
@@ -39,7 +41,7 @@
     "cashfree-pg-sdk-nodejs": "^2.0.2",
     "cashfree-sdk": "^0.1.1",
     "country-state-city": "^3.1.2",
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.1.4",
     "esbuild": "^0.17.13",
     "flowbite": "^1.6.5",
     "flowbite-react": "^0.4.3",
@@ -58,17 +60,19 @@
     "react-otp-input": "^3.0.2",
     "react-phone-number-input": "^3.2.19",
     "react-rating-stars-component": "^2.2.0",
+    "react-scroll": "^1.8.9",
     "react-slick": "^0.29.0",
     "react-tailwindcss-select": "^1.8.5",
     "rsuite": "^5.28.3",
     "styled-components": "^5.3.11",
+    "swiper": "^9.4.1",
     "three": "^0.151.2",
     "tw-elements": "^1.0.0-beta2"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
-    "@vitejs/plugin-react": "^3.1.0",
+    "@vitejs/plugin-react": "^4.0.0",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
     "react-router-dom": "^6.11.2",

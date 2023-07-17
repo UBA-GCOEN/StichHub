@@ -16,10 +16,10 @@ const Step4 = () => {
         </h1>
       </div>
       <div className="mt-[-5%] right-0  bottom-[300px] w-[60%] h-[30%] lg:right-20 absolute opacity-20 lg:opacity-100 lg:hidden">
-        <img src={Profileveri} />
+        <img loading="lazy" src={Profileveri} />
       </div>
       <div className="hidden lg:block lg:right-20 absolute opacity-20 lg:opacity-100">
-        <img src={Profileveri} />
+        <img loading="lazy" src={Profileveri} />
       </div>
 
       <div className="ml-[15%] w-[75%] lg:w-[50%] h-auto bg-white bg-opacity-10 rounded-xl p-[2%] grid grid-cols-1 lg:grid-cols-2 gap-3 pl-[5%] pr-30 ">
@@ -31,9 +31,9 @@ const Step4 = () => {
             (.jpg,.png)
           </label>
           <div className="flex">
-            <img
+            <img loading="lazy"
               src={file}
-              className="w-[100px] h-[100px] mt-5 rounded-lg border border-white"
+              className="w-[100px] h-[100px] mt-5 rounded-lg border border-white" alt="passport size photo"
             ></img>
             <input
               className="rounded-xl mt-5 flex ml-[] pl-5"

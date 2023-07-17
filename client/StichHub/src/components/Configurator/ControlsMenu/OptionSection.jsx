@@ -106,7 +106,7 @@ const OptionSection = () => {
               }}
             >
               <div className="flex justify-center">
-                <img
+                <img loading="lazy"
                   src={type.img}
                   alt={type.typeName}
                   className="p-1 w-9 h-9"

@@ -22,6 +22,7 @@ const authTailor = async (req, res, next) => {
         .findById(decoded.id)
         .select("-password");
 
+
       next();
     } catch (error) {
       res.status(401).json({
@@ -30,6 +31,7 @@ const authTailor = async (req, res, next) => {
       });
       // throw new Error("Not authorized, token failed");
     }
+
   }
 };
 

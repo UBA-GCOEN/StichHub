@@ -1,12 +1,12 @@
 import React from "react";
-import regbg from "../../assets/registrationbg.png";
-import Cus from "../../assets/CustomerImg.png";
-import Tail from "../../assets/Tailorimg.png";
+import regbg from "../../assets/registrationbg.webp";
+import Cus from "../../assets/CustomerImg.webp";
+import Tail from "../../assets/Tailorimg.webp";
 import { Link } from "react-router-dom";
 
 const Signup = () => {
   return (
-    <div className="sm:bg-[url('../src/assets/registrationbg.png')] bg-contain bg-center bg-no-repeat bg-[#BADDF1] w-[100vw] h-[100vh] overflow-hidden">
+    <div className="sm:bg-[url('../src/assets/registrationbg.webp')] bg-contain bg-center bg-no-repeat bg-[#BADDF1] w-[100vw] h-[100vh] overflow-hidden">
       <div className="flex justify-center content-center flex-wrap">
         <div className="p-5 text-center sm:mt-[20vh] sm:ml-14">
           {/* Title text */}
@@ -24,7 +24,7 @@ const Signup = () => {
             <Link to="/auth/customer">
               <button className="w-[160px] h-[160px] bg-[#00456D] relative text-3xl text-white shadow-lg rounded-3xl">
                 <div className="flex justify-center">
-                  <img src={Cus} className="w-[70px]" />
+                  <img src={Cus} className="w-[70px]" alt="a green logo with circles and a person in the center" loading="lazy"/>
                 </div>
                 <p className="text-lg text-center ">
                   I am a <br />
@@ -37,7 +37,7 @@ const Signup = () => {
             <Link to="/auth/tailor">
             <button className="w-[160px] h-[160px] bg-white relative text-3xl text-Black shadow-xl rounded-3xl">
               <div className="flex justify-center">
-                <img src={Tail} className="m-2 w-[57px]" />
+                <img src={Tail} className="m-2 w-[57px]" alt="a blue line drawing of a person" loading="lazy"/>
               </div>
               <p className="text-lg text-center text-black">
                 I am a <br />

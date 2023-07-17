@@ -1,5 +1,7 @@
-import { useState, useEffect, useContext } from "react";
+
+import { useState, useEffect,  useContext,Suspense, lazy } from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+
 import {
   MainLandingPage,
   CustomerLandingPage,
@@ -16,13 +18,11 @@ import {
   ThreeDConfigurator,
   ThreeDMeasurement,
 } from "./pages";
-import CustomerAuth from "./components/Loginsignup/CustomerAuth";
-import AuthTailor from "./components/Loginsignup/AuthTailor";
+
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Category, CustomerOrder } from "./components/Home";
-import NewTailor from "./components/TailorDashboard/NewTailor";
-import Profile from "./components/TailorDashboard/Profile";
 import { HomeProvider, useHCustomization } from "./contexts/Home";
+
 import OrderConfirmation from "./components/Home/OrderConfirmation";
 import PaymentSuccess from "./components/Cart/PaymentSuccess";
 import PaymentFailure from "./components/Cart/PaymentFailure";
@@ -33,6 +33,18 @@ import { isStyledComponent } from "styled-components";
 
 
 import ErrorPage from "./components/ErrorPage/404ErrorPage";
+
+// I will check it later- It gives a lot of problem - coming from the main 
+// const CustomerAuth=lazy(()=>import("./components/Loginsignup/CustomerAuth"))
+// const AuthTailor=lazy(()=>import("./components/Loginsignup/AuthTailor"))
+// const ForgotPassword=lazy(()=>import("./components/Loginsignup/ForgotPassword"))
+// const NewTailor=lazy(()=>import("./components/TailorDashboard/NewTailor"))
+// const Profile=lazy(()=>import("./components/TailorDashboard/Profile"))
+// const OrderConfirmation=lazy(()=>import("./components/Home/OrderConfirmation"))
+// const PaymentSuccess=lazy(()=>import("./components/Cart/PaymentSuccess"))
+// const PaymentFailure=lazy(()=>import("./components/Cart/PaymentFailure"))
+// const ErrorPage=lazy(()=>import("./components/ErrorPage/404ErrorPage"))
+
 
 function App() {
   const navigateTo = useNavigate();
@@ -81,74 +93,75 @@ function App() {
 
   return (
     <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
-      {/* <HomeProvider> */}
-        <Routes>
-        {/* <Route path = "/" element = {<MainLandingPage />} /> */}
-          {/* Landing Page */}
-          {userCustomer ? (
-            <Route
-              path="/"
-              element={
-                !userCustomer ? <MainLandingPage /> : <Navigate to="/home" />
-              }
-            />
-          ) : (
-            <Route
-              path="/"
-              element={
-                !userTailor ? (
-                  <MainLandingPage />
-                ) : (
-                  // <Navigate to="/TailorProfileVerification" />
-                  <Navigate to= "/TailorDashboard" />
-                )
-              }
-            />
-          )}
+      <Suspense fallback={<div className="flex justify-center items-center h-screen"><img src="https://raw.githubusercontent.com/Siddhant-Patil0203/StichHub/51fedb577d2bc6a21dde6b73f5307534b70316f5/client/StichHub/public/loading_animation.svg" alt="loading..." loading="lazy"/></div>}>
+//         <HomeProvider>
+          <Routes>
+            {/* Landing Page */}
+            {userCustomer ? (
+              <Route
+                path="/"
+                element={
+                  !userCustomer ? <MainLandingPage /> : <Navigate to="/home" />
+                }
+              />
+            ) : (
+              <Route
+                path="/"
+                element={
+                  !userTailor ? (
+                    <MainLandingPage />
+                  ) : (
+//                     <Navigate to="/TailorProfileVerification" />
+              <Navigate to= "/TailorDashboard" />
+                  )
+                }
+              />
+            )}
 
-          {/* Authentication */}
-          {userCustomer ? (
+            {/* Authentication */}
+            {userCustomer ? (
+              <Route
+                path="/auth"
+                element={
+                  !userCustomer ? <LoginSignUp /> : <Navigate to="/home" />
+                }
+              />
+            ) : (
+              <Route
+                path="/auth"
+                element={
+                  !userTailor ? (
+                    <LoginSignUp />
+                  ) : (
+                     // <Navigate to="/TailorProfileVerification" />
+                  <Navigate to= "/TailorDashboard" />
+                  )
+                }
+              />
+            )}
+
             <Route
-              path="/auth"
-              element={
-                !userCustomer ? <LoginSignUp /> : <Navigate to="/home" />
-              }
+              path="/auth/customer"
+              element={!userCustomer ? <CustomerAuth /> : <Navigate to="/home" />}
             />
-          ) : (
             <Route
-              path="/auth"
+              path="/auth/tailor"
               element={
                 !userTailor ? (
-                  <LoginSignUp />
+                  <AuthTailor />
                 ) : (
                   // <Navigate to="/TailorProfileVerification" />
                   <Navigate to= "/TailorDashboard" />
                 )
               }
             />
-          )}
-          <Route
-            path="/auth/customer"
-            element={!userCustomer ? <CustomerAuth /> : <Navigate to="/home" />}
-          />
-          <Route
-            path="/auth/tailor"
-            element={
-              !userTailor ? (
-                <AuthTailor />
-              ) : (
-                // <Navigate to="/TailorProfileVerification" />
-                // alert("hello 3")
-                <Navigate to= "/TailorDashboard" />
-              )
-            }
-          />
-          {/* Email Verication */}
-          {/* <Route path = "/verifyemail/:token" element = {<EmailVerifying />} />
-          <Route exact path="/email/verification" element = {<EmailVerification />} /> */}
+             {/* Email Verication */}         
           <Route path="/verification" element={<EmailVerification  />} />
-          {/* <Route path="/verify-email/:token" element={<Verify />} /> */}
           <Route path="/verify-email" element={<Verify />} />
+
+          
+
+          
           {/* Customer Side */}
           <Route
             path="/home"
@@ -208,23 +221,23 @@ function App() {
             element={<CustomerLandingPage />}
           />
 
-          {/* Tailor Side */}
-          <Route
-            path="/TailorDashboard"
-            element={<TailorDashboard />}
-          />
-          <Route
-            path="/TailorDashboard/Profile"
-            element={<Profile />}
-          />
-          <Route
-            path="/TailorDashboard/NewTailor"
-            element={<NewTailor />}
-          />
-          <Route
-            path="/TailorProfileVerification"
-            element={<TailorProfileVerification />}
-          />
+            {/* Tailor Side */}
+            <Route
+              path="/TailorDashboard"
+              element={<TailorDashboard />}
+            />
+            <Route
+              path="/TailorDashboard/Profile"
+              element={<Profile />}
+            />
+            <Route
+              path="/TailorDashboard/NewTailor"
+              element={<NewTailor />}
+            />
+            <Route
+              path="/TailorProfileVerification"
+              element={<TailorProfileVerification />}
+            />
 
           {/* Miscelleneous */}
           <Route
@@ -236,11 +249,18 @@ function App() {
             element={<HomeOnlineVisit />}
           />
           <Route
+            path="/forgotpassword/:userType"
+            element={<ForgotPassword />}
+          />
+          <Route
             path="*"
             element={<ErrorPage/>}
           />
         </Routes>
       {/* </HomeProvider> */}
+      </Suspense>
+
+
     </GoogleOAuthProvider>
   );
 }

@@ -2,9 +2,11 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import * as dotenv from "dotenv";
 import sendWelcomeMail from "../services/mail.js";
-dotenv.config();
-
+import CartList from "../models/cart.js";
 import userCustomerModel from "../models/userCustomer.js";
+import emailValidator from "email-validator"
+import userTailor from "../models/userTailor.js";
+dotenv.config();
 
 const SECRET = process.env.CUSTOMER_USER;
 
@@ -36,49 +38,26 @@ export const signin = async (req, res) => {
         res.status(200).json({ result: oldUser, token });
     } catch (error) {
         res.status(500).json({ message: "Something went wrong" });
-        console.log(error);
+        console.error(error);
     }
 };
 
 export const register = async (req, res) => {
-    const { name, email, password, confirmPassword } = req.body;
-    const passwordRegex =
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$%#^&*])(?=.*[0-9]).{8,}$/;
-    const emailDomains = [
-        "gmail.com",
-        "yahoo.com",
-        "hotmail.com",
-        "aol.com",
-        "outlook.com",
-    ];
+    const { name, email, password } = req.body;
 
-    if (name.length < 6) {
-        return res
-            .status(404)
-            .json({ message: "Name must be atleast 6 characters long." });
-    }
-
-    if (!passwordRegex.test(password)) {
-        return res.status(404).json({
-            message:
-                "Password must be at least 8 characters long and include at least 1 uppercase letter, 1 lowercase letter, 1 symbol (@$%#^&*), and 1 number (0-9)",
-        });
-    }
-
-    if (!emailDomains.some((v) => email.indexOf(v) >= 0)) {
-        return res.status(404).json({
-            message: "Please enter a valid email address",
-        });
+    if(!email){
+        return res.status(400).json({ error: 'Invalid email' });
     }
 
     try {
-        const oldUser = await userCustomerModel.findOne({ email });
+        const oldUserCustomer = await userCustomerModel.findOne({ email });
+        const oldUserTailor = await userTailor.findOne({ email});
 
-        if (oldUser)
+        if (oldUserCustomer)
             return res.status(404).json({ message: "User already exist" });
 
-        if (password !== confirmPassword)
-            return res.status(404).json({ message: "Password doesn't Match" });
+        if (oldUserTailor)
+            return res.status(404).json({ message: "A tailor account exist with same email. Please use another Email." });
 
         const hashedPassword = await bcrypt.hash(password, 12);
 
@@ -100,6 +79,23 @@ export const register = async (req, res) => {
         res.status(201).json({ result, token });
     } catch (error) {
         res.status(500).json({ message: "Something went wrong" });
-        console.log(error);
+        console.error(error);
     }
 };
+
+export const deleteAccount = async (req, res)=>{
+    const {email} = req.body;
+
+    if(!emailValidator.validate(email)){
+        return res.status(400).json({ error: 'Invalid email' });
+    }
+    try{
+      const user = await userCustomerModel.findOne({email});
+      await userCustomerModel.deleteOne({email});
+      await CartList.deleteOne({customerId: user._id.toString()});
+      res.status(200).json({result: true})
+    }catch(error){
+      console.log(error);
+      res.status(500).json({message: "Something went wrong"})
+    }
+  }

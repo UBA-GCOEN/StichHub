@@ -1,0 +1,58 @@
+name: Add Label and Assign
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  addLabelAndAssign:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check issue checkboxes
+        id: checkboxes
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issue = context.payload.issue;
+            const body = issue.body ? issue.body.toLowerCase() : '';
+            const checkboxes = context.payload.issue.body.match(/- \[x\] ([^\n]+)/g);
+            const hasGSSOCContributor = checkboxes.includes(c => c.includes("I'm a GSSOC'23 contributor"));
+            const wantsToWorkOnIssue = checkboxes.includes(c => c.includes("I want to work on this issue"));
+
+            console.log(`Has GSSOC Contributor: ${hasGSSOCContributor}`);
+            console.log(`Wants to work on issue: ${wantsToWorkOnIssue}`);
+
+            console.log(`::set-output name=hasGSSOCContributor::${hasGSSOCContributor}`);
+            console.log(`::set-output name=wantsToWorkOnIssue::${wantsToWorkOnIssue}`);
+
+      - name: Add label
+        if: ${{ steps.checkboxes.outputs.hasGSSOCContributor == 'true' }}
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const labelToAdd = 'gssoc23';
+            const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
+            await octokit.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: [labelToAdd]
+            });
+
+      - name: Assign author
+        if: ${{ steps.checkboxes.outputs.wantsToWorkOnIssue == 'true' }}
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
+            await octokit.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              assignees: [context.issue.user.login]
+            });

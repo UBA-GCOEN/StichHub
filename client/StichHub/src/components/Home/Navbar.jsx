@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
-import logo from "../../assets/logo/Long - Logo Transparent (Black).png";
+import logo from "../../assets/logo/Long - Logo Transparent (White).png";
+import DeleteConfirmation from "../DeleteAccount";
 
 const Navbar = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   const [toggle, setToggle] = useState(false);
+  const [isDelete, setIsDelete] = useState(false);
   const location = useLocation();
   const navigateTo = useNavigate();
-
+//   const Style = { color: 'White' };
   useEffect(() => {
     const token = user?.token;
 
@@ -28,6 +30,11 @@ const Navbar = () => {
     setUser(null);
   };
 
+  const onDeleteClick = ()=>{
+    setToggle(!toggle)
+    setIsDelete(true)
+  }
+
   const linkToCart = user ? "/Cart" : "/auth/customer";
   const linkToMeasurement = user ? "/Cart" : "/auth/customer";
 
@@ -37,7 +44,7 @@ const Navbar = () => {
         {/* Logo */}
         <div className="flex mt-2">
           <a href="/" className="ml-5">
-            <img src={logo} alt="stichHub" className="w-[120px] sm:w-[140px]" />
+            <img src={logo} alt="logo with text that says StichHub stitch your way" className="w-[120px] sm:w-[140px]" loading="lazy"/>
           </a>
         </div>
 
@@ -55,8 +62,8 @@ const Navbar = () => {
         <div className="mx-5">
           {user?.result ? (
             <div className="flex ">
-              <span className="mt-2">Welcome! &nbsp;</span>
-              <span className="text-indigo-600 mr-3 mt-2">
+              <span className="mt-2 text-white">Welcome! &nbsp;</span>
+              <span className="text-indigo-300 mr-3 mt-2">
                 {" "}
                 {user?.result.name}{" "}
               </span>
@@ -64,7 +71,7 @@ const Navbar = () => {
                 className="rounded-full w-9 cursor-pointer"
                 onClick={() => setToggle(!toggle)}>
                 {user?.result.picture ? (
-                  <img src={user?.result.picture} className="rounded-full" />
+                  <img src={user?.result.picture} className="rounded-full" alt={user?.result.name || 'user image'} loading="lazy"/>
                 ) : (
                   <div className="w-9 bg-indigo-600 rounded-full h-9 text-white text-center text-2xl">
                     {user?.result.name.charAt(0)}
@@ -106,8 +113,14 @@ const Navbar = () => {
                     onClick={logout}>
                     Log Out
                   </button>
+                  <button
+                    className="bg-red-500 text-white py-1 px-3 rounded-lg ml-6 mb-3"
+                    onClick={onDeleteClick}>
+                    Delete Account
+                  </button>
                 </div>
               </div>
+             {isDelete && <DeleteConfirmation user={user} accountType={"customer"} setIsDelete={setIsDelete}/> }
             </div>
           ) : (
             <Link to="/auth/customer">
