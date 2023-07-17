@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import logo from "../../assets/logo/Long - Logo Transparent (White).png";
+import DeleteConfirmation from "../DeleteAccount";
 
 const Navbar = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   const [toggle, setToggle] = useState(false);
+  const [isDelete, setIsDelete] = useState(false);
   const location = useLocation();
   const navigateTo = useNavigate();
 //   const Style = { color: 'White' };
@@ -27,6 +29,11 @@ const Navbar = () => {
     navigateTo("/home");
     setUser(null);
   };
+
+  const onDeleteClick = ()=>{
+    setToggle(!toggle)
+    setIsDelete(true)
+  }
 
   const linkToCart = user ? "/Cart" : "/auth/customer";
   const linkToMeasurement = user ? "/Cart" : "/auth/customer";
@@ -106,8 +113,14 @@ const Navbar = () => {
                     onClick={logout}>
                     Log Out
                   </button>
+                  <button
+                    className="bg-red-500 text-white py-1 px-3 rounded-lg ml-6 mb-3"
+                    onClick={onDeleteClick}>
+                    Delete Account
+                  </button>
                 </div>
               </div>
+             {isDelete && <DeleteConfirmation user={user} accountType={"customer"} setIsDelete={setIsDelete}/> }
             </div>
           ) : (
             <Link to="/auth/customer">
