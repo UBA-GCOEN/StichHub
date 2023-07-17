@@ -24,11 +24,7 @@ const sendEmail = async (options) => {
     html: options.message_Content,
   };
 
-  const mailInfo = await transporter.sendMail(mailOptions, (error, result) => {
-    if (error) {
-      console.log(error);
-    }
-  });
+  const mailInfo = await transporter.sendMail(mailOptions);
 
   // console.log(mailInfo);
 };
