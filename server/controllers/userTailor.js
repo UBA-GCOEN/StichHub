@@ -273,6 +273,8 @@ export const resendVerificationLink = async (req, res) => {
         " >Verify</a></p> ",
     };
 
+    await sendEmail(options);
+
     res.status(201).json({
       success: true,
       message: `An Email is sent to your Email ${tailorUser.email}. Please Verify your Email.`,
