@@ -279,7 +279,7 @@ export const resendVerificationLink = async (req, res) => {
       message: `An Email is sent to your Email ${tailorUser.email}. Please Verify your Email.`,
       verification_link: url,
       token,
-      resu,
+      options,
     });
   } catch (error) {
     res.status(400).json({
