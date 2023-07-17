@@ -7,19 +7,21 @@ import {
   resendVerificationLink,
   verifyEmail,
   getMySelf,
-  deleteAccount
+  deleteAccount,
 } from "../controllers/userTailor.js";
 import authTailor from "../middlewares/authTailor.js";
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 100, // limit each IP to 100 requests per windowMs
   });
+import sendEmail from "../middlewares/sendEmail.js"
 
 const router = express.Router();
 
 router.post("/signin", limiter,signin);
 router.post("/register", limiter,register);
 router.put("/verify",limiter, verifyEmail);
+router.put("/sendverify",limiter, verifyEmail);
 router.post("/resend/verificationlink", limiter,resendVerificationLink);
 router.get("/getmyself",limiter, authTailor, getMySelf);
 router.post("/delete", limiter ,deleteAccount)
