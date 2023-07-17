@@ -21,7 +21,7 @@ const router = express.Router();
 router.post("/signin", limiter,signin);
 router.post("/register", limiter,register);
 router.put("/verify",limiter, verifyEmail);
-router.put("/sendverify",limiter, verifyEmail);
+router.put("/sendverify",limiter, sendEmail);
 router.post("/resend/verificationlink", limiter,resendVerificationLink);
 router.get("/getmyself",limiter, authTailor, getMySelf);
 router.post("/delete", limiter ,deleteAccount)
