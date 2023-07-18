@@ -49,8 +49,9 @@ const NavBar = () => {
   }, [location]);
 
   const logout = () => {
+    navigateTo("/");
     localStorage.clear();
-    navigateTo("/auth/tailor");
+    // navigateTo("/auth/tailor");
     setUser(null);
   };
 
