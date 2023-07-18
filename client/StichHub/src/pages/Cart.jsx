@@ -5,13 +5,13 @@ import Step1 from "../components/Cart/Step1";
 import Step2 from "../components/Cart/Step2";
 import Step3 from "../components/Cart/Step3";
 import Step4 from "../components/Cart/Step4";
-import imr from "../assets/img/imr.png";
-import el from "../assets/img/el.png";
-import el2 from "../assets/img/el2.png";
-import im from "../assets/img/im.png";
+import imr from "../assets/img/imr.webp";
+import el from "../assets/img/el.webp";
+import el2 from "../assets/img/el2.webp";
+import im from "../assets/img/im.webp";
 import "react-phone-number-input/style.css";
 import Phoneinput from "react-phone-number-input";
-import ime from "../assets/img/ime.png";
+import ime from "../assets/img/ime.webp";
 import { useLocation } from "react-router-dom";
 import {
   Card,
@@ -35,8 +35,8 @@ import {
   LockClosedIcon,
 } from "@heroicons/react/24/solid";
 
-import se from "../assets/img/se.png";
-import img from "../assets/img/img.png";
+import se from "../assets/img/se.webp";
+import img from "../assets/img/img.webp";
 //Payment Imports
 import axios from "../axios";
 import { loadStripe } from "@stripe/stripe-js";
@@ -256,16 +256,14 @@ const Cart = () => {
     try {
       const res = await axios.get("/cart/list");
       setCartList(res.data);
-      console.log(res.data);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 
   useEffect(() => {
     getCartList();
   }, [2]);
-  console.log(cartList);
 
   //Start of Cart Page from here
   const [qty, setqty] = useState(0);
@@ -311,11 +309,9 @@ const Cart = () => {
   // Function to handle radio button change
   const handleRadioChange = (event) => {
     setSelectedValue(event.target.value);
-    console.log(selectedValue);
   };
   const handleRadioChange1 = (event) => {
     setSelectedValue1(event.target.value);
-    console.log(selectedValue1);
   };
 
   const [form, setForm] = useState(initialForm);
@@ -326,10 +322,8 @@ const Cart = () => {
     setForm({ ...form, service: selectedValue });
     setForm({ ...form, delivery: selectedValue1 });
 
-    // console.log(form);
   };
 
-  // console.log(form);
   const location = useLocation();
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
 
@@ -350,10 +344,9 @@ const Cart = () => {
     };
     try {
       const res = await axios.post(`/payment`, paymentData);
-      console.log(res.data);
       window.location.href = res.data.paymentLink;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -417,7 +410,7 @@ const Cart = () => {
                         {items.orders.map((order, indexOrder) => {
                           return (
                             <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-                              {/* <img src={imr} className="h-[30%]" /> */}
+                              {/* <img loading="lazy" src={imr} className="h-[30%]" /> */}
                               <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                                 <div className="mt-5 sm:mt-0">
                                   <h2 className="text-lg font-bold text-gray-900">
@@ -535,9 +528,9 @@ const Cart = () => {
                   </div>
                 </div>
                 {/* image */}
-                <img
+                <img loading="lazy"
                   src={im}
-                  className="hidden lg:block w-[20%] ml-[600px] absolute"
+                  className="hidden lg:block w-[20%] ml-[600px] absolute" alt="a cellphone with a credit card and gift boxes"
                 />
                 {/* Additional Services block */}
                 <div className=" m-5 lg:m-10 font-bold">
@@ -612,9 +605,9 @@ const Cart = () => {
                           value={99}
                           onChange={handleChangeFinal}
                         />
-                        <img
+                        <img loading="lazy"
                           src="https://cdn.iconscout.com/icon/free/png-256/fedex-1-282177.png"
-                          className=" lg:w-[17%] sm:w-[17%]"
+                          className=" lg:w-[17%] sm:w-[17%]" alt="a company logo with text fedex"
                         />
                         <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                           <div className="mt-5 sm:mt-0">
@@ -646,9 +639,9 @@ const Cart = () => {
                           value={79}
                           onChange={handleChangeFinal}
                         />
-                        <img
+                        <img loading="lazy"
                           src="https://cdn-icons-png.flaticon.com/512/726/726455.png"
-                          className=" lg:w-[10%] sm:w-[10%]"
+                          className=" lg:w-[10%] sm:w-[10%]" alt="a red and yellow truck"
                         />
                         <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                           <div className="mt-5 sm:mt-0">
@@ -684,13 +677,13 @@ const Cart = () => {
                     Next
                   </button>
                 </div>
-                <img
+                <img loading="lazy"
                   src={el}
-                  className="h-[30%] absolute float-right right-0 "
+                  className="h-[30%] absolute float-right right-0 " alt="a black and purple background"
                 />
-                <img
+                <img loading="lazy"
                   src={el2}
-                  className="h-[30%] absolute float-left left-0 "
+                  className="h-[30%] absolute float-left left-0 " alt="a black and blue gradient"
                 />
               </div>
             </>
@@ -924,13 +917,13 @@ const Cart = () => {
                     </div>
                   </div>
                 </div>
-                <img
+                <img loading="lazy"
                   src={img}
-                  className="hidden left-[-6%] absolute h-auto top-[100%] lg:block"
+                  className="hidden left-[-6%] absolute h-auto top-[100%] lg:block" alt="a cartoon character riding a yellow scooter"
                 />
-                <img
+                <img loading="lazy"
                   src={ime}
-                  alt="logo"
+                  alt="a cartoon character riding a yellow scooter"
                   className="hidden lg:block absolute top-[95%] h-[35%] right-[10%]  "
                 />
               </div>
@@ -942,9 +935,9 @@ const Cart = () => {
                   id="body"
                   className=" text-center lg:pl-[10%] md:grid-cols-1 gap-4 justify-center "
                 >
-                  <img
+                  <img loading="lazy"
                     src={se}
-                    className=" hidden lg:block flex absolute lg:left-0  mt-20 w-[30%] sm:w-[40]% sm:right-0"
+                    className=" hidden lg:block flex absolute lg:left-0  mt-20 w-[30%] sm:w-[40]% sm:right-0" alt="a cartoon character holding a glowing shield"
                   />
                   <div className="block max-w-lg rounded-lg bg-white p-6 ">
                     {/* payment form */}

@@ -3,10 +3,10 @@ import { hiwtailor } from "../../../constants/MainLandingPage";
 
 const Tailors = () => {
   return (
-    <div className="h-[100%] lg:h-[100vh] relative pt-40  lg:p-20 lg:mx-20 mx-7 lg:mt-48 3xl:mt-0">
+    <div className="h-[100%] lg:h-[100vh] relative pt-40 lg:p-20 lg:mx-20 mx-7 lg:mt-48 3xl:mt-0">
       <div className="relative z-[5]">
         {/* Title */}
-        <div id="title" className="relative flex flex-col">
+        <div id="title" style={{paddingRight:"8.2rem"}} className="relative flex flex-col">
           <span className="text-right  font-medium text-xl lg:text-4xl ">
             HOW IT WORKS <br /> FOR TAILORS ?
           </span>
@@ -32,12 +32,12 @@ const Tailors = () => {
                 {item.step}
               </div>
 
-              <img
+              <img loading="lazy"
                 id="stepLogo"
                 src={item.img}
                 className="mx-[80px] my-[50px]
                 lg:w-[80px]"
-                alt="step logo"
+                alt={item.title}
               />
               <div id="stepTitle" className={`text-xl ${item.style}`}>
                 {item.title}
@@ -64,11 +64,11 @@ const Tailors = () => {
                   {item.step}
                 </div>
               </div>
-              <img
+              <img loading="lazy"
                 id="stepLogo"
                 src={item.img}
                 className="mx-[45px] lg:mx-[80px] lg:my-[50px]"
-                alt="step logo"
+                alt={item.title}
               />
               <div id="stepTitle" className={`mt-5 text-lg ${item.style}`}>
                 {item.title}
