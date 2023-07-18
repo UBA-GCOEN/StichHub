@@ -29,13 +29,22 @@ const orderData = {
   fabricMode: "",
 };
 
+
+
 export const HomeProvider = (props) => {
   const [orderDetails, setOrderDetails] = useState(orderData);
+const [tailorDetails , setTailorDetails] =useState({
+  status : "",
+  message : "",
+  tailorUser : {}
+});
   return (
     <HomeContext.Provider
       value={{
         orderDetails,
         setOrderDetails,
+        tailorDetails, 
+        setTailorDetails
       }}
     >
       {props.children}

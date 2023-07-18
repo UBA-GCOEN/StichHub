@@ -1,5 +1,6 @@
 import React from "react";
 import { Dropdown } from "rsuite";
+import logo from "../../assets/logo/Long - Logo Transparent (White).png"
 
 const Footer = () => {
   return (
@@ -43,10 +44,8 @@ const Footer = () => {
           </div>
           <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
-              <a href="#" class="flex items-center">
-                <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">
-                  Stichhub{" "}
-                </span>
+              <a href="/" class="flex items-center">
+          <img src={logo} alt="logo with text that says StichHub stitch your way" className="w-48 cursor-pointer" loading="lazy"/>
               </a>
               <span class="self-center text-sm whitespace-nowrap text-semibold text-white dark:text-white mr-7">
                 We Bridges the gap between tailors and <br />
@@ -60,22 +59,22 @@ const Footer = () => {
                 </h2>
                 <ul class="text-gray-500 dark:text-white font-medium">
                   <li class="mb-2">
-                    <a href="https://flowbite.com/" class="hover:underline">
+                    <a href="#" class="hover:underline">
                       Overview
                     </a>
                   </li>
                   <li class="mb-2">
-                    <a href="https://tailwindcss.com/" class="hover:underline">
+                    <a href="#" class="hover:underline">
                       Features
                     </a>
                   </li>
                   <li class="mb-2">
-                    <a href="https://flowbite.com/" class="hover:underline">
+                    <a href="#" class="hover:underline">
                       How it works?
                     </a>
                   </li>
                   <li class="mb-2">
-                    <a href="https://tailwindcss.com/" class="hover:underline">
+                    <a href="#" class="hover:underline">
                       Tutorials
                     </a>
                   </li>
@@ -87,22 +86,22 @@ const Footer = () => {
                 </h2>
                 <ul class="text-gray-500 dark:text-white font-medium">
                   <li class="mb-2">
-                    <a href="https://flowbite.com/" class="hover:underline">
+                    <a href="#" class="hover:underline">
                       About Us
                     </a>
                   </li>
                   <li class="mb-2">
-                    <a href="https://tailwindcss.com/" class="hover:underline">
+                    <a href="#" class="hover:underline">
                       Contact Us
                     </a>
                   </li>
                   <li class="mb-2">
-                    <a href="https://flowbite.com/" class="hover:underline">
+                    <a href="#" class="hover:underline">
                       Team
                     </a>
                   </li>
                   <li class="mb-2">
-                    <a href="https://tailwindcss.com/" class="hover:underline">
+                    <a href="#" class="hover:underline">
                       News
                     </a>
                   </li>
@@ -114,22 +113,22 @@ const Footer = () => {
                 </h2>
                 <ul class="text-gray-500 dark:text-white font-medium">
                   <li class="mb-2">
-                    <a href="https://flowbite.com/" class="hover:underline">
+                    <a href="#"  class="hover:underline">
                       Newsletter
                     </a>
                   </li>
                   <li class="mb-2">
-                    <a href="https://tailwindcss.com/" class="hover:underline">
+                    <a href="#"  class="hover:underline">
                       Events
                     </a>
                   </li>
                   <li class="mb-2">
-                    <a href="https://flowbite.com/" class="hover:underline">
+                    <a href="#"  class="hover:underline">
                       Tutorials
                     </a>
                   </li>
                   <li class="mb-2">
-                    <a href="https://tailwindcss.com/" class="hover:underline">
+                    <a href="#"  class="hover:underline">
                       Support
                     </a>
                   </li>
@@ -142,7 +141,7 @@ const Footer = () => {
                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
                   <li class="mb-2">
                     <a
-                      href="https://github.com/themesberg/flowbite"
+                      href="https://www.instagram.com/sidd.0203/" target='_blank'
                       class="hover:underline "
                     >
                       Instagram
@@ -150,7 +149,7 @@ const Footer = () => {
                   </li>
                   <li class="mb-2">
                     <a
-                      href="https://discord.gg/4eeurUVvTy"
+                      href="mailto:uba.gcoen@gmail.com" target='_blank'
                       class="hover:underline"
                     >
                       Email
@@ -158,7 +157,7 @@ const Footer = () => {
                   </li>
                   <li class="mb-2">
                     <a
-                      href="https://github.com/themesberg/flowbite"
+                      href="https://youtu.be/EV6m7hZ4RKU" target='_blank'
                       class="hover:underline "
                     >
                       Youtube
@@ -166,10 +165,10 @@ const Footer = () => {
                   </li>
                   <li class="mb-2">
                     <a
-                      href="https://discord.gg/4eeurUVvTy"
+                      href="https://github.com/UBA-GCOEN/StichHub" target='_blank'
                       class="hover:underline"
                     >
-                      Whatsapp
+                      Github
                     </a>
                   </li>
                 </ul>

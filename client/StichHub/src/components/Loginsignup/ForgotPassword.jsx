@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 import logo from "../../assets/logo/Long - Logo Transparent (White).png";
 import shortlogo from "../../assets/logo/Short-Logo Transparent (Black).png";
-import customerimg from "../../assets/loginsignup/customerimg.png";
-import tailorimg from "../../assets/loginsignup/tailorimg.png";
+import customerimg from "../../assets/loginsignup/customerimg.webp";
+import tailorimg from "../../assets/loginsignup/tailorimg.webp";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "../../axios.js";
 import { Player } from "@lottiefiles/react-lottie-player";
@@ -28,10 +28,8 @@ const ForgotPassword = () => {
     setIsLoading(true);
     
     try {
-      console.log("@switchModetry");
       const  data = {email, "model" : userType}
       const res = await axios.post("/forgotpassword", data)
-      console.log(res);
       if(res.status===200){
           alert("email verified");
         }  
@@ -70,12 +68,12 @@ const ForgotPassword = () => {
         <div className="relative z-[5]">
           {/* logo */}
           <a href="/" className="flex justify-center mt-6">
-            <img src={logo} className="w-[240px]" />
+            <img src={logo} className="w-[240px]" alt="logo with text that says StichHub stitch your way" loading="lazy"/>
           </a>
           {/* title */}
           <div className="flex justify-center my-1">
             <div>
-              {/* <img src={customerimg} alt="" className="w-[50px] mr-5" /> */}
+              {/* <img loading="lazy" src={customerimg} alt="" className="w-[50px] mr-5" /> */}
             </div>
             <div className="mt-3 text-center">
               <span className="text-white text-3xl font-semibold">
@@ -150,10 +148,10 @@ const ForgotPassword = () => {
       </div>
 
       {/* Right Side (img)*/}
-      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.png')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10 rounded-l-3xl">
-        <img
+      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.webp')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10 rounded-l-3xl">
+        <img loading="lazy"
           src={shortlogo}
-          className="w-[5vw] absolute bottom-14 right-5"
+          className="w-[5vw] absolute bottom-14 right-5"  alt="a black and blue letters S and H"
         ></img>
       </div>
     </div>

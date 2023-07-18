@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   NavBar,
   About,
@@ -9,11 +9,16 @@ import {
   Footer,
   FooterHomePage
 } from "../components/MainLandingPage";
-import FAQ from "../components/MainLandingPage/FAQs/faq"
+import FAQ from "../components/MainLandingPage/FAQs/faq";
+import Testimonial from "../components/Testimonial/Testimonial";
 import { LandingPageDemo } from "../contexts/LandingPageDemo";
 import GoToTop from "../components/GoToTop";
 
+
+  
 const MainLandingPage = () => {
+ 
+  
   return (
     <div className="text-center text-white overflow-hidden text-3xl bg-primary">
       <GoToTop />
@@ -23,8 +28,9 @@ const MainLandingPage = () => {
       </LandingPageDemo>
       <OurServices />
       <HowItWorks />
-      <About />
+      <Testimonial />
       <FAQ/>
+      <About />
       <ContactUs />
       <FooterHomePage />
       {/* <p className="text-sm">	&copy; Stichhub {new Date().getFullYear()}</p> */}

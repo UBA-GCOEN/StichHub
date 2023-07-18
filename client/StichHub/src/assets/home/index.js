@@ -1,5 +1,5 @@
-import star from "./star.png"
-import yadav from "./yadav.png"
+import star from "./star.webp"
+import yadav from "./yadav.webp"
 
 export {
     star,

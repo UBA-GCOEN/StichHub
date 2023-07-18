@@ -11,7 +11,6 @@ const Transporter = nodemailer.createTransport({
 });
 
 const sendWelcomeMail = async (name, email) => {
-  console.log(name, email, SOURCE_EMAIL);
   let info = await Transporter.sendMail({
     from: SOURCE_EMAIL,
     to: email,
@@ -24,7 +23,7 @@ const sendWelcomeMail = async (name, email) => {
 
       If you did not register for an account on StichHub, please disregard this email. It's possible that another person with a similar email address accidentally used it during registration.<br/><br/>
 
-      If you encounter any issues or have any questions, please don't hesitate to reach out to our support team at <b>uba.gcoen@gmail.com</b> . We're here to help!<br/><br/>
+      If you encounter any issues or have any questions, please don't hesitate to reach out to our support team at <b>stichhub.office@gmail.com</b> . We're here to help!<br/><br/>
 
       We're thrilled to have you on board.<br/>
       Thank you for choosing StichHub!<br/><br/>
@@ -32,7 +31,6 @@ const sendWelcomeMail = async (name, email) => {
       Best regards,<br/>
       The StichHub Team<br/>`,
   });
-  console.log(info);
 };
 
 export default sendWelcomeMail;

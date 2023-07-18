@@ -1,5 +1,7 @@
-import { useState, useEffect, Suspense, lazy } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+
+import  { useState, useEffect,  useContext,Suspense, lazy } from "react";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+
 import {
   MainLandingPage,
   CustomerLandingPage,
@@ -20,7 +22,13 @@ import {
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Category, CustomerOrder } from "./components/Home";
 import { HomeProvider, useHCustomization } from "./contexts/Home";
+import axios from "./axios";
+import { isStyledComponent } from "styled-components";
 
+
+
+const EmailVerification = lazy(()=>import("./components/TailorProfileVerification/EmailVerification"))
+const Verify = lazy(()=>import( "./components/TailorProfileVerification/Verify.jsx"))
 const CustomerAuth=lazy(()=>import("./components/Loginsignup/CustomerAuth"))
 const AuthTailor=lazy(()=>import("./components/Loginsignup/AuthTailor"))
 const ForgotPassword=lazy(()=>import("./components/Loginsignup/ForgotPassword"))
@@ -31,23 +39,56 @@ const PaymentSuccess=lazy(()=>import("./components/Cart/PaymentSuccess"))
 const PaymentFailure=lazy(()=>import("./components/Cart/PaymentFailure"))
 const ErrorPage=lazy(()=>import("./components/ErrorPage/404ErrorPage"))
 
+
 function App() {
+  const navigateTo = useNavigate();
+  const {tailorDetails , setTailorDetails} = useHCustomization()
+ 
   const [userCustomer, setUserCustomer] = useState(
     JSON.parse(localStorage.getItem("profile"))
   );
   const [userTailor, setUserTailor] = useState(
     JSON.parse(localStorage.getItem("tailorProfile"))
   );
+ 
+  const getMySelf = async () => {
+    try {
+     const res = await axios.get("/userTailor/getmyself");
+     const data = res.data
+     // console.log(res.data.tailorUser)
+     setTailorDetails( data)
+    } catch (error) {
+    //  data = error.response.data;
+    //  setTailorDetails({...tailorDetails , data})
+    // console.log(error)
+    alert("Unauthorize")
+    localStorage.clear();
+    navigateTo("/")
+    }
+     
 
-  useEffect(() => {
+   }
+  
+  useEffect( () => {
+    if(userTailor){
+
+      getMySelf();
+    }
+     console.log(tailorDetails)
     setUserCustomer(JSON.parse(localStorage.getItem("profile")));
     setUserTailor(JSON.parse(localStorage.getItem("tailorProfile")));
+  
   }, []);
+  
+   
+  
+ 
+
 
   return (
     <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
-      <Suspense fallback={<div className="flex justify-center items-center h-screen"><img src="https://raw.githubusercontent.com/Siddhant-Patil0203/StichHub/51fedb577d2bc6a21dde6b73f5307534b70316f5/client/StichHub/public/loading_animation.svg" alt="loading..." /></div>}>
-        <HomeProvider>
+      <Suspense fallback={<div className="flex justify-center items-center h-screen"><img src="https://raw.githubusercontent.com/Siddhant-Patil0203/StichHub/51fedb577d2bc6a21dde6b73f5307534b70316f5/client/StichHub/public/loading_animation.svg" alt="loading..." loading="lazy"/></div>}>
+{/* //         <HomeProvider> */}
           <Routes>
             {/* Landing Page */}
             {userCustomer ? (
@@ -64,7 +105,8 @@ function App() {
                   !userTailor ? (
                     <MainLandingPage />
                   ) : (
-                    <Navigate to="/TailorProfileVerification" />
+//                     <Navigate to="/TailorProfileVerification" />
+              <Navigate to= "/TailorDashboard" />
                   )
                 }
               />
@@ -85,11 +127,13 @@ function App() {
                   !userTailor ? (
                     <LoginSignUp />
                   ) : (
-                    <Navigate to="/TailorProfileVerification" />
+                     // <Navigate to="/TailorProfileVerification" />
+                  <Navigate to= "/TailorDashboard" />
                   )
                 }
               />
             )}
+
             <Route
               path="/auth/customer"
               element={!userCustomer ? <CustomerAuth /> : <Navigate to="/home" />}
@@ -100,69 +144,76 @@ function App() {
                 !userTailor ? (
                   <AuthTailor />
                 ) : (
-                  <Navigate to="/TailorProfileVerification" />
+                  // <Navigate to="/TailorProfileVerification" />
+                  <Navigate to= "/TailorDashboard" />
                 )
               }
             />
+             {/* Email Verication */}         
+          <Route path="/verification" element={<EmailVerification  />} />
+          <Route path="/verify-email" element={<Verify />} />
 
-            {/* Customer Side */}
-            <Route
-              path="/home"
-              element={<Home />}
-            />
-            <Route
-              path="/TailorDetails"
-              element={<TailorDetails />}
-            />
-            <Route
-              path="/home/category"
-              element={<Category />}
-            />
-            <Route
-              path="/Configurator"
-              element={<ThreeDConfigurator />}
-            />
-            <Route
-              path="/measurement"
-              element={<ThreeDMeasurement />}
-            />
-            <Route
-              path="/measurement/"
-              element={<ThreeDMeasurement />}
-            />
-            <Route
-              path="/FabricModel"
-              element={<FabricModel />}
-            />
-            <Route
-              path="/OrderDetails"
-              element={<OrderConfirmation />}
-            />
-            <Route
-              path="/Cart"
-              element={<Cart />}
-            />
-            <Route
-              path="/Orders"
-              element={<CustomerOrder />}
-            />
-            <Route
-              path="/Cart/success"
-              element={<PaymentSuccess />}
-            />
-            <Route
-              path="/Cart/cancel"
-              element={<PaymentFailure />}
-            />
-            {/* Customer Features  */}
-            <Route
-              path="/ClothesCategory"
-              element={<ClothesCategory />}
-            />
-            <Route
-              path="/CustomersPage"
-              element={<CustomerLandingPage />}
-            />
+          
+
+          
+          {/* Customer Side */}
+          <Route
+            path="/home"
+            element={<Home />}
+          />
+          <Route
+            path="/TailorDetails"
+            element={<TailorDetails />}
+          />
+          <Route
+            path="/home/category"
+            element={<Category />}
+          />
+          <Route
+            path="/Configurator"
+            element={<ThreeDConfigurator />}
+          />
+          <Route
+            path="/measurement"
+            element={<ThreeDMeasurement />}
+          />
+          <Route
+            path="/measurement/"
+            element={<ThreeDMeasurement />}
+          />
+          <Route
+            path="/FabricModel"
+            element={<FabricModel />}
+          />
+          <Route
+            path="/OrderDetails"
+            element={<OrderConfirmation />}
+          />
+          <Route
+            path="/Cart"
+            element={<Cart />}
+          />
+          <Route
+            path="/Orders"
+            element={<CustomerOrder />}
+          />
+          <Route
+            path="/Cart/success"
+            element={<PaymentSuccess />}
+          />
+          <Route
+            path="/Cart/cancel"
+            element={<PaymentFailure />}
+          />
+          {/* Customer Features  */}
+          <Route
+            path="/ClothesCategory"
+            element={<ClothesCategory />}
+          />
+          <Route
+            path="/CustomersPage"
+            element={<CustomerLandingPage />}
+          />
 
             {/* Tailor Side */}
             <Route
@@ -200,8 +251,9 @@ function App() {
             element={<ErrorPage/>}
           />
         </Routes>
-      </HomeProvider>
+      {/* </HomeProvider> */}
       </Suspense>
+
 
     </GoogleOAuthProvider>
   );
