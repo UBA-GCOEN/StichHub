@@ -154,7 +154,7 @@ const CustomerAuth = () => {
 
           {/* form */}
           <div className="flex justify-center">
-            <form onSubmit={handleSumbmit}>
+            <form onSubmit={handleSumbmit} aria-label="Tailor authentication form">
               {isregister && (
                 <div>
                   <svg
@@ -182,8 +182,13 @@ const CustomerAuth = () => {
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
+                    aria-label="Enter you name"
+                    required
+                    aria-required="true"
+                    aria-describedby="name-error"
+                    aria-invalid={error.nameError ? "true" : "false"}
                   />
-                  {(error.name && error.nameError)? <AuthErrorMessage message={error.nameError}/>:null}
+                  {(error.name && error.nameError)? <AuthErrorMessage message={error.nameError} name='name'/>:null}
                 </div>
               )}
               <div>
@@ -214,8 +219,13 @@ const CustomerAuth = () => {
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 invalid:border-pink-500 invalid:text-pink-600
                 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
+                  aria-label="Enter you email"
+                  required
+                  aria-required="true"
+                  aria-describedby="email-error"
+                  aria-invalid={error.emailError ? "true" : "false"}
                 />
-                 {(error.email && error.emailError)? <AuthErrorMessage message={error.emailError}/>:null}
+                 {(error.email && error.emailError)? <AuthErrorMessage message={error.emailError} name='email'/>:null}
               </div>
               <div>
                 <svg
@@ -244,11 +254,16 @@ const CustomerAuth = () => {
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
+                aria-label="Enter you password"
+                required
+                aria-required="true"
+                aria-describedby="password-error"
+                aria-invalid={error.passwordError ? "true" : "false"}
                 />
                 <div onClick={passwordToggle} className="absolute cursor-pointer flex items-center z-[5] mt-[-1.8rem] ml-[17rem]">
                 {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
                 </div>
-                 {(error.password && error.passwordError)? <AuthErrorMessage message={error.passwordError}/>:null}
+                 {(error.password && error.passwordError)? <AuthErrorMessage message={error.passwordError} name='password'/>:null}
 
               </div>
               {isregister && (
@@ -279,8 +294,13 @@ const CustomerAuth = () => {
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
+                aria-label="Confirm your password"
+                required
+                aria-required="true"
+                aria-describedby="confirmPassword-error"
+                aria-invalid={error.confirmPassword ? "true" : "false"}
                   />
-                   {(error.confirmPassword && error.confirmPasswordError)? <AuthErrorMessage message={"Password does not match"}/>:null}
+                   {(error.confirmPassword && error.confirmPasswordError)? <AuthErrorMessage message={"Password does not match"} name='confirmPassword'/>:null}
                 </div>
               )}
                    <Captcha message={setTrackState} trackState={trackState}/>
