@@ -1,32 +1,42 @@
 import nodemailer from "nodemailer";
 
-const SMPT_HOST = process.env.SMPT_HOST;
-const SMPT_PORT = process.env.SMPT_PORT;
-const SMPT_SERVICES = process.env.SMPT_SERVICES;
-const SMPT_MAIL = process.env.SMPT_MAIL;
-const SMPT_PASSWORD = process.env.SMPT_PASSWORD;
+// const SMPT_HOST = process.env.SMPT_HOST;
+// const SMPT_PORT = process.env.SMPT_PORT;
+// const SMPT_SERVICES = process.env.SMPT_SERVICES;
+// const SMPT_MAIL = process.env.SMPT_MAIL;
+// const SMPT_PASSWORD = process.env.SMPT_PASSWORD;
 
 const sendEmail = async (options) => {
-  const transporter = nodemailer.createTransport({
-    host: SMPT_HOST,
-    port: SMPT_PORT,
-    services: SMPT_SERVICES,
-    auth: {
-      user: SMPT_MAIL,
-      pass: SMPT_PASSWORD,
-    },
-  });
+  const { to, subject ,message} = req.body;
 
-  const mailOptions = {
-    from: SMPT_MAIL,
-    to: options.email,
-    subject: options.subject,
-    html: options.message_Content,
-  };
+  try {
+    // Create a Nodemailer transporter using your Gmail account details
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'jayesheditz@gmail.com',
+        pass: 'vjakpdivktdecmfx',
+      },
+    });
 
-  const mailInfo = await transporter.sendMail(mailOptions);
+    // Configure the email options
+    const mailOptions = {
+      from: 'jayesheditz@gmail.com',
+      to,
+      subject,
+      text: message,
+    };
 
-  // console.log(mailInfo);
-};
+    // Send the email
+    const info = await transporter.sendMail(mailOptions);
+
+    console.log('Email sent:', info.response);
+    res.status(200).json({ message: 'Email sent successfully' });
+  } catch (error) {
+    console.error('Error sending email:', error);
+    res.status(500).json({ message: 'Error sending email' });
+  }
+}
+
 
 export default sendEmail;
