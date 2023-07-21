@@ -20,19 +20,19 @@ const Footer = () => {
           Choose your style, make your own trend. <br /> Select the one you want to get your clothes stitched from!
         </p>
         <div className="flex items-center mt-4">
-          <a href="mailto:stichhub.office@gmail.com" className="text-white  px-3 hover:text-gray-300 transition-colors duration-300 ease-in-out hover:scale-110">
+          <a href="mailto:stichhub.office@gmail.com" target="_blank" className="text-white  px-3 hover:text-gray-300 transition-colors duration-300 ease-in-out hover:scale-110">
             <MailIcon className="text-white text-2xl  hover:text-[#DB4437]" />
           </a>
-          <a href="https://github.com/UBA-GCOEN/StichHub" className="text-white px-3  hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
+          <a href="https://github.com/UBA-GCOEN/StichHub" target="_blank" className="text-white px-3  hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
             <GitHubIcon className="text-white text-2xl  hover:text-gray-500" />
           </a>
-          <a href="https://www.youtube.com/channel/UCjkwYo58eYv6ZGqu4IQiU0w" className="text-white px-3  hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
+          <a href="https://www.youtube.com/channel/UCjkwYo58eYv6ZGqu4IQiU0w" target="_blank" className="text-white px-3  hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
             <YouTubeIcon className="text-white text-2xl  hover:text-[#c4302b]" />
           </a>
-          <a href="https://twitter.com/StichHub_" className="text-white px-3   hover:text-gray-300 transition-colors duration-300 ease-in-out hover:scale-110">
+          <a href="https://twitter.com/StichHub_" target="_blank" className="text-white px-3   hover:text-gray-300 transition-colors duration-300 ease-in-out hover:scale-110">
             <TwitterIcon className="text-white text-2xl  hover:text-sky-400" />
           </a>
-          <a href="https://www.instagram.com/stichhub_/" className="text-white px-3    hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
+          <a href="https://www.instagram.com/stichhub_/" target="_blank" className="text-white px-3    hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
             <InstagramIcon className="text-white text-2xl  hover:text-[#E4405F]" />
           </a>
         </div>
