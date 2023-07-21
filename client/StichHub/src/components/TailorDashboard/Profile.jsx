@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import Navbardark from "../Navbardark";
+// import Navbardark from "../Navbardark";
 // import LeftView from "./LeftView";
 import styled from "styled-components";
 import "react-phone-number-input/style.css";
@@ -8,16 +8,16 @@ import axios from "../../axios";
 import { Tabs } from "./Tabs";
 import { Player } from "@lottiefiles/react-lottie-player";
 
-const fileTypes = ["JPG", "PNG", "GIF"];
+// const fileTypes = ["JPG", "PNG", "GIF"];
 
 
 
-import {
-  CountryDropdown,
-  RegionDropdown,
-  CountryRegionData,
-} from "react-country-region-selector";
-import { Country, State, City } from "country-state-city";
+// import {
+//   CountryDropdown,
+//   RegionDropdown,
+//   CountryRegionData,
+// } from "react-country-region-selector";
+// import { Country, State, City } from "country-state-city";
 
 // Main container style
 const MainContainer = styled.div`
@@ -88,41 +88,41 @@ const StepCount = styled.span`
   }
 `;
 
-const StepsLabelContainer = styled.div`
-  position: absolute;
-  top: 66px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
+// const StepsLabelContainer = styled.div`
+//   position: absolute;
+//   top: 66px;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+// `;
 
-const StepLabel = styled.span`
-  font-size: 19px;
-  color: #4ea5f4;
-  @media (max-width: 600px) {
-    font-size: 16px;
-  }
-`;
+// const StepLabel = styled.span`
+//   font-size: 19px;
+//   color: #4ea5f4;
+//   @media (max-width: 600px) {
+//     font-size: 16px;
+//   }
+// `;
 
-const ButtonsContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 0 -15px;
-  margin-top: 30px;
-`;
+// const ButtonsContainer = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   margin: 0 -15px;
+//   margin-top: 30px;
+// `;
 
-const ButtonStyle = styled.button`
-  @apply rounded text-white cursor-pointer w-[90px] p-2 border-0;
-  background: lightgray;
-  :active {
-    @apply scale-[0.98];
-  }
-  :disabled {
-    @apply text-black cursor-not-allowed;
-    background: #black;
-  }
-`;
+// const ButtonStyle = styled.button`
+//   @apply rounded text-white cursor-pointer w-[90px] p-2 border-0;
+//   background: lightgray;
+//   :active {
+//     @apply scale-[0.98];
+//   }
+//   :disabled {
+//     @apply text-black cursor-not-allowed;
+//     background: #black;
+//   }
+// `;
 
-//list for defining no of steps pages required
+// //list for defining no of steps pages required
 const steps = [
   {
     label: "profile",
