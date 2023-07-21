@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
-import { tailorCards } from "../../constants/home";
+import { Player } from "@lottiefiles/react-lottie-player";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import axios from "../../axios.js";
-import { Player } from "@lottiefiles/react-lottie-player";
 const TailorList = ({ filters }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [tailorList, setTailorList] = useState([]);
@@ -54,7 +53,7 @@ const TailorList = ({ filters }) => {
     }
     return filterList;
   }
-// Filter for findin max and min price
+  // Filter for findin max and min price
   const filterMinMaxRange = () => {
     const numArray = [];
     filters.price.map((value) => {
@@ -140,7 +139,7 @@ const TailorList = ({ filters }) => {
         filterList.map((item, index) => (
           <div
             key={index}
-            className="cursor-pointer transition-all duration-200 ease-in transform sm:hover:scale-105 p-3 cardGradient w-[43vw] sm:w-[20vw] rounded-lg text-white"
+            className="cursor-pointer transition-all duration-200 ease-in transform sm:hover:scale-105 p-3 cardGradient w-[80vw] sm:w-[32vw] md:w-[24vw] rounded-lg text-white"
           >
             {/* Top Display */}
             <div className="flex justify-between">
@@ -190,7 +189,7 @@ const TailorList = ({ filters }) => {
                     className="bg-indigo-500 rounded-md px-2 text-white text-[10px] lg:inline-flex items-center py-1 mr-2 sm:text-sm font-medium"
                   >
                     {tags}
-                 
+
                   </span>
                 ))
                 .slice(0, 3)}
