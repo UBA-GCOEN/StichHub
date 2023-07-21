@@ -6,7 +6,7 @@ const Customers = () => {
     <div className="h-[100%]  lg:h-[100vh] relative pt-0  lg:px-20 lg:mx-0 mx-7 lg:mt-0  3xl:mt-0">
       <div className="relative z-[5] ">
         {/* Title */}
-        <div id="title" className="relative flex flex-col">
+        <div id="title" style={{paddingLeft:"8.2rem"}} className="relative flex flex-col">
           <span className="text-left text-xl lg:text-4xl font-medium">
             HOW IT WORKS <br /> FOR CUSTOMERS ?
           </span>
@@ -32,7 +32,7 @@ const Customers = () => {
                 {item.step}
               </div>
 
-              <img id="stepLogo" src={item.img} className="mx-[80px] my-[50px] lg:w-[80px]" alt={item.title}/>
+              <img id="stepLogo" src={item.img} className="mx-[80px] my-[50px] lg:w-[80px]" alt={item.title} loading="lazy" />
 
               
 
@@ -58,7 +58,7 @@ const Customers = () => {
                 {item.step}
               </div>
               </div>
-              <img id="stepLogo" src={item.img} className="mx-[45px] lg:mx-[80px] lg:my-[50px]" alt={item.title}/>
+              <img id="stepLogo" src={item.img} className="mx-[45px] lg:mx-[80px] lg:my-[50px]" alt={item.title} loading="lazy"/>
               <div id="stepTitle" className={`mt-5 text-lg ${item.style}`}>{item.title}</div>
             </div>
           ))}
@@ -71,7 +71,7 @@ const Customers = () => {
             <span className="p-2 text-lg lg:text-2xl">
               <i>directly Book an appointment with your favourite tailor.</i>
             </span>
-            <img src={appointment} alt="a blue calendar with white squares"/>
+            <img src={appointment} alt="a blue calendar with white squares" loading="lazy"/>
           </div>
         </div>
       </div>

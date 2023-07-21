@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import imr from "../../assets/img/imr.png";
-import el from "../../assets/img/el.png";
-import el2 from "../../assets/img/el2.png";
-import im from "../../assets/img/im.png";
+import imr from "../../assets/img/imr.webp";
+import el from "../../assets/img/el.webp";
+import el2 from "../../assets/img/el2.webp";
+import im from "../../assets/img/im.webp";
 import axios from "axios";
 
 //main definition
@@ -22,9 +22,8 @@ const Step1 = () => {
     try {
       const res = await axios.get("/cart/list");
       setCartList(res.data);
-      console.log(res.data);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 
@@ -83,7 +82,7 @@ const Step1 = () => {
       <div class="mx-auto max-w-5xl justify-center px-1 lg:px-6 md:flex md:space-x-6 xl:px-0">
         <div class="rounded-lg md:w-3/3">
           <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-            <img src={imr} className="h-[30%]" alt="a person wearing a black and brown shirt"/>
+            <img src={imr} className="h-[30%]" alt="a person wearing a black and brown shirt" loading="lazy"/>
             <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
               <div class="mt-5 sm:mt-0">
                 <h2 class="text-lg font-bold text-gray-900">
@@ -188,7 +187,7 @@ const Step1 = () => {
         </div>
       </div>
       {/* image */}
-      <img src={im} className="hidden lg:block w-[20%] ml-[600px] absolute" alt="a cellphone with a credit card and gift boxes"/>
+      <img src={im} className="hidden lg:block w-[20%] ml-[600px] absolute" alt="a cellphone with a credit card and gift boxes" loading="lazy"/>
       {/* Additional Services block */}
       <div className=" m-5 lg:m-10 font-bold">
         Additional Services
@@ -246,7 +245,7 @@ const Step1 = () => {
           <div class="rounded-lg md:h-1/3">
             <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
               <input name="check" type="radio" />
-              <img
+              <img loading="lazy"
                 src="https://cdn.iconscout.com/icon/free/png-256/fedex-1-282177.png"
                 className=" lg:w-[17%] sm:w-[17%]" alt="a company logo with text fedex"
               />
@@ -271,7 +270,7 @@ const Step1 = () => {
           <div class="rounded-lg md:h-1/3">
             <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
               <input name="check" type="radio" />
-              <img
+              <img loading="lazy"
                 src="https://cdn-icons-png.flaticon.com/512/726/726455.png"
                 className=" lg:w-[10%] sm:w-[10%]" alt="A red and white shopping cart icon symbolizing online shopping or e-commerce"
               />
@@ -291,8 +290,8 @@ const Step1 = () => {
           </div>
         </div>
       </div>
-      <img src={el} className="h-[30%] absolute float-right right-0 " alt="a black and purple background"/>
-      <img src={el2} className="h-[30%] absolute float-left left-0 " alt="a black and blue gradient" />
+      <img src={el} className="h-[30%] absolute float-right right-0 " alt="a black and purple background" loading="lazy"/>
+      <img src={el2} className="h-[30%] absolute float-left left-0 " alt="a black and blue gradient" loading="lazy"/>
     </div>
   );
 };

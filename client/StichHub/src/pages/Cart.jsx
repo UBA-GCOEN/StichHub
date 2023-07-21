@@ -5,13 +5,15 @@ import Step1 from "../components/Cart/Step1";
 import Step2 from "../components/Cart/Step2";
 import Step3 from "../components/Cart/Step3";
 import Step4 from "../components/Cart/Step4";
-import imr from "../assets/img/imr.png";
-import el from "../assets/img/el.png";
-import el2 from "../assets/img/el2.png";
-import im from "../assets/img/im.png";
+import AuthErrorMessage from "../components/AuthError"
+import validate from "../common/validation"
+import imr from "../assets/img/imr.webp";
+import el from "../assets/img/el.webp";
+import el2 from "../assets/img/el2.webp";
+import im from "../assets/img/im.webp";
 import "react-phone-number-input/style.css";
 import Phoneinput from "react-phone-number-input";
-import ime from "../assets/img/ime.png";
+import ime from "../assets/img/ime.webp";
 import { useLocation } from "react-router-dom";
 import {
   Card,
@@ -35,8 +37,8 @@ import {
   LockClosedIcon,
 } from "@heroicons/react/24/solid";
 
-import se from "../assets/img/se.png";
-import img from "../assets/img/img.png";
+import se from "../assets/img/se.webp";
+import img from "../assets/img/img.webp";
 //Payment Imports
 import axios from "../axios";
 import { loadStripe } from "@stripe/stripe-js";
@@ -218,8 +220,23 @@ const Cart = () => {
 
   //for handling Next step page button function
   const handleNext = () => {
-    setStep(step + 1);
-    setActiveStep(activeStep + 1);
+    let proceedable = true;
+    if(step === 2 ){
+      Object.values(error).forEach((err)=>{
+        if(err !== false){
+          proceedable = false;
+          return;
+        }
+      })
+    }
+
+    if(proceedable){
+      setStep(step + 1);
+      setActiveStep(activeStep + 1);
+    }else{
+      alert("Please fill all fields with valid data")
+    }
+   
   };
 
   //for handling Previous step page button function
@@ -256,16 +273,14 @@ const Cart = () => {
     try {
       const res = await axios.get("/cart/list");
       setCartList(res.data);
-      console.log(res.data);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 
   useEffect(() => {
     getCartList();
   }, [2]);
-  console.log(cartList);
 
   //Start of Cart Page from here
   const [qty, setqty] = useState(0);
@@ -288,7 +303,7 @@ const Cart = () => {
   const [cardExpires, setCardExpires] = React.useState("");
 
   const initialForm = {
-    contact: "+91 ",
+    contact: "",
     country: "",
     state: "",
     service: "",
@@ -311,25 +326,32 @@ const Cart = () => {
   // Function to handle radio button change
   const handleRadioChange = (event) => {
     setSelectedValue(event.target.value);
-    console.log(selectedValue);
   };
   const handleRadioChange1 = (event) => {
     setSelectedValue1(event.target.value);
-    console.log(selectedValue1);
   };
 
   const [form, setForm] = useState(initialForm);
+  const [error, setError]  = useState(validate.cartFormInitial);
   const handleChangeFinal = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+   (name != "notes")? setError((prev) => {
+      let getError;
+        if(e.target.classList.contains("noempty")){
+        getError = validate.notEmpty(name, value);
+        }else{
+        getError = validate[name](value);
+      }
+      return { ...prev, ...getError };
+    }): null;
   };
   const stepFormSubmit = () => {
     setForm({ ...form, service: selectedValue });
     setForm({ ...form, delivery: selectedValue1 });
 
-    // console.log(form);
   };
 
-  // console.log(form);
   const location = useLocation();
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
 
@@ -350,10 +372,9 @@ const Cart = () => {
     };
     try {
       const res = await axios.post(`/payment`, paymentData);
-      console.log(res.data);
       window.location.href = res.data.paymentLink;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -417,7 +438,7 @@ const Cart = () => {
                         {items.orders.map((order, indexOrder) => {
                           return (
                             <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-                              {/* <img src={imr} className="h-[30%]" /> */}
+                              {/* <img loading="lazy" src={imr} className="h-[30%]" /> */}
                               <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                                 <div className="mt-5 sm:mt-0">
                                   <h2 className="text-lg font-bold text-gray-900">
@@ -535,7 +556,7 @@ const Cart = () => {
                   </div>
                 </div>
                 {/* image */}
-                <img
+                <img loading="lazy"
                   src={im}
                   className="hidden lg:block w-[20%] ml-[600px] absolute" alt="a cellphone with a credit card and gift boxes"
                 />
@@ -612,7 +633,7 @@ const Cart = () => {
                           value={99}
                           onChange={handleChangeFinal}
                         />
-                        <img
+                        <img loading="lazy"
                           src="https://cdn.iconscout.com/icon/free/png-256/fedex-1-282177.png"
                           className=" lg:w-[17%] sm:w-[17%]" alt="a company logo with text fedex"
                         />
@@ -646,7 +667,7 @@ const Cart = () => {
                           value={79}
                           onChange={handleChangeFinal}
                         />
-                        <img
+                        <img loading="lazy"
                           src="https://cdn-icons-png.flaticon.com/512/726/726455.png"
                           className=" lg:w-[10%] sm:w-[10%]" alt="a red and yellow truck"
                         />
@@ -684,11 +705,11 @@ const Cart = () => {
                     Next
                   </button>
                 </div>
-                <img
+                <img loading="lazy"
                   src={el}
                   className="h-[30%] absolute float-right right-0 " alt="a black and purple background"
                 />
-                <img
+                <img loading="lazy"
                   src={el2}
                   className="h-[30%] absolute float-left left-0 " alt="a black and blue gradient"
                 />
@@ -721,6 +742,7 @@ const Cart = () => {
                               required
                             />
                           </label>
+                          {error.firstname && error.firstnameError && <AuthErrorMessage message={error.firstnameError}/>}
                         </div>
                       </div>
                       <div xs={6}>
@@ -739,6 +761,7 @@ const Cart = () => {
                             />
                             <br />
                           </label>
+                          {error.lastname && error.lastnameError && <AuthErrorMessage message={error.lastnameError}/>}
                         </div>
                       </div>
                       {/* phoneno country selector hooks used here */}
@@ -753,6 +776,7 @@ const Cart = () => {
                           value={form.contact}
                           onChange={handleChangeFinal}
                         />
+                        {error.contact && error.contactError && <AuthErrorMessage message={error.contactError}/>}
                       </div>
                       <div className="mb-2">
                         <label>
@@ -767,6 +791,7 @@ const Cart = () => {
                             required
                           />
                         </label>
+                        {error.email && error.emailError && <AuthErrorMessage message={error.emailError}/>}
                       </div>
                     </div>
                     {/* Delivery details form */}
@@ -789,6 +814,7 @@ const Cart = () => {
                           placeholder="Country"
                           required
                         />{" "}
+                         {error.country && error.countryError && <AuthErrorMessage message={error.countryError}/>}
                       </div>
 
                       <label>
@@ -799,18 +825,20 @@ const Cart = () => {
                           type="address"
                           onChange={handleChangeFinal}
                           value={form.address}
-                          className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                          className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] noempty"
                           placeholder="House number and street name"
                           required
                         />{" "}
+                         {error.address && error.addressError && <AuthErrorMessage message={error.addressError}/>}
                         <input
                           name="address2"
                           type="text"
                           onChange={handleChangeFinal}
                           value={form.address2}
-                          className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                          className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] noempty"
                           placeholder="Appartment, suite, landmark, etc. (optional)"
                         />{" "}
+                          {error.address2 && error.address2Error && <AuthErrorMessage message={error.address2Error}/>}
                       </label>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
@@ -824,11 +852,12 @@ const Cart = () => {
                               type="city"
                               onChange={handleChangeFinal}
                               value={form.city}
-                              className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                              className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] noempty"
                               placeholder=""
                               required
                             />{" "}
                           </label>
+                          {error.city && error.cityError && <AuthErrorMessage message={error.cityError}/>}
                         </div>
                       </div>
                       <div xs={7}>
@@ -841,11 +870,12 @@ const Cart = () => {
                               type="state"
                               onChange={handleChangeFinal}
                               value={form.state}
-                              className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                              className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] noempty"
                               placeholder=""
                               required
                             />{" "}
                           </label>
+                          {error.state && error.stateError && <AuthErrorMessage message={error.stateError}/>}
                         </div>
                       </div>
                     </div>
@@ -862,6 +892,7 @@ const Cart = () => {
                           placeholder=""
                           required
                         />{" "}
+                                {error.pincode && error.pincodeError && <AuthErrorMessage message={error.pincodeError}/>}
                       </label>
                     </div>
 
@@ -924,11 +955,11 @@ const Cart = () => {
                     </div>
                   </div>
                 </div>
-                <img
+                <img loading="lazy"
                   src={img}
                   className="hidden left-[-6%] absolute h-auto top-[100%] lg:block" alt="a cartoon character riding a yellow scooter"
                 />
-                <img
+                <img loading="lazy"
                   src={ime}
                   alt="a cartoon character riding a yellow scooter"
                   className="hidden lg:block absolute top-[95%] h-[35%] right-[10%]  "
@@ -942,7 +973,7 @@ const Cart = () => {
                   id="body"
                   className=" text-center lg:pl-[10%] md:grid-cols-1 gap-4 justify-center "
                 >
-                  <img
+                  <img loading="lazy"
                     src={se}
                     className=" hidden lg:block flex absolute lg:left-0  mt-20 w-[30%] sm:w-[40]% sm:right-0" alt="a cartoon character holding a glowing shield"
                   />

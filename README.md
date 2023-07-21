@@ -26,7 +26,15 @@
    <a href="https://www.youtube.com/@StichHub_YT" target="_blank"><img src="https://img.shields.io/badge/YouTube-FF0000?&style=for-the-badge&logo=Youtube" /></a>
    <a href="https://www.instagram.com/stichhub_" target="_blank"><img src="https://img.shields.io/badge/Instagram-E6E6FA?&style=for-the-badge&logo=Instagram" /></a>
    <a href="https://twitter.com/StichHub_" target="_blank"><img src="https://img.shields.io/badge/Twitter-00acee?&style=for-the-badge&logo=Twitter&logoColor=white" /></a>
-   <a href="#" target="_blank"><img src="https://img.shields.io/badge/Discord-36393e?&style=for-the-badge&logo=Discord" /></a>
+</div>
+
+<div align="center">
+   <h2>Join the Community</h2>
+</div>
+
+<div align="center">
+   <a href="https://github.com/UBA-GCOEN/StichHub/discussions" target="_blank"><img src="https://img.shields.io/badge/Discussions Forum-000000?&style=for-the-badge&logo=github" /></a>
+   <a href="https://discord.gg/hmSyTrNAeq" target="_blank"><img src="https://img.shields.io/badge/Discord-36393e?&style=for-the-badge&logo=Discord" /></a>
 </div>
 
 <br>
@@ -135,6 +143,10 @@ Our related [blog post](https://medium.com/@sidd0203/stichhub-38d01da27f37) prov
 
 # Contributing 👨‍💻👩‍💻
 This project is open-source and welcomes contributions of all kinds. Whether you're an experienced developer or just starting your journey, your input and ideas are invaluable. Join us in shaping the future of this project and let's create something amazing together!
+
+### Join the discord server to resolve any trouble while contributing and to ask any other doubts below 
+<a href="https://discord.gg/hmSyTrNAeq" target="_blank"><img src="https://img.shields.io/badge/Discord-36393e?&style=for-the-badge&logo=Discord" /></a>
+</div>
 
 - To contribute, first set up the project on your local machine.
 - Test the different features of the app to identify any bugs or issues.

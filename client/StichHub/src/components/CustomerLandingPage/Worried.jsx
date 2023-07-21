@@ -1,8 +1,8 @@
 import React from "react";
-import image1 from "../../assets/CustomerLandingPage/Room - Girl Reading - Copy@3-1707x802 (2).png";
-import call from "../../assets/CustomerLandingPage/Call.png";
-import provide from "../../assets/CustomerLandingPage/provide.png";
-import Handle from "../../assets/CustomerLandingPage/handle.png";
+import image1 from "../../assets/CustomerLandingPage/Room - Girl Reading - Copy@3-1707x802 (2).webp";
+import call from "../../assets/CustomerLandingPage/Call.webp";
+import provide from "../../assets/CustomerLandingPage/provide.webp";
+import Handle from "../../assets/CustomerLandingPage/handle.webp";
 function Worried() {
   return (
     <div className="w-sreen h-screen">
@@ -33,15 +33,15 @@ function Worried() {
       {/* Hexgonal div End */}
 
       <div className="flex justify-center items-center mt-8">
-        <img
+        <img loading="lazy"
           src={Handle}
           className="m-4 transition-all ease-in hover:scale-110 w-60 h-64" alt="a cartoon character next to a robot"
         />
-        <img
+        <img loading="lazy"
           src={call}
           className="m-4 transition-all ease-in hover:scale-110 w-60 h-64" alt="a cartoon of a person standing in front of a door"
         />
-        <img
+        <img loading="lazy"
           src={provide}
           className="m-4 transition-all ease-in hover:scale-110 w-60 h-64" alt="a person sitting at a table with a laptop"
         />

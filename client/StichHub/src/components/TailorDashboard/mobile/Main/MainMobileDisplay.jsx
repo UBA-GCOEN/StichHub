@@ -316,7 +316,7 @@ const MainMobileDisplay = () => {
             <div>
               <div>
                 <div className="h-14 w-14 rounded-full bg-[#4286F4] p-2">
-                  <img className="h-full w-full" src={MensIcon} alt="icons of white shirt"></img>
+                  <img className="h-full w-full" src={MensIcon} alt="icons of white shirt" loading="lazy"></img>
                 </div>
               </div>
               <div className="text-sm text-white">Mens</div>
@@ -328,7 +328,7 @@ const MainMobileDisplay = () => {
             <div>
               <div>
                 <div className="h-14 w-14 rounded-full bg-[#4286F4] p-2">
-                  <img className="h-full w-full" src={WomensIcon}  alt="icons of white women's dress"></img>
+                  <img className="h-full w-full" src={WomensIcon} alt="icons of white women's dress" loading="lazy"></img>
                 </div>
               </div>
               <div className="text-sm text-white">Womens</div>
@@ -340,7 +340,7 @@ const MainMobileDisplay = () => {
             <div>
               <div>
                 <div className="h-14 w-14 rounded-full bg-[#4286F4] p-2">
-                  <img className="h-full w-full" src={OthersIcon} alt="black and white icon of shirt and pant"></img>
+                  <img className="h-full w-full" src={OthersIcon} alt="black and white icon of shirt and pant" loading="lazy"></img>
                 </div>
               </div>
               <div className="text-sm text-white">Others</div>
@@ -352,7 +352,7 @@ const MainMobileDisplay = () => {
             <div>
               <div>
                 <div className="h-14 w-14 rounded-full bg-[#4286F4] p-2">
-                  <img className="h-full w-full" src={AlteredIcon} alt="icon of white scissor"></img>
+                  <img className="h-full w-full" src={AlteredIcon} alt="icon of white scissor" loading="lazy"></img>
                 </div>
               </div>
               <div className="text-sm text-white">Altered</div>
@@ -364,7 +364,7 @@ const MainMobileDisplay = () => {
             <div>
               <div>
                 <div className="h-14 w-14 rounded-full bg-[#4286F4] p-2">
-                  <img className="h-full w-full" src={CustomIcon} alt="icons of black and white coat"></img>
+                  <img className="h-full w-full" src={CustomIcon} alt="icons of black and white coat" loading="lazy"></img>
                 </div>
               </div>
               <div className="text-sm text-white">Custom</div>

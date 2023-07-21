@@ -2,7 +2,7 @@ import React, { useState } from "react";
 //used for phone no. country code selector
 import "react-phone-number-input/style.css";
 import Phoneinput from "react-phone-number-input";
-import ime from "../../assets/img/ime.png";
+import ime from "../../assets/img/ime.webp";
 
 //used for Country selector field
 import {
@@ -11,7 +11,7 @@ import {
   CountryRegionData,
 } from "react-country-region-selector";
 import { Country, State, City } from "country-state-city";
-import img from "../../assets/img/img.png";
+import img from "../../assets/img/img.webp";
 
 // main definition
 const Step2 = () => {
@@ -192,7 +192,7 @@ const Step2 = () => {
           <h4 className="pt-4 pl-8 pb-4 font-bold md:items-center">
             <span>Order Information</span>
           </h4>
-          <img
+          <img loading="lazy"
             src={img}
             className="m-10 mt-0 mb-[5px] object-fill w-[73%] h-[180px] rounded-[10px] border border-solid border-[#cecece]" alt="a cartoon character riding a yellow scooter"
           />
@@ -234,11 +234,11 @@ const Step2 = () => {
           </div>
         </div>
       </div>
-      <img
+      <img loading="lazy"
         src={img}
         className="hidden left-[-6%] absolute h-auto top-[100%] lg:block" alt="a cartoon character riding a yellow scooter"
       />
-      <img
+      <img loading="lazy"
         src={ime}
         alt="a person holding a box and a person standing next to a scooter"
         className="hidden lg:block absolute top-[95%] h-[35%] right-[10%]  "

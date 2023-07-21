@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "../../assets/logo/Long - Logo Transparent (White).png";
 import shortlogo from "../../assets/logo/Short-Logo Transparent (Black).png";
-import tailorimg from "../../assets/loginsignup/tailorimg.png";
+import tailorimg from "../../assets/loginsignup/tailorimg.webp";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
@@ -52,7 +52,7 @@ const AuthTailor = () => {
     }
   };
 
-  const handleSumbmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let submitable = true
     Object.values(error).forEach(e=>{
@@ -70,18 +70,31 @@ const AuthTailor = () => {
         ? await axios.post("/userTailor/register", form)
         : await axios.post("/userTailor/signin", form);
 
+        // console.log(res.data.result.isVerified)
       const result = res.data;
-
+     
       if (isregister) localStorage.setItem("tailorFirstLogin", "true");
       localStorage.setItem("tailorProfile", JSON.stringify({ ...result }));
 
       setIsLoading(false);
-      navigateTo("/TailorProfileVerification");
+      if(res.data.result.isVerified=== false){
+        navigateTo("/verification");
+        }else{
+          navigateTo("/TailorDashboard")
+        }
     } catch (error) {
+
+      if(error){
+
+        setError(error.response.data.message);
+        setIsLoading(false);
+      }
+
       alert(error.response.data.message);
       setIsLoading(false);
     }}else{
       alert("Please enter valid values");
+
     }
   };
 
@@ -92,7 +105,7 @@ const AuthTailor = () => {
     try {
       navigateTo("/TailorProfileVerification");
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -129,8 +142,8 @@ const AuthTailor = () => {
         </div>
       ) : null}
       {/* Left Side (img)*/}
-      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.png')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10  rounded-2xl">
-        <img
+      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.webp')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10  rounded-2xl">
+        <img loading="lazy"
           src={shortlogo}
           className="w-[5vw] absolute bottom-14 left-5" alt="a white and blue letters S and H on a black background"
         ></img>
@@ -145,12 +158,12 @@ const AuthTailor = () => {
 
           <a href="/" className="flex justify-center mt-10">
  
-            <img src={logo} className="w-[240px]" alt="logo with text that says StichHub stitch your way" />
+            <img src={logo} className="w-[240px]" alt="logo with text that says StichHub stitch your way" loading="lazy"/>
           </a>
           {/* title */}
           <div className="flex justify-center my-1">
             <div>
-              <img src={tailorimg} alt="a person with a mustache and a sewing machine" className="w-[60px] mr-5" />
+              <img src={tailorimg} alt="a person with a mustache and a sewing machine" className="w-[60px] mr-5" loading="lazy"/>
             </div>
             <div className="mt-3 text-center">
               <span className="text-white text-3xl font-semibold">
@@ -161,7 +174,7 @@ const AuthTailor = () => {
 
           {/* form */}
           <div className="flex justify-center">
-            <form onSubmit={handleSumbmit}>
+            <form onSubmit={ handleSubmit}>
               {isregister && (
                 <div>
                   <svg
@@ -303,6 +316,7 @@ const AuthTailor = () => {
                   style={{cursor:`${trackState ? "pointer": "not-allowed"}`}}
                 >Sign in</button>)}
               </div>
+          
 
               <h1 className="text-center text-white text-xl py-1">or</h1>
 

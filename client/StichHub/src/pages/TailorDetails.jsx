@@ -10,7 +10,6 @@ import profile from "../assets/man.jpg";
 function TailorDetails() {
   const [isMobile, setIsMobile] = useState(false);
 
-  // console.log(propsData);
 
   // check screen size and set state variable
   window.addEventListener("resize", () => {
@@ -44,16 +43,16 @@ const TailorDetailsD = () => {
             </div>
           </Link>
           <div className="">
-          {propsData?.item?.passport ? (          <img
+          {propsData?.item?.passport ? (          <img loading="lazy"
             src={propsData?.item?.passport}
             alt=""
             className="rounded-lg h-[18vh] shadow-3xl border-2 absolute top-[10vh] left-[4vw]"
-          />) :(          <img
+          />) :(          <img loading="lazy"
             src={profile}
             alt=""
             className="rounded-lg h-[18vh] shadow-3xl border-2 absolute top-[10vh] left-[4vw]"
           />)}
-          <img
+          <img loading="lazy"
             src={propsData?.item?.passport}
             alt=""
             className="rounded-lg h-[18vh] shadow-3xl border-2 absolute top-[10vh] left-[4vw]"
@@ -63,7 +62,7 @@ const TailorDetailsD = () => {
         <div className="ml-[2.5vw] mt-[8vh]">
         <h1 className=" text-2xl font-semibold text-white">{propsData?.item?.name}</h1>
           <div className="flex gap-2  mt-2">
-            <img src={india} alt="" className="h-[3.5vh]" />
+            <img loading="lazy" src={india} alt="" className="h-[3.5vh]" />
             <p className="text-gray-400">
               {propsData.item.state} ,{propsData.item.country}
             </p>
@@ -141,7 +140,6 @@ export default TailorDetails;
 const TailorDetailsM = () => {
   const location = useLocation();
   const propsData = location.state;
-  // console.log(propsData);
   return (
     <div className="lg:hidden block cardGradient w-full h-full min-h-screen overflow-hidden pb-10">
       {/* Back Button */}
@@ -160,7 +158,7 @@ const TailorDetailsM = () => {
           {/* Photo */}
           <div className="bg-white p-4 pb-1 mt-1 drop-shadow-lg  w-4/5  items-center m-auto rounded-lg">
             <div className="drop-shadow-lg flex w-fit h-fit items-center justify-center text-center mx-auto">
-              <img src={propsData.item.passport} className="rounded-xl" alt={propsData.item.name}/>
+              <img src={propsData.item.passport} className="rounded-xl" alt={propsData.item.name} loading="lazy"/>
             </div>
             {/* Photo End */}
 

@@ -6,7 +6,7 @@ const Tailors = () => {
     <div className="h-[100%] lg:h-[100vh] relative pt-40 lg:p-20 lg:mx-20 mx-7 lg:mt-48 3xl:mt-0">
       <div className="relative z-[5]">
         {/* Title */}
-        <div id="title" className="relative flex flex-col">
+        <div id="title" style={{paddingRight:"8.2rem"}} className="relative flex flex-col">
           <span className="text-right  font-medium text-xl lg:text-4xl ">
             HOW IT WORKS <br /> FOR TAILORS ?
           </span>
@@ -32,7 +32,7 @@ const Tailors = () => {
                 {item.step}
               </div>
 
-              <img
+              <img loading="lazy"
                 id="stepLogo"
                 src={item.img}
                 className="mx-[80px] my-[50px]
@@ -64,7 +64,7 @@ const Tailors = () => {
                   {item.step}
                 </div>
               </div>
-              <img
+              <img loading="lazy"
                 id="stepLogo"
                 src={item.img}
                 className="mx-[45px] lg:mx-[80px] lg:my-[50px]"
