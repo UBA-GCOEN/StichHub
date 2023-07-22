@@ -15,6 +15,10 @@ const OrderConfirmation = () => {
       navigateTo("/Orders");
     } catch (error) {
       console.error(error.message);
+      if(error.response.data.type==="JWT Error"){
+        alert(error.response.data.message);
+        navigateTo("/auth/customer")
+      }
     }
   };
 
