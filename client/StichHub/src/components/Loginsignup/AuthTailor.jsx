@@ -52,7 +52,7 @@ const AuthTailor = () => {
     }
   };
 
-  const handleSumbmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let submitable = true
     Object.values(error).forEach(e=>{
@@ -70,18 +70,31 @@ const AuthTailor = () => {
         ? await axios.post("/userTailor/register", form)
         : await axios.post("/userTailor/signin", form);
 
+        // console.log(res.data.result.isVerified)
       const result = res.data;
-
+     
       if (isregister) localStorage.setItem("tailorFirstLogin", "true");
       localStorage.setItem("tailorProfile", JSON.stringify({ ...result }));
 
       setIsLoading(false);
-      navigateTo("/TailorProfileVerification");
+      if(res.data.result.isVerified=== false){
+        navigateTo("/verification");
+        }else{
+          navigateTo("/TailorDashboard")
+        }
     } catch (error) {
+
+      if(error){
+
+        setError(error.response.data.message);
+        setIsLoading(false);
+      }
+
       alert(error.response.data.message);
       setIsLoading(false);
     }}else{
       alert("Please enter valid values");
+
     }
   };
 
@@ -161,7 +174,7 @@ const AuthTailor = () => {
 
           {/* form */}
           <div className="flex justify-center">
-            <form onSubmit={handleSumbmit}>
+            <form onSubmit={ handleSubmit}>
               {isregister && (
                 <div>
                   <svg
@@ -303,6 +316,7 @@ const AuthTailor = () => {
                   style={{cursor:`${trackState ? "pointer": "not-allowed"}`}}
                 >Sign in</button>)}
               </div>
+          
 
               <h1 className="text-center text-white text-xl -py-1">or</h1>
 
