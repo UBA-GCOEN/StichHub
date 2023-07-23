@@ -9,16 +9,19 @@ const FilterSection = ({ handleChange, clearFilter }) => {
     priceRadioInput.forEach((input)=>{
       input.checked = false;
     })
-    if(customPrice.min>= customPrice.max){
-      alert("Enter Valid Min-Max range");
-      return;
-    }
-     handleChange({
-      target: {
-        name: "price",
-        value: `${customPrice.min} - ${customPrice.max}`
+    if(customPrice.min !== "" && customPrice.max !== ""){
+      if(parseInt(customPrice.min)>= parseInt(customPrice.max)){
+        alert("Enter Valid Min-Max range");
+        return;
       }
-     })
+       handleChange({
+        target: {
+          name: "price",
+          value: `${customPrice.min} - ${customPrice.max}`
+        }
+       })
+    }
+   
   }
 
   return (
