@@ -94,7 +94,7 @@ const Home = () => {
 
           {/* MajorFeature */}
           <div className="hidden xl:block pt-8 justify-start content-start">
-            <p className="text-white text-base text-left mb-6">
+            <p className="text-white text-base text-left mb-6" style={{fontWeight:"bold",fontSize:"2rem",padding:".5rem 1rem 1rem 0"}}>
               Major Features:
             </p>
             <div className="flex">
