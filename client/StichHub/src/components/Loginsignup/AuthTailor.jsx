@@ -156,7 +156,7 @@ const AuthTailor = () => {
  
          
 
-          <a href="/" className="flex justify-center mt-1">
+          <a href="/" className="flex justify-center mt-3">
  
             <img src={logo} className="w-[240px]" alt="logo with text that says StichHub stitch your way" loading="lazy"/>
           </a>
