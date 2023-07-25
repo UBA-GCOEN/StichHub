@@ -137,7 +137,7 @@ const CustomerAuth = () => {
       <div className="relative bg-primary w-full lg:w-[49vw] my-9 ded-3xl lg:rounded-3xl">
         <div className="relative z-[5]">
           {/* logo */}
-          <a href="/" className="flex justify-center mt-1">
+          <a href="/" className="flex justify-center mt-3">
             <img src={logo} className="w-[240px]" alt="logo with text that says StichHub stitch your way" loading="lazy"/>
           </a>
           {/* title */}
