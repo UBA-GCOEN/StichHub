@@ -6,40 +6,48 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import MailIcon from '@mui/icons-material/Mail';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import './FooterHomePage.css'
 
 import logo from "../../assets/logo/Long - Logo Transparent (White).png"
 
 const Footer = () => {
   return (
-    <div className="bg-[#09051D] pt-7">
-      <div className="container mx-auto flex flex-col items-center justify-center">
-        <a href="/">
-          <img src={logo} alt="logo with text that says StichHub stitch your way" className="w-48 cursor-pointer" loading="lazy"/>
-        </a>
-        <p className="text-white text-center mt-4 text-xl font-serif tracking-wide antialiased font-medium">
-          Choose your style, make your own trend. <br /> Select the one you want to get your clothes stitched from!
-        </p>
-        <div className="flex items-center mt-4">
-          <a href="mailto:stichhub.office@gmail.com" className="text-white  px-3 hover:text-gray-300 transition-colors duration-300 ease-in-out hover:scale-110">
-            <MailIcon className="text-white text-2xl  hover:text-[#DB4437]" />
-          </a>
-          <a href="https://github.com/UBA-GCOEN/StichHub" className="text-white px-3  hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
-            <GitHubIcon className="text-white text-2xl  hover:text-gray-500" />
-          </a>
-          <a href="https://www.youtube.com/channel/UCjkwYo58eYv6ZGqu4IQiU0w" className="text-white px-3  hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
-            <YouTubeIcon className="text-white text-2xl  hover:text-[#c4302b]" />
-          </a>
-          <a href="https://twitter.com/StichHub_" className="text-white px-3   hover:text-gray-300 transition-colors duration-300 ease-in-out hover:scale-110">
-            <TwitterIcon className="text-white text-2xl  hover:text-sky-400" />
-          </a>
-          <a href="https://www.instagram.com/stichhub_/" className="text-white px-3    hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
-            <InstagramIcon className="text-white text-2xl  hover:text-[#E4405F]" />
-          </a>
-        </div>
+    <body>
+    <footer>
+    <div className="waves">
+      <div className="wave" id="wave1"></div>
+      <div className="wave" id="wave2"></div>
+      <div className="wave" id="wave3"></div>
+      <div className="wave" id="wave4"></div>
       </div>
-      {/* <hr */}
-      <p className="text-base bg-[#09051D] p-3 text-center text-white font-serif tracking-wide mt-2">&copy; StichHub {new Date().getFullYear()}</p>
-    </div>
+
+<div className="container mx-auto flex flex-col items-center justify-center">
+<p className="text-white text-center mt-4 text-xl font-serif tracking-wide antialiased font-medium">Choose your style, make your own trend. <br /> Select the one you want to get your clothes stitched from! </p>
+
+<ul className="social_icon">
+  <li><a href="mailto:stichhub.office@gmail.com" className="text-white px-3"><MailIcon className="text-white text-2xl hover-glow-mail" /></a></li>
+  <li> <a href="https://github.com/UBA-GCOEN/StichHub" className="text-white px-3"><GitHubIcon className="text-white text-2xl hover-glow-github" /></a></li>
+  <li><a href="https://www.youtube.com/watch?v=dE3RYo23eSY" className="text-white px-3"><YouTubeIcon className="text-white text-2xl hover-glow-youtube" /></a></li>
+  <li><a href="https://www.instagram.com/stichhub_/" className="text-white px-3"><InstagramIcon className="text-white text-2xl hover-glow-instagram" /></a></li>
+  <li><a href="https://twitter.com/StichHub_" id="social-tw"><TwitterIcon className="text-white text-2xl hover-glow-twitter" /></a></li>
+
+</ul>
+
+<div className="mt-2 text-sm">
+     <Link to="/privacy-policy" className="text-white hover:underline">Privacy Policy</Link>
+     <span className="text-white mx-1">|</span>
+     <Link to="/terms-and-conditions" className="text-white hover:underline">Terms and Conditions</Link>
+    <span className="text-white mx-1">|</span>
+     <a href="https://github.com/UBA-GCOEN/StichHub/blob/main/LICENSE" className="text-white hover:underline">License</a>
+   </div>
+   <p className="text-base  p-3 text-center text-white font-serif tracking-wide mt-2">&copy; StichHub {new Date().getFullYear()}</p>
+ </div>
+
+
+
+</footer>
+
+</body>
 
   );
 };
