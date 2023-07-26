@@ -123,7 +123,7 @@ const AuthTailor = () => {
       {/* Loading Animations */}
       {isLoading ? (
         <div className="relative">
-          <div className="absolute z-[100] left-[-10vw] lg:left-[30vw] top-[10vh]">
+          <div className="absolute z-[100] left-[-10vw] lg:left-[30vw] top-[18vh]">
             <Player
               src="https://assets8.lottiefiles.com/packages/lf20_prjwp0b2.json"
               background="transparent"
@@ -144,18 +144,18 @@ const AuthTailor = () => {
       </div>
 
       {/* Right Side */}
-      <div className="relative bg-primary w-full lg:w-[49vw] my-10 rounded-3xl lg:rounded-r-3xl">
+      <div className="relative bg-primary w-full lg:w-[49vw] my-9 rounded-3xl lg:rounded-r-3xl">
         <div className="relative z-[5]">
           {/* logo */}
  
          
 
-          <a href="/" className="flex justify-center mt-10">
+          <a href="/" className="flex justify-center mt-3">
  
             <img src={logo} className="w-[240px]" alt="logo with text that says StichHub stitch your way" loading="lazy"/>
           </a>
           {/* title */}
-          <div className="flex justify-center my-1">
+          <div className="flex justify-center -my-2">
             <div>
               <img src={tailorimg} alt="a person with a mustache and a sewing machine" className="w-[60px] mr-5" loading="lazy"/>
             </div>
@@ -192,7 +192,7 @@ const AuthTailor = () => {
                     id="name"
                     value={form.name}
                     onChange={handleChange}
-                    className="mt-[10px] block w-[300px] py-2 pl-[45px] bg-white border rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                    className="mt-[8px] block w-[300px] py-1 pl-[45px] bg-white border rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
                     focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                     disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
@@ -223,7 +223,7 @@ const AuthTailor = () => {
                   id="email"
                   value={form.email}
                   onChange={handleChange}
-                  className="mt-[10px] block w-[300px] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                  className="mt-[8px] block w-[300px] py-1 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
                   focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                   disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                   invalid:border-pink-500 invalid:text-pink-600
@@ -254,7 +254,7 @@ const AuthTailor = () => {
                   id="password"
                   value={form.password}
                   onChange={handleChange}
-                  className="mt-[10px] block w-[300px] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                  className="mt-[8px] block w-[300px] py-1 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
                   focus:outline-none pr-[2.3rem] focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                   disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
@@ -288,7 +288,7 @@ const AuthTailor = () => {
                     id="confirmPassword"
                     value={form.confirmPassword}
                     onChange={handleChange}
-                    className="mt-[10px] block w-[300px] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                    className="mt-[8px] block w-[300px] py-1 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
                     focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                     disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
@@ -300,19 +300,19 @@ const AuthTailor = () => {
               <div className="flex justify-center">
               {isregister ? (<button
                   type="submit"
-                  className="mt-[15px] block w-[170px] py-2 bg-blue-500 text-white hover:bg-slate-200 hover:text-blue-600 hover:transition-all duration-500 hover:font-semibold rounded-xl font-regular text-xl"
+                  className="mt-[10px] block w-[170px] py-1 bg-blue-500 text-white hover:bg-slate-200 hover:text-blue-600 hover:transition-all duration-500 hover:font-semibold rounded-xl font-regular text-xl"
                   disabled={!trackState}
                   style={{cursor:`${trackState ? "pointer": "not-allowed"}`}}
                 >Register</button>):(<button
                   type="submit"
-                  className="mt-[15px] block w-[170px] py-2 bg-blue-500 text-white hover:bg-slate-200 hover:text-blue-600 hover:transition-all duration-500 hover:font-semibold rounded-xl font-regular text-xl"
+                  className="mt-[10px] block w-[170px] py-1 bg-blue-500 text-white hover:bg-slate-200 hover:text-blue-600 hover:transition-all duration-500 hover:font-semibold rounded-xl font-regular text-xl"
                   disabled={!trackState}
                   style={{cursor:`${trackState ? "pointer": "not-allowed"}`}}
                 >Sign in</button>)}
               </div>
           
 
-              <h1 className="text-center text-white text-xl py-1">or</h1>
+              <h1 className="text-center text-white text-xl -py-1">or</h1>
 
               <div className="flex justify-center">
                 <GoogleLogin
