@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { scroller } from "react-scroll";
 import { close, logo, menu, navbar } from "../../constants/MainLandingPage";
-
+import "./Navbar.css"
 const NavBar = () => {
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
@@ -28,6 +28,7 @@ const NavBar = () => {
     });
   };
 
+
   return (
     <nav
       className={`bg ${
@@ -44,15 +45,16 @@ const NavBar = () => {
           <li
             style={{transition:".4s ease"}}
             key={nav.title}
-            className={`font-poppins font-normal cursor-pointer hover:text-[#3094d3] hover:scale-125 text-[16px]  ${
+            className={`font-poppins font-normal cursor-pointer text-[16px]  ${
               index === navbar.length - 1 ? "mr-0" : "mr-10"
-            }`}
+            }  ${active === nav.title? "border-b-2 border-white border-solid":""}`}
             onClick={() => {
               setActive(nav.title);
               scrollToSection(nav.id);
+              updateActiveNavLink();
             }}
           >
-            <a href={`#${nav.id}`}>{nav.title}</a>
+            <a href={`#${nav.id}`}> <span>{nav.title}</span> </a>
           </li>
         ))}
       </ul>
@@ -72,17 +74,17 @@ const NavBar = () => {
         <div
           className={`${
             !toggle ? "hidden" : "flex"
-          } p-6 bg-black/100 absolute top-20 right-0 mx-4 my-2 min-w-[140px] w-[200px] rounded-xl `}
+          } py-6 bg-black/100 absolute top-[4rem] right-0 mx-4 min-w-[140px] w-[200px] rounded-xl `} id="dropdown"
         >
-          <ul className="list-none flex justify-end items-start flex-1 flex-col">
+          <ul className="list-none flex justify-end flex-1 flex-col">
             {navbar.map((nav, index) => (
               <li
                 key={nav.id}
                 className={`font-poppins font-medium cursor-pointer text-[16px] ${
                   index === navbar.length - 1 ? "mb-0" : "mb-4"
                 }
-                ${active === nav.title ? "text-white" : "text-gray-500"}
-                }`}
+                ${active === nav.title ? "" : "text-gray-500"}
+                }  ${active === nav.title? "bg-white text-black":""}` }
                 onClick={() => {
                   setActive(nav.title);
                   scrollToSection(nav.id);
