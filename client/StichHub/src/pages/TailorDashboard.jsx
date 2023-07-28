@@ -137,7 +137,7 @@ const TailorDashboard = () => {
             handleNavigationLinkClick={handleNavigationLinkClick}
             tailorDetails={tailorDetails}
           ></LeftView>
-          <div className="overflow-y-scroll">
+          <div className="overflow-y-scroll mt-4">
           {elements[currentElementIndex]}
           </div>
           {/* <OngoingOrdersOpen></OngoingOrdersOpen> */}

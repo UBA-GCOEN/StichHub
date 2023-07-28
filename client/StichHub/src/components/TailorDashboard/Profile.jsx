@@ -239,15 +239,15 @@ const Profile = () => {
         </div>
         <div className="lg:grid col-start-1 col-end-3 lg:grid-cols-2 ">
           <div xs={5}>
-            <div className="mb-2 lg:mr-5">
+            <div className="mb-2 lg:mr-5 text-left">
               <label>
-                <span className="text-gray-700">First Name</span>
+                <span className="text-gray-700 text-[16px]">First Name</span>
                 <br />
                 <input
                   type="text"
                   name="name"
                   defaultValue={tailorDetails?tailorDetails.name : ""}
-                  className="shadow-sm shadow-blue-400 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] disabled:text-gray-500"
+                  className="bg-[#ece9e9] text-black border-none box-border w-full justify-around my-[8px] p-2.5 rounded-[3px] shadow-[0px_2px-8px_0px_rgba(99,99,99,0.2)] border-[#1f1e1e] disabled:text-gray-500 focus:border-solid focus:border-2"
                   placeholder="Vishal"
                   disabled={tailorDetails?tailorDetails.name : ""}
                   required
@@ -256,15 +256,15 @@ const Profile = () => {
             </div>
           </div>
           <div xs={6}>
-            <div className="mb-2 col-start-1 col-end-3">
+            <div className="mb-2 col-start-1 col-end-3 text-left">
               <label>
-                <span className="text-gray-700">Last Name</span>
+                <span className="text-gray-700 text-[16px]">Last Name</span>
                 <br />
                 <input
                   type="text"
                   name="name"
                   defaultValue={tailorDetails?tailorDetails.name : ""}
-                  className="shadow-sm shadow-blue-400 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] disabled:text-gray-500"
+                  className="bg-[#ece9e9] text-black border-none box-border w-full justify-around my-[8px] p-2.5 rounded-[3px] shadow-[0px_2px-8px_0px_rgba(99,99,99,0.2)] border-[#1f1e1e] disabled:text-gray-500 focus:border-solid focus:border-2"
                   placeholder="John cook"
                   disabled={tailorDetails?tailorDetails.name : ""}
                   required
@@ -274,16 +274,16 @@ const Profile = () => {
             </div>
           </div>
 
-          <div className="mb-2 col-start-1 col-end-3">
+          <div className="mb-2 col-start-1 col-end-3 text-left">
             <label>
-              <span className="text-gray-700">Email address</span>
+              <span className="text-gray-700 text-[16px]">Email address</span>
               <div className="relative text-gray-600 focus-within:text-gray-400 col-start-1 col-end-3">
                 <input
                   type="email"
                   name="email"
                   defaultValue={user?.result.email}
                   placeholder="your@email.com"
-                  className=" text-black shadow-sm shadow-blue-400 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] disabled:text-gray-500"
+                  className=" bg-[#ece9e9] text-black border-none box-border w-full justify-around my-[8px] p-2.5 rounded-[3px] shadow-[0px_2px-8px_0px_rgba(99,99,99,0.2)] border-[#1f1e1e] disabled:text-gray-500 focus:border-solid focus:border-2"
                   disabled
                 />
                 <span className="absolute inset-y-0 right-0 flex items-center pl-2">
@@ -311,26 +311,26 @@ const Profile = () => {
               </div>
             </label>
           </div>
-          <div className="mb-2 col-start-1 col-end-3">
+          <div className="mb-2 col-start-1 col-end-3 text-left">
             <label>
-              <span className="text-gray-700">Address</span>
+              <span className="text-gray-700 text-[16px]">Address</span>
               <br />
               <input
                 name="address"
                 type="address"
                 defaultValue={tailorDetails?tailorDetails.address : ""}
-                className="shadow-sm shadow-blue-400 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                className="bg-[#ece9e9] text-black border-none box-border w-full justify-around my-[8px] p-2.5 rounded-[3px] shadow-[0px_2px-8px_0px_rgba(99,99,99,0.2)] border-[#1f1e1e] disabled:text-gray-500 focus:border-solid focus:border-2"
                 placeholder="House number and street name"
                 required
               />{" "}
             </label>
           </div>
           {/* phoneno country selector hooks used here */}
-          <div className="col-start-1 col-end-3">
-            <span className="text-gray-700">Phone No.</span>
+          <div className="col-start-1 col-end-3 text-left">
+            <span className="text-gray-700 text-[16px]">Phone No.</span>
             <br />
             <Phoneinput
-              className="shadow-sm shadow-blue-400 pl-2 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+              className="bg-[#ece9e9] text-black border-none box-border w-full justify-around my-[8px] p-2.5 rounded-[3px] shadow-[0px_2px-8px_0px_rgba(99,99,99,0.2)] border-[#1f1e1e] disabled:text-gray-500 focus:border-solid focus:border-2"
               placeholder="Enter phone number"
               value={tailorDetails?tailorDetails.contact : ""}
               defaultCountry="IN"
@@ -338,15 +338,15 @@ const Profile = () => {
             />
           </div>
           <div xs={5}>
-            <div className="mb-2 col-start-1 col-end-3 lg:col-start-1 lg:col-end-2 lg:mr-5">
+            <div className="mb-2 col-start-1 col-end-3 lg:col-start-1 lg:col-end-2 lg:mr-5 text-left">
               <label>
-                <span className="text-gray-700">City</span>
+                <span className="text-gray-700 text-[16px]">City</span>
                 <br />
                 <input
                   name="city"
                   type="city"
                   defaultValue={tailorDetails?tailorDetails.city : ""}
-                  className="shadow-sm shadow-blue-400 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                  className="bg-[#ece9e9] text-black border-none box-border w-full justify-around my-[8px] p-2.5 rounded-[3px] shadow-[0px_2px-8px_0px_rgba(99,99,99,0.2)] border-[#1f1e1e] disabled:text-gray-500 focus:border-solid focus:border-2"
                   placeholder="City"
                   required
                 />{" "}
@@ -354,24 +354,24 @@ const Profile = () => {
             </div>
           </div>
           <div>
-            <div className="mb-2 col-start-1 col-end-3 lg:col-start-2 lg:col-end-3">
+            <div className="mb-2 col-start-1 col-end-3 lg:col-start-2 lg:col-end-3 text-left">
               <label>
-                <span className="text-gray-700">State</span>
+                <span className="text-gray-700 text-[16px]">State</span>
                 <br />
                 <input
                   name="state"
                   type="state"
                   defaultValue={tailorDetails?tailorDetails.state : ""}
-                  className="shadow-sm shadow-blue-400 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                  className="bg-[#ece9e9] text-black border-none box-border w-full justify-around my-[8px] p-2.5 rounded-[3px] shadow-[0px_2px-8px_0px_rgba(99,99,99,0.2)] border-[#1f1e1e] disabled:text-gray-500 focus:border-solid focus:border-2"
                   placeholder="State"
                   required
                 />{" "}
               </label>
             </div>
           </div>
-          <div className="mb-2 col-start-1 col-end-3">
+          <div className="mb-2 col-start-1 col-end-3 text-left">
             <label>
-              <span className="text-gray-700">Password</span>
+              <span className="text-gray-700 text-[16px]">Password</span>
               <br />
             </label>
           </div>
@@ -381,7 +381,7 @@ const Profile = () => {
               name="q"
               placeholder="**********"
               defaultValue="Vskvishal"
-              className=" text-black shadow-sm shadow-blue-400 border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+              className="bg-[#ece9e9] text-black border-none box-border w-full justify-around my-[8px] p-2.5 rounded-[3px] shadow-[0px_2px-8px_0px_rgba(99,99,99,0.2)] border-[#1f1e1e] disabled:text-gray-500 focus:border-solid focus:border-2"
             />
             <span className="absolute inset-y-0 right-0 flex items-center pl-2">
               <button
