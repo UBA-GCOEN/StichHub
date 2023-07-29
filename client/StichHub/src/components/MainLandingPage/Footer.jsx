@@ -18,8 +18,8 @@ const Footer = () => {
         </button>
       </div>
 
-      <footer class="bg-[#0B0A0C] self-center">
-        <div class="mx-auto w-full container p-4 sm:p-6 ">
+      <footer className="bg-[#0B0A0C] self-center">
+        <div className="mx-auto w-full container p-4 sm:p-6 ">
           <div className=" flex grid lg:grid-col-2 mb-10">
             <div className="col-start-1 col-end-2 w-1/2 ml-14 lg:ml-0">
               {" "}
@@ -42,131 +42,131 @@ const Footer = () => {
               </button>
             </div>
           </div>
-          <div class="md:flex md:justify-between">
-            <div class="mb-6 md:mb-0">
-              <a href="/" class="flex items-center">
+          <div className="md:flex md:justify-between">
+            <div className="mb-6 md:mb-0">
+              <a href="/" className="flex items-center">
           <img src={logo} alt="logo with text that says StichHub stitch your way" className="w-48 cursor-pointer" loading="lazy"/>
               </a>
-              <span class="self-center text-sm whitespace-nowrap text-semibold text-white dark:text-white mr-7">
+              <span className="self-center text-sm whitespace-nowrap text-semibold text-white dark:text-white mr-7">
                 We Bridges the gap between tailors and <br />
                 customer to Stich customizing cloths{" "}
               </span>
             </div>
-            <div class="hidden lg:grid lg:grid-cols-5 gap-8 sm:gap-6 sm:grid-cols-1">
+            <div className="hidden lg:grid lg:grid-cols-5 gap-8 sm:gap-6 sm:grid-cols-1">
               <div classname="col-span-1">
-                <h2 class="mb-6  text-sm font-semibold text-white  dark:text-white">
+                <h2 className="mb-6  text-sm font-semibold text-white  dark:text-white">
                   Product{" "}
                 </h2>
-                <ul class="text-gray-500 dark:text-white font-medium">
-                  <li class="mb-2">
-                    <a href="#" class="hover:underline">
+                <ul className="text-gray-500 dark:text-white font-medium">
+                  <li className="mb-2">
+                    <a href="#" className="hover:underline">
                       Overview
                     </a>
                   </li>
-                  <li class="mb-2">
-                    <a href="#" class="hover:underline">
+                  <li className="mb-2">
+                    <a href="#" className="hover:underline">
                       Features
                     </a>
                   </li>
-                  <li class="mb-2">
-                    <a href="#" class="hover:underline">
+                  <li className="mb-2">
+                    <a href="#" className="hover:underline">
                       How it works?
                     </a>
                   </li>
-                  <li class="mb-2">
-                    <a href="#" class="hover:underline">
+                  <li className="mb-2">
+                    <a href="#" className="hover:underline">
                       Tutorials
                     </a>
                   </li>
                 </ul>
               </div>
               <div classname="col-span-1">
-                <h2 class="mb-6 text-sm font-semibold text-white  dark:text-white">
+                <h2 className="mb-6 text-sm font-semibold text-white  dark:text-white">
                   Company
                 </h2>
-                <ul class="text-gray-500 dark:text-white font-medium">
-                  <li class="mb-2">
-                    <a href="#" class="hover:underline">
+                <ul className="text-gray-500 dark:text-white font-medium">
+                  <li className="mb-2">
+                    <a href="#" className="hover:underline">
                       About Us
                     </a>
                   </li>
-                  <li class="mb-2">
-                    <a href="#" class="hover:underline">
+                  <li className="mb-2">
+                    <a href="#" className="hover:underline">
                       Contact Us
                     </a>
                   </li>
-                  <li class="mb-2">
-                    <a href="#" class="hover:underline">
+                  <li className="mb-2">
+                    <a href="#" className="hover:underline">
                       Team
                     </a>
                   </li>
-                  <li class="mb-2">
-                    <a href="#" class="hover:underline">
+                  <li className="mb-2">
+                    <a href="#" className="hover:underline">
                       News
                     </a>
                   </li>
                 </ul>
               </div>
               <div classname="col-span-1">
-                <h2 class="mb-6 text-sm font-semibold text-white  dark:text-white">
+                <h2 className="mb-6 text-sm font-semibold text-white  dark:text-white">
                   Resources
                 </h2>
-                <ul class="text-gray-500 dark:text-white font-medium">
-                  <li class="mb-2">
-                    <a href="#"  class="hover:underline">
+                <ul className="text-gray-500 dark:text-white font-medium">
+                  <li className="mb-2">
+                    <a href="#"  className="hover:underline">
                       Newsletter
                     </a>
                   </li>
-                  <li class="mb-2">
-                    <a href="#"  class="hover:underline">
+                  <li className="mb-2">
+                    <a href="#"  className="hover:underline">
                       Events
                     </a>
                   </li>
-                  <li class="mb-2">
-                    <a href="#"  class="hover:underline">
+                  <li className="mb-2">
+                    <a href="#"  className="hover:underline">
                       Tutorials
                     </a>
                   </li>
-                  <li class="mb-2">
-                    <a href="#"  class="hover:underline">
+                  <li className="mb-2">
+                    <a href="#"  className="hover:underline">
                       Support
                     </a>
                   </li>
                 </ul>
               </div>
               <div classname="col-span-1">
-                <h2 class="mb-6 text-sm font-semibold text-white  dark:text-white">
+                <h2 className="mb-6 text-sm font-semibold text-white  dark:text-white">
                   Social
                 </h2>
-                <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                  <li class="mb-2">
+                <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                  <li className="mb-2">
                     <a
                       href="https://www.instagram.com/sidd.0203/" target='_blank'
-                      class="hover:underline "
+                      className="hover:underline "
                     >
                       Instagram
                     </a>
                   </li>
-                  <li class="mb-2">
+                  <li className="mb-2">
                     <a
                       href="mailto:uba.gcoen@gmail.com" target='_blank'
-                      class="hover:underline"
+                      className="hover:underline"
                     >
                       Email
                     </a>
                   </li>
-                  <li class="mb-2">
+                  <li className="mb-2">
                     <a
                       href="https://youtu.be/EV6m7hZ4RKU" target='_blank'
-                      class="hover:underline "
+                      className="hover:underline "
                     >
                       Youtube
                     </a>
                   </li>
-                  <li class="mb-2">
+                  <li className="mb-2">
                     <a
                       href="https://github.com/UBA-GCOEN/StichHub" target='_blank'
-                      class="hover:underline"
+                      className="hover:underline"
                     >
                       Github
                     </a>
@@ -174,27 +174,27 @@ const Footer = () => {
                 </ul>
               </div>
               <div>
-                <h2 class="mb-6 text-sm font-semibold text-white dark:text-white">
+                <h2 className="mb-6 text-sm font-semibold text-white dark:text-white">
                   Legal
                 </h2>
-                <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                  <li class="mb-2">
-                    <a href="#" class="hover:underline">
+                <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                  <li className="mb-2">
+                    <a href="#" className="hover:underline">
                       Terms
                     </a>
                   </li>
-                  <li class="mb-2">
-                    <a href="#" class="hover:underline">
+                  <li className="mb-2">
+                    <a href="#" className="hover:underline">
                       Privacy
                     </a>
                   </li>
-                  <li class="mb-2">
-                    <a href="#" class="hover:underline">
+                  <li className="mb-2">
+                    <a href="#" className="hover:underline">
                       Cookies
                     </a>
                   </li>
-                  <li class="mb-2">
-                    <a href="#" class="hover:underline">
+                  <li className="mb-2">
+                    <a href="#" className="hover:underline">
                       Licences
                     </a>
                   </li>
@@ -234,35 +234,35 @@ const Footer = () => {
               <Dropdown.Item>Licences</Dropdown.Item>
             </Dropdown>
           </div>
-          <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-          <div class="sm:flex sm:items-center sm:justify-between">
-            <span class="text-sm text-white  sm:text-center dark:text-gray-400">
+          <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+          <div className="sm:flex sm:items-center sm:justify-between">
+            <span className="text-sm text-white  sm:text-center dark:text-gray-400">
               © 2023{" "}
-              <a href="#" class="hover:underline">
+              <a href="#" className="hover:underline">
                 Stichhub™
               </a>
               . All Rights Reserved.
             </span>
-            <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+            <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
               <a
                 href="https://youtu.be/EV6m7hZ4RKU"
                 target="_blank"
-                class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-7 w-7 text-[#ff0000]"
+                  className="h-7 w-7 text-[#ff0000]"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
                   <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
                 </svg>{" "}
-                <span class="sr-only">Youtube</span>
+                <span className="sr-only">Youtube</span>
               </a>
               <a
                 href=" mailto:uba.gcoen@gmail.com"
                 target="_blank"
-                class="text-[#c13584] hover:text-[#c13584]-500 dark:hover:text-white pt-1"
+                className="text-[#c13584] hover:text-[#c13584]-500 dark:hover:text-white pt-1"
               >
                 <svg
                   height="19"
@@ -278,8 +278,8 @@ const Footer = () => {
                     y1="49.997619%"
                     y2="49.997619%"
                   >
-                    <stop offset="0" stop-opacity=".1" />
-                    <stop offset="1" stop-opacity=".2" />
+                    <stop offset="0" stopOpacity=".1" />
+                    <stop offset="1" stopOpacity=".2" />
                   </linearGradient>
                   <path
                     d="m238.833923 193.595007h-222.6797035c-8.63451906 0-15.90569305-7.04395-15.90569305-15.905693v-160.8747242c0-8.63451907 7.0439498-15.90569305 15.90569305-15.90569305h222.6797035c8.634519 0 15.905693 7.04394979 15.905693 15.90569305v160.8747242c0 8.861743-7.04395 15.905693-15.905693 15.905693z"
@@ -319,7 +319,7 @@ const Footer = () => {
                     fill="#d72b27"
                   />
                 </svg>{" "}
-                <span class="sr-only">Gmail</span>
+                <span className="sr-only">Gmail</span>
               </a>
             </div>
           </div>

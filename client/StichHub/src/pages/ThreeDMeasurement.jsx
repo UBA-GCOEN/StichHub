@@ -24,7 +24,7 @@ const ThreeDMeasurement = () => {
           <div className="lg:ml-[32%]">
             <select
               id="profile"
-              class="bg-gray-800 border text-gray-400 ml-10 mt-5 w-[80%] lg:w-[45%] text-center
+              className="bg-gray-800 border text-gray-400 ml-10 mt-5 w-[80%] lg:w-[45%] text-center
             text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               disabled>
               <option selected>--choose profile</option>
@@ -74,7 +74,7 @@ const Mainpage = () => {
       <div className="lg:ml-[32%]">
         <select
           id="profile"
-          class="bg-gray-800 border text-gray-400 ml-10 mt-5 w-[80%] lg:w-[45%] text-center
+          className="bg-gray-800 border text-gray-400 ml-10 mt-5 w-[80%] lg:w-[45%] text-center
             text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           disabled>
           <option selected>--choose profile</option>

@@ -39,7 +39,7 @@ const FilterSection = ({ handleChange, clearFilter }) => {
               <div className="filter p-5 text-white w-max sm:w-[40vw] md:w-[30vw] lg:w-[20vw] h-[60vh] overflow-y-auto cardGradient absolute right-6 rounded-l-xl rounded-r-lg mt-2 z-[90]">
                 <button
                   type="button"
-                  class="focus:outline-none text-white bg-red-700 hover:bg-red-800 font-medium rounded-lg text-xs px-2 py-2 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 absolute right-0 top-1"
+                  className="focus:outline-none text-white bg-red-700 hover:bg-red-800 font-medium rounded-lg text-xs px-2 py-2 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 absolute right-0 top-1"
                   onClick={() => {
                     clearFilter();
                     setToggle(false);
