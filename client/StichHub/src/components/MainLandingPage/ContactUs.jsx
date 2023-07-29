@@ -42,7 +42,7 @@ const ContactUs = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/test/send-email", {
+      const response = await fetch("https://stichhub-backend-jpa9f4hnr-stichhub.vercel.app/test/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
