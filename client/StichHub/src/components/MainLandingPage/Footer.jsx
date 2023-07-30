@@ -1,21 +1,25 @@
 import React from "react";
 import { Dropdown } from "rsuite";
-import logo from "../../assets/logo/Long - Logo Transparent (White).png"
+import logo from "../../assets/logo/Long - Logo Transparent (White).png";
 
 const Footer = () => {
   return (
     <div>
-      <div className=" grid grid-col-1 lg:grid-col-3 mx-[20%] bg-gradient-to-r from-neutral-700 to-neutral-800 my-[5%] rounded-xl">
-        <h4 className="text-white col-span-2  text-2xl font-bold  mx-[5%] mt-[5%]">
-          Let's Try Out Services Now!
-        </h4>
-        <h6 className="text-white text-xs mb-5 ml-[7%] mt-3 mr-[15%] ">
-          Everything you need to accept card payments and Grow your business
-          anywhere on the planet.
-        </h6>
-        <button className="block bg-[#33BBCF] w-auto mr-10 col-span-1 h-10  pr-[10%] ml-[-14%] mb-[30%] lg:mt-[-5%] mt-[5%] w-[130px] px-6 py-1.5 rounded-xl text-white hover:bg-[#5CE1E6]">
-          Get Started
-        </button>
+      <div className="flex flex-col md:flex-row justify-center items-center bg-gradient-to-r from-neutral-700 to-neutral-800 my-[5%] rounded-xl mx-[10%] lg:mx-[20%] p-6 md:p-10 gap-2">
+        <div className="w-[100%] md:w-[60%]">
+          <p className="text-white col-span-2 text-2xl font-bold]">
+            Let's Try Out Services Now!
+          </p>
+          <p className="text-white text-sm mb-5 mt-3">
+            Everything you need to accept card payments and Grow your business
+            anywhere on the planet.
+          </p>
+        </div>
+        <div className="w-[100%] md:w-[40%] flex justify-center">
+          <button className="block bg-[#33BBCF] text-white border-[#5CE1E6] hover:bg-transparent border-2 px-20 py-2 rounded-lg">
+            Get Started
+          </button>
+        </div>
       </div>
 
       <footer class="bg-[#0B0A0C] self-center">
@@ -45,7 +49,7 @@ const Footer = () => {
           <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
               <a href="/" class="flex items-center">
-          <img src={logo} alt="logo with text that says StichHub stitch your way" className="w-48 cursor-pointer" loading="lazy"/>
+                <img src={logo} alt="logo with text that says StichHub stitch your way" className="w-48 cursor-pointer" loading="lazy" />
               </a>
               <span class="self-center text-sm whitespace-nowrap text-semibold text-white dark:text-white mr-7">
                 We Bridges the gap between tailors and <br />
@@ -113,22 +117,22 @@ const Footer = () => {
                 </h2>
                 <ul class="text-gray-500 dark:text-white font-medium">
                   <li class="mb-2">
-                    <a href="#"  class="hover:underline">
+                    <a href="#" class="hover:underline">
                       Newsletter
                     </a>
                   </li>
                   <li class="mb-2">
-                    <a href="#"  class="hover:underline">
+                    <a href="#" class="hover:underline">
                       Events
                     </a>
                   </li>
                   <li class="mb-2">
-                    <a href="#"  class="hover:underline">
+                    <a href="#" class="hover:underline">
                       Tutorials
                     </a>
                   </li>
                   <li class="mb-2">
-                    <a href="#"  class="hover:underline">
+                    <a href="#" class="hover:underline">
                       Support
                     </a>
                   </li>
@@ -271,7 +275,7 @@ const Footer = () => {
                   viewBox="0 0 256 194"
                   width="25"
                   xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xmlns: xlink="http://www.w3.org/1999/xlink"
                 >
                   <linearGradient
                     id="a"
