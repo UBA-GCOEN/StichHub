@@ -2,7 +2,7 @@
   "name": "stichhub",
   "private": true,
 
-  "proxy": "https://stichhub-backend.vercel.app/",
+  "proxy": "https://stichhub-backend-ddxkeaab6-stichhub.vercel.app/",
 
   "version": "0.0.0",
   "type": "module",
