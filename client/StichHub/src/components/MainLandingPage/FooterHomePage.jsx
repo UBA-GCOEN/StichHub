@@ -11,7 +11,7 @@ import logo from "../../assets/logo/Long - Logo Transparent (White).png"
 
 const Footer = () => {
   return (
-    <div className="bg-[#09051D] pt-7">
+    <div className="bg-[#09051D] pt-7" role="footer">
       <div className="container mx-auto flex flex-col items-center justify-center">
         <a href="/">
           <img src={logo} alt="logo with text that says StichHub stitch your way" className="w-48 cursor-pointer" loading="lazy"/>
@@ -20,19 +20,19 @@ const Footer = () => {
           Choose your style, make your own trend. <br /> Select the one you want to get your clothes stitched from!
         </p>
         <div className="flex items-center mt-4">
-          <a href="mailto:stichhub.office@gmail.com" className="text-white  px-3 hover:text-gray-300 transition-colors duration-300 ease-in-out hover:scale-110">
+          <a href="mailto:stichhub.office@gmail.com" className="text-white  px-3 hover:text-gray-300 transition-colors duration-300 ease-in-out hover:scale-110" aria-label="Mail us at stichhub.office@gmail.com" title="Mail (External Link)" rel="noopener noreferrer" target="_blank" >
             <MailIcon className="text-white text-2xl  hover:text-[#DB4437]" />
           </a>
-          <a href="https://github.com/UBA-GCOEN/StichHub" className="text-white px-3  hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
+          <a href="https://github.com/UBA-GCOEN/StichHub" className="text-white px-3  hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110" aria-label="Follow us on Github" title="Github (External Link)" rel="noopener noreferrer" target="_blank">
             <GitHubIcon className="text-white text-2xl  hover:text-gray-500" />
           </a>
-          <a href="https://www.youtube.com/channel/UCjkwYo58eYv6ZGqu4IQiU0w" className="text-white px-3  hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
+          <a href="https://www.youtube.com/channel/UCjkwYo58eYv6ZGqu4IQiU0w" className="text-white px-3  hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110" aria-label="Follow us on Youtube" title="Youtube (External Link)" rel="noopener noreferrer" target="_blank">
             <YouTubeIcon className="text-white text-2xl  hover:text-[#c4302b]" />
           </a>
-          <a href="https://twitter.com/StichHub_" className="text-white px-3   hover:text-gray-300 transition-colors duration-300 ease-in-out hover:scale-110">
+          <a href="https://twitter.com/StichHub_" className="text-white px-3   hover:text-gray-300 transition-colors duration-300 ease-in-out hover:scale-110" aria-label="Follow us on Twitter.office@gmail.com" title="Twitter (External Link)" rel="noopener noreferrer" target="_blank">
             <TwitterIcon className="text-white text-2xl  hover:text-sky-400" />
           </a>
-          <a href="https://www.instagram.com/stichhub_/" className="text-white px-3    hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110">
+          <a href="https://www.instagram.com/stichhub_/" className="text-white px-3    hover:text-gray-300  transition-colors duration-300 ease-in-out hover:scale-110" aria-label="Follow us on Instagram" title="Instagram (External Link)" rel="noopener noreferrer" target="_blank">
             <InstagramIcon className="text-white text-2xl  hover:text-[#E4405F]" />
           </a>
         </div>
