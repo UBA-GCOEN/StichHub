@@ -148,10 +148,12 @@ const Footer = () => {
                     </a>
                   </li>
                   <li class="mb-2">
+
                     <a
                       href="mailto:uba.gcoen@gmail.com" target='_blank'
                       class="hover:underline" aria-label="Mail me at uba.gcoen@gmail.com" title="Mail (External Link)" rel="noopener noreferrer"
                     >
+
                       Email
                     </a>
                   </li>
