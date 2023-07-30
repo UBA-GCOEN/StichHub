@@ -33,6 +33,36 @@ const ContactUs = () => {
   //   e.preventDefault();
   // };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // If there are validation errors, prevent form submission
+    if (Object.values(error).includes(true)) {
+      return;
+    }
+
+    try {
+      const response = await fetch("https://stichhub-backend.vercel.app/test/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (response.ok) {
+        console.log("Email sent successfully");
+        // Optionally, show a success message or perform other actions here
+      } else {
+        console.error("Error sending email");
+        // Optionally, show an error message or perform other actions here
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      // Optionally, show an error message or perform other actions here
+    }
+  };
+
   return (
     <div
       id="contactus"
@@ -57,7 +87,7 @@ const ContactUs = () => {
           </div>
 
           {/* Form */}
-          <form id="form-Container" className="" action="https://formsubmit.co/uba.gcoen@gmail.com" method="POST">
+          <form id="form-Container" className=""  >
             <div id="yourName" className="py-2">
               <img loading="lazy"
                 src={AvatarIcon}
@@ -155,10 +185,12 @@ const ContactUs = () => {
                {error.message && error.messageError ? (
                   <AuthErrorMessage message={error.messageError} />
                 ) : null}
-            <button 
-              type="submit"
-              className="bg-gradient-to-b from-cyan-500 to-blue-500 text-white mt-[25px] w-full flex items-center p-2 duration-300 hover:scale-110 rounded-md font-semibold"
-              disabled={Object.values(error).includes(true)}>
+          <button
+          type="button" // Use type="button" to prevent default form submission behavior
+          onClick={handleSubmit} // Call the handleSubmit function on button click
+          className="bg-gradient-to-b from-cyan-500 to-blue-500 text-white mt-[25px] w-full flex items-center p-2 duration-300 hover:scale-110 rounded-md font-semibold"
+          disabled={Object.values(error).includes(true)}
+        >
                   <span className="mx-auto">
                    Send
                  </span>
