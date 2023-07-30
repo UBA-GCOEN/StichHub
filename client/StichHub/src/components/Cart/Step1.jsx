@@ -4,10 +4,12 @@ import el from "../../assets/img/el.webp";
 import el2 from "../../assets/img/el2.webp";
 import im from "../../assets/img/im.webp";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 //main definition
 const Step1 = () => {
   const [qty, setqty] = useState(0);
+  const navigateTo = useNavigate();
   const handleqty = () => {
     setqty(qty + 1);
   };
@@ -23,6 +25,10 @@ const Step1 = () => {
       const res = await axios.get("/cart/list");
       setCartList(res.data);
     } catch (err) {
+      if(err.response.data.type==="JWT Error"){
+        alert(err.response.data.message);
+        navigateTo("/auth/customer")
+      }
       console.error(err);
     }
   };

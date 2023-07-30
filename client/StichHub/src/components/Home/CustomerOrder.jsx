@@ -21,7 +21,11 @@ const CustomerOrder = () => {
       const res = await axios.get(`order/request/customer`);
       setOrders(res.data);
     } catch (error) {
-      console.error(error.message);
+      console.log(error.message)
+      if(error.response.data.type==="JWT Error"){
+        alert(error.response.data.message);
+        navigateTo("/auth/customer")
+      }
     }
   };
 
@@ -32,6 +36,10 @@ const CustomerOrder = () => {
       setIsLoading(false);
       navigateTo("/Cart");
     } catch (error) {
+      if(error.response.data.type==="JWT Error"){
+        alert(error.response.data.message);
+        navigateTo("/auth/customer")
+      }
       console.error(error.message);
       setIsLoading(false);
     }
