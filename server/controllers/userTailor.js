@@ -37,7 +37,7 @@ export const signin = async (req, res) => {
       const token = generateToken(oldUser, SECRET, "300s");
 
       // const url = `http://localhost:5173/verify-email/${token}`;
-      const url = `http://localhost:5173/verify-email?token=${token}`;
+      const url = `https://stichhub.vercel.app/verify-email?token=${token}`;
 
       const options = {
         name: oldUser.name,
@@ -162,7 +162,7 @@ export const register = async (req, res) => {
     // sending verification email after user creation
     if (result) {
       const token = generateToken(result, SECRET, "300s");
-      const url = `http://localhost:5173/verify-email?token=${token}`;
+      const url = `https://stichhub.vercel.app/verify-email?token=${token}`;
 
       const options = {
         name: result.name,
@@ -259,7 +259,7 @@ export const resendVerificationLink = async (req, res) => {
     }
 
     const token = generateToken(tailorUser, SECRET, "300s");
-    const url = `http://localhost:5173/verify-email?token=${token}`;
+    const url = `https://stichhub.vercel.app/verify-email?token=${token}`;
 
     const options = {
       name: tailorUser.name,
