@@ -22,6 +22,11 @@ const authCustomer = async (req, res, next) => {
 
     next();
   } catch (error) {
+    res.status(401).json({
+      success: false,
+      message: "Not a Authorize User. Please Sign In",
+      type:"JWT Error"
+    });
     console.error(error);
   }
 };
