@@ -84,12 +84,6 @@ const AuthTailor = () => {
         }
     } catch (error) {
 
-      if(error){
-
-        setError(error.response.data.message);
-        setIsLoading(false);
-      }
-
       alert(error.response.data.message);
       setIsLoading(false);
     }}else{
