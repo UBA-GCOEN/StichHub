@@ -14,7 +14,7 @@ import im from "../assets/img/im.webp";
 import "react-phone-number-input/style.css";
 import Phoneinput from "react-phone-number-input";
 import ime from "../assets/img/ime.webp";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   Card,
   CardHeader,
@@ -204,7 +204,7 @@ const steps = [
 const Cart = () => {
   //some custom react hooks
   const [value, setValue] = useState();
-
+   const navigateTo = useNavigate();
   const [activeStep, setActiveStep] = useState(1);
 
   //for handling next step button function
@@ -274,6 +274,10 @@ const Cart = () => {
       const res = await axios.get("/cart/list");
       setCartList(res.data);
     } catch (err) {
+      if(err.response.data.type==="JWT Error"){
+        alert(err.response.data.message);
+        navigateTo("/auth/customer")
+      }
       console.error(err);
     }
   };

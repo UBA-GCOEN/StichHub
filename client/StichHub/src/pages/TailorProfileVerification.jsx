@@ -309,6 +309,10 @@ const TailorProfileVerification = () => {
       navigateTo("/TailorDashboard");
     } catch (error) {
       console.error(error.response.data.message);
+      if(error.response.data.type==="JWT Error"){
+        alert(error.response.data.message);
+        navigateTo("/auth/tailor")
+      }
       setIsLoading(false);
     }
   };
