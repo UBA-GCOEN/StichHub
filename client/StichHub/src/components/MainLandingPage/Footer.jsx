@@ -146,23 +146,25 @@ const Footer = () => {
                   <li class="mb-2">
                     <a
                       href="https://www.instagram.com/sidd.0203/" target='_blank'
-                      class="hover:underline "
+                      class="hover:underline " aria-label="Follow me on Instagram" title="Instagram (External Link)" rel="noopener noreferrer"
                     >
                       Instagram
                     </a>
                   </li>
                   <li class="mb-2">
+
                     <a
                       href="mailto:uba.gcoen@gmail.com" target='_blank'
-                      class="hover:underline"
+                      class="hover:underline" aria-label="Mail me at uba.gcoen@gmail.com" title="Mail (External Link)" rel="noopener noreferrer"
                     >
+
                       Email
                     </a>
                   </li>
                   <li class="mb-2">
                     <a
                       href="https://youtu.be/EV6m7hZ4RKU" target='_blank'
-                      class="hover:underline "
+                      class="hover:underline " aria-label="Follow us on Youtube" title="Youtube (External Link)" rel="noopener noreferrer"
                     >
                       Youtube
                     </a>
@@ -170,7 +172,7 @@ const Footer = () => {
                   <li class="mb-2">
                     <a
                       href="https://github.com/UBA-GCOEN/StichHub" target='_blank'
-                      class="hover:underline"
+                      class="hover:underline" aria-label="Follow us on Github" title="Github (External Link)" rel="noopener noreferrer"
                     >
                       Github
                     </a>
@@ -251,7 +253,7 @@ const Footer = () => {
               <a
                 href="https://youtu.be/EV6m7hZ4RKU"
                 target="_blank"
-                class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                class="text-gray-500 hover:text-gray-900 dark:hover:text-white" aria-label="Follow us on Youtube" title="Youtube (External Link)" rel="noopener noreferrer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -266,7 +268,7 @@ const Footer = () => {
               <a
                 href=" mailto:uba.gcoen@gmail.com"
                 target="_blank"
-                class="text-[#c13584] hover:text-[#c13584]-500 dark:hover:text-white pt-1"
+                class="text-[#c13584] hover:text-[#c13584]-500 dark:hover:text-white pt-1" aria-label="Mail us at uba.gcoen@gmail.com" title="Mail (External Link)" rel="noopener noreferrer"
               >
                 <svg
                   height="19"
