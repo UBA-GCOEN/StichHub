@@ -119,6 +119,9 @@ const ForgotPassword = () => {
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 invalid:border-pink-500 invalid:text-pink-600
                 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
+                  aria-label="Enter you email"
+                  required
+                  aria-required="true"
                 />
               </div>
               

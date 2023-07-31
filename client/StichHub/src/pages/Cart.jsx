@@ -5,7 +5,7 @@ import Step1 from "../components/Cart/Step1";
 import Step2 from "../components/Cart/Step2";
 import validate from "../common/validation"
 import "react-phone-number-input/style.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {Typography,} from "@material-tailwind/react";
 import { LockClosedIcon,} from "@heroicons/react/24/solid";
 
@@ -133,6 +133,7 @@ const Cart = () => {
       return { ...prev, ...getError };
     }): null;
   };
+  const navigateTo = useNavigate();
 
  const initialForm = {
     contact: "",
@@ -201,6 +202,10 @@ const Cart = () => {
       const res = await axios.get("/cart/list");
       setCartList(res.data);
     } catch (err) {
+      if(err.response.data.type==="JWT Error"){
+        alert(err.response.data.message);
+        navigateTo("/auth/customer")
+      }
       console.error(err);
     }
   };

@@ -4,11 +4,14 @@ import { ClockIcon, PhoneIcon } from "@heroicons/react/24/solid";
 import axios from "../../../../axios";
 
 import url from "../../../../assets/img/Ongoingtop.webp";
+import { useNavigate } from "react-router-dom";
 
 const MobileOngoingOrders = () => {
   const [OrderList, setOrderList] = useState([]);
 
   const [orderStatus, setOrderStatus] = useState("");
+
+  const navigateTo = useNavigate
 
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -26,6 +29,10 @@ const MobileOngoingOrders = () => {
       // setIsLoading(false);
     } catch (err) {
       console.error(err);
+      if(err.response.data.type==="JWT Error"){
+        alert(err.response.data.message);
+        navigateTo("/auth/tailor")
+      }
       // setIsLoading(false);
     }
   };

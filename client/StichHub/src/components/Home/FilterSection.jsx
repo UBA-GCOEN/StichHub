@@ -2,6 +2,27 @@ import { useState } from "react";
 
 const FilterSection = ({ handleChange, clearFilter }) => {
   const [toggle, setToggle] = useState(false);
+  const [customPrice, setCustomPrice] = useState({ min: "", max: "" });
+
+  const handleCustomPrice = ()=>{
+    var priceRadioInput = [...document.querySelectorAll('input[type="radio"][name="price"]')];
+    priceRadioInput.forEach((input)=>{
+      input.checked = false;
+    })
+    if(customPrice.min !== "" && customPrice.max !== ""){
+      if(parseInt(customPrice.min)>= parseInt(customPrice.max)){
+        alert("Enter Valid Min-Max range");
+        return;
+      }
+       handleChange({
+        target: {
+          name: "price",
+          value: `${customPrice.min} - ${customPrice.max}`
+        }
+       })
+    }
+   
+  }
 
   return (
     <div>
@@ -111,7 +132,7 @@ const FilterSection = ({ handleChange, clearFilter }) => {
                       <input
                         type="radio"
                         name="price"
-                        value="under 1000"
+                        value="max - 1000"
                         id="under1000"
                         className="mr-1"
                         onChange={handleChange}
@@ -150,7 +171,7 @@ const FilterSection = ({ handleChange, clearFilter }) => {
                       <input
                         type="radio"
                         name="price"
-                        value="Above 15000"
+                        value="min - 15000"
                         id="Abovecheckbox"
                         className="mr-1"
                         onChange={handleChange}
@@ -158,6 +179,36 @@ const FilterSection = ({ handleChange, clearFilter }) => {
                       <label className="cursor-pointer" for="Abovecheckbox">
                         Above 15000
                       </label>
+                    </div>
+                    <div className="rounded px-2 my-1 flex">
+                      <input
+                        type="text"
+                        name="price"
+                        placeholder="₹ Min"
+                        value={customPrice.min} 
+                        id="custom min"
+                        className="inline-block text-sm rounded-md outline outline-[#cde5f6] outline-2 m-1 text-black w-14 text-center p-1"
+                        onChange={(e) =>
+                          setCustomPrice((prev) => {
+                            return { ...prev, min:e.target.value };
+                          })
+                        }
+                      />
+
+                      <input
+                        type="text"
+                        name="price"
+                        placeholder="₹ Max"
+                        value={customPrice.max}
+                        id="custom min"
+                        className="inline-block text-sm rounded-md outline outline-[#cde5f6] outline-2 m-1 text-black w-14 text-center p-1"
+                        onChange={(e) =>
+                          setCustomPrice((prev) => {
+                            return { ...prev, max: e.target.value };
+                          })
+                        }
+                      />
+                      <button className="bg-blue-700 text-white p-1 w-10 cursor-pointer text-sm rounded-md m-1 outline-2 hover:bg-blue-500" onClick={handleCustomPrice}>Go</button>
                     </div>
                   </div>
                 </div>
