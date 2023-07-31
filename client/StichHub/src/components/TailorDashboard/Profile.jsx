@@ -7,6 +7,7 @@ import Phoneinput from "react-phone-number-input";
 import axios from "../../axios";
 import { Tabs } from "./Tabs";
 import { Player } from "@lottiefiles/react-lottie-player";
+import { useNavigate } from "react-router-dom";
 
 // const fileTypes = ["JPG", "PNG", "GIF"];
 
@@ -138,6 +139,7 @@ const Profile = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [tailorDetails, setTailorDetails] = useState(null);
+  const navigateTo = useNavigate();
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   
@@ -150,6 +152,10 @@ const Profile = () => {
   
       } catch(error) {
         console.error(error);
+        if(error.response.data.type==="JWT Error"){
+          alert(error.response.data.message);
+          navigateTo("/auth/tailor")
+        }
         setIsLoading(false);
       }
     }
@@ -179,8 +185,13 @@ const Profile = () => {
 
   //for handling Next step page button function
   const handleNext = () => {
-    setStep(step + 1);
-    setActiveStep(activeStep + 1);
+    if(tailorDetails !== null){
+      setStep(step + 1);
+      setActiveStep(activeStep + 1);
+    }else{
+      alert("Some details required to display next page is not provided by you. Please provide the details first")
+    }
+    
   };
 
   //for handling Previous step page button function

@@ -27,7 +27,8 @@ const authTailor = async (req, res, next) => {
     } catch (error) {
       res.status(401).json({
         success: false,
-        message: "Not Authorize please Sign In",
+        message: "Not a Authorize User. Please Sign In",
+        type: "JWT Error"
       });
       // throw new Error("Not authorized, token failed");
     }

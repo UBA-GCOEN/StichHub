@@ -7,11 +7,13 @@ import { ClockIcon, PhoneIcon } from "@heroicons/react/24/solid";
 //   } from "../../contexts/Configurator";
 import { View } from "../../../assets/3dConfigurator/configurator-icons";
 import axios from "../../../axios";
+import { useNavigate } from "react-router-dom";
 
 const MainDisplay = () => {
   const [OrderList, setOrderList] = useState([]);
 
   const [orderStatus, setOrderStatus] = useState("");
+  const navigateTo = useNavigate();
 
 
   const getOrder = async () => {
@@ -23,6 +25,10 @@ const MainDisplay = () => {
       setOrderList(res.data);
       // setIsLoading(false);
     } catch (err) {
+      if(err.response.data.type==="JWT Error"){
+        alert(err.response.data.message);
+        navigateTo("/auth/tailor")
+      }
       console.error(err);
       // setIsLoading(false);
     }
@@ -46,6 +52,10 @@ const MainDisplay = () => {
       setOrderStatus("hidden");
     } catch (error) {
       console.error(error.message);
+      if(error.response.data.type==="JWT Error"){
+        alert(error.response.data.message);
+        navigateTo("/auth/tailor")
+      }
     }
   };
 

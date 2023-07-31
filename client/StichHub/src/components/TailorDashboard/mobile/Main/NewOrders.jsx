@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "../../../../axios";
+import { useNavigate } from "react-router-dom";
 
 const NewOrder = () => {
   const [OrderList, setOrderList] = useState([]);
 
   const [orderStatus, setOrderStatus] = useState("");
+  const navigateTo = useNavigate();
 
   const getOrder = async () => {
     // setIsLoading(true);
@@ -15,6 +17,10 @@ const NewOrder = () => {
       setOrderList(res.data);
       // setIsLoading(false);
     } catch (err) {
+      if(err.response.data.type==="JWT Error"){
+        alert(err.response.data.message);
+        navigateTo("/auth/tailor")
+      }
       console.error(err);
       // setIsLoading(false);
     }
@@ -38,6 +44,10 @@ const NewOrder = () => {
       setOrderStatus("hidden");
     } catch (error) {
       console.error(error.message);
+      if(error.response.data.type==="JWT Error"){
+        alert(error.response.data.message);
+        navigateTo("/auth/tailor")
+      }
     }
   };
   return (
