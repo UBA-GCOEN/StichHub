@@ -38,12 +38,17 @@
 </div>
 
 <br>
+<div align="center">
+   <h1>StichHub</h1>
+</div>
 
-# StichHub
 
-We bridge the physical gap between a tailor and the customers through our platform, providing customers with a choice of tailors and tailors with an increased reach for customers. We are a team of enthusiasts hoping to bring the tailor community online and introduce them to the benefits of online business.
-
-## Project Overview 👀
+Our platform serves as a vital link connecting tailors and customers, effectively closing the geographical distance between them. By operating online, we offer customers a wide array of tailor options while granting tailors access to a broader customer base. Our passionate team aims to revolutionize the tailor community, introducing them to the numerous advantages of conducting business online.
+<div align="center">
+   
+   <h1>Project Overview 👀</h1>
+</div>
+ 
 
 > ![image](https://github.com/Siddhant-Patil0203/StichHub/assets/77800620/d6c14501-1c95-4517-9ddc-ab23879218df)
 >
@@ -55,7 +60,12 @@ We bridge the physical gap between a tailor and the customers through our platfo
 > **As a Customer**
 > Have you ever had trouble finding a good tailor? Or found it inconvenient to visit tailor stores multiple times to inquire or collect your own piece? We at StichHub aim to reduce this hassle and make tailoring a convenient experience for not just the customer, but also the tailor.
 
-## Project Highlights ✨
+ 
+
+<div align="center">
+   
+   <h1>Project Highlights ✨</h1>
+</div>
 
 We aim to ease the stitching business by providing the following features:
 
@@ -63,6 +73,22 @@ We aim to ease the stitching business by providing the following features:
 - **3D Configurator**: Make changes to your desired design while simultaneously seeing how it looks overall through a 3D model of yourself.
 - **Online Measurements**: We provide an online facility that enables users to accurately provide measurements for their clothes.
 - **AR Tech**: Ever wondered if an ordered piece will turn out exactly the same as it looks? With our tech, you come one step closer to that. It enables you to know just how your piece is going to turn out.
+
+  <div align="center">
+   
+   <h1>Features✨</h1>
+</div>
+
+
+Tailor-Customer Connectivity: Our platform facilitates seamless communication between tailors and customers, enabling them to discuss preferences, measurements, and design details online.
+
+Diverse Tailor Selection: Customers enjoy the freedom to choose from a diverse pool of skilled tailors, each offering unique styles and expertise, all accessible through our platform.
+
+Increased Tailor Reach: Tailors, irrespective of their physical location, gain expanded visibility and a broader market reach, as they can now attract customers from different regions.
+
+Customization Options: Customers can easily request personalized alterations and bespoke designs, fostering a more satisfying and individualized tailoring experience.
+
+Transparent Pricing: Our platform ensures transparency in pricing, enabling customers to compare tailor rates, allowing them to make informed decisions based on their budget and requirements.
 
 ## Blog 📄
 
