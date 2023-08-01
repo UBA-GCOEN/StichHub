@@ -21,7 +21,7 @@
     "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.16",
     "@lottiefiles/react-lottie-player": "^3.5.3",
-    "@material-tailwind/react": "^1.4.2",
+    "@material-tailwind/react": "^2.0.8",
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.13.4",
     "@react-oauth/google": "^0.9.0",
