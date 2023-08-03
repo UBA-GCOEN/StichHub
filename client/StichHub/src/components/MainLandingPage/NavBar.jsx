@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { scroller } from "react-scroll";
 import { close, logo, menu, navbar } from "../../constants/MainLandingPage";
-import "./Navbar.css"
 const NavBar = () => {
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
