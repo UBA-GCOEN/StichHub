@@ -9,10 +9,6 @@ const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const isTop = window.scrollY === 0;
-      setIsScrolled(!isTop);
-    };
 
     window.addEventListener("scroll", handleScroll);
 
@@ -28,6 +24,54 @@ const NavBar = () => {
     });
   };
 
+  
+  const handleScroll = () => {
+    const isTop = window.scrollY === 0;
+    setIsScrolled(!isTop);
+    // Get the position of each section on the page
+    const homeSection = document.getElementById('home');
+    const servicesSection = document.getElementById('ourServices');
+    const howItWorksSection = document.getElementById('howitworks')
+    const testimonialSection = document.getElementById('testimonial')
+    const aboutSection = document.getElementById('aboutus');
+    const contactSection = document.getElementById('contactus');
+
+    // Calculate the scroll position
+    const scrollPosition = window.scrollY;
+
+    // Calculate the offset for active tab detection
+    const offset = 100;
+
+    // Update the active tab based on the scroll position
+    if (
+      scrollPosition >= homeSection.offsetTop - offset &&
+      scrollPosition < servicesSection.offsetTop - offset
+    ) {
+      setActive('Home');
+    } else if (
+      scrollPosition >= servicesSection.offsetTop - offset &&
+      scrollPosition < howItWorksSection.offsetTop - offset
+    ) {
+      setActive('Our Services');
+    } else if (
+      scrollPosition >= howItWorksSection.offsetTop - offset &&
+      scrollPosition < testimonialSection.offsetTop - offset
+    ) {
+      setActive('How it Works?');
+    }else if (
+      scrollPosition >= testimonialSection.offsetTop - offset &&
+      scrollPosition < aboutSection.offsetTop - offset
+    ) {
+      setActive('Testimonial');
+    }else if (
+      scrollPosition >= aboutSection.offsetTop - offset &&
+      scrollPosition < contactSection.offsetTop - offset
+    ) {
+      setActive('About us');
+    }else if (scrollPosition >= contactSection.offsetTop - offset) {
+      setActive('Contact us');
+    }
+  };
 
   return (
     <nav
@@ -37,24 +81,38 @@ const NavBar = () => {
     >
       <div className="">
         <a href="#">
-          <img src={logo} alt="logo with text that says StichHub stitch your way" className=" w-[180px]" loading="lazy"/>
+          <img
+            src={logo}
+            alt="logo with text that says StichHub stitch your way"
+            className=" w-[180px]"
+            loading="lazy"
+          />
         </a>
       </div>
       <ul className="list-none lg:flex hidden justify-center items-center cursor-pointer">
         {navbar.map((nav, index) => (
           <li
-            style={{transition:".4s ease"}}
+            style={{
+              transition: ".25s ease",
+            }}
             key={nav.title}
             className={`font-poppins font-normal cursor-pointer text-[16px]  ${
               index === navbar.length - 1 ? "mr-0" : "mr-10"
-            }  ${active === nav.title? "border-b-2 border-white border-solid":""}`}
+            }  ${
+              active === nav.title
+                ? "border-b-2 border-white border-solid text-[#38b6ff]"
+                : ""
+            } hover:border-b-2 hover:border-t-2 hover:border-white hover:text-[#38b6ff] hover:bg-[#5b5b5b4d]`}
             onClick={() => {
               setActive(nav.title);
               scrollToSection(nav.id);
               updateActiveNavLink();
             }}
           >
-            <a href={`#${nav.id}`}> <span>{nav.title}</span> </a>
+            <a href={`#${nav.id}`}>
+              {" "}
+              <span>{nav.title}</span>{" "}
+            </a>
           </li>
         ))}
       </ul>
@@ -64,7 +122,8 @@ const NavBar = () => {
         </button>
       </Link>
       <div className="lg:hidden flex flex-1 justify-end items-center">
-        <img loading="lazy"
+        <img
+          loading="lazy"
           src={toggle ? close : menu}
           alt={toggle ? "close button" : "hamburger menu"}
           className="w-[28px] h-[28px] object-contain"
@@ -74,7 +133,8 @@ const NavBar = () => {
         <div
           className={`${
             !toggle ? "hidden" : "flex"
-          } py-6 bg-black/100 absolute top-[4rem] right-0 mx-4 min-w-[140px] w-[200px] rounded-xl `} id="dropdown"
+          } py-6 bg-black/100 absolute top-[4rem] right-0 mx-4 min-w-[140px] w-[200px] rounded-xl `}
+          id="dropdown"
         >
           <ul className="list-none flex justify-end flex-1 flex-col">
             {navbar.map((nav, index) => (
@@ -84,7 +144,7 @@ const NavBar = () => {
                   index === navbar.length - 1 ? "mb-0" : "mb-4"
                 }
                 ${active === nav.title ? "" : "text-gray-500"}
-                }  ${active === nav.title? "bg-white text-black":""}` }
+                }  ${active === nav.title ? "bg-white text-black" : ""}`}
                 onClick={() => {
                   setActive(nav.title);
                   scrollToSection(nav.id);
