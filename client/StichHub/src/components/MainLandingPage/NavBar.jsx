@@ -28,7 +28,7 @@ const NavBar = () => {
   const handleScroll = () => {
     const isTop = window.scrollY === 0;
     setIsScrolled(!isTop);
-    // Get the position of each section on the page
+    // All home sections
     const homeSection = document.getElementById('home');
     const servicesSection = document.getElementById('ourServices');
     const howItWorksSection = document.getElementById('howitworks')
@@ -36,13 +36,13 @@ const NavBar = () => {
     const aboutSection = document.getElementById('aboutus');
     const contactSection = document.getElementById('contactus');
 
-    // Calculate the scroll position
+    // Window Y position
     const scrollPosition = window.scrollY;
 
-    // Calculate the offset for active tab detection
+    // padding
     const offset = 100;
 
-    // Update the active tab based on the scroll position
+    // Condition for active section
     if (
       scrollPosition >= homeSection.offsetTop - offset &&
       scrollPosition < servicesSection.offsetTop - offset
