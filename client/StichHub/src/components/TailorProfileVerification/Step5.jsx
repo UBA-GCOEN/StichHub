@@ -50,7 +50,7 @@ const Step5 = () => {
   return (
     <div className="mt-[20%] lg:mt-[5%] bg-[#130F26]">
       <div className="flex ml-[15%] ">
-        <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
+        <label className="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
           4
         </label>
         <h1 className="flex text-white text-2xl font-bold ml-2 mt-6 mb-5">
@@ -89,21 +89,21 @@ const Step5 = () => {
           />
         </div>
 
-        <div class="flex items-center">
+        <div className="flex items-center">
           <input
             id="link-checkbox"
             type="checkbox"
             value=""
-            class="rounded-xl mt-5 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300  focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            className="rounded-xl mt-5 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300  focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
           />
           <label
             for="link-checkbox"
-            class="mt-5 ml-2 text-sm font-medium text-white"
+            className="mt-5 ml-2 text-sm font-medium text-white"
           >
             By Clicking on this checkbox, you are agreeing to our{" "}
             <a
               href="#"
-              class="text-blue-600 dark:text-blue-500 hover:underline"
+              className="text-blue-600 dark:text-blue-500 hover:underline"
             >
               terms and conditions
             </a>

@@ -9,7 +9,7 @@ import {
 
 const TopMobileDisplays = () => {
   return (
-    <div class="flex overflow-x-scroll w-[90vw] mx-4  sm:w-1/1 lg:overflow-visible lg:justify-center bg-[#10121A] backdrop-filter backdrop-opacity-5 rounded-xl">
+    <div className="flex overflow-x-scroll w-[90vw] mx-4  sm:w-1/1 lg:overflow-visible lg:justify-center bg-[#10121A] backdrop-filter backdrop-opacity-5 rounded-xl">
       {/* Total Customers */}
       <div className=" relative ml-0 p-0">
         <div className="scale-75 flex left-0  rounded-2xl h-max w-max bg-gradient-to-br from-grey to-dark_grey">
