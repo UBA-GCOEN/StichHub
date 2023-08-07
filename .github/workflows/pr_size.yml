@@ -17,6 +17,6 @@ jobs:
     # Don't run reviewpad on automated PRs
     steps:
       - name: Reviewpad
-        uses: reviewpad/action@v3.x
+        uses: reviewpad/reviewpad@v4.16.1
         with:
           file: .github/config/reviewpad.yml
