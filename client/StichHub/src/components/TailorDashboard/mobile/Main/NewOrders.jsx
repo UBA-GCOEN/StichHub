@@ -60,17 +60,17 @@ const NewOrder = () => {
           <div key={index} className="flex flex-row overflow-x-scroll w-[100vw]">
             {order.requests.map((request, index) => {
               return (
-                <div key={index} class="relative flex flex-col justify-between bg-[#252B4280] rounded-xl shadow-lg m-3 p-4 w-[250px]">
+                <div key={index} className="relative flex flex-col justify-between bg-[#252B4280] rounded-xl shadow-lg m-3 p-4 w-[250px]">
                   {/* top */}
                   <div className="flex flex-row place-items-center justify-between">
                     <img loading="lazy"
-                      class="w-12 h-12 rounded-full mx-5 w-max"
+                      className="w-12 h-12 rounded-full mx-5 w-max"
 
                       src="../src/assets/img/jonathan.webp"
                       alt="Profile Picture of jonathan"
                     />
                     <div className="m-2 mx-5 text-white">
-                      <h2 class="text-sm font-base text-center w-max">
+                      <h2 className="text-sm font-base text-center w-max">
                         {/* {request.customerId} */}
                         John Doe
                       </h2>
@@ -101,7 +101,7 @@ const NewOrder = () => {
                     </div>
                   </center>
 
-                  <p class="text-gray-400 text-center text-xs m-2">
+                  <p className="text-gray-400 text-center text-xs m-2">
                     {request.orderData.clothDetails.sleeve}{" "}
                     {request.orderData.clothDetails.cuffs}{" "}
                     {request.orderData.clothDetails.backDetails}{" "}
@@ -113,7 +113,7 @@ const NewOrder = () => {
                   <div className="flex top-0 justify-center">
                     <button
                       type="button"
-                      class="w-fit h-fit  focus:ring-4 focus:outline-none dark:focus:ring-cyan-800 font-medium rounded-full text-xs px-5 py-1.5 border-2 bg-slate-100 text-center text-red-900 mr-2 mb-2"
+                      className="w-fit h-fit  focus:ring-4 focus:outline-none dark:focus:ring-cyan-800 font-medium rounded-full text-xs px-5 py-1.5 border-2 bg-slate-100 text-center text-red-900 mr-2 mb-2"
                       onClick={(e) =>
                         handleStatusChange(
                           e,
@@ -128,7 +128,7 @@ const NewOrder = () => {
 
                     <button
                       type="button"
-                      class="text-white w-fit h-fit bg-[#030084] hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-full  text-xs px-6  text-center inline-flex items-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 mr-2 mt-0"
+                      className="text-white w-fit h-fit bg-[#030084] hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-full  text-xs px-6  text-center inline-flex items-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 mr-2 mt-0"
                       onClick={(e) =>
                         handleStatusChange(
                           e,

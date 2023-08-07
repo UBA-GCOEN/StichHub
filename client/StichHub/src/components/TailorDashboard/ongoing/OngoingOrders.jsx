@@ -41,19 +41,19 @@ const OngoingOrders = () => {
                   </div>
                 </div>
 
-                <div class="flex justify-self-start items-center space-x-4">
+                <div className="flex justify-self-start items-center space-x-4">
                   <img loading="lazy"
-                    class="w-9 h-9 rounded-full"
+                    className="w-9 h-9 rounded-full"
 
                     src="./src/assets/img/jonathan.webp"
                     alt="profile photo of jonathan"
 
                   />
-                  <div class="font-medium dark:text-black">
+                  <div className="font-medium dark:text-black">
                     <div className="text-left text-slate-300 text-base">
                       Jese Leos
                     </div>
-                    <div class="text-left text-xs text-gray-500 dark:text-gray-400">
+                    <div className="text-left text-xs text-gray-500 dark:text-gray-400">
                       Nagpur
                     </div>
                   </div>
@@ -122,7 +122,7 @@ const OngoingOrders = () => {
 
               <button
                 type="button"
-                class="text-white w-[70%] h-fit bg-[#030084] hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-full  text-xs px-5 py-1 text-center  flex  justify-self-center justify-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 m-2 "
+                className="text-white w-[70%] h-fit bg-[#030084] hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-full  text-xs px-5 py-1 text-center  flex  justify-self-center justify-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 m-2 "
               >
                 <div className=" flex flex-row justify-self-center">
                   CONTINUE TO STITCH
