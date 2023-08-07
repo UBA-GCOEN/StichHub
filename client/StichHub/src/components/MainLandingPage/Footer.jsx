@@ -172,6 +172,7 @@ const Footer = () => {
                     <a
                       href="https://github.com/UBA-GCOEN/StichHub" target='_blank'
                       className="hover:underline"
+                      aria-label="Follow us on Github" title="Github (External Link)" rel="noopener noreferrer"
                     >
                       Github
                     </a>
