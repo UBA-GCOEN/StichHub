@@ -2,7 +2,6 @@ import React from "react";
 import Navbardark from "../components/Navbardark";
 import { useState, useEffect, useCallback } from "react";
 import New from "../assets/img/new.webp";
-import "react-phone-number-input/style.css";
 import N from "../assets/img/n.webp";
 import Profileveri from "../assets/img/profileverify.webp";
 import Speciality from "../assets/img/speciality.webp";
