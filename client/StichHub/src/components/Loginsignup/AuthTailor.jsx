@@ -119,7 +119,7 @@ const AuthTailor = () => {
   const margin = isregister? "-mt-3": "";
 
   return (
-    <div className="bg-gray-800 h-[105vh] flex justify-between overflow-hidden">
+    <div className="bg-gray-800 flex justify-between overflow-hidden">
       {/* Loading Animations */}
       {isLoading ? (
         <div className="relative">
@@ -144,7 +144,7 @@ const AuthTailor = () => {
       </div>
 
       {/* Right Side */}
-      <div className="relative bg-primary w-full lg:w-[49vw] my-9 rounded-3xl lg:rounded-r-3xl">
+      <div className="relative bg-primary p-5 w-full lg:w-[49vw] my-9 rounded-3xl lg:rounded-r-3xl">
         <div className="relative z-[5]">
           {/* logo */}
  

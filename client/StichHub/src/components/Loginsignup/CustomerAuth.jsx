@@ -117,7 +117,7 @@ const CustomerAuth = () => {
   };
 
   return (
-    <div className="bg-gray-800 h-[105vh] flex justify-between overflow-hidden">
+    <div className="bg-gray-800 flex justify-between overflow-hidden">
       {/* Loading Animations */}
       {isLoading ? (
         <div className="relative">
@@ -134,7 +134,7 @@ const CustomerAuth = () => {
         </div>
       ) : null}
       {/* left Side */}
-      <div className="relative bg-primary w-full lg:w-[49vw] my-9 ded-3xl lg:rounded-3xl">
+      <div className="relative bg-primary p-5 w-full lg:w-[49vw] my-9 ded-3xl lg:rounded-3xl">
         <div className="relative z-[5]">
           {/* logo */}
           <a href="/" className="flex justify-center mt-3">
