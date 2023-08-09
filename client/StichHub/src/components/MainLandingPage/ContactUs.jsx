@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import "./About.css"
 import {
   ContactUsVector,
   EmailIcon,
@@ -159,14 +160,13 @@ const ContactUs = () => {
                   border: "none",
                   backgroundColor: "transparent",
                   bottom: "15px",
+                  padding: "5px",
+                  width: "auto",
+                 letterSpacing: "normal"
                 }}
                 onChange={(value) => {
                   setForm((prev) => {
                     return { ...prev, phoneno: value };
-                  });
-                  const phoneError = validate.phoneno(value);
-                  setError((prev) => {
-                    return { ...prev, ...phoneError };
                   });
                 }}
                 className="mt-[10px] h-10 block w-full py-[16px] pl-[55px] bg-transparent border-2 rounded-md text-xl shadow-sm placeholder-slate-400 text-white focus:font-medium

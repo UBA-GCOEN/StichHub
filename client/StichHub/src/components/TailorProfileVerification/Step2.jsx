@@ -1,4 +1,6 @@
 import React from "react";
+import PhoneInput from "react-phone-input-2";
+import 'react-phone-input-2/lib/style.css';
 
 const Step2 = () => {
    // button handlers
@@ -113,12 +115,21 @@ const Step2 = () => {
               <label>
                 <span className="text-white mb-3">Contact Number *</span>
                 <div>
-                  <Phoneinput
+                  <PhoneInput
+                    country={"in"}
+                    countryCodeEditable={false}
                     className="bg-white border box-border w-full justify-around gap-3 mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                     placeholder="Enter phone number"
                     value={value}
-                    defaultCountry="IN"
                     onChange={setValue}
+                    inputStyle={{
+                  border: "none",
+                  backgroundColor: "transparent",
+                  padding: "5px",
+                  width: "auto",
+                  left: "40px",
+                 letterSpacing: "normal"
+                }}
                   />
                 </div>
                 <button
