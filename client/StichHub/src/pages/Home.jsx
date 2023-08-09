@@ -9,20 +9,17 @@ import {
 import Footer from "../components/MainLandingPage/Footer.jsx";
 import Chatbot from "../components/Chatbot.jsx";
 const Home = () => {
-  const [filter, setFilter] = useState({
-    category: false,
-    price: false,
-    rating: false,
-  });
+  const [filter, setFilter] = useState({category: false, price: false, rating:false});
   const clearFilter = () => {
-    setFilter({ category: false, price: false, rating: false });
+    setFilter({category: false, price: false, rating:false})
   };
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFilter((prev) => {
-      return { ...prev, [name]: value };
-    });
-  };
+  const handleChange = (e)=>{
+    const {name, value} = e.target;
+      setFilter((prev)=>{
+        return {...prev, [name]: value}
+      }) 
+  }
+  
   return (
     <div className="">
       <Navbar />
