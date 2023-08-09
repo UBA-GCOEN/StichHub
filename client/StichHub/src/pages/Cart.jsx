@@ -4,7 +4,6 @@ import styled from "styled-components";
 import Step1 from "../components/Cart/Step1";
 import Step2 from "../components/Cart/Step2";
 import validate from "../common/validation"
-import "react-phone-number-input/style.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import {Typography,} from "@material-tailwind/react";
 import { LockClosedIcon,} from "@heroicons/react/24/solid";
