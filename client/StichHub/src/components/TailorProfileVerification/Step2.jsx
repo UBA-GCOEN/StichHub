@@ -27,7 +27,7 @@ const Step2 = () => {
       <div className="grid grid-cols-4">
         <div className="col-start-1 col-end-5">
           <div className="flex ml-[15%] ">
-            <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
+            <label className="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
               1
             </label>
             <h1 className="flex text-white text-2xl font-bold ml-2 mt-6 mb-5">
@@ -65,28 +65,28 @@ const Step2 = () => {
                     <span className="text-white mb-3">Enter OTP</span>
                     <div
                       id="otp"
-                      class="flex flex-row  text-center px- mt-2 mb-3"
+                      className="flex flex-row  text-center px- mt-2 mb-3"
                     >
                       <input
-                        class="mr-2 border h-10 w-10 text-center form-control rounded "
+                        className="mr-2 border h-10 w-10 text-center form-control rounded "
                         type="text"
                         id="first"
                         maxlength="1"
                       />
                       <input
-                        class="mr-2 border h-10 w-10 text-center form-control rounded"
+                        className="mr-2 border h-10 w-10 text-center form-control rounded"
                         type="text"
                         id="second"
                         maxlength="1"
                       />
                       <input
-                        class="mr-2 border h-10 w-10 text-center form-control rounded"
+                        className="mr-2 border h-10 w-10 text-center form-control rounded"
                         type="text"
                         id="third"
                         maxlength="1"
                       />
                       <input
-                        class="mr-2 border h-10 w-10 text-center form-control rounded"
+                        className="mr-2 border h-10 w-10 text-center form-control rounded"
                         type="text"
                         id="fourth"
                         maxlength="1"
@@ -140,28 +140,28 @@ const Step2 = () => {
                   <span className="text-white mb-3 mt-2">Enter OTP</span>
                   <div
                     id="otp"
-                    class="flex flex-row  text-center px- mt-2 mb-3"
+                    className="flex flex-row  text-center px- mt-2 mb-3"
                   >
                     <input
-                      class="mr-2 border h-10 w-10 text-center form-control rounded "
+                      className="mr-2 border h-10 w-10 text-center form-control rounded "
                       type="text"
                       id="first"
                       maxlength="1"
                     />
                     <input
-                      class="mr-2 border h-10 w-10 text-center form-control rounded"
+                      className="mr-2 border h-10 w-10 text-center form-control rounded"
                       type="text"
                       id="second"
                       maxlength="1"
                     />
                     <input
-                      class="mr-2 border h-10 w-10 text-center form-control rounded"
+                      className="mr-2 border h-10 w-10 text-center form-control rounded"
                       type="text"
                       id="third"
                       maxlength="1"
                     />
                     <input
-                      class="mr-2 border h-10 w-10 text-center form-control rounded"
+                      className="mr-2 border h-10 w-10 text-center form-control rounded"
                       type="text"
                       id="fourth"
                       maxlength="1"

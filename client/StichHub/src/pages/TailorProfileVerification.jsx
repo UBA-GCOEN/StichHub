@@ -309,6 +309,10 @@ const TailorProfileVerification = () => {
       navigateTo("/TailorDashboard");
     } catch (error) {
       console.error(error.response.data.message);
+      if(error.response.data.type==="JWT Error"){
+        alert(error.response.data.message);
+        navigateTo("/auth/tailor")
+      }
       setIsLoading(false);
     }
   };
@@ -328,7 +332,7 @@ const TailorProfileVerification = () => {
             </h1>
             <div className="flex flex-wrap sm:grid sm:gird-col-3 text-white mt-10">
               <div className="flex col-start-1 col-end-2">
-                <label class="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
+                <label className="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
                   1
                 </label>
                 <label className="text-white font font-semibold text-xl lg:text-2xl m-3 ">
@@ -336,7 +340,7 @@ const TailorProfileVerification = () => {
                 </label>
               </div>
               <div className="flex col-start-2 col-end-3">
-                <label class="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
+                <label className="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
                   2
                 </label>
                 <label className="mt-[24px] text-white font font-semibold text-xl lg:text-2xl ml-1 mr-[5px]">
@@ -344,7 +348,7 @@ const TailorProfileVerification = () => {
                 </label>
               </div>
               <div className="flex col-start-1 col-end-2 lg:col-start-3 lg:col-end-4">
-                <label class="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
+                <label className="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
                   3
                 </label>
                 <label className="text-white font font-semibold text-xl lg:text-2xl m-3">
@@ -353,7 +357,7 @@ const TailorProfileVerification = () => {
               </div>
 
               <div className="flex col-start-2 col-end-3 lg:col-start-1 lg:col-end-2">
-                <label class="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
+                <label className="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
                   4
                 </label>
                 <label className="text-white font font-semibold text-xl lg:text-2xl m-3 ">
@@ -363,7 +367,7 @@ const TailorProfileVerification = () => {
 
               {/* image with list */}
               <div className="flex col-start-1 col-end-2 lg:col-start-2 lg:col-end-3">
-                <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
+                <label className="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
                   <img loading="lazy"
                     src="https://img.icons8.com/external-bearicons-flat-bearicons/256/external-verified-reputation-bearicons-flat-bearicons.png"
                     className="w-[70%]" alt="a green checkmark, representing a verified reputation"
@@ -543,7 +547,7 @@ const TailorProfileVerification = () => {
               <div className="grid grid-cols-4">
                 <div className="col-start-1 col-end-5">
                   <div className="flex ml-[15%] ">
-                    <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
+                    <label className="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
                       1
                     </label>
                     <h1 className="flex text-white text-2xl font-bold ml-2 mt-6 mb-5">
@@ -587,28 +591,28 @@ const TailorProfileVerification = () => {
                             <span className="text-white mb-3">Enter OTP</span>
                             <div
                               id="otp"
-                              class="flex flex-row  text-center px- mt-2 mb-3"
+                              className="flex flex-row  text-center px- mt-2 mb-3"
                             >
                               <input
-                                class="mr-2 border h-10 w-10 text-center form-control rounded "
+                                className="mr-2 border h-10 w-10 text-center form-control rounded "
                                 type="text"
                                 id="first"
                                 maxlength="1"
                               />
                               <input
-                                class="mr-2 border h-10 w-10 text-center form-control rounded"
+                                className="mr-2 border h-10 w-10 text-center form-control rounded"
                                 type="text"
                                 id="second"
                                 maxlength="1"
                               />
                               <input
-                                class="mr-2 border h-10 w-10 text-center form-control rounded"
+                                className="mr-2 border h-10 w-10 text-center form-control rounded"
                                 type="text"
                                 id="third"
                                 maxlength="1"
                               />
                               <input
-                                class="mr-2 border h-10 w-10 text-center form-control rounded"
+                                className="mr-2 border h-10 w-10 text-center form-control rounded"
                                 type="text"
                                 id="fourth"
                                 maxlength="1"
@@ -678,10 +682,10 @@ const TailorProfileVerification = () => {
                           </span>
                           <div
                             id="otp"
-                            class="flex flex-row  text-center px- mt-2 mb-3"
+                            className="flex flex-row  text-center px- mt-2 mb-3"
                           >
                             <input
-                              class="mr-2 border h-10 w-10 text-center form-control rounded "
+                              className="mr-2 border h-10 w-10 text-center form-control rounded "
                               type="text"
                               id="first"
                               maxlength="1"
@@ -690,7 +694,7 @@ const TailorProfileVerification = () => {
                              })}
                             />
                             <input
-                              class="mr-2 border h-10 w-10 text-center form-control rounded"
+                              className="mr-2 border h-10 w-10 text-center form-control rounded"
                               type="text"
                               id="second"
                               maxlength="1"
@@ -699,7 +703,7 @@ const TailorProfileVerification = () => {
                              })}
                             />
                             <input
-                              class="mr-2 border h-10 w-10 text-center form-control rounded"
+                              className="mr-2 border h-10 w-10 text-center form-control rounded"
                               type="text"
                               id="third"
                               maxlength="1"
@@ -708,7 +712,7 @@ const TailorProfileVerification = () => {
                              })}
                             />
                             <input
-                              class="mr-2 border h-10 w-10 text-center form-control rounded"
+                              className="mr-2 border h-10 w-10 text-center form-control rounded"
                               type="text"
                               id="fourth"
                               maxlength="1"
@@ -763,7 +767,7 @@ const TailorProfileVerification = () => {
           ) : step == 3 ? (
             <div className="mt-[20%] lg:mt-[5%] bg-[#130F26] h-[100vh]">
               <div className="flex ml-[15%] ">
-                <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
+                <label className="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
                   2
                 </label>
                 <h1 className="flex text-white text-2xl font-bold ml-2 mt-6 mb-5">
@@ -785,7 +789,7 @@ const TailorProfileVerification = () => {
                     <br />
                     <input
                       type="text"
-                      class="country"
+                      className="country"
                       value={form.country}
                       onChange={handleFormChange}
                       name="country"
@@ -826,7 +830,7 @@ const TailorProfileVerification = () => {
                        {formError.address2 && formError.address2Error? <AuthErrorMessage message={formError.address2Error}/>:null}
                     </label>
                   </div>
-                  <div class="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-4">
                     <div xs={5}>
                       <div className="mb-2">
                         <label>
@@ -903,7 +907,7 @@ const TailorProfileVerification = () => {
           ) : step == 4 ? (
             <div className=" mt-[20%] lg:mt-[3%] bg-[#130F26] h-[100vh]">
               <div className="flex ml-[15%] ">
-                <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
+                <label className="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
                   3
                 </label>
                 <h1 className="flex text-white text-2xl font-bold ml-2 mt-6 mb-5">
@@ -1013,7 +1017,7 @@ const TailorProfileVerification = () => {
           ) : step == 5 ? (
             <div className="mt-[20%] lg:mt-[5%] bg-[#130F26] mb-20 h-[100%]">
               <div className="flex ml-[15%] ">
-                <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
+                <label className="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
                   4
                 </label>
                 <h1 className="flex text-white text-2xl font-bold ml-2 mt-6 mb-5">

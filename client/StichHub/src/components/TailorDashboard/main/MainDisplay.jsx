@@ -7,11 +7,13 @@ import { ClockIcon, PhoneIcon } from "@heroicons/react/24/solid";
 //   } from "../../contexts/Configurator";
 import { View } from "../../../assets/3dConfigurator/configurator-icons";
 import axios from "../../../axios";
+import { useNavigate } from "react-router-dom";
 
 const MainDisplay = () => {
   const [OrderList, setOrderList] = useState([]);
 
   const [orderStatus, setOrderStatus] = useState("");
+  const navigateTo = useNavigate();
 
 
   const getOrder = async () => {
@@ -23,6 +25,10 @@ const MainDisplay = () => {
       setOrderList(res.data);
       // setIsLoading(false);
     } catch (err) {
+      if(err.response.data.type==="JWT Error"){
+        alert(err.response.data.message);
+        navigateTo("/auth/tailor")
+      }
       console.error(err);
       // setIsLoading(false);
     }
@@ -46,6 +52,10 @@ const MainDisplay = () => {
       setOrderStatus("hidden");
     } catch (error) {
       console.error(error.message);
+      if(error.response.data.type==="JWT Error"){
+        alert(error.response.data.message);
+        navigateTo("/auth/tailor")
+      }
     }
   };
 
@@ -117,19 +127,19 @@ const MainDisplay = () => {
                           </div> */}
                                     </div>
 
-                                    <div class="flex justify-self-start items-center space-x-4">
+                                    <div className="flex justify-self-start items-center space-x-4">
                                       <img loading="lazy"
-                                        class="w-10 h-10 rounded-full"
+                                        className="w-10 h-10 rounded-full"
 
                                         src="./src/assets/img/jonathan.webp"
                                         alt="jonathan"
                                       />
-                                      <div class="font-medium dark:text-black">
+                                      <div className="font-medium dark:text-black">
                                         <div className="text-left text-lg">
                                           {" "}
                                           {request.customerId}
                                         </div>
-                                        <div class="text-left text-sm text-gray-500 dark:text-gray-400">
+                                        <div className="text-left text-sm text-gray-500 dark:text-gray-400">
                                           Nagpur
                                         </div>
                                       </div>
@@ -218,7 +228,7 @@ const MainDisplay = () => {
                                   <div className="grid place-items-center grid-flow-col m-2">
                                     <button
                                       type="button"
-                                      class=" w-fit h-fit  focus:ring-4 focus:outline-none dark:focus:ring-cyan-800 font-medium rounded-full text-xs px-5 py-2.5 border-2 border-[#030089] text-center text-[#030089] mr-2 mb-2"
+                                      className=" w-fit h-fit  focus:ring-4 focus:outline-none dark:focus:ring-cyan-800 font-medium rounded-full text-xs px-5 py-2.5 border-2 border-[#030089] text-center text-[#030089] mr-2 mb-2"
                                       onClick={(e) =>
                                         handleStatusChange(
                                           e,
@@ -232,7 +242,7 @@ const MainDisplay = () => {
                                     </button>
                                     <button
                                       type="button"
-                                      class="text-white w-fit h-fit bg-[#030084] hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-full  text-xs px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 mr-2 mb-2"
+                                      className="text-white w-fit h-fit bg-[#030084] hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-full  text-xs px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 mr-2 mb-2"
                                       onClick={(e) =>
                                         handleStatusChange(
                                           e,
@@ -254,12 +264,12 @@ const MainDisplay = () => {
                                 {/* button for further use */}
                                 {/* <button
                       type="button"
-                      class="text-white m-7 justify-self-end self-start mt-3 w-fit h-fit bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+                      className="text-white m-7 justify-self-end self-start mt-3 w-fit h-fit bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
                     >
                       Next
                       <svg
                         aria-hidden="true"
-                        class="w-5 h-5 ml-2 -mr-1"
+                        className="w-5 h-5 ml-2 -mr-1"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -292,7 +302,7 @@ const MainDisplay = () => {
             Ongoing Orders
           </span>
           <div className="grid overflow-x-scroll grid-col-1 p-2 ml-2 ">
-            <div class=" flex overflow-x-auto  w-fit h-fit  flex-basis-fit w-1/1 sm:w-1/1 ">
+            <div className=" flex overflow-x-auto  w-fit h-fit  flex-basis-fit w-1/1 sm:w-1/1 ">
               {OrderList.map((order, index) => {
                 return (
                   <div key={index} className="flex flex-row">
@@ -350,19 +360,19 @@ const HJ = (props) => {
               </div>
             </div>
 
-            <div class="flex justify-self-start items-center space-x-4">
+            <div className="flex justify-self-start items-center space-x-4">
               <img loading="lazy"
-                class="w-7 h-7 rounded-full"
+                className="w-7 h-7 rounded-full"
 
                 src="./src/assets/img/jonathan.webp"
                 alt="jonathan"
 
               />
-              <div class="font-medium dark:text-black">
+              <div className="font-medium dark:text-black">
                 <div className="text-left text-sm">
                   {props.request.customerId}
                 </div>
-                <div class="text-left text-sm text-gray-700 dark:text-gray-400">
+                <div className="text-left text-sm text-gray-700 dark:text-gray-400">
                   Nagpur
                 </div>
               </div>
@@ -432,13 +442,13 @@ const HJ = (props) => {
           <div className="grid place-items-center grid-flow-col m-2">
             {/* <button
               type="button"
-              class=" w-fit h-fit focus:ring-4 focus:outline-none dark:focus:ring-cyan-800 font-medium rounded-full text-xs px-5 py-1 border-2 border-[#030089] text-center text-[#030089] mr-2 mb-2"
+              className=" w-fit h-fit focus:ring-4 focus:outline-none dark:focus:ring-cyan-800 font-medium rounded-full text-xs px-5 py-1 border-2 border-[#030089] text-center text-[#030089] mr-2 mb-2"
             >
               IGNORE
             </button> */}
             <button
               type="button"
-              class="text-white w-fit h-fit bg-[#030084] hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-full  text-xs px-16 py-1 text-center inline-flex items-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 mr-2 mb-2"
+              className="text-white w-fit h-fit bg-[#030084] hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-full  text-xs px-16 py-1 text-center inline-flex items-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 mr-2 mb-2"
             >
               STITCH
               <img loading="lazy"

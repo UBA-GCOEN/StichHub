@@ -38,7 +38,7 @@ const Drag = () => {
       <div className="lg:mx-[5%] ">
         <Dropzone
           styles={{
-            dropzone: { overflow: "auto", background: "#f5f5f5" },
+            dropzone: { overflow: "auto", background: "#f5f5f5"},
             inputLabelWithFiles: { margin: "20px 3%" },
           }}
           classNames="rounded-lg shadow-gray-400 text-sm"
@@ -174,10 +174,11 @@ export const Tabs = ({ color, tailorDetails } ) => {
                       Change Profile Picture
                     </span>
                     <div className="flex mb-5 justify-center lg:justify-start">
-                      <img loading="lazy"
-                        src={file?file:tailorDetails.passport}
-                        className="border border-black w-[100px] h-[100px] shadow-md mt-5 rounded-lg " alt="profile picture"
+                    <img loading="lazy"
+                        // src={file?file:tailorDetails.passport}
+                        className={`border border-black w-[100px] m-auto h-[100px] shadow-md mt-5 rounded-[100%]`} alt="profile picture"
                       ></img>
+                     
                     </div>
                     <label>
                       <span className="absolute inset-y-0 right-0 flex items-center pl-2">
@@ -206,7 +207,7 @@ export const Tabs = ({ color, tailorDetails } ) => {
                       Choose Specialities
                     </span>
                     <div className="flex flex-col lg:flex-row lg:gap-2 mt-3">
-                      {
+                      {/* {
                         tailorDetails.types.map((type) => (
                           
                           <div
@@ -241,7 +242,7 @@ export const Tabs = ({ color, tailorDetails } ) => {
                       </div>
                           )
                         )
-                      }
+                      } */}
                     </div>
                     {/* selection field with option selection view and close */}
                     <div className="lg:mr-14 rounded-lg  mb-3">
@@ -254,8 +255,8 @@ export const Tabs = ({ color, tailorDetails } ) => {
                         className=""
                         classNames={{
                           menuButton: (state) =>
-                            " flex text-sm mb-5 pl-5 font-semibold text-gray-500 border border-gray-300 rounded shadow-sm transition-all duration-300 focus:outline-none bg-white hover:border-gray-400 focus:border-blue-500 focus:ring focus:ring-blue-500/20",
-                          menu: "absolute z-10 w-full bg-white shadow-lg border rounded py-1 mt-1.5 text-sm text-gray-700",
+                            " flex bg-[#ece9e9] text-sm mb-5 pl-5 font-semibold text-gray-500 border border-gray-300 rounded shadow-sm transition-all duration-300 focus:outline-none bg-white hover:border-gray-400  focus:ring focus:ring-blue-500/20",
+                          menu: "absolute z-10 w-full bg-white shadow-lg border rounded py-1 mt-1.5 text-sm text-black",
                           listItem: ({ isSelected }) =>
                             "list-none py-1.5 px-2 hover:bg-blue-500 rounded-md hover:text-white cursor-pointer",
                         }}
@@ -270,8 +271,8 @@ export const Tabs = ({ color, tailorDetails } ) => {
 
                       <hr />
                       <MultiRangeSlider
-                        min={tailorDetails.prizerange[0]?tailorDetails.prizerange[0]:500}
-                        max={tailorDetails.prizerange[1]?tailorDetails.prizerange[1]:10000}
+                        // min={tailorDetails.prizerange[0]?tailorDetails.prizerange[0]:500}
+                        // max={tailorDetails.prizerange[1]?tailorDetails.prizerange[1]:10000}
                         step={500}
                         minValue={minValue}
                         maxValue={maxValue}
@@ -302,11 +303,11 @@ export const Tabs = ({ color, tailorDetails } ) => {
                         </div>
                       </div>
                     </div>
-                    <div className="w-fit mr-14 px-3 mt-3 mb-3 pb-3 font-semibold py-1  bg-blue-50 rounded-2xl border border-blue-700">
+                    <div className="w-fit mr-14 px-3 mt-3 mb-3 pb-3 font-semibold py-1  bg-blue-50 rounded-2xl border border-black">
                       <h3 className="mb-5 text-lg  text-gray-900 font-bold">
                         Choose Your Week Day of Availability
                       </h3>
-                      <ul className="flex flex-row flex-wrap gap-1 w-full">
+                      <ul className="flex flex-row flex-wrap gap-1 w-full justify-center">
                         <li>
                           <input
                             type="checkbox"
@@ -317,7 +318,7 @@ export const Tabs = ({ color, tailorDetails } ) => {
                           />
                           <label
                             htmlFor="react-option"
-                            className="inline-flex items-center justify-between w-fit p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                            className="inline-flex items-center justify-between w-fit p-[10px] text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
                           >
                             <div className="block">
                               <div className="w-full text-lg font-semibold">
@@ -335,7 +336,7 @@ export const Tabs = ({ color, tailorDetails } ) => {
                           />
                           <label
                             htmlFor="flowbite-option"
-                            className="inline-flex items-center justify-between w-fit p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                            className="inline-flex items-center justify-between w-fit p-[10px] text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
                           >
                             <div className="block">
                               <div className="w-full text-lg font-semibold">
@@ -353,7 +354,7 @@ export const Tabs = ({ color, tailorDetails } ) => {
                           />
                           <label
                             htmlFor="angular-option"
-                            className="inline-flex items-center justify-between w-fit p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                            className="inline-flex items-center justify-between w-fit p-[10px] text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
                           >
                             <div className="block">
                               <div className="w-full text-lg font-semibold">
@@ -371,7 +372,7 @@ export const Tabs = ({ color, tailorDetails } ) => {
                           />
                           <label
                             htmlFor="4th"
-                            className="inline-flex items-center justify-between w-fit p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                            className="inline-flex items-center justify-between w-fit p-[10px] text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
                           >
                             <div className="block">
                               <div className="w-full text-lg font-semibold">
@@ -389,7 +390,7 @@ export const Tabs = ({ color, tailorDetails } ) => {
                           />
                           <label
                             htmlFor="5th"
-                            className="inline-flex items-center justify-between w-fit p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                            className="inline-flex items-center justify-between w-fit p-[10px] text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
                           >
                             <div className="block">
                               <div className="w-full text-lg font-semibold">
@@ -407,7 +408,7 @@ export const Tabs = ({ color, tailorDetails } ) => {
                           />
                           <label
                             htmlFor="6th"
-                            className="inline-flex items-center justify-between w-fit p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                            className="inline-flex items-center justify-between w-fit p-[10px] text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
                           >
                             <div className="block">
                               <div className="w-full text-lg font-semibold">
@@ -425,7 +426,7 @@ export const Tabs = ({ color, tailorDetails } ) => {
                           />
                           <label
                             htmlFor="7th"
-                            className="inline-flex items-center justify-between w-fit p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+                            className="inline-flex items-center justify-between w-fit p-[10px] text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
                           >
                             <div className="block">
                               <div className="w-full text-lg font-semibold">
@@ -440,7 +441,7 @@ export const Tabs = ({ color, tailorDetails } ) => {
                         <label className="font-bold text-lg">
                           Choose Availability Timing
                         </label>
-                        <div className="lg:flex lg:flex-row gap-4 ">
+                        <div className="lg:flex lg:flex-row gap-4 justify-center">
                           <div>
                             Start Time
                             <TimePicker onChange={onChange} value={value} />
@@ -455,15 +456,15 @@ export const Tabs = ({ color, tailorDetails } ) => {
                     <div xs={7}>
                       <div className="mb-2 col-start-2 mt-5 col-end-3 lg:mr-14">
                         <label>
-                          <span className="text-gray-700">
+                          <span >
                             Description/ Bio
                           </span>
                           <br />
                           <textarea
+                          placeholder="Write about Yourself"
                             name="state"
                             defaultValue={tailorDetails?tailorDetails.bio:""}
-                            className=" border box-border w-full text-sm justify-around mb-[5px] p-2 rounded-[10px] border-solid border-[#cecece]"
-                            placeholder="blablabla"
+                            className="text-black box-border w-full justify-around my-[8px] p-2.5 rounded-[3px] shadow-[0px_2px-8px_0px_rgba(99,99,99,0.2)] border-[#1f1e1e] disabled:text-gray-500 border-solid border-2"
                             required
                             rows="7"
                           />
