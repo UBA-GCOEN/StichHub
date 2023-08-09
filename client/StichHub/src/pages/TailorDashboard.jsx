@@ -132,12 +132,14 @@ const TailorDashboard = () => {
     <div className="w-[100vw] bg-primary">
       <div className="overflow-x-hidden hidden lg:block">
         <NavBar />
-        <div className="grid grid-rows-3  grid-flow-col grid-cols-[13%] text-5xl text-center select-none bg-primary - w-[100vw]  h-[92.7vh]">
+        <div className="grid grid-rows-1  grid-flow-col grid-cols-[15vw] text-center select-none bg-primary - w-[100vw]  h-[89vh] overflow-hidden">
           <LeftView
             handleNavigationLinkClick={handleNavigationLinkClick}
             tailorDetails={tailorDetails}
           ></LeftView>
+          <div className="overflow-y-scroll mt-4">
           {elements[currentElementIndex]}
+          </div>
           {/* <OngoingOrdersOpen></OngoingOrdersOpen> */}
         </div>
       </div>
