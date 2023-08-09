@@ -61,7 +61,7 @@ function PageContentM() {
             </h1>
           </div>
           <div>
-            <button class="bg-[#e68600] hover:bg-[chocolate] text-black font-semibold p-1 rounded-full h-10 text-lg w-36"onClick={handleButtonClick}>
+            <button className="bg-[#e68600] hover:bg-[chocolate] text-black font-semibold p-1 rounded-full h-10 text-lg w-36"onClick={handleButtonClick}>
               Start Stitching
             </button>
           </div>
