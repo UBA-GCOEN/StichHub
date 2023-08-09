@@ -1,7 +1,7 @@
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$%#^&*])(?=.*[0-9]).{8,}$/;
 const emailRegex =
   /^\w+([\.-]?\w+)*@(gmail\.com|yahoo\.com|hotmail\.com|aol\.com|outlook\.com)$/;
-const phoneRegex = /^\d{10}$/;
+const phoneRegex = /^\d{7,13}$/;
 const countryRegex = /^[A-Za-z]{4,}$/;
 const pincodeRegex = /^[0-9]+$/;
 
@@ -28,12 +28,11 @@ const validate = {
   },
 
   phoneno: (value) => {
+    if(!value.trim()) return {phoneno: true, phonenoError: "Contact No. is required"}
     return phoneRegex.test(value)
       ? { phoneno: false, phonenoError: false }
-      : {
-          phoneno: true,
-          phonenoError: "Please Enter valid Phone number",
-        };
+      : { phoneno: true, phonenoError: "Invalid phone number" }
+
   },
 
   contact: (value) => {

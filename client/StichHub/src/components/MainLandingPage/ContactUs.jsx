@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 import {
   ContactUsVector,
   EmailIcon,
@@ -140,25 +142,39 @@ const ContactUs = () => {
               ) : null}
             </div>
             <div id="Phone no." className="py-2">
-              <img loading="lazy"
+              <img
+                loading="lazy"
                 src={PhoneIcon}
                 alt="a blue telephone receiver on a black background"
                 id="icon"
                 className="absolute ml-[10px] mt-[16px] h-7"
               />
-              <input
-                type="tel"
+              <PhoneInput
+                country={"in"}
+                countryCodeEditable={false}
                 placeholder="Phone no."
                 name="phoneno"
                 id="phoneno"
-                value={form.phoneno}
-                onChange={handleChange}
+                inputStyle={{
+                  border: "none",
+                  backgroundColor: "transparent",
+                  bottom: "15px",
+                }}
+                onChange={(value) => {
+                  setForm((prev) => {
+                    return { ...prev, phoneno: value };
+                  });
+                  const phoneError = validate.phoneno(value);
+                  setError((prev) => {
+                    return { ...prev, ...phoneError };
+                  });
+                }}
                 className="mt-[10px] h-10 block w-full py-[16px] pl-[55px] bg-transparent border-2 rounded-md text-xl shadow-sm placeholder-slate-400 text-white focus:font-medium
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 invalid:border-pink-500 invalid:text-pink-600
                 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
-              ></input>
+              />
               {error.phoneno && error.phonenoError ? (
                 <AuthErrorMessage message={error.phonenoError} />
               ) : null}
