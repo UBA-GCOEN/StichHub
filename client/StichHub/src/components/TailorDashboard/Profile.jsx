@@ -2,8 +2,9 @@ import React, { useState, useEffect, useCallback } from "react";
 // import Navbardark from "../Navbardark";
 // import LeftView from "./LeftView";
 import styled from "styled-components";
-import "react-phone-number-input/style.css";
-import Phoneinput from "react-phone-number-input";
+import "./profile.css"
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 import axios from "../../axios";
 import { Tabs } from "./Tabs";
 import { Player } from "@lottiefiles/react-lottie-player";
@@ -340,12 +341,22 @@ const Profile = () => {
           <div className="col-start-1 col-end-3 text-left">
             <span className="text-gray-700 text-[16px]">Phone No.</span>
             <br />
-            <Phoneinput
+            <PhoneInput
+              country={"in"}
+              countryCodeEditable={false}
               className="bg-[#ece9e9] text-black border-none box-border w-full justify-around my-[8px] p-2.5 rounded-[3px] shadow-[0px_2px-8px_0px_rgba(99,99,99,0.2)] border-[#1f1e1e] disabled:text-gray-500 focus:border-solid focus:border-2"
               placeholder="Enter phone number"
               value={tailorDetails?tailorDetails.contact : ""}
               defaultCountry="IN"
               onChange={setValue}
+              inputStyle={{
+                  border: "none",
+                  backgroundColor: "transparent",
+                  padding: "5px",
+                  width: "auto",
+                  left: "40px",
+                 letterSpacing: "normal"
+                }}
             />
           </div>
           <div xs={5}>

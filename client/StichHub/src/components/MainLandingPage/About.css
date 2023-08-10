@@ -35,3 +35,7 @@
     transform: translateY(0);
   }
   
+  .country-name{
+    color: black !important;
+  }
+  

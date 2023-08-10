@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import "react-phone-number-input/style.css";
-import Phoneinput from "react-phone-number-input";
+import PhoneInput from 'react-phone-input-2';
+import "./../../../src/App.css"
+import 'react-phone-input-2/lib/style.css';
 import ime from "../../assets/img/ime.webp";
 import validate from "../../common/validation";
 import {CountryDropdown} from "react-country-region-selector";
@@ -66,17 +67,29 @@ const Step2 = ({form, error, handleChangeFinal, setForm, setError}) => {
             <div>
               <span className="text-gray-700">Phone No.</span>
               <br />
-              <Phoneinput
+              <PhoneInput
+                 country={"in"}
+                countryCodeEditable={false}
+                name="contact"
+                id="contact"
+                inputStyle={{
+                  border: "none",
+                  backgroundColor: "transparent",
+                  padding: "5px",
+                  width: "auto",
+                  left: "30px",
+                 letterSpacing: "normal"
+                }}
                 className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                 placeholder="Enter phone number"
                 value={form.contact}
-                defaultCountry="IN"
                 onChange={(value) => {
                   setForm((prev) => {
                     return { ...prev, contact: value };
                   });
+                  const phoneError = validate.contact(value);
                   setError((prev) => {
-                    return { ...prev, contact: false };
+                    return { ...prev, ...phoneError };
                   });
 
                   if(!value)   setError((prev) => {return { ...prev, contact: true }; });
