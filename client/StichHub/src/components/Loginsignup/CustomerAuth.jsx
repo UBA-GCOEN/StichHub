@@ -356,7 +356,7 @@ const CustomerAuth = () => {
       </div>
 
       {/* Right Side (img)*/}
-      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.webp')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10 rounded-l-3xl">
+      <div className="hidden relative lg:flex bg-[url('../src/assets/loginsignupbg.webp')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10 rounded-l-3xl">
         <img loading="lazy"
           src={shortlogo}
           className="w-[5vw] absolute bottom-14 right-5" alt="a black and blue letters S and H"
