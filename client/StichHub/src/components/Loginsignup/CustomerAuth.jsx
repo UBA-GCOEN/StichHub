@@ -117,7 +117,7 @@ const CustomerAuth = () => {
   };
 
   return (
-    <div className="bg-gray-800 h-[105vh] flex justify-between overflow-hidden">
+    <div className="bg-gray-800 flex justify-between overflow-hidden">
       {/* Loading Animations */}
       {isLoading ? (
         <div className="relative">
@@ -134,7 +134,7 @@ const CustomerAuth = () => {
         </div>
       ) : null}
       {/* left Side */}
-      <div className="relative bg-primary w-full lg:w-[49vw] my-9 ded-3xl lg:rounded-3xl">
+      <div className="relative bg-primary p-5 w-full lg:w-[49vw] my-9 ded-3xl lg:rounded-3xl">
         <div className="relative z-[5]">
           {/* logo */}
           <a href="/" className="flex justify-center mt-3">
@@ -356,7 +356,7 @@ const CustomerAuth = () => {
       </div>
 
       {/* Right Side (img)*/}
-      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.webp')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10 rounded-l-3xl">
+      <div className="hidden relative lg:flex bg-[url('../src/assets/loginsignupbg.webp')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10 rounded-l-3xl">
         <img loading="lazy"
           src={shortlogo}
           className="w-[5vw] absolute bottom-14 right-5" alt="a black and blue letters S and H"
