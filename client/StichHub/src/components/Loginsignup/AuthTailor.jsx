@@ -136,7 +136,7 @@ const AuthTailor = () => {
         </div>
       ) : null}
       {/* Left Side (img)*/}
-      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.webp')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10  rounded-2xl">
+      <div className="hidden relative lg:flex bg-[url('../src/assets/loginsignupbg.webp')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10  rounded-2xl">
         <img loading="lazy"
           src={shortlogo}
           className="w-[5vw] absolute bottom-14 left-5" alt="a white and blue letters S and H on a black background"
