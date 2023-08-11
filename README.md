@@ -29,7 +29,7 @@
 </div>
 
 <div align="center">
-   <h2>Join the Community</h2>
+   <h2>Join the Community.</h2>
 </div>
 
 <div align="center">
