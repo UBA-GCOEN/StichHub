@@ -8,7 +8,7 @@ const Step4 = () => {
   return (
     <div className=" mt-[20%] lg:mt-[5%] bg-[#130F26]">
       <div className="flex ml-[15%] ">
-        <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
+        <label className="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
           3
         </label>
         <h1 className="flex text-white text-2xl font-bold ml-2 mt-6 mb-5">

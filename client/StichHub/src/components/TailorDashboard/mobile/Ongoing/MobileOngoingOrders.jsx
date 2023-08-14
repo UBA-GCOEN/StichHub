@@ -82,20 +82,20 @@ const MobileOngoingOrders = () => {
                         {/* center data */}
                         <div className="flex flex-col justify-between  w-[30%] h-full  mx-4 ">
                           {/* profile */}
-                          <div class="flex justify-self-start items-center space-x-4 mt-1">
+                          <div className="flex justify-self-start items-center space-x-4 mt-1">
                             <img loading="lazy"
-                              class="w-7 h-7 rounded-full"
+                              className="w-7 h-7 rounded-full"
 
                               src="./src/assets/img/jonathan.webp"
                               alt="profile photo of jonathan"
 
                             />
-                            <div class="font-medium dark:text-black ">
+                            <div className="font-medium dark:text-black ">
                               <div className="text-left text-white text-xs w-max">
                                 {" "}
                                 Kiara Advani
                               </div>
-                              <div class="text-left text-xs text-gray-500 dark:text-gray-400">
+                              <div className="text-left text-xs text-gray-500 dark:text-gray-400">
                                 Nagpur
                               </div>
                             </div>
@@ -164,7 +164,7 @@ const MobileOngoingOrders = () => {
                           </div>
                           <button
                             type="button"
-                            class="text-white w-fit h-fit bg-[#030084] hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-full  text-xs px-6 py-1.5 text-center inline-flex items-center justify-self-start dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 mb-3 "
+                            className="text-white w-fit h-fit bg-[#030084] hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-full  text-xs px-6 py-1.5 text-center inline-flex items-center justify-self-start dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 mb-3 "
                             // onClick={(e) =>
                             //   handleStatusChange(
                             //     e,

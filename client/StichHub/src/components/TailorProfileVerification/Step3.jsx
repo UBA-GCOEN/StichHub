@@ -4,7 +4,7 @@ const Step3 = () => {
   return (
     <div className="mt-[20%] lg:mt-[5%] bg-[#130F26]">
       <div className="flex ml-[15%] ">
-        <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
+        <label className="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
           2
         </label>
         <h1 className="flex text-white text-2xl font-bold ml-2 mt-6 mb-5">
@@ -21,7 +21,7 @@ const Step3 = () => {
             <span>Country/ Region</span>
             <br />
             <CountryDropdown
-              class="country"
+              className="country"
               value={country}
               onChange={setCountry}
               className="border box-border text-gray-500 w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-white bg-white"
@@ -48,7 +48,7 @@ const Step3 = () => {
               />{" "}
             </label>
           </div>
-          <div class="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4">
             <div xs={5}>
               <div className="mb-2">
                 <label>

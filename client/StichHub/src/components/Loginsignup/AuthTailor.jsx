@@ -119,7 +119,7 @@ const AuthTailor = () => {
   const margin = isregister? "-mt-3": "";
 
   return (
-    <div className="bg-gray-800 h-[105vh] flex justify-between overflow-hidden">
+    <div className="bg-gray-800 flex justify-between overflow-hidden">
       {/* Loading Animations */}
       {isLoading ? (
         <div className="relative">
@@ -136,7 +136,7 @@ const AuthTailor = () => {
         </div>
       ) : null}
       {/* Left Side (img)*/}
-      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.webp')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10  rounded-2xl">
+      <div className="hidden relative lg:flex bg-[url('../src/assets/loginsignupbg.webp')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10  rounded-2xl">
         <img loading="lazy"
           src={shortlogo}
           className="w-[5vw] absolute bottom-14 left-5" alt="a white and blue letters S and H on a black background"
@@ -144,7 +144,7 @@ const AuthTailor = () => {
       </div>
 
       {/* Right Side */}
-      <div className="relative bg-primary w-full lg:w-[49vw] my-9 rounded-3xl lg:rounded-r-3xl">
+      <div className="relative bg-primary p-5 w-full lg:w-[49vw] my-9 rounded-3xl lg:rounded-r-3xl">
         <div className="relative z-[5]">
           {/* logo */}
  

@@ -30,7 +30,7 @@ function Configurator() {
         </h5>
       </div>
       <div className="absolute left-64 bottom-56">
-        <button class="bg-[#e68600] hover:bg-[chocolate] text-black font-bold py-2 px-4 rounded-full"onClick={handleButtonClick}>
+        <button className="bg-[#e68600] hover:bg-[chocolate] text-black font-bold py-2 px-4 rounded-full"onClick={handleButtonClick}>
           TRY NOW!
         </button>
       </div>
