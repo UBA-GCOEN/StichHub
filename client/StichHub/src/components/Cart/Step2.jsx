@@ -1,28 +1,19 @@
 import React, { useState } from "react";
-//used for phone no. country code selector
-import "react-phone-number-input/style.css";
-import Phoneinput from "react-phone-number-input";
+import PhoneInput from 'react-phone-input-2';
+import "./../../../src/App.css"
+import 'react-phone-input-2/lib/style.css';
 import ime from "../../assets/img/ime.webp";
-
-//used for Country selector field
-import {
-  CountryDropdown,
-  RegionDropdown,
-  CountryRegionData,
-} from "react-country-region-selector";
-import { Country, State, City } from "country-state-city";
+import validate from "../../common/validation";
+import {CountryDropdown} from "react-country-region-selector";
 import img from "../../assets/img/img.webp";
 
 // main definition
-const Step2 = () => {
-  // hooks for country field
-  const [country, setCountry] = useState("");
-  const [region, setRegion] = useState("");
-  const [value, setValue] = useState();
+const Step2 = ({form, error, handleChangeFinal, setForm, setError}) => {
+  
 
   return (
     <div className="grid lg:grid-cols-2  md:grid-cols-1 gap-4 justify-center ">
-      <div class="block max-w-lg rounded-lg bg-white p-6 ">
+      <div className="block max-w-lg rounded-lg bg-white p-6 ">
         {/* Contact details form */}
         <form>
           <span className="text-gray-700 font-bold">
@@ -30,7 +21,7 @@ const Step2 = () => {
           </span>
           <br />
           <br />
-          <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-2">
             <div xs={5}>
               <div className="mb-2">
                 <label>
@@ -38,11 +29,16 @@ const Step2 = () => {
                   <br />
                   <input
                     type="text"
-                    name="name"
+                    name="firstname"
+                    value={form.firstname}
                     className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                     placeholder="John cooks"
+                    onChange={handleChangeFinal}
                     required
                   />
+                  {error.firstname && error.firstnameError && (
+                    <p className="text-red-500">{error.firstnameError}</p>
+                  )}
                 </label>
               </div>
             </div>
@@ -53,11 +49,16 @@ const Step2 = () => {
                   <br />
                   <input
                     type="text"
-                    name="name"
+                    name="lastname"
+                    value={form.lastname}
+                    onChange={handleChangeFinal}
                     className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                     placeholder="John cooks"
                     required
                   />
+                  {error.lastname && error.lastnameError && (
+                    <p className="text-red-500">{error.lastnameError}</p>
+                  )}
                   <br />
                 </label>
               </div>
@@ -66,12 +67,33 @@ const Step2 = () => {
             <div>
               <span className="text-gray-700">Phone No.</span>
               <br />
-              <Phoneinput
+              <PhoneInput
+                 country={"in"}
+                countryCodeEditable={false}
+                name="contact"
+                id="contact"
+                inputStyle={{
+                  border: "none",
+                  backgroundColor: "transparent",
+                  padding: "5px",
+                  width: "auto",
+                  left: "30px",
+                 letterSpacing: "normal"
+                }}
                 className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                 placeholder="Enter phone number"
-                value={value}
-                defaultCountry="IN"
-                onChange={setValue}
+                value={form.contact}
+                onChange={(value) => {
+                  setForm((prev) => {
+                    return { ...prev, contact: value };
+                  });
+                  const phoneError = validate.contact(value);
+                  setError((prev) => {
+                    return { ...prev, ...phoneError };
+                  });
+
+                  if(!value)   setError((prev) => {return { ...prev, contact: true }; });
+                }}
               />
             </div>
             <div className="mb-2">
@@ -82,8 +104,13 @@ const Step2 = () => {
                   type="email"
                   className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                   placeholder="john.cooks@example.com"
+                  onChange={handleChangeFinal}
+                  value={form.email}
                   required
                 />
+                {error.email && error.emailError && (
+                  <p className="text-red-500">{error.emailError}</p>
+                )}
               </label>
             </div>
           </div>
@@ -98,10 +125,14 @@ const Step2 = () => {
             <span>Country/ Region</span>
             <br />
             <CountryDropdown
-              class="country"
-              value={country}
-              onChange={setCountry}
-              className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+              value={form.country}
+              onChange={(value) =>{
+                setForm((prev) => {
+                  return { ...prev, country: value };
+                })
+                setError((prev)=>{return {...prev, country: false}})
+              }}
+              className="country border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
             />
           </div>
 
@@ -111,21 +142,31 @@ const Step2 = () => {
               <br />
               <input
                 name="address"
+                value={form.address}
+                onChange={handleChangeFinal}
                 type="address"
-                className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] noempty"
                 placeholder="House number and street name"
                 required
               />{" "}
+              {error.address && error.addressError && (
+                <p className="text-red-500">{error.addressError}</p>
+              )}
               <input
-                name="address"
+                name="address2"
+                onChange={handleChangeFinal}
+                value={form.address2}
                 type="address"
-                className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] noempty"
                 placeholder="Appartment, suite, landmark, etc. (optional)"
                 required
               />{" "}
+              {error.address2 && error.address2Error && (
+                <p className="text-red-500">{error.address2Error}</p>
+              )}
             </label>
           </div>
-          <div class="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4">
             <div xs={5}>
               <div className="mb-2">
                 <label>
@@ -134,10 +175,15 @@ const Step2 = () => {
                   <input
                     name="city"
                     type="city"
-                    className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                    value={form.city}
+                    onChange={handleChangeFinal}
+                    className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] noempty"
                     placeholder=""
                     required
                   />{" "}
+                  {error.city && error.cityError && (
+                    <p className="text-red-500">{error.cityError}</p>
+                  )}
                 </label>
               </div>
             </div>
@@ -149,10 +195,15 @@ const Step2 = () => {
                   <input
                     name="state"
                     type="state"
-                    className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                    value={form.state}
+                    className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece] noempty"
                     placeholder=""
+                    onChange={handleChangeFinal}
                     required
                   />{" "}
+                  {error.state && error.stateError && (
+                    <p className="text-red-500">{error.stateError}</p>
+                  )}
                 </label>
               </div>
             </div>
@@ -164,21 +215,25 @@ const Step2 = () => {
               <input
                 name="pincode"
                 type="pincode"
+                value={form.pincode}
                 className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                 placeholder=""
+                onChange={handleChangeFinal}
                 required
               />{" "}
+              {error.pincode && error.pincodeError && (
+                <p className="text-red-500">{error.pincodeError}</p>
+              )}
             </label>
           </div>
 
           <div className="mb-2">
             <label>
-              <span class="text-gray-700">Order Notes (optional)</span>
+              <span className="text-gray-700">Order Notes (optional)</span>
               <br />
               <textarea
                 name="notes"
-                class="country"
-                className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
+                className="country border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]"
                 rows="7"
                 placeholder="notes about your order delivery e.g special notes"
               ></textarea>
@@ -192,56 +247,61 @@ const Step2 = () => {
           <h4 className="pt-4 pl-8 pb-4 font-bold md:items-center">
             <span>Order Information</span>
           </h4>
-          <img loading="lazy"
+          <img
+            loading="lazy"
             src={img}
-            className="m-10 mt-0 mb-[5px] object-fill w-[73%] h-[180px] rounded-[10px] border border-solid border-[#cecece]" alt="a cartoon character riding a yellow scooter"
+            className="m-10 mt-0 mb-[5px] object-fill w-[73%] h-[180px] rounded-[10px] border border-solid border-[#cecece]"
+            alt="a cartoon character riding a yellow scooter"
           />
 
           <div className="m-10 mt-5">
-            <div class="mb-2 flex justify-between">
-              <p class="text-gray-700 font-bold">
+            <div className="mb-2 flex justify-between">
+              <p className="text-gray-700 font-bold">
                 {" "}
                 Teal Brown Kurti Full (Cotton Silk)
               </p>
             </div>
-            <div class="mb-2 flex justify-between">
-              <p class="text-gray-700">Size:</p>
-              <p class="text-gray-700 font-bold">XI</p>
-              <p class="text-gray-700">Color:</p>
-              <p class="text-gray-700 font-bold">Red</p>
+            <div className="mb-2 flex justify-between">
+              <p className="text-gray-700">Size:</p>
+              <p className="text-gray-700 font-bold">XI</p>
+              <p className="text-gray-700">Color:</p>
+              <p className="text-gray-700 font-bold">Red</p>
             </div>
             <hr></hr>
-            <div class="mb-2 flex justify-between mt-5">
-              <p class="text-gray-700">Order Summary</p>
-              <p class="text-gray-700">₹2590.00</p>
+            <div className="mb-2 flex justify-between mt-5">
+              <p className="text-gray-700">Order Summary</p>
+              <p className="text-gray-700">₹2590.00</p>
             </div>
-            <div class="flex justify-between">
-              <p class="text-gray-700">Additional Service</p>
-              <p class="text-gray-700">₹4.99</p>
+            <div className="flex justify-between">
+              <p className="text-gray-700">Additional Service</p>
+              <p className="text-gray-700">₹4.99</p>
             </div>
-            <div class="mt-2 flex justify-between">
-              <p class="text-gray-700">Coupon</p>
-              <p class="text-green-500">₹4.99</p>
+            <div className="mt-2 flex justify-between">
+              <p className="text-gray-700">Coupon</p>
+              <p className="text-green-500">₹4.99</p>
             </div>
-            <hr class="my-4" />
-            <div class="flex justify-between">
-              <p class="text-lg font-bold">Total Amount</p>
-              <div class="">
-                <p class="mb-1 text-lg font-bold">₹2,600.00</p>
-                <p class="text-sm text-gray-700 mb-5">including GST</p>
+            <hr className="my-4" />
+            <div className="flex justify-between">
+              <p className="text-lg font-bold">Total Amount</p>
+              <div className="">
+                <p className="mb-1 text-lg font-bold">₹2,600.00</p>
+                <p className="text-sm text-gray-700 mb-5">including GST</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <img loading="lazy"
+      <img
+        loading="lazy"
         src={img}
-        className="hidden left-[-6%] absolute h-auto top-[100%] lg:block" alt="a cartoon character riding a yellow scooter"
+        className="hidden left-[-6%] absolute h-auto top-[100%] lg:block"
+        alt="a cartoon character riding a yellow scooter"
       />
-      <img loading="lazy"
+      <img
+        loading="lazy"
         src={ime}
         alt="a person holding a box and a person standing next to a scooter"
-        className="hidden lg:block absolute top-[95%] h-[35%] right-[10%]  "
+        className="hidden lg:block absolute top-[109%] h-[35%] right-[25%]  "
       />
     </div>
   );

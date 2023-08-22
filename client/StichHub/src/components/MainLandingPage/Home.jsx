@@ -25,7 +25,7 @@ const Home = () => {
   });
 
   return (
-    <div id="" className="my-10 lg:pt-10 lg:mt-10 h-[100vh] relative">
+    <div id="home" className="my-10 lg:pt-10 lg:mt-10 h-[100vh] relative">
       <div className="relative lg:px-20 pt-10 flex flex-col lg:flex-row justify-evenly z-[5]">
         {/* Mobile Model */}
         <div className="flex relative lg:hidden">
@@ -94,7 +94,7 @@ const Home = () => {
 
           {/* MajorFeature */}
           <div className="hidden xl:block pt-8 justify-start content-start">
-            <p className="text-white text-base text-left mb-6">
+            <p className="text-white text-base text-left mb-6" style={{fontWeight:"bold",fontSize:"2rem",padding:".5rem 1rem 1rem 0"}}>
               Major Features:
             </p>
             <div className="flex">

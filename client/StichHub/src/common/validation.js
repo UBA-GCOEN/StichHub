@@ -1,18 +1,15 @@
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$%#^&*])(?=.*[0-9]).{8,}$/;
 const emailRegex =
   /^\w+([\.-]?\w+)*@(gmail\.com|yahoo\.com|hotmail\.com|aol\.com|outlook\.com)$/;
-const phoneRegex = /^\d{10}$/;
+const phoneRegex = /^\d{7,13}$/;
 const countryRegex = /^[A-Za-z]{4,}$/;
 const pincodeRegex = /^[0-9]+$/;
 
 const validate = {
   name: (value) => {
-    if (!value) return { name: true, nameError: "Name field cannot be empty" };
-    else {
-      return value.length < 6
+      return value.trim().length < 6
         ? { name: true, nameError: "Name must be atleast 6 characters long" }
         : { name: false, nameError: false };
-    }
   },
   email: (value) => {
     return emailRegex.test(value)
@@ -31,12 +28,11 @@ const validate = {
   },
 
   phoneno: (value) => {
+    if(!value.trim()) return {phoneno: true, phonenoError: "Contact No. is required"}
     return phoneRegex.test(value)
       ? { phoneno: false, phonenoError: false }
-      : {
-          phoneno: true,
-          phonenoError: "Please Enter valid Phone number",
-        };
+      : { phoneno: true, phonenoError: "Invalid phone number" }
+
   },
 
   contact: (value) => {
@@ -49,7 +45,7 @@ const validate = {
   },
 
   message: (value) => {
-    const numOfWords = value.split(" ").length;
+    const numOfWords = value.trim().split(/\s+/).length;
 
     if (numOfWords < 10 || numOfWords > 100) {
       return {
@@ -75,7 +71,7 @@ const validate = {
   },
 
   bio: (value) => {
-    const numOfWords = value.split(" ").length;
+    const numOfWords = value.trim().split(" ").length;
 
     if (numOfWords < 10 || numOfWords > 50) {
       return { bio: true, bioError: "Describe yourself in 10 to 50 words" };
@@ -95,13 +91,23 @@ const validate = {
     : { pincode: true, pincodeError: "Please Enter Valid Pincode" };
   },
 
+  firstname: (value)=>{
+    return value.trim().length < 3
+    ? { firstname: true, firstnameError: "First name must be atleast 3 characters long" }
+    : { firstname: false, firstnameError: false };
+  },
+
+  lastname: (value)=>{
+    return value.trim().length < 3
+    ? { lastname: true, lastnameError: "First name must be atleast 3 characters long" }
+    : { lastname: false, lastnameError: false };
+  },
+
   contactInitialVal: {
     name: true,
     nameError: null,
     email: true,
     emailError: null,
-    phoneno: true,
-    phonenoError: null,
     message: true,
     messageError: null,
   },
@@ -119,6 +125,20 @@ const validate = {
     proffesionalDoc:true,
     bio: true
   },
+
+  cartFormInitial: {
+    firstname: true,
+    lastname: true,
+    email: true,
+    country: true,
+    address: true,    
+    address2: true, 
+    city: true,   
+    state: true,   
+    pincode:true,
+
+  }
 };
+
 
 export default validate;

@@ -86,7 +86,7 @@ const Step1 = () => {
           </h1>
           <div className="grid gird-col-3 text-white mt-10">
             <div className="flex col-start-1 col-end-2">
-              <label class="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
+              <label className="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
                 1
               </label>
               <label className="text-white font font-semibold text-xl lg:text-2xl m-3 ">
@@ -94,7 +94,7 @@ const Step1 = () => {
               </label>
             </div>
             <div className="flex col-start-2 col-end-3">
-              <label class="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
+              <label className="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
                 2
               </label>
               <label className="text-white font font-semibold text-xl lg:text-2xl mt-3 ml-3">
@@ -102,7 +102,7 @@ const Step1 = () => {
               </label>
             </div>
             <div className="flex col-start-1 col-end-2 lg:col-start-3 lg:col-end-4">
-              <label class="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
+              <label className="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
                 3
               </label>
               <label className="text-white font font-semibold text-xl lg:text-2xl m-3">
@@ -111,7 +111,7 @@ const Step1 = () => {
             </div>
 
             <div className="flex col-start-2 col-end-3 lg:col-start-1 lg:col-end-2">
-              <label class="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
+              <label className="p-5 my-6 mr-2 flex h-[1.938rem] w-[1.938rem] items-center justify-center rounded-full bg-blue-500 text-lg font-medium text-white">
                 4
               </label>
               <label className="text-white font font-semibold text-xl lg:text-2xl m-3 ">
@@ -120,7 +120,7 @@ const Step1 = () => {
             </div>
 
             <div className="flex col-start-1 col-end-2 lg:col-start-2 lg:col-end-3">
-              <label class="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
+              <label className="my-6 mr-2 flex h-[2.638rem] w-[2.638rem] items-center justify-center rounded-full bg-blue-500 text-sm font-medium text-white">
                 <img loading="lazy"
                   src="https://img.icons8.com/external-bearicons-flat-bearicons/256/external-verified-reputation-bearicons-flat-bearicons.png"
                   className="w-[70%]" alt="a blue circular badge representing a verified reputation"

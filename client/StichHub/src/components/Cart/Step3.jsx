@@ -99,7 +99,7 @@ const Step3 = () => {
           className=" hidden lg:block flex absolute lg:left-0 mt-20 w-[30%] sm:w-[40]% sm:right-0" alt="a cartoon character holding a glowing shield
           "
         />
-        <div class="block max-w-lg rounded-lg bg-white p-6 ">
+        <div className="block max-w-lg rounded-lg bg-white p-6 ">
           {/* payment form */}
           <form onSubmit={handleSubmit}>
             <span className="text-gray-700 font-bold text-lg ">Payment</span>
@@ -169,11 +169,11 @@ const Step3 = () => {
                           </Typography>
                           <span>Card Number</span>
                           <br />
-                          <div class="relative text-gray-600 focus-within:text-gray-400">
-                            <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                          <div className="relative text-gray-600 focus-within:text-gray-400">
+                            <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                               <button
                                 type="submit"
-                                class="p-1 focus:outline-none focus:shadow-outline"
+                                className="p-1 focus:outline-none focus:shadow-outline"
                               >
                                 <CreditCardIcon className="h-6 w-6 ml-2 text-blue-gray-300" />
                               </button>
@@ -215,16 +215,16 @@ const Step3 = () => {
                           <br />
                           <input className="border box-border w-full justify-around mb-[5px] p-2.5 rounded-[10px] border-solid border-[#cecece]" />
                         </div>
-                        <div class="flex items-center mb-4">
+                        <div className="flex items-center mb-4">
                           <input
                             id="default-checkbox"
                             type="checkbox"
                             value=""
-                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                           />
                           <label
                             for="default-checkbox"
-                            class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                           >
                             Save Card Details
                           </label>
@@ -260,13 +260,13 @@ const Step3 = () => {
 
                         <label
                           for="banks"
-                          class="block mb-2  text-sm font-medium text-gray-900 dark:text-white"
+                          className="block mb-2  text-sm font-medium text-gray-900 dark:text-white"
                         >
                           Select Bank
                         </label>
                         <select
                           id="countries"
-                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         >
                           <option selected>Choose Bank</option>
                           <option value="US">Central Bank Of India</option>
@@ -381,42 +381,42 @@ const Step3 = () => {
             />
 
             <div className="m-10 mt-5">
-              <div class="mb-2 flex justify-between">
-                <p class="text-gray-700 font-bold">
+              <div className="mb-2 flex justify-between">
+                <p className="text-gray-700 font-bold">
                   {" "}
                   Teal Brown Kurti Full (Cotton Silk)
                 </p>
               </div>
-              <div class="mb-2 flex justify-between">
-                <p class="text-gray-700">Size:</p>
-                <p class="text-gray-700 font-bold">XI</p>
-                <p class="text-gray-700">Color:</p>
-                <p class="text-gray-700 font-bold">Red</p>
+              <div className="mb-2 flex justify-between">
+                <p className="text-gray-700">Size:</p>
+                <p className="text-gray-700 font-bold">XI</p>
+                <p className="text-gray-700">Color:</p>
+                <p className="text-gray-700 font-bold">Red</p>
               </div>
               <hr></hr>
-              <div class="mb-2 flex justify-between mt-5">
-                <p class="text-gray-700">Order Summary</p>
-                <p class="text-gray-700">₹2590.00</p>
+              <div className="mb-2 flex justify-between mt-5">
+                <p className="text-gray-700">Order Summary</p>
+                <p className="text-gray-700">₹2590.00</p>
               </div>
-              <div class="flex justify-between">
-                <p class="text-gray-700">Additional Service</p>
-                <p class="text-gray-700">₹4.99</p>
+              <div className="flex justify-between">
+                <p className="text-gray-700">Additional Service</p>
+                <p className="text-gray-700">₹4.99</p>
               </div>
-              <div class="mt-2 flex justify-between">
-                <p class="text-gray-700">Shipping</p>
-                <p class="text-gray-700">₹100.00</p>
+              <div className="mt-2 flex justify-between">
+                <p className="text-gray-700">Shipping</p>
+                <p className="text-gray-700">₹100.00</p>
               </div>
-              <div class="mt-2 flex justify-between">
-                <p class="text-gray-700">Coupon</p>
-                <p class="text-green-500">₹4.99</p>
+              <div className="mt-2 flex justify-between">
+                <p className="text-gray-700">Coupon</p>
+                <p className="text-green-500">₹4.99</p>
               </div>
 
-              <hr class="my-4" />
-              <div class="flex justify-between">
-                <p class="text-lg font-bold">Total Amount</p>
-                <div class="">
-                  <p class="mb-1 text-lg font-bold">₹2,700.00</p>
-                  <p class="text-sm text-gray-700 mb-5">including GST</p>
+              <hr className="my-4" />
+              <div className="flex justify-between">
+                <p className="text-lg font-bold">Total Amount</p>
+                <div className="">
+                  <p className="mb-1 text-lg font-bold">₹2,700.00</p>
+                  <p className="text-sm text-gray-700 mb-5">including GST</p>
                 </div>
               </div>
             </div>

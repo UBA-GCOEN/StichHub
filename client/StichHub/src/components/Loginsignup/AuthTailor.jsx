@@ -52,7 +52,7 @@ const AuthTailor = () => {
     }
   };
 
-  const handleSumbmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let submitable = true
     Object.values(error).forEach(e=>{
@@ -70,18 +70,25 @@ const AuthTailor = () => {
         ? await axios.post("/userTailor/register", form)
         : await axios.post("/userTailor/signin", form);
 
+        // console.log(res.data.result.isVerified)
       const result = res.data;
-
+     
       if (isregister) localStorage.setItem("tailorFirstLogin", "true");
       localStorage.setItem("tailorProfile", JSON.stringify({ ...result }));
 
       setIsLoading(false);
-      navigateTo("/TailorProfileVerification");
+      if(res.data.result.isVerified=== false){
+        navigateTo("/verification");
+        }else{
+          navigateTo("/TailorDashboard")
+        }
     } catch (error) {
+
       alert(error.response.data.message);
       setIsLoading(false);
     }}else{
       alert("Please enter valid values");
+
     }
   };
 
@@ -112,11 +119,11 @@ const AuthTailor = () => {
   const margin = isregister? "-mt-3": "";
 
   return (
-    <div className="bg-gray-800 h-[105vh] flex justify-between overflow-hidden">
+    <div className="bg-gray-800 flex justify-between overflow-hidden">
       {/* Loading Animations */}
       {isLoading ? (
         <div className="relative">
-          <div className="absolute z-[100] left-[-10vw] lg:left-[30vw] top-[10vh]">
+          <div className="absolute z-[100] left-[-10vw] lg:left-[30vw] top-[18vh]">
             <Player
               src="https://assets8.lottiefiles.com/packages/lf20_prjwp0b2.json"
               background="transparent"
@@ -129,7 +136,7 @@ const AuthTailor = () => {
         </div>
       ) : null}
       {/* Left Side (img)*/}
-      <div className="hidden lg:flex bg-[url('../src/assets/loginsignupbg.webp')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10  rounded-2xl">
+      <div className="hidden relative lg:flex bg-[url('../src/assets/loginsignupbg.webp')] bg-contain bg-no-repeat bg-[#BADDF1] bg-center w-[49vw] my-10  rounded-2xl">
         <img loading="lazy"
           src={shortlogo}
           className="w-[5vw] absolute bottom-14 left-5" alt="a white and blue letters S and H on a black background"
@@ -137,18 +144,18 @@ const AuthTailor = () => {
       </div>
 
       {/* Right Side */}
-      <div className="relative bg-primary w-full lg:w-[49vw] my-10 rounded-3xl lg:rounded-r-3xl">
+      <div className="relative bg-primary p-5 w-full lg:w-[49vw] my-9 rounded-3xl lg:rounded-r-3xl">
         <div className="relative z-[5]">
           {/* logo */}
  
          
 
-          <a href="/" className="flex justify-center mt-10">
+          <a href="/" className="flex justify-center mt-3">
  
             <img src={logo} className="w-[240px]" alt="logo with text that says StichHub stitch your way" loading="lazy"/>
           </a>
           {/* title */}
-          <div className="flex justify-center my-1">
+          <div className="flex justify-center -my-2">
             <div>
               <img src={tailorimg} alt="a person with a mustache and a sewing machine" className="w-[60px] mr-5" loading="lazy"/>
             </div>
@@ -161,7 +168,7 @@ const AuthTailor = () => {
 
           {/* form */}
           <div className="flex justify-center">
-            <form onSubmit={handleSumbmit}>
+            <form onSubmit={ handleSubmit} aria-label="Tailor authentication form">
               {isregister && (
                 <div>
                   <svg
@@ -185,12 +192,17 @@ const AuthTailor = () => {
                     id="name"
                     value={form.name}
                     onChange={handleChange}
-                    className="mt-[10px] block w-[300px] py-2 pl-[45px] bg-white border rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                    className="mt-[8px] block w-[300px] py-1 pl-[45px] bg-white border rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
                     focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                     disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
-                "
+                    "
+                    aria-label="Enter you name"
+                    required
+                    aria-required="true"
+                    aria-describedby="name-error"
+                    aria-invalid={error.nameError ? "true" : "false"}
                   />
-                    {(error.name && error.nameError)? <AuthErrorMessage message={error.nameError}/>:null}
+                    {(error.name && error.nameError)? <AuthErrorMessage message={error.nameError} name='name'/>:null}
                 </div>
               )}
               <div>
@@ -216,13 +228,18 @@ const AuthTailor = () => {
                   id="email"
                   value={form.email}
                   onChange={handleChange}
-                  className="mt-[10px] block w-[300px] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                  className="mt-[8px] block w-[300px] py-1 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
                   focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                   disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                   invalid:border-pink-500 invalid:text-pink-600
                   focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
+                  aria-label="Enter you email"
+                  required
+                  aria-required="true"
+                  aria-describedby="email-error"
+                  aria-invalid={error.emailError ? "true" : "false"}
                 />
-                   {(error.email && error.emailError)? <AuthErrorMessage message={error.emailError}/>:null}
+                   {(error.email && error.emailError)? <AuthErrorMessage message={error.emailError} name='email'/>:null}
               </div>
               <div>
                 <svg
@@ -247,15 +264,20 @@ const AuthTailor = () => {
                   id="password"
                   value={form.password}
                   onChange={handleChange}
-                  className="mt-[10px] block w-[300px] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                  className="mt-[8px] block w-[300px] py-1 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
                   focus:outline-none pr-[2.3rem] focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                   disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
+                  aria-label="Enter you password"
+                  required
+                  aria-required="true"
+                  aria-describedby="password-error"
+                  aria-invalid={error.passwordError ? "true" : "false"}
                 />
                 <div onClick={passwordToggle} className="absolute cursor-pointer flex items-center z-[5] mt-[-1.8rem] ml-[17rem]">
                 {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
                 </div>
-                {(error.password && error.passwordError)? <AuthErrorMessage message={error.passwordError}/>:null}
+                {(error.password && error.passwordError)? <AuthErrorMessage message={error.passwordError} name='password'/>:null}
               </div>
               {isregister && (
                 <div>
@@ -281,30 +303,36 @@ const AuthTailor = () => {
                     id="confirmPassword"
                     value={form.confirmPassword}
                     onChange={handleChange}
-                    className="mt-[10px] block w-[300px] py-2 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
+                    className="mt-[8px] block w-[300px] py-1 pl-[45px] bg-white border border-slate-300 rounded-xl text-xl shadow-sm drop-shadow-lg placeholder-slate-400 text-black focus:font-medium
                     focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                     disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
                 "
+                    aria-label="Confirm your password"
+                    required
+                    aria-required="true"
+                    aria-describedby="confirmPassword-error"
+                    aria-invalid={error.confirmPassword ? "true" : "false"}
                   />
-                        {(error.confirmPassword && error.confirmPasswordError)? <AuthErrorMessage message={error.confirmPasswordError}/>:null}
+                        {(error.confirmPassword && error.confirmPasswordError)? <AuthErrorMessage message={error.confirmPasswordError} name='confirmPassword'/>:null}
                 </div>
               )}
                         <Captcha message={setTrackState} trackState={trackState}/>
               <div className="flex justify-center">
               {isregister ? (<button
                   type="submit"
-                  className="mt-[15px] block w-[170px] py-2 bg-blue-500 text-white hover:bg-slate-200 hover:text-blue-600 hover:transition-all duration-500 hover:font-semibold rounded-xl font-regular text-xl"
+                  className="mt-[10px] block w-[170px] py-1 bg-blue-500 text-white hover:bg-slate-200 hover:text-blue-600 hover:transition-all duration-500 hover:font-semibold rounded-xl font-regular text-xl"
                   disabled={!trackState}
                   style={{cursor:`${trackState ? "pointer": "not-allowed"}`}}
                 >Register</button>):(<button
                   type="submit"
-                  className="mt-[15px] block w-[170px] py-2 bg-blue-500 text-white hover:bg-slate-200 hover:text-blue-600 hover:transition-all duration-500 hover:font-semibold rounded-xl font-regular text-xl"
+                  className="mt-[10px] block w-[170px] py-1 bg-blue-500 text-white hover:bg-slate-200 hover:text-blue-600 hover:transition-all duration-500 hover:font-semibold rounded-xl font-regular text-xl"
                   disabled={!trackState}
                   style={{cursor:`${trackState ? "pointer": "not-allowed"}`}}
                 >Sign in</button>)}
               </div>
+          
 
-              <h1 className="text-center text-white text-xl py-1">or</h1>
+              <h1 className="text-center text-white text-xl -py-1">or</h1>
 
               <div className="flex justify-center">
                 <GoogleLogin

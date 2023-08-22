@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+
+.react-tel-input{
+  padding: 5px !important;
+  padding-left:0px !important ;
+}
+
+.country-list .li{
+  color: black !important;
+}
