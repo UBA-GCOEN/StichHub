@@ -37,7 +37,7 @@ const Home = () => {
               className="relative z-[5]"
               camera={{ zoom: 4.0 }}
             >
-              <DemoModel speed="2"/>
+              <DemoModel speed="2" />
             </Canvas>
             <div className="absolute w-[330px] h-[571px] top-[25px] left-[10px] modelGradient z-0"></div>
           </div>
@@ -55,7 +55,12 @@ const Home = () => {
                 }`}
                 onClick={() => setDemoButton(item)}
               >
-                <img loading="lazy" src={item.img} className={item.style} alt={item.alt}/>
+                <img
+                  loading="lazy"
+                  src={item.img}
+                  className={item.style}
+                  alt={item.alt}
+                />
                 <p className="hidden text-xs text-white mt-2">{item.text}</p>
               </div>
             ))}
@@ -73,51 +78,79 @@ const Home = () => {
 
           {/* Text */}
           <p className="z-[5] relative text-white text-center lg:text-left py-4 px-10 lg:px-0 lg:py-8 text-xs lg:text-xl">
-            Choose your style make your own trend. Select the one you want to get your clothes stitched from!
+            Choose your style make your own trend. Select the one you want to
+            get your clothes stitched from!
           </p>
 
           {/* Buttons */}
           <div className="flex justify-center lg:justify-normal">
-  <Link to="/auth">
-    <button className="bg-white px-[1%] py-2 lg:p-3 rounded-xl w-[30vw] lg:w-[200px] drop-shadow-2xl transition duration-300 ease-in-out hover:bg-gray-200 hover:text-black">
-      <span className="text-lg lg:text-[1.5rem] text-black">Get Started</span>
-    </button>
-  </Link>
-  <Link to="/Configurator">
-    <button className="ml-[30px] text-white outline outline-white w-[30vw] px-3 py-2 lg:p-3 rounded-xl lg:w-[200px] drop-shadow-2xl transition duration-300 ease-in-out hover:bg-white hover:text-black">
-      <span className="text-lg lg:text-[1.5rem]">Demo</span>
-    </button>
-  </Link>
-</div>
-
-
+            <Link to="/auth">
+              <button className="bg-white px-[1%] py-4 lg:p-3 rounded-xl w-[30vw] lg:w-[200px] drop-shadow-2xl transition duration-300 ease-in-out hover:bg-gray-200 hover:text-black text-center flex justify-center">
+                <span className="text-lg lg:text-[1.5rem] text-black">
+                  Get Started
+                </span>
+              </button>
+            </Link>
+            <Link to="/Configurator">
+              <button className="ml-[30px] text-white outline outline-white w-[30vw] px-3 py-4 lg:p-3 rounded-xl lg:w-[200px] drop-shadow-2xl transition duration-300 ease-in-out hover:bg-white hover:text-black flex justify-center">
+                <span className="text-lg lg:text-[1.5rem] ">Demo</span>
+              </button>
+            </Link>
+          </div>
 
           {/* MajorFeature */}
           <div className="hidden xl:block pt-8 justify-start content-start">
-            <p className="text-white text-base text-left mb-6" style={{fontWeight:"bold",fontSize:"2rem",padding:".5rem 1rem 1rem 0"}}>
+            <p
+              className="text-white text-base text-left mb-6"
+              style={{
+                fontWeight: "bold",
+                fontSize: "2rem",
+                padding: ".5rem 1rem 1rem 0",
+              }}
+            >
               Major Features:
             </p>
             <div className="flex">
               <div className="flex">
-                <img src={Configurator3d} className="pt-1 pb-1" alt="a person standing" loading="lazy"/>
+                <img
+                  src={Configurator3d}
+                  className="pt-1 pb-1"
+                  alt="a person standing"
+                  loading="lazy"
+                />
                 <div className="ml-2 text-white text-xl text-left">
                   3D <br /> Configurator
                 </div>
               </div>
               <div className="flex ml-6">
-                <img src={OnlineMeasurement} className="pt-1 pb-1" alt="a yellow measuring tape on a black background" loading="lazy"/>
+                <img
+                  src={OnlineMeasurement}
+                  className="pt-1 pb-1"
+                  alt="a yellow measuring tape on a black background"
+                  loading="lazy"
+                />
                 <div className="ml-2 text-white text-xl text-left">
                   Online <br /> Measurements
                 </div>
               </div>
               <div className="flex ml-6">
-                <img src={sweingmachine} className="pt-1 pb-1" alt="a blue sewing machine with a pink handle" loading="lazy"/>
+                <img
+                  src={sweingmachine}
+                  className="pt-1 pb-1"
+                  alt="a blue sewing machine with a pink handle"
+                  loading="lazy"
+                />
                 <div className="ml-2 text-white text-xl text-left">
                   Variety <br /> of Tailors
                 </div>
               </div>
               <div className="flex ml-6">
-                <img src={HomeDelivery} className="pt-1 pb-1" alt="a blue truck with wheels" loading="lazy"/>
+                <img
+                  src={HomeDelivery}
+                  className="pt-1 pb-1"
+                  alt="a blue truck with wheels"
+                  loading="lazy"
+                />
                 <div className="ml-2 text-white text-xl text-left">
                   Home <br /> Delivery
                 </div>
@@ -131,7 +164,7 @@ const Home = () => {
           {/* Model */}
           <div>
             <Canvas className="relative z-[5]" camera={{ zoom: 4 }}>
-              <DemoModel speed="1"/>
+              <DemoModel speed="1" />
             </Canvas>
             <div className="absolute w-[330px] h-[571px] top-[25px] left-[10px] modelGradient z-0"></div>
           </div>
@@ -149,7 +182,12 @@ const Home = () => {
                 }`}
                 onClick={() => setDemoButton(item)}
               >
-                <img src={item.img} className={item.style} alt={item.text} loading="lazy"/>
+                <img
+                  src={item.img}
+                  className={item.style}
+                  alt={item.text}
+                  loading="lazy"
+                />
                 <p className="text-sm text-white mt-2">{item.text}</p>
               </div>
             ))}
