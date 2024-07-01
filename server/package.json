@@ -26,7 +26,7 @@
     "nodemailer": "^6.9.2",
     "nodemon": "^2.0.21",
     "stripe": "^12.2.0",
-    "twilio": "^4.12.0"
+    "twilio": "^5.2.1"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.36.1"
