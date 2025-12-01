@@ -49,7 +49,7 @@
     "react-accessible-accordion": "^5.0.0",
     "react-apexcharts": "^1.4.0",
     "react-circular-progressbar": "^2.1.0",
-    "react-country-region-selector": "^3.6.1",
+    "react-country-region-selector": "^4.0.3",
     "react-dom": "^18.2.0",
     "react-drag-drop-files": "^2.3.9",
     "react-dropzone-uploader": "^2.11.0",
