@@ -23,7 +23,7 @@
     "express-rate-limit": "^6.7.1",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.2",
-    "nodemailer": "^6.9.2",
+    "nodemailer": "^8.0.7",
     "nodemon": "^2.0.21",
     "stripe": "^12.2.0",
     "twilio": "^4.12.0"
